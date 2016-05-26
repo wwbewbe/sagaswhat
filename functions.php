@@ -183,7 +183,7 @@ function event_info_to_the_content( $content ) {
 	return $content . $table;
 }
 
-// 現在イベントが終了しているかどうかをチェック(query_postsで指定できたので未使用)
+// 現在イベントが終了しているかどうかをチェック(ループのパラメータで指定できたので未使用)
 function is_event_close() {
     global $post;
 

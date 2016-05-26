@@ -53,46 +53,6 @@
 	<?php the_content(); ?>
 	</div>
 
-	<?php wp_link_pages( array(
-		'before' => '<div class="pagination"><ul><li>',
-		'separator' => '</li><li>',
-		'after' => '</li></ul></div>',
-		'pagelink' => '<span>%</span>'
-	) ); ?>
-
-<!--
-	<?php
-	$myposts = get_posts( array(
-		'post_type' => 'post',
-		'posts_per_page' => '6',
-		'meta_key' => 'postviews',
-		'orderby' => 'meta_value_num'
-	) ); 
-	if( $myposts ): ?>
-	<article <?php post_class( 'ranking' ); ?>>
-	<ul>
-		<?php foreach($myposts as $post):
-		setup_postdata($post); ?>
-		<li><a href="<?php the_permalink(); ?>">
-		<img src="<?php echo mythumb( 'medium' ); ?>" alt="">
-		<div class="text">
-			<h1><?php the_title(); ?></h1>
-			<div class="kiji-date">
-			<i class="fa fa-pencil"></i>
-			<time
-			datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
-			投稿：<?php echo get_the_date(); ?>
-			</time>
-			</div>
-			<?php the_excerpt(); ?>
-		</div>
-		</a></li>
-		<?php endforeach; ?>
-	</ul>
-	</article>
-	<?php wp_reset_postdata();
-	endif; ?>
--->
 	<div class="share">
 	<ul>
 	<li><a href="https://twitter.com/intent/tweet?text=<?php echo urlencode( get_the_title() . ' - ' . get_bloginfo('name') ); ?>&amp;url=<?php echo urlencode( get_permalink() ); ?>&amp;via=sagaswhat"
@@ -115,12 +75,12 @@
 
 	</article>
 	<?php endwhile; endif; ?>
-</div>
+</div><!-- end contents -->
 
 <div class="sub">
 	<?php get_sidebar(); ?>
 </div>
 
-</div>
+</div><!-- end container -->
 
 <?php get_footer(); ?>

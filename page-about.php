@@ -1,25 +1,5 @@
 <?php get_header(); ?>
 
-<div class="sub-header">
-	<div class="bread">
-	<?php if( has_category() ): ?>
-	<?php $postcats=get_the_category(); ?>
-	<?php foreach( $postcats as $postcat ): ?>
-	<ol>
-		<li><a href="<?php echo home_url(); ?>">
-		<i class="fa fa-home"></i><span>TOP</span>
-		</a></li>
-		
-		<li>
-		<?php echo get_category_parents( $postcat, true, '</li><li>' ); ?>
-		<a><?php the_title(); ?></a>
-		</li>
-	</ol>
-	<?php endforeach; ?>
-	<?php endif; ?>
-	</div>
-</div>
-
 <div class="container">
 <div class="contents">
 	<?php if(have_posts()): while(have_posts()):
