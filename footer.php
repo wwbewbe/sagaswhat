@@ -2,7 +2,7 @@
 <div class="footer-inner">
 	<div class="copyright">
 	<p><?php bloginfo( 'description' ); ?></p>
-	<p>Copyright &copy; <?php bloginfo( 'name' ); ?> All Rights Reserved.</p>
+	<p>&copy; 2016 <?php bloginfo( 'name' ); ?></p>
 	</div>
 </div>
 </footer>

@@ -9,7 +9,7 @@
 		<li><a href="<?php echo home_url(); ?>">
 		<i class="fa fa-home"></i><span>TOP</span>
 		</a></li>
-		
+
 		<li>
 		<?php echo get_category_parents( $postcat, true, '</li><li>' ); ?>
 		<a><?php the_title(); ?></a>
@@ -25,14 +25,26 @@
 
 <?php
 $args=array(
-			'post_type'=>'post',/*投稿タイプ*/
-			'posts_per_page'=>'5',/*投稿表示数*/
-			'category_name'=>esc_attr($post->post_name),  // 'カテゴリースラッグ' => 'ページスラッグ'
+			'post_type'		=> 'post',/*投稿タイプ*/
+			'posts_per_page'=> '5',/*投稿表示数*/
+			'category_name'	=> esc_attr($post->post_name),  // 'カテゴリースラッグ' => 'ページスラッグ'
+			'meta_query'	=> array(
+				array(
+					'key'		=> 'eventclose', //カスタムフィールドのイベント終了日欄
+					'value'		=> date_i18n( "Y/m/d" ), //イベント終了日を今日と比較
+					'compare'	=> '>=', // 今日以降なら表示
+				),
+				array(
+					'key'		=> 'eventopen', //カスタムフィールドのイベント開催日欄
+					'value'		=> date_i18n( "Y/m/d" ), //イベント開催日を今日と比較
+					'compare'	=> '<=', //今日以前なら表示
+				),
+			),
 			'paged'=>$paged
 			);?>
 <?php query_posts($args); ?>
 
-	<?php if(have_posts()): while(have_posts()): 
+	<?php if(have_posts()): while(have_posts()):
 	the_post(); ?>
 
 	<?php get_template_part( 'gaiyou', 'medium' ); ?>
@@ -49,12 +61,6 @@ $args=array(
 
 <div class="sub">
 	<?php get_sidebar(); ?>
-<!--
-	<aside class="mymenu mymenu-page">
-	<h2>CONTENTS</h2>
-	<?php wp_nav_menu( array( 'theme_location' => 'pagenav' ) ); ?>
-	</aside>
--->
 </div>
 </div>
 

@@ -15,12 +15,3 @@
 </div>
 
 <?php get_footer(); ?>
-
-<?php // アクセス数の記録
-if( !is_bot() && !is_user_logged_in() ) {
-	$count_key = 'postviews';
-	$count = get_post_meta($post->ID, $count_key, true);
-	$count++;
-	update_post_meta($post->ID, $count_key, $count);
-}
-?>

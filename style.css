@@ -398,13 +398,13 @@ header, footer, .container, .sub-header
 .event-info		{width: 100%;
 			border-collapse: collapse}
 
-.event-info th	{width: 25%;
+.event-info th	{width: 20%;
 			padding: 6px;
 			text-align: left;
 			background-color: #eeeeee;
 			border: 1px solid #b9b9b9}
 
-.event-info td	{width: 75%;
+.event-info td	{width: 80%;
 			padding: 6px;
 			background-color: #ffffff;
 			border: 1px solid #b9b9b9}
