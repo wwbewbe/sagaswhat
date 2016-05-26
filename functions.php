@@ -183,7 +183,7 @@ function event_info_to_the_content( $content ) {
 	return $content . $table;
 }
 
-// 現在イベントが終了しているかどうかをチェック
+// 現在イベントが終了しているかどうかをチェック(query_postsで指定できたので未使用)
 function is_event_close() {
     global $post;
 
@@ -204,29 +204,16 @@ function is_event_close() {
     */
     $dates = array( "opendate" => $opendate, "closedate" => $closedate );
     foreach ($dates as $key => $val) {
-        // 8〜12桁の数字の数字で入力されているかどうかチェック(年月日だけだと8桁、時分を入れると12桁)
-//        if ( (!preg_match("/^[0-9]{8,12}$/", $val)) or ($val === null) ) {
-//            $dates[$key] = null;
-//            continue;
-//        } else {
             // 正しい日付かどうかチェック（違うときはnullで終了）
 			$dates_Y = idate('Y', $val);
             $dates_M = idate('m', $val);
             $dates_D = idate('d', $val);
-//            $dates_Y = substr($val, 0, 4);
-//            $dates_M = substr($val, 4, 2);
-//            $dates_D = substr($val, 6, 2);
             if (!checkdate($dates_M, $dates_D, $dates_Y )) {
                 $dates[$key] = null;
                 continue;
             }
-            // 正しい時刻かどうかチェック（違うときは00:00）
-//            $dates_H = ( substr($val, 8, 2) && preg_match("/(0|1)[0-9]|2[0-3]/", substr($val, 8, 2) )) ? substr($val, 8, 2) :   "00";
-//	        $dates_I = ( substr($val, 10, 2) && preg_match("/[0-5][0-9]/", substr($val, 10, 2) )) ? substr($val, 10, 2) : "00";
             // mktimeでUnixのタイムスタンプに
-//            $dates[$key] = mktime($dates_H, $dates_I, 0, $dates_M, $dates_D, $dates_Y);
 			$dates[$key] = mktime(0, 0, 0, $dates_M, $dates_D, $dates_Y);
-//        }
     }
     $nowdate = date_i18n('U'); // 現在の時間を取得しUnixのタイムスタンプに
     if ( ($dates["opendate"] == null) && ($dates["closedate"] == null)) {
