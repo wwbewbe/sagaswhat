@@ -199,8 +199,8 @@ function is_event_close() {
 		$closedate = null;
 	}
     /**
-	* $opendate, $closedateの値をチェック（8〜12桁の数字）し
-    * 正しい年月日、時刻かチェックしてUnixのタイムスタンプに
+	* $opendate, $closedateの値をチェック
+    * 正しい年月日ならUnixのタイムスタンプに
     */
     $dates = array( "opendate" => $opendate, "closedate" => $closedate );
     foreach ($dates as $key => $val) {
