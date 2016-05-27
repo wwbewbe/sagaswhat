@@ -95,7 +95,7 @@ register_nav_menu( 'newsnav', 'お知らせ' );
 
 // トグルボタン
 function navbtn_scripts() {
-	wp_enqueue_script( 'navbtn-script', get_template_directory_uri() .'/navbtn.js', array( 'jquery' ) );
+	wp_enqueue_script( 'navbtn-script', get_template_directory_uri() .'/js/navbtn.js', array( 'jquery' ) );
 }
 add_action( 'wp_enqueue_scripts', 'navbtn_scripts' );
 
