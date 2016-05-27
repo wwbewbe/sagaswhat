@@ -99,6 +99,31 @@ function navbtn_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'navbtn_scripts' );
 
+// Geolocationを使用
+function geoloc_scripts() {
+	wp_enqueue_script( 'geoloc-script', get_template_directory_uri() .'/js/geoloc.js', array( 'jquery' ) );
+}
+add_action( 'wp_enqueue_scripts', 'geoloc_scripts' );
+
+// 住所 → 緯度/経度変換
+function strAddrToLatLng( $strAddr ) {
+    $strRes = file_get_contents(
+         'http://maps.google.com/maps/api/geocode/json'
+        . '?address=' . urlencode( mb_convert_encoding( $strAddr, 'UTF-8' ) )
+        . '&sensor=false'
+    );
+    $aryGeo = json_decode( $strRes, TRUE );
+    if ( !isset( $aryGeo['results'][0] ) )
+        return '';
+
+
+    $strLat = (string)$aryGeo['results'][0]['geometry']['location']['lat'];
+    $strLng = (string)$aryGeo['results'][0]['geometry']['location']['lng'];
+//    return $strLat . ',' . $strLng;
+	$LatLng = array('Lat'=>$strLat, 'Lng'=>$strLng);
+	return $LatLng;
+}
+
 // 前後の記事に関するメタデータの出力を禁止(for FireFox)
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 

@@ -12,29 +12,117 @@
 
 <div class="contents">
 
-	<?php
-	$args = array(
-    	'post_type'			=> 'post',
-    	'posts_per_page'	=> '5',
-		'paged'				=> $paged
-	);
-	$the_query = new WP_Query($args); ?>
+<button type="button" id="neighbornav">
+	<i class="fa fa-bars"></i><span>NEIGHBORHOOD</span>
+</button>
+<?php
+	/*-------------------------------------------*/
+	/*  URLのパラメター(緯度と経度の位置情報)を取得
+	/*-------------------------------------------*/
+	$lat = (isset($_GET['lat'])) ? esc_html($_GET['lat']) : '';
+	$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
+	/*-------------------------------------------*/
+	/*  距離チェック
+	/*-------------------------------------------*/
+	/*      現在登録されている城情報を全て取得
+	/*-------------------------------------------*/
+	$myposts = get_posts( array(
+	    'post_type' => 'post',      // カスタム投稿タイプチェックイン
+	    'posts_per_page' => -1,     // 全件
+		'category' => -1,			// カテゴリが未分類の記事は非表示
+	     ) );
+	/*      各お城情報について、現在地からの距離を算出してデータに追加
+	/*-------------------------------------------*/
+	foreach ($myposts as $key => $spot_item) {
+		$address = esc_html( get_post_meta($spot_item->ID, 'address', true) );
+		$LatLng = strAddrToLatLng($address);
+		$spotLat = $LatLng['Lat'];
+		$spotLng = $LatLng['Lng'];
+	    if (($spotLat) && ($spotLng)) {
+	        $distanceLat = $spotLat - $lat;
+	        $distanceLng = $spotLng - $lng;
+	        // 距離の算出　pow = 乗算 / sqrt = 平方根
+	        $distance = sqrt(pow( $distanceLat ,2) + pow( $distanceLng ,2));
+	        // 並び替え用の数値として距離「distance」を追加
+	        $myposts[$key]->distance = $distance;
+	    }
+	}
+	/*      距離で並び替えるという比較関数を定義
+	/*-------------------------------------------*/
+	function itemsort_by_distance( $a , $b){
+	  //距離を比較
+	  $myposts = strcmp( $a->distance , $b->distance );
+	  return $myposts;
+	}
+	/*      比較関数にそって並び替え
+	/*-------------------------------------------*/
+	usort( $myposts , "itemsort_by_distance" );
 
-	<?php if($the_query->have_posts()): while($the_query->have_posts()):
-	$the_query->the_post(); ?>
-
+	/*-------------------------------------------*/
+	/*  並び替えた城情報を出力
+	/*-------------------------------------------*/
+?>
+	<?php foreach ($myposts as $key => $post) : setup_postdata($post); ?>
 		<?php get_template_part( 'gaiyou', 'medium' ); ?>
+	<?php endforeach; ?>
 
-	<?php endwhile; endif; ?>
-
-	<div class="pagination pagination-index">
-	<?php echo paginate_links( array( 'type' => 'list',
-							'prev_text' => '&laquo;',
-							'next_text' => '&raquo;',
-							'total'		=> $the_query->max_num_pages
-							 ) ); ?>
-	</div>
 	<?php wp_reset_postdata(); ?>
+
+	<?php
+/*	//  現在地のURLパラメター(緯度と経度の位置情報)を取得
+	$lat = (isset($_GET['lat'])) ? esc_html($_GET['lat']) : '';
+	$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
+		//  距離チェック
+		//      現在登録されているイベント情報を全て取得
+		$args = array(
+	    	'post_type' => 'post',      // カスタム投稿タイプチェックイン
+	    	'posts_per_page' => -1,     // 全件
+	    	);
+		$the_query = new WP_Query($args);
+		if($the_query->have_posts()) {
+			while($the_query->have_posts()) {
+				$the_query->the_post();
+			//      イベントのある住所と現在地からの距離を算出してデータに追加
+				$address = esc_html( get_post_meta($post->ID, 'address', true) );
+				$LatLng = strAddrToLatLng($address);
+				$spotLat = $LatLng['Lat'];
+				$spotLng = $LatLng['Lng'];
+	    		if (($spotLat) && ($spotLng)) {
+	        		$distanceLat = $spotLat - $lat;
+	        		$distanceLng = $spotLng - $lng;
+	        		// 距離の算出　pow = 乗算 / sqrt = 平方根
+	        		$distance = sqrt(pow( $distanceLat ,2) + pow( $distanceLng ,2));
+	        		// 並び替え用の数値として距離「distance」を追加
+	        		$the_query->distance = $distance;
+	    		}
+			}
+		}
+		//      距離で並び替えるという比較関数を定義
+		function itemsort_by_distance( $a,$b ){
+			echo $a->distance.','.$b->distance;
+			//距離を比較
+ 			$the_query = strcmp( $a->distance , $b->distance );
+			return $the_query;
+		}
+		//      比較関数にそって並び替え
+		usort( $the_query , "itemsort_by_distance" );
+
+		//  並び替えた記事をリスト表示
+		if($the_query->have_posts()) {
+			while($the_query->have_posts()) {
+				$the_query->the_post();
+	    		get_template_part( 'gaiyou', 'medium' );
+			}
+		} */?>
+<!--
+		<div class="pagination pagination-index">
+			<?php echo paginate_links( array( 'type' => 'list',
+								'prev_text' => '&laquo;',
+								'next_text' => '&raquo;',
+								) ); ?>
+		</div>
+-->
+		<?php wp_reset_postdata(); ?>
 
 	<div class="share">
 	<ul>
