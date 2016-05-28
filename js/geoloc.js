@@ -11,7 +11,7 @@ jQuery(document).ready(function(jQuery){
                 function (position) {
                         lat= position.coords.latitude;
                         lng= position.coords.longitude;
-                        // [ドメイン]/neighborhood/~となる
+                        // [ドメイン]/recommend/~となる
                         location.href="/sagaswhat/recommend/?lat=" + lat + "&lng=" + lng;
                 },
                 // （2）位置情報の取得に失敗した場合
@@ -25,7 +25,7 @@ jQuery(document).ready(function(jQuery){
         }
     } // get_gps
     // ボタンがクリックされたら
-    jQuery("#neighbornav").click(function(){
+    jQuery("#nearnav").click(function(){
         // 位置情報取得の処理を実行
         get_gps();
    });

@@ -1004,3 +1004,21 @@ iframe			{max-width: 100%}
 	/* トグルボタン */
 	#navbtn			{display: none}
 }
+
+/* nearnavボタン */
+#nearnav	{padding: 6px 12px;
+				border: solid 1px #aaaaaa;
+				border-radius: 5px;
+				background-color: #ffffff;
+				cursor: pointer}
+
+#nearnav:hover		{background-color: #dddddd}
+
+#nearnav:focus		{outline: none}
+
+#nearnav i	{color: #888888;
+				font-size: 18px}
+
+#nearnav span	{display: inline-block;
+					font-size: 18px;
+					text-indent: 5px}

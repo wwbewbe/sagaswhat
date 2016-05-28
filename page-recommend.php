@@ -3,15 +3,26 @@
 <div class="container">
 <div class="contents">
 
-<button type="button" id="neighbornav">
-	<i class="fa fa-bars"></i><span>NEIGHBORHOOD</span>
-</button>
+<div class="kiji kiji-body">
+	<p><h2>おすすめのイベントTOP10</h2></p>
+</div>
 <?php
 	/*-------------------------------------------*/
 	/*  URLのパラメター(緯度と経度の位置情報)を取得
 	/*-------------------------------------------*/
 	$lat = (isset($_GET['lat'])) ? esc_html($_GET['lat']) : '';
 	$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
+?>
+<?php if(($lat) && ($lng)) : ?>
+<!--	<button type="button" id="nearnav">
+		<i class="fa fa-bars"></i><span>近くのイベント順になりました</span>
+	</button> -->
+<?php else : ?>
+	<button type="button" id="nearnav">
+		<i class="fa fa-bars"></i><span>このボタンを押せば近くのイベント順に並べ替えます</span>
+	</button>
+<?php endif; ?>
+<?php
 	/*-------------------------------------------*/
 	/*  距離チェック
 	/*-------------------------------------------*/
