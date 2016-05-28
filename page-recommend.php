@@ -23,11 +23,14 @@
 <div class="container">
 <div class="contents">
 
+	<button type="button" id="neighbornav">
+		<i class="fa fa-bars"></i><span>NEIGHBORHOOD</span>
+	</button>
+
 <?php
 $args=array(
 			'post_type'		=> 'post',/*投稿タイプ*/
 			'posts_per_page'=> '10',/*投稿表示数*/
-			'category_name'	=> esc_attr($post->post_name),  // 'カテゴリースラッグ' => 'ページスラッグ'
 			'meta_key'		=> 'recommend',
 			'orderby'		=> 'meta_value_num',
 			'meta_query'	=> array(
