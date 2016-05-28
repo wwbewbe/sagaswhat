@@ -514,8 +514,8 @@ blockquote:after		{position: absolute;
 	.bread li:last-child	{text-indent: -9999px}
 }
 
-/* シェアボタン */
-.share		{margin-top: 40px;
+/* シェアボタン コンテンツに表示するときはmargin-top: 40px*/
+.share		{margin-top: 0px;
 			clear: both}
 
 .share ul		{margin: 0;

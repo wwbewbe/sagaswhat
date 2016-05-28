@@ -100,6 +100,7 @@ $args=array(
 							 ) ); ?>
 	</div>
 	<?php wp_reset_postdata(); ?>
+
 </div>
 
 <div class="sub">

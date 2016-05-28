@@ -12,7 +12,7 @@ jQuery(document).ready(function(jQuery){
                         lat= position.coords.latitude;
                         lng= position.coords.longitude;
                         // [ドメイン]/neighborhood/~となる
-                        location.href="/sagaswhat/neighborhood/?lat=" + lat + "&lng=" + lng;
+                        location.href="/sagaswhat/recommend/?lat=" + lat + "&lng=" + lng;
                 },
                 // （2）位置情報の取得に失敗した場合
                 function (error) {
