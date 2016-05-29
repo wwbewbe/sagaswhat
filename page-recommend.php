@@ -14,12 +14,10 @@
 	$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
 ?>
 <?php if(($lat) && ($lng)) : ?>
-<!--	<button type="button" id="nearnav">
-		<i class="fa fa-bars"></i><span>近くのイベント順になりました</span>
-	</button> -->
+	<p>※近くのイベント順に並びました。</p>
 <?php else : ?>
 	<button type="button" id="nearnav">
-		<i class="fa fa-bars"></i><span>このボタンを押せば近くのイベント順に並べ替えます</span>
+		<i class="fa fa-bars"></i><span>このボタンで近くのイベント順に並びます</span>
 	</button>
 <?php endif; ?>
 <?php

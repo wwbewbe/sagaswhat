@@ -37,6 +37,14 @@ header, footer, .container, .sub-header
 		{padding-left: 10px;
 		padding-right: 10px}
 
+@media (min-width: 768px) and (max-width: 1039px) {
+	/* 全体の横幅 */
+	 .container, .header-inner, .footer-inner, .sub-header
+			{width:747px;
+			margin-left: auto;
+			margin-right: auto}
+}
+
 @media (min-width: 768px) {
 	/* コンテンツとサイドバーを横に並べる設定 */
 	.container:after	{content: "";
@@ -44,14 +52,13 @@ header, footer, .container, .sub-header
 				clear: both}
 
 	.contents		{float: left;
-				width: 100%;
-				margin-right: -300px}
+				width: 70%}
 
 	.sub			{float: left;
-				width: 300px}
+				width: 30%}
 
 	/* コンテンツとサイドバーの間隔 */
-	.contents		{padding-right: 350px;
+	.contents		{padding-right: 50px;
 				-moz-box-sizing: border-box;
 				-webkit-box-sizing: border-box;
 				box-sizing: border-box}
@@ -669,7 +676,7 @@ blockquote:after		{position: absolute;
 			-webkit-box-sizing: border-box;
 			box-sizing: border-box}
 
-@media (min-width: 400px) and (max-width: 767px) {
+@media (min-width: 400px) and (max-width: 1039px) {
 	.mymenu-large ul:after	{content: "";
 						display: block;
 						clear: both}
@@ -1006,10 +1013,10 @@ iframe			{max-width: 100%}
 }
 
 /* nearnavボタン */
-#nearnav	{padding: 6px 12px;
+#nearnav		{padding: 6px 12px;
 				border: solid 1px #aaaaaa;
 				border-radius: 5px;
-				background-color: #ffffff;
+				background-color: #fcb5b5;
 				cursor: pointer}
 
 #nearnav:hover		{background-color: #dddddd}
@@ -1022,3 +1029,7 @@ iframe			{max-width: 100%}
 #nearnav span	{display: inline-block;
 					font-size: 18px;
 					text-indent: 5px}
+
+@media (max-width: 599px) {
+	#nearnav span	{font-size: 12px}
+}
