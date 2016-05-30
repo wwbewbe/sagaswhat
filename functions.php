@@ -181,8 +181,8 @@ add_filter( 'the_content', 'event_info_to_the_content', 1 );
 function event_info_to_the_content( $content ) {
 	global $post;
 
-	if( $name = esc_html( get_post_meta($post->ID, 'name', true) ) ) {
-		$info = $info . '<tr><th>イベント名</th><td>' . $name . '</td></tr>';
+	if( $eventname = esc_html( get_post_meta($post->ID, 'eventname', true) ) ) {
+		$info = $info . '<tr><th>イベント名</th><td>' . $eventname . '</td></tr>';
 	}
 	if( $address = esc_html( get_post_meta($post->ID, 'address', true) ) ) {
 		$info = $info . '<tr><th>住所</th><td>' . $address . '</td></tr>';

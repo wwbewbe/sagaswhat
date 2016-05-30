@@ -141,6 +141,7 @@ header, footer, .container, .sub-header
 
 /* -------------------- 人気記事ランキング -------------------- */
 .ranking .wpp-list {
+	counter-reset: wpp-ranking;
     padding: 0;
 }
 .ranking .wpp-list li {
@@ -177,7 +178,7 @@ header, footer, .container, .sub-header
 .ranking .wpp-list a:hover {
     color: #b22222;
 }
-.reset		{ counter-reset: wpp-ranking;}
+/*.reset		{ counter-reset: wpp-ranking;}*/
 .wpp-list li		{position: relative;
 			list-style-type: none;
 			padding-top: 5px;
