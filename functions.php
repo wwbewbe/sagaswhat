@@ -223,10 +223,8 @@ function is_event_close() {
 	} else {
 		$closedate = null;
 	}
-    /**
-	* $opendate, $closedateの値をチェック
-    * 正しい年月日ならUnixのタイムスタンプに
-    */
+	// $opendate, $closedateの値をチェック
+    // 正しい年月日ならUnixのタイムスタンプに
     $dates = array( "opendate" => $opendate, "closedate" => $closedate );
     foreach ($dates as $key => $val) {
             // 正しい日付かどうかチェック（違うときはnullで終了）
@@ -261,3 +259,80 @@ function is_event_close() {
 		return false;
 	}
 }
+
+// タグリストを表示するショートコード
+function set_taglist($params = array()) {
+    extract(shortcode_atts(array(
+        				'file' => 'taglist',
+						'tagname' => 0,
+    					), $params));
+    ob_start();
+    include(get_theme_root() . '/' . get_template() . "/$file.php");
+    return ob_get_clean();
+}
+
+add_shortcode('taglist', 'set_taglist');
+
+// カテゴリ・タグ・検索の一覧表示のクエリー設定
+function QueryListFilter($query) {
+	if ( !is_admin() && $query->is_main_query() && ($query->is_tag() || $query->is_search() || $query->is_category()) ) {
+		$query->set('post_type', 'post');			// 投稿記事を対象
+		$query->set('posts_per_page', '10');		// 一覧表示数
+		$query->set('category__not_in', array(1));	// 未分類のカテゴリを非表示
+		$query->set('meta_key', 'recommend');		// 推奨値の順に表示
+		$query->set('orderby', 'meta_value_num');	// 推奨値の高い順
+		$query->set('meta_query', array(
+			'relation'		=> 'OR',
+			array(
+				'relation'		=> 'AND',
+				array(
+					'key'		=> 'eventclose',
+					'compare'	=> 'NOT EXISTS',
+				),
+				array(
+					'key'		=> 'eventopen',
+					'compare'	=> 'NOT EXISTS',
+				),
+			),
+			array(
+				'relation'		=> 'AND',
+				array(
+					'key'		=> 'eventclose',
+					'compare'	=> 'NOT EXISTS',
+				),
+				array(
+					'key'		=> 'eventopen', //カスタムフィールドのイベント開催日欄
+					'value'		=> date_i18n( "Y/m/d" ), //イベント開催日を今日と比較
+					'compare'	=> '<=', //今日以前なら表示
+				),
+			),
+			array(
+				'relation'		=> 'AND',
+				array(
+					'key'		=> 'eventclose', //カスタムフィールドのイベント終了日欄
+					'value'		=> date_i18n( "Y/m/d" ), //イベント終了日を今日と比較
+					'compare'	=> '>=', // 今日以降なら表示
+				),
+				array(
+					'key'		=> 'eventopen',
+					'compare'	=> 'NOT EXISTS',
+				),
+			),
+			array(
+				'reration'		=> 'AND',
+				array(
+					'key'		=> 'eventclose', //カスタムフィールドのイベント終了日欄
+					'value'		=> date_i18n( "Y/m/d" ), //イベント終了日を今日と比較
+					'compare'	=> '>=', // 今日以降なら表示
+				),
+				array(
+					'key'		=> 'eventopen', //カスタムフィールドのイベント開催日欄
+					'value'		=> date_i18n( "Y/m/d" ), //イベント開催日を今日と比較
+					'compare'	=> '<=', //今日以前なら表示
+				),
+			),
+		));
+	}
+	return $query;
+}
+add_filter('pre_get_posts','QueryListFilter');

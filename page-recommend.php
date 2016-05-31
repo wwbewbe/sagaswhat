@@ -7,9 +7,7 @@
 	<p><h2>おすすめのイベント 10選</h2></p>
 </div>
 <?php
-	/*-------------------------------------------*/
-	/*  URLのパラメター(緯度と経度の位置情報)を取得
-	/*-------------------------------------------*/
+	//  URLのパラメター(緯度と経度の位置情報)を取得
 	$lat = (isset($_GET['lat'])) ? esc_html($_GET['lat']) : '';
 	$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
 ?>
@@ -21,13 +19,11 @@
 	</button>
 <?php endif; ?>
 <?php
-	/*-------------------------------------------*/
-	/*  距離チェック
-	/*-------------------------------------------*/
+	//  距離チェック
 	$myposts = get_posts( array(
-	    'post_type' => 'post',		// カスタム投稿タイプチェックイン
-	    'posts_per_page' => '10',	// 10件表示
-		'category' => '-1',			// カテゴリが未分類の記事は非表示
+	    'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
+	    'posts_per_page' => '10',		// 10件表示
+		'cat'			=> '-1',		// カテゴリが未分類の記事は非表示
 		'meta_key'		=> 'recommend',
 		'orderby'		=> 'meta_value_num',
 		'meta_query'	=> array(
@@ -82,8 +78,7 @@
 			),
 		),
 	) );
-	/*      現在地からイベント場所の距離を算出してデータに追加
-	/*-------------------------------------------*/
+	//      現在地からイベント場所の距離を算出してデータに追加
 	foreach ($myposts as $key => $spot_item) {
 		$address = esc_html( get_post_meta($spot_item->ID, 'address', true) );
 		$LatLng = strAddrToLatLng($address);
@@ -101,20 +96,16 @@
 			$myposts[$key]->distance = 0;
 		}
 	}
-	/*      距離で並び替えるという比較関数を定義
-	/*-------------------------------------------*/
+	//      距離で並び替えるという比較関数を定義
 	function itemsort_by_distance( $a , $b){
 		//距離を比較
 		$myposts = strcmp( $a->distance , $b->distance );
 		return $myposts;
 	}
-	/*      比較関数にそって並び替え
-	/*-------------------------------------------*/
+	//      比較関数にそって並び替え
 	usort( $myposts , "itemsort_by_distance" );
 
-	/*-------------------------------------------*/
-	/*  並び替えたイベント情報を出力
-	/*-------------------------------------------*/
+	//  並び替えたイベント情報を出力
 ?>
 	<?php foreach ($myposts as $post) : setup_postdata($post); ?>
 		<?php get_template_part( 'gaiyou', 'medium' ); ?>

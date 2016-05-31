@@ -2,31 +2,30 @@
 
 <div class="sub-header">
 	<div class="bread">
-	<?php if( has_category() ): ?>
-	<?php $postcats=get_the_category(); ?>
-	<?php foreach( $postcats as $postcat ): ?>
 	<ol>
 		<li><a href="<?php echo home_url(); ?>">
 		<i class="fa fa-home"></i><span>TOP</span>
 		</a></li>
 
 		<li>
-		<?php echo get_category_parents( $postcat, true, '</li><li>' ); ?>
+		<?php if( has_category() ): ?>
+		<?php $postcat=get_the_category(); ?>
+		<?php echo get_category_parents( $postcat[0], true, '</li><li>' ); ?>
+		<?php endif; ?>
 		<a><?php the_title(); ?></a>
 		</li>
+
 	</ol>
-	<?php endforeach; ?>
-	<?php endif; ?>
 	</div>
 </div>
 
 <div class="container">
 <div class="contents">
 
-<?php
-$args=array(
-			'post_type'		=> 'post',/*投稿タイプ*/
-			'posts_per_page'=> '10',/*投稿表示数*/
+	<?php
+	$args=array(
+			'post_type'		=> 'post',
+			'posts_per_page'=> '10',
 			'category_name'	=> esc_attr($post->post_name),  // 'カテゴリースラッグ' => 'ページスラッグ'
 			'meta_key'		=> 'recommend',
 			'orderby'		=> 'meta_value_num',
@@ -83,7 +82,9 @@ $args=array(
 			),
 			'paged'=>$paged
 		); ?>
-<?php $the_query = new WP_Query($args); ?>
+	<?php $the_query = new WP_Query($args); ?>
+
+	<h1><?php the_title(); ?>に関する記事</h1>
 
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):
 	$the_query->the_post(); ?>

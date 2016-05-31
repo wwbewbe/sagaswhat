@@ -16,6 +16,7 @@
 		<?php endif; ?>
 		<a><?php single_term_title(); ?></a>
 		</li>
+
 	</ol>
 	</div>
 </div>
@@ -23,7 +24,7 @@
 <div class="container">
 <div class="contents">
 
-	<h1>&quot;<?php single_term_title(); ?>&quot;に関する記事</h1>
+	<h1><?php single_term_title(); ?>に関する記事</h1>
 
 	<?php if(have_posts()): while(have_posts()):
 	the_post(); ?>
@@ -32,11 +33,13 @@
 
 	<?php endwhile; endif; ?>
 
+
 	<div class="pagination pagination-index">
-	<?php echo paginate_links( array( 'type' => 'list',
-							'prev_text' => '&laquo;',
-							'next_text' => '&raquo;'
-							 ) ); ?>
+	<?php echo paginate_links( array(
+		'type' => 'list',
+		'prev_text' => '&laquo;',
+		'next_text' => '&raquo;'
+	) ); ?>
 	</div>
 
 </div>

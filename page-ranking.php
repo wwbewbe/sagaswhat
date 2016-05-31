@@ -16,8 +16,8 @@
 	<?php
 	$args=array(
 				'post_type'		=> 'post',
-				'posts_per_page'=> -1,	// 全件チェック
-				'category' => -1,		// カテゴリが未分類の記事は非表示
+				'posts_per_page'=> '-1',	// 全件チェック
+				'cat' 			=> '-1',	// カテゴリが未分類の記事は非表示
 				'meta_query'	=> array(
 					array(
 						array(
@@ -34,7 +34,7 @@
 		$the_query->the_post(); ?>
 
 			<?php
-			update_post_meta( $the_query->post->ID, $meta_key = '_thumbnail_id', $meta_value = '480' );
+			update_post_meta( $the_query->post->ID, $meta_key = '_thumbnail_id', $meta_value = null );
 			?>
 
 		<?php endwhile; endif; ?>
