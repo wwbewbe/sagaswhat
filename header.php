@@ -13,7 +13,7 @@
 
 <link rel="stylesheet"
  href="<?php echo get_stylesheet_uri(); ?>?ver=<?php echo date('U'); ?>">
- 
+
 <?php if( is_single() || is_page() ): //記事の個別ページ用のメタデータ ?>
 <meta name="description" content="<?php echo wp_trim_words( $post->post_content, 100, '…' ); ?>">
 
@@ -48,7 +48,7 @@ foreach($allcats as $allcat) {
 <meta property="og:title" content="<?php bloginfo( 'name' ); ?>">
 <meta property="og:url" content="<?php home_url( '/' ); ?>">
 <meta property="og:description" content="<?php bloginfo( 'description' ); ?>">
-<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/sagaswhat.png">
+<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/sagaswhat-top.png">
 <?php endif; // トップページ用のメタデータ【ここまで】 ?>
 
 <?php if( is_category() || is_tag() ): // カテゴリー・タグページ用のメタデータ ?>
