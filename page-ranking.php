@@ -21,9 +21,9 @@
 				'meta_query'	=> array(
 					array(
 						array(
-							'key'		=> 'eventclose', //カスタムフィールドのイベント終了日欄
-							'value'		=> date_i18n( "Y/m/d" ), //イベント終了日を今日と比較
-							'compare'	=> '<=', // 今日以前ならアイキャッチ画像を変更
+							'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
+							'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
+							'compare'	=> '<=', 				//今日以前ならアイキャッチ画像を変更
 						),
 					),
 				),

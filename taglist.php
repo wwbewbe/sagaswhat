@@ -3,8 +3,8 @@
 $args=array(
             'post_type'		=> 'post',
             'posts_per_page'=> '5',
-            'cat'           => '-1',  // カテゴリースラッグ
-            'tag'           => $tagname, // タグを指定
+            'cat'           => '-1',        // 未分類を除外
+            'tag'           => $tagname,    // タグを指定
             'meta_key'		=> 'recommend',
             'orderby'		=> 'meta_value_num',
             'meta_query'	=> array(
@@ -16,28 +16,17 @@ $args=array(
                         'compare'	=> 'NOT EXISTS',
                     ),
                     array(
-                        'key'		=> 'eventopen',
-                        'compare'	=> 'NOT EXISTS',
-                    ),
-                ),
-                array(
-                    'relation'		=> 'AND',
-                    array(
-                        'key'		=> 'eventclose',
-                        'compare'	=> 'NOT EXISTS',
-                    ),
-                    array(
-                        'key'		=> 'eventopen', //カスタムフィールドのイベント開催日欄
+                        'key'		=> 'eventopen',          //カスタムフィールドのイベント開催日欄
                         'value'		=> date_i18n( "Y/m/d" ), //イベント開催日を今日と比較
-                        'compare'	=> '<=', //今日以前なら表示
+                        'compare'	=> '<=',                 //今日以前なら表示
                     ),
                 ),
                 array(
                     'relation'		=> 'AND',
                     array(
-                        'key'		=> 'eventclose', //カスタムフィールドのイベント終了日欄
+                        'key'		=> 'eventclose',         //カスタムフィールドのイベント終了日欄
                         'value'		=> date_i18n( "Y/m/d" ), //イベント終了日を今日と比較
-                        'compare'	=> '>=', // 今日以降なら表示
+                        'compare'	=> '>=',                 //今日以降なら表示
                     ),
                     array(
                         'key'		=> 'eventopen',
@@ -47,14 +36,14 @@ $args=array(
                 array(
                     'reration'		=> 'AND',
                     array(
-                        'key'		=> 'eventclose', //カスタムフィールドのイベント終了日欄
+                        'key'		=> 'eventclose',         //カスタムフィールドのイベント終了日欄
                         'value'		=> date_i18n( "Y/m/d" ), //イベント終了日を今日と比較
-                        'compare'	=> '>=', // 今日以降なら表示
+                        'compare'	=> '>=',                 //今日以降なら表示
                     ),
                     array(
-                        'key'		=> 'eventopen', //カスタムフィールドのイベント開催日欄
+                        'key'		=> 'eventopen',          //カスタムフィールドのイベント開催日欄
                         'value'		=> date_i18n( "Y/m/d" ), //イベント開催日を今日と比較
-                        'compare'	=> '<=', //今日以前なら表示
+                        'compare'	=> '<=',                 //今日以前なら表示
                     ),
                 ),
             ),

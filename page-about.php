@@ -60,7 +60,7 @@
 	<h2>CONTENTS</h2>
 	<?php wp_nav_menu( array( 'theme_location' => 'pagenav' ) ); ?>
 	</aside>
--->
+表組みリストを削除-->
 </div>
 </div>
 

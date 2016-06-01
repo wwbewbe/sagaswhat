@@ -52,11 +52,11 @@
 
 	</article>
 	<?php endwhile; endif; ?>
-</div>
+</div><!-- end contents -->
 
 <div class="sub">
 	<?php get_sidebar(); ?>
 </div>
-</div>
+</div><!-- end container -->
 
 <?php get_footer(); ?>

@@ -38,7 +38,7 @@
 	</aside>
 	<?php wp_reset_postdata();
 	endif; ?>
-</div>
+</div><!-- end contents -->
 
 <div class="sub">
 	<aside class="mymenu mymenu-news">
@@ -47,6 +47,6 @@
 	</aside>
 </div>
 
-</div>
+</div><!-- end container -->
 
 <?php get_footer(); ?>

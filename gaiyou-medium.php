@@ -13,7 +13,7 @@
 	datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
 	投稿：<?php echo get_the_date(); ?>
 	</time>
--->
+投稿日を非表示 -->
 	</div>
 
 	<?php the_excerpt(); ?>
