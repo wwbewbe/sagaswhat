@@ -3,9 +3,10 @@
 <div class="container">
 <div class="contents">
 	<div class="not-find">
-		<h1>お探しのページは見つかりませんでした。</h1>
+	<div class="msg">
 		<h2>お探しのページは見つかりませんでした。よろしければ検索してください。</h2>
 		<?php get_search_form(); // 検索フォームを出力 ?>
+	</div>
 	</div>
 </div>
 

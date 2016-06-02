@@ -91,7 +91,7 @@ foreach($childcats as $childcat) {
 	<div class="site">
 	<h1><a href="<?php echo home_url(); ?>">
 	<img src="<?php echo get_template_directory_uri(); ?>/sagaswhat-site.png"
-	alt="<?php bloginfo( 'name' ); ?>" width="112" height="25">
+	alt="<?php bloginfo( 'name' ); ?>" width="100" height="25">
 	</a></h1>
 	<!--<p><?php bloginfo( 'description' ); ?></p>-->
 	</div>
