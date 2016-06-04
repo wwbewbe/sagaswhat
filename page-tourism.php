@@ -28,7 +28,7 @@
 	</time>
 	<?php endif; ?>
 	</div>
-
+<!-- アイキャッチ画像は記事内に表示しない
 	<?php if( has_post_thumbnail() && $page==1 ): ?>
 	<div class="catch">
 	<?php the_post_thumbnail( 'large' ); ?>
@@ -37,7 +37,7 @@
 	</p>
 	</div>
 	<?php endif; ?>
-
+-->
 	<div class="kiji-body">
 	<?php the_content(); ?>
 	</div>
