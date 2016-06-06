@@ -181,13 +181,10 @@ function event_info_to_the_content( $content ) {
 	global $post;
 
 	if( $eventname = esc_html( get_post_meta($post->ID, 'eventname', true) ) ) {
-		$info = $info . '<tr><th>イベント名</th><td>' . $eventname . '</td></tr>';
+		$info = $info . '<tr><th>イベント名<br />場所・会場</th><td>' . $eventname . '</td></tr>';
 	}
-	if( $address = esc_html( get_post_meta($post->ID, 'address', true) ) ) {
-		$info = $info . '<tr><th>住所</th><td>' . $address . '</td></tr>';
-	}
-	if( $telephone = esc_html( get_post_meta($post->ID, 'telephone', true) ) ) {
-		$info = $info . '<tr><th>電話</th><td>' . $telephone . '</td></tr>';
+	if( $price = esc_html( get_post_meta($post->ID, 'price', true) ) ) {
+		$info = $info . '<tr><th>料金</th><td>' . $price . '</td></tr>';
 	}
 	if( $eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) ) ) {
 		$info = $info . '<tr><th>開催日</th><td>' . $eventopen . '</td></tr>';
@@ -197,6 +194,15 @@ function event_info_to_the_content( $content ) {
 	}
 	if( $bizhours = esc_html( get_post_meta($post->ID, 'bizhours', true) ) ) {
 		$info = $info . '<tr><th>営業時間</th><td>' . $bizhours . '</td></tr>';
+	}
+	if( $telephone = esc_html( get_post_meta($post->ID, 'telephone', true) ) ) {
+		$info = $info . '<tr><th>問い合わせ</th><td>' . $telephone . '</td></tr>';
+	}
+	if( $url = esc_html( get_post_meta($post->ID, 'url', true) ) ) {
+		$info = $info . '<tr><th>URL</th><td>' . $url . '</td></tr>';
+	}
+	if( $address = esc_html( get_post_meta($post->ID, 'address', true) ) ) {
+		$info = $info . '<tr><th>住所</th><td>' . $address . '</td></tr>';
 	}
 	if( $comment = esc_html( get_post_meta($post->ID, 'comment', true) ) ) {
 		$info = $info . '<tr><th>コメント</th><td>' . $comment . '</td></tr>';

@@ -32,15 +32,6 @@
 
 	<h1><?php the_title(); ?></h1>
 
-	<?php if( has_post_thumbnail() && $page==1 ): ?>
-	<div class="catch">
-	<?php the_post_thumbnail( 'large' ); ?>
-	<p class="wp-caption-text">
-	<?php echo get_post( get_post_thumbnail_id() )->post_excerpt; ?>
-	</p>
-	</div>
-	<?php endif; ?>
-
 	<div class="kiji-body">
 	<?php the_content(); ?>
 	</div>

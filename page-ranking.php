@@ -51,16 +51,6 @@
 
 	<h1><?php the_title(); ?></h1>
 
-<!-- アイキャッチ画像は記事内に表示しない
-	<?php if( has_post_thumbnail() && $page==1 ): ?>
-	<div class="catch">
-	<?php the_post_thumbnail( 'large' ); ?>
-	<p class="wp-caption-text">
-	<?php echo get_post( get_post_thumbnail_id() )->post_excerpt; ?>
-	</p>
-	</div>
-	<?php endif; ?>
--->
 	<div class="ranking">
 
 	<?php the_content(); ?>

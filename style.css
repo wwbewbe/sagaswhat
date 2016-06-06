@@ -413,7 +413,7 @@ header, footer, .container, .sub-header
 			border: 1px solid #b9b9b9}
 
 @media (max-width: 599px) {
-		.event-info th	{font-size: 14px}
+		.event-info th	{font-size: 10px}
 		.event-info td	{font-size: 14px}
 }
 
