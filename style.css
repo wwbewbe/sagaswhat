@@ -762,7 +762,7 @@ blockquote:after		{position: absolute;
 			text-decoration: none}
 
 /* 広告 */
-.myad		{text-align: center}
+.myad		{text-align: left}
 
 /* -------------------- 固定ページ -------------------- */
 /* コンテンツメニュー */
