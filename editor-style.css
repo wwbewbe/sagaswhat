@@ -20,22 +20,22 @@ h2			{position: relative;
 			margin-top: 40px;
 			padding-left: 32px;
 			padding-bottom: 5px;
-			border-bottom: solid 2px #00a0e9;
+			border-bottom: solid 2px #e90000;
 			font-size: 24px;
 			clear: both}
 
 h2:before		{position: absolute;
 			left: 0px;
 			top: 3px;
-			content: '\f041';
-			color: #00a0e9;
+			content: '\f046';
+			color: #e90000;
 			font-family: 'FontAwesome';
 			font-size: 28px;
 			line-height: 1}
-			
+
 h3			{margin-top: 25px;
 			padding-left: 10px;
-			border-left: solid 10px #a5e2fe;
+			border-left: solid 10px #ee8f8f;
 			font-size: 18px;
 			clear: both}
 
@@ -54,7 +54,7 @@ h3			{margin-top: 25px;
 		margin: 40px 0 30px;
 		padding: 25px 20px 20px;
 		border-radius: 10px;
-		background-color: #cfedb7;
+		background-color: #e6f4ff;
 		font-size: 14px;
 		clear: both}
 
@@ -70,7 +70,7 @@ h3			{margin-top: 25px;
 			-moz-box-sizing: border-box;
 			-webkit-box-sizing: border-box;
 			box-sizing: border-box;
-			background-color: #5ab80e;
+			background-color: #0066b3;
 			color: #ffffff;
 			font-family: 'FontAwesome';
 			font-size: 26px;
@@ -81,10 +81,10 @@ h3			{margin-top: 25px;
 			left: 32px;
 			top: -8px;
 			z-index: 1;
-			content: 'POINT';
+			content: 'Tips';
 			padding: 3px 10px 3px 20px;
 			border-radius: 5px;
-			background-color: #5ab80e;
+			background-color: #0066b3;
 			color: #ffffff;
 			font-family: Verdana, Helvetica, sans-serif;
 			font-weight: bold;
@@ -95,8 +95,8 @@ h3			{margin-top: 25px;
 			margin: 40px 0 30px;
 			padding: 20px;
 			border-radius: 10px;
-			border: dotted 2px #ff0000;
-			background-color: #ffefef;
+			border: dotted 2px #ffbe00;
+			background-color: #fef6dd;
 			font-size: 14px;
 			clear: both}
 
@@ -105,7 +105,7 @@ h3			{margin-top: 25px;
 			top: -15px;
 			content: '\f071';
 			background-color: #ffffff;
-			color: #ff0000;
+			color: #ffbe00;
 			font-family: 'FontAwesome';
 			font-size: 26px;
 			line-height: 1}
