@@ -46,7 +46,7 @@
 		); ?>
 	<?php $the_query = new WP_Query($args); ?>
 
-	<h1><?php the_title(); ?>に関する記事</h1>
+	<h1><?php the_title(); ?></h1>
 
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):
 	$the_query->the_post(); ?>
