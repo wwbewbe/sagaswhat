@@ -16,6 +16,7 @@
 	<button type="button" id="nearnav">
 		<i class="fa fa-bars"></i><span>Sort in close order</span>
 	</button>
+	<p>* you can sort events in close oder from here</p>
 <?php endif; ?>
 </div>
 
