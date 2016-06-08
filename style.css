@@ -1,9 +1,13 @@
 @charset "UTF-8";
 /*
 Theme Name: SAGASWHAT
-Author: birdy
-Description: This is my original theme.
+Theme URI: http://sagaswhat.com
+Author: H.Torigai
+Author URI: http://sagaswhat.com
+Description: SAGASWHAT is created for Event finding service. It has basic layout - header, footer, contents, sidebar. The menu is customized on the page which is able to be choosed some items.
 Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 body	{margin: 0;
