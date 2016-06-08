@@ -42,15 +42,15 @@ function editor_setting($init) {
 	$init[ 'block_formats' ] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6;Preformatted=pre';
 
 	$style_formats = array(
-		array( 'title' => ' 補足情報 ',
+		array( 'title' => 'Tips info',
 			'block' => 'div',
 			'classes' => 'point',
 			'wrapper' => true ),
-		array( 'title' => ' 注意書き ',
+		array( 'title' => 'Attention',
 			'block' => 'div',
 			'classes' => 'attention',
 			'wrapper' => true ),
-		array( 'title' => 'ハイライト',
+		array( 'title' => 'Highlight',
 			'inline' => 'span',
 			'classes' => 'highlight') );
 	$init[ 'style_formats' ] = json_encode( $style_formats );
@@ -87,11 +87,11 @@ function mythumb( $size ) {
 }
 
 // カスタムメニュー
-register_nav_menu( 'sitenav', 'サイトナビゲーション' );
-register_nav_menu( 'pickupnav', 'おすすめ記事' );
-register_nav_menu( 'pagenav', 'ページナビゲーション' );
-register_nav_menu( 'categorynav', 'カテゴリメニュー' );
-register_nav_menu( 'newsnav', 'お知らせ' );
+register_nav_menu( 'sitenav', 'Site Navigation' );
+register_nav_menu( 'pickupnav', 'Pickup Posts' );
+register_nav_menu( 'pagenav', 'Page Navigation' );
+register_nav_menu( 'categorynav', 'Category Menu' );
+register_nav_menu( 'newsnav', 'News' );
 
 // トグルボタン
 function navbtn_scripts() {
@@ -146,8 +146,8 @@ function is_bot() {
 // ウィジェットエリア
 register_sidebar( array(
 	'id' => 'submenu',
-	'name' => ' サブメニュー',
-	'description' => 'サイドバーに表示するウィジェットを指定。',
+	'name' => 'SubMenu',
+	'description' => 'setting widget on side bar.',
 	'before_widget' => '<aside id="%1$s" class="mymenu widget %2$s">',
 	'after_widget' => '</aside>',
 	'before_title' => '<h2 class="widgettitle">',
@@ -156,8 +156,8 @@ register_sidebar( array(
 
 register_sidebar( array(
 	'id' => 'ad',
-	'name' => '広告',
-	'description' => 'サイドバーに表示する広告を指定。',
+	'name' => 'Advertisement',
+	'description' => 'advertising on side bar.',
 	'before_widget' => '<aside id="%1$s" class="myad mymenu widget %2$s">',
 	'after_widget' => '</aside>',
 	'before_title' => '<h2 class="widgettitle">',
@@ -181,31 +181,31 @@ function event_info_to_the_content( $content ) {
 	global $post;
 
 	if( $eventname = esc_html( get_post_meta($post->ID, 'eventname', true) ) ) {
-		$info = $info . '<tr><th>イベント名<br />場所・会場</th><td>' . $eventname . '</td></tr>';
+		$info = $info . '<tr><th>Event name<br />Location</th><td>' . $eventname . '</td></tr>';
 	}
 	if( $price = esc_html( get_post_meta($post->ID, 'price', true) ) ) {
-		$info = $info . '<tr><th>料金</th><td>' . $price . '</td></tr>';
+		$info = $info . '<tr><th>Price</th><td>' . $price . '</td></tr>';
 	}
 	if( $eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) ) ) {
-		$info = $info . '<tr><th>開催日</th><td>' . $eventopen . '</td></tr>';
+		$info = $info . '<tr><th>Event date</th><td>' . $eventopen . '</td></tr>';
 	}
 	if( $eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) ) ) {
-		$info = $info . '<tr><th>終了日</th><td>' . $eventclose . '</td></tr>';
+		$info = $info . '<tr><th>End date</th><td>' . $eventclose . '</td></tr>';
 	}
 	if( $bizhours = esc_html( get_post_meta($post->ID, 'bizhours', true) ) ) {
-		$info = $info . '<tr><th>営業時間</th><td>' . $bizhours . '</td></tr>';
+		$info = $info . '<tr><th>Opening hours</th><td>' . $bizhours . '</td></tr>';
 	}
 	if( $telephone = esc_html( get_post_meta($post->ID, 'telephone', true) ) ) {
-		$info = $info . '<tr><th>問い合わせ</th><td>' . $telephone . '</td></tr>';
+		$info = $info . '<tr><th>Contact</th><td>' . $telephone . '</td></tr>';
 	}
 	if( $url = esc_html( get_post_meta($post->ID, 'url', true) ) ) {
 		$info = $info . '<tr><th>URL</th><td>' . $url . '</td></tr>';
 	}
 	if( $address = esc_html( get_post_meta($post->ID, 'address', true) ) ) {
-		$info = $info . '<tr><th>住所</th><td>' . $address . '</td></tr>';
+		$info = $info . '<tr><th>Address</th><td>' . $address . '</td></tr>';
 	}
 	if( $comment = esc_html( get_post_meta($post->ID, 'comment', true) ) ) {
-		$info = $info . '<tr><th>コメント</th><td>' . $comment . '</td></tr>';
+		$info = $info . '<tr><th>Comment</th><td>' . $comment . '</td></tr>';
 	}
 
 	$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';

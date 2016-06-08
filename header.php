@@ -59,7 +59,7 @@ foreach($allcats as $allcat) {
 		$termid = $tag_id;
 		$taxname = 'post_tag';
 } ?>
-<meta name="description" content="<?php single_term_title(); ?>に関する記事の一覧です。">
+<meta name="description" content="This is a list for <?php single_term_title(); ?>">
 
 <?php $childcats = get_categories( array( 'child_of' => $termid ) );
 $kwds = array();
@@ -70,9 +70,9 @@ foreach($childcats as $childcat) {
 <meta name="keywords" content="<?php echo implode( ',', $kwds ); ?>">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="<?php single_term_title(); ?>に関する記事｜<?php bloginfo( 'name' ); ?>">
+<meta property="og:title" content="Post for <?php single_term_title(); ?> | <?php bloginfo( 'name' ); ?>">
 <meta property="og:url" content="<?php echo get_term_link( $termid, $taxname ); ?>">
-<meta property="og:description" content="<?php single_term_title(); ?>に関する記事の一覧です。">
+<meta property="og:description" content="This is a list for <?php single_term_title(); ?>">
 <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/sagaswhat.png">
 <?php endif; // カテゴリ・タグページ用のメタデータ【ここまで】 ?>
 

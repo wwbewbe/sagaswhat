@@ -4,20 +4,21 @@
 <div class="contents">
 
 <div class="kiji kiji-body">
-	<p><h2>おすすめのイベント 10選</h2></p>
-</div>
+	<p><h2>Recommended Events Select 10</h2></p>
 <?php
 	//  URLのパラメター(緯度と経度の位置情報)を取得
 	$lat = (isset($_GET['lat'])) ? esc_html($_GET['lat']) : '';
 	$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
 ?>
 <?php if(($lat) && ($lng)) : ?>
-	<p>※近くのイベント順に並びました。</p>
+	<p>* It has sorted events in close order.</p>
 <?php else : ?>
 	<button type="button" id="nearnav">
-		<i class="fa fa-bars"></i><span>このボタンで近くのイベント順に並びます</span>
+		<i class="fa fa-bars"></i><span>Sort in close order</span>
 	</button>
 <?php endif; ?>
+</div>
+
 <?php
 	//  距離チェック
 	$myposts = get_posts( array(

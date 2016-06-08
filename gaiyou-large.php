@@ -10,7 +10,7 @@
 	<i class="fa fa-pencil"></i>
 	<time
 	datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
-	投稿：<?php echo get_the_date(); ?>
+	Posted:<?php echo get_the_date(); ?>
 	</time>
 	</div>
 

@@ -42,7 +42,7 @@
 
 <div class="sub">
 	<aside class="mymenu mymenu-news">
-	<h2>お知らせ</h2>
+	<h2>Information</h2>
 	<?php wp_nav_menu( array( 'theme_location' => 'newsnav' ) ); ?>
 	</aside>
 </div>

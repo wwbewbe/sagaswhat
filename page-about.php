@@ -17,14 +17,14 @@
 
 	<time
 	datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
-	投稿：<?php echo get_the_date(); ?>
+	Posted:<?php echo get_the_date(); ?>
 	</time>
 
 	<?php if( get_the_modified_date( 'Ymd' ) > get_the_date( 'Ymd' ) ): ?>
 	｜
 	<time
 	datetime="<?php echo get_the_modified_date( 'Y-m-d' ); ?>">
-	更新：<?php echo get_the_modified_date(); ?>
+	Updated:<?php echo get_the_modified_date(); ?>
 	</time>
 	<?php endif; ?>
 	</div>

@@ -8,7 +8,7 @@
 		</a></li>
 
 		<li>
-		<a>検索結果</a>
+		<a>Search results</a>
 		</li>
 	</ol>
 	</div>
@@ -17,9 +17,9 @@
 <div class="container">
 <div class="contents">
 
-	<h1>"<?php echo get_search_query(); ?>"に一致した記事</h1>
+	<h1>"<?php echo get_search_query(); ?>" search results</h1>
 
-	<?php if(have_posts()): while(have_posts()): 
+	<?php if(have_posts()): while(have_posts()):
 	the_post(); ?>
 
 	<?php get_template_part( 'gaiyou', 'medium' ); ?>
