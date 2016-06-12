@@ -110,6 +110,53 @@ h3			{margin-top: 25px;
 			font-size: 26px;
 			line-height: 1}
 
+/* ハイライト */
+.highlight		{background-color: #ffff00;
+						padding: 0 3px}
+
+/* 番号なしリスト */
+.kiji-body ul	{list-style: none}
+
+.kiji-body li		{position: relative;
+			padding-left: 20px}
+
+.kiji-body li:before	{position: absolute;
+				left: 0px;
+				top: 3px;
+				content: '\f069';
+				color: #aaaaaa;
+				font-family: 'FontAwesome';
+				line-height: 1}
+
+/* 引用 */
+blockquote			{position: relative;
+				margin: 30px auto;
+				padding: 20px 50px 1px 50px;
+				max-width: 460px;
+				background: #eee;
+				box-shadow: 5px 5px 5px #aaa;
+				color: #444444;
+				font-size: 18px;
+				line-height: 1.8}
+
+blockquote:before	{position: absolute;
+				left: 10px;
+				top: 10px;
+				content: '\f10d';
+				color: #aaaaaa;
+				font-size: 30px;
+				font-family: 'FontAwesome';
+				line-height: 1}
+
+blockquote:after		{position: absolute;
+				right: 10px;
+				bottom: 10px;
+				content: '\f10e';
+				color: #aaaaaa;
+				font-size: 30px;
+				font-family: 'FontAwesome';
+				line-height: 1}
+
 /* -------------------- 画像 -------------------- */
 /* 編集画面の標準の設定を解除 */
 .alignleft, .alignright	{float: none}
