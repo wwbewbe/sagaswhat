@@ -265,7 +265,7 @@ header, footer, .container, .sub-header
 			padding-left: 32px;
 			padding-bottom: 5px;
 			border-bottom: solid 2px #e90000;
-			font-size: 24px;
+			font-size: 20px;
 			clear: both}
 
 .kiji h2:before	{position: absolute;
@@ -285,7 +285,7 @@ header, footer, .container, .sub-header
 
 @media (max-width: 599px) {
 	.kiji h2		{padding-left: 21px;
-				font-size: 18px}
+				font-size: 17px}
 
 	.kiji h2:before	{font-size: 20px}
 

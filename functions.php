@@ -187,7 +187,7 @@ function event_info_to_the_content( $content ) {
 	global $post;
 
 	if( $eventname = esc_html( get_post_meta($post->ID, 'eventname', true) ) ) {
-		$info = $info . '<tr><th>Event name<br />Venue:Location</th><td>' . $eventname . '</td></tr>';
+		$info = $info . '<tr><th>Event name<br />Venue/Location</th><td>' . $eventname . '</td></tr>';
 	}
 	if( $price = esc_html( get_post_meta($post->ID, 'price', true) ) ) {
 		$info = $info . '<tr><th>Price</th><td>' . $price . '</td></tr>';
@@ -205,7 +205,7 @@ function event_info_to_the_content( $content ) {
 		$info = $info . '<tr><th>Contact</th><td>' . $telephone . '</td></tr>';
 	}
 	if( $url = esc_html( get_post_meta($post->ID, 'url', true) ) ) {
-		$info = $info . '<tr><th>URL</th><td>' . $url . '</td></tr>';
+		$info = $info . '<tr><th>URL</th><td><a href="'.$url.'" target="_blank">'.$url.'</a></td></tr>';
 	}
 	if( $address = esc_html( get_post_meta($post->ID, 'address', true) ) ) {
 		$info = $info . '<tr><th>Address</th><td>' . $address . '</td></tr>';
