@@ -2,7 +2,7 @@
 <?php
 $args=array(
             'post_type'		=> 'post',
-            'posts_per_page'=> '5',
+            'posts_per_page'=> $list,       // リスト数を指定
             'cat'           => '-1',        // 未分類を除外
             'tag'           => $tagname,    // タグを指定
             'meta_key'		=> 'recommend',

@@ -276,6 +276,7 @@ function set_taglist($params = array()) {
     extract(shortcode_atts(array(
         				'file' => 'taglist',
 						'tagname' => 0,
+						'list' => 5,
     					), $params));
     ob_start();
     include(get_theme_root() . '/' . get_template() . "/$file.php");
@@ -283,6 +284,45 @@ function set_taglist($params = array()) {
 }
 
 add_shortcode('taglist', 'set_taglist');
+
+// Google Adsenseを表示するショートコード
+function showads($params = array()) {
+	extract(shortcode_atts(array(
+        				'count' => 1,
+						'type' => 'rectangle',
+    					), $params));
+
+	$adcode = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- sagaswhat-shortcode -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-6212569927869845"
+     data-ad-slot="2100370814"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>';
+
+	$adcoderes = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- sagaswhat-sidebar -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6212569927869845"
+     data-ad-slot="6670171218"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>';
+
+	if (($count == 2) && ($type == 'rectangle')) {
+		return $adcode . $adcode;
+	} else if (($count == 1) && ($type == 'responsive')) {
+		return $adcoderes;
+	} else {
+    	return $adcode;
+	}
+}
+
+add_shortcode('adsense', 'showads');
 
 // カテゴリ・タグ・検索の一覧表示のクエリー設定
 function QueryListFilter($query) {
