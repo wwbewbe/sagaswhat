@@ -207,8 +207,8 @@ function event_info_to_the_content( $content ) {
 	if( $url = esc_html( get_post_meta($post->ID, 'url', true) ) ) {
 		$info = $info . '<tr><th>URL</th><td><a href="'.$url.'" target="_blank">'.$url.'</a></td></tr>';
 	}
-	if( $address = esc_html( get_post_meta($post->ID, 'address', true) ) ) {
-		$info = $info . '<tr><th>Address</th><td>' . $address . '</td></tr>';
+	if( $showaddress = esc_html( get_post_meta($post->ID, 'showaddress', true) ) ) {
+		$info = $info . '<tr><th>Address</th><td>' . $showaddress . '</td></tr>';
 	}
 	if( $comment = esc_html( get_post_meta($post->ID, 'comment', true) ) ) {
 		$info = $info . '<tr><th>Comment</th><td>' . $comment . '</td></tr>';

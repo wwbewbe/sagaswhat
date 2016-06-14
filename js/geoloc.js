@@ -12,16 +12,16 @@ jQuery(document).ready(function(jQuery){
                         lat= position.coords.latitude;
                         lng= position.coords.longitude;
                         // [ドメイン]/recommend/~となる
-                        location.href="/sagaswhat/recommend/?lat=" + lat + "&lng=" + lng;
+                        location.href="/sagaswhaten/recommend/?lat=" + lat + "&lng=" + lng;
                 },
                 // （2）位置情報の取得に失敗した場合
                 function (error) {
-                    window.alert("位置情報の取得ができませんでした。");
+                    window.alert("The service could not get your location.");
                 } // function (error)
             );
         } else {
             // Geolocationが使えない場合
-            window.alert("このブラウザでは位置情報が取得出来ないためご利用できません。");
+            window.alert("You can not use this function, because this browser could not get your location.");
         }
     } // get_gps
     // ボタンがクリックされたら
