@@ -9,10 +9,11 @@ jQuery(document).ready(function(jQuery){
             navigator.geolocation.getCurrentPosition(
                 // （1）位置情報取得に成功したとき
                 function (position) {
-                        lat= position.coords.latitude;
-                        lng= position.coords.longitude;
-                        // [ドメイン]/recommend/~となる
-                        location.href="/sagaswhaten/recommend/?lat=" + lat + "&lng=" + lng;
+                        lat = position.coords.latitude;
+                        lng = position.coords.longitude;
+                        // 緯度・経度をURLパラメータに追加
+                        location.search = "?lat=" + lat + "&lng=" + lng;
+                        //location.href="?lat=" + lat + "&lng=" + lng;
                 },
                 // （2）位置情報の取得に失敗した場合
                 function (error) {
