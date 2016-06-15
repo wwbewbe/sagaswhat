@@ -4,7 +4,7 @@
 <div class="contents">
 	<?php if(have_posts()): while(have_posts()):
 	the_post(); ?>
-	<article <?php post_class( 'kiji' ); ?>>
+<!--カレンダープラグインへの影響を避ける	<article <?php post_class( 'kiji' ); ?>>-->
 
 	<div class="kiji-tag">
 	<?php the_tags( '<ul><li>', '</li><li>', '</li></ul>' ); ?>
@@ -24,7 +24,7 @@
 	) ); ?>
 
 
-	</article>
+<!--	</article>-->
 	<?php endwhile; endif; ?>
 </div>
 
