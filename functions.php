@@ -6,7 +6,7 @@ function my_length($length) {
 }
 add_filter('excerpt_mblength', 'my_length');
 
-//概要（抜粋）の英語文字数
+//概要（抜粋）の英語文字(単語)数
 function en_length($length) {
 	return 20;
 }
@@ -17,6 +17,13 @@ function my_more($more) {
 	return '…';
 }
 add_filter('excerpt_more', 'my_more');
+
+//抜粋欄を使用した時の抜粋文の文字制限
+function my_the_excerpt($myexcerpt) {
+    $myexcerpt = mb_strimwidth($myexcerpt, 0, 160, "…", "UTF-8");
+    return $myexcerpt;
+}
+add_filter('the_excerpt', 'my_the_excerpt');
 
 //コンテンツの最大幅
 if ( !isset( $content_width )) {
@@ -185,38 +192,57 @@ add_filter( 'the_content', 'event_info_to_the_content', 1 );
 
 function event_info_to_the_content( $content ) {
 	global $post;
-
-	if( $eventname = esc_html( get_post_meta($post->ID, 'eventname', true) ) ) {
-		$info = $info . '<tr><th>Event name<br />Venue/Location</th><td>' . $eventname . '</td></tr>';
+	// イベント名
+	$url = esc_html( get_post_meta($post->ID, 'url', true) );
+	$eventname = esc_html( get_post_meta($post->ID, 'eventname', true) );
+	if( $eventname && $url ) {
+		$info = $info . '<tr><th>Event name</th><td><a href="'.$url.'" target="_blank">' . $eventname . '</a></td></tr>';
+	} elseif( $eventname ) {
+		$info = $info . '<tr><th>Event name</th><td>' . $eventname . '</td></tr>';
 	}
-	if( $price = esc_html( get_post_meta($post->ID, 'price', true) ) ) {
-		$info = $info . '<tr><th>Price</th><td>' . $price . '</td></tr>';
+	// 会場・場所
+	if( $venue = esc_html( get_post_meta($post->ID, 'venue', true) ) ) {
+		$info = $info . '<tr><th>Venue/Location</th><td>' . $venue . '</td></tr>';
+		$preview = $preview . '<tr><th>Venue/Location</th><td>' . $venue . '</td></tr>'; // preview information
 	}
+	// 開催期間
 	if( $eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) ) ) {
-		$info = $info . '<tr><th>Event date</th><td>' . $eventopen . '</td></tr>';
+		$eventopen = date('l, j F', strtotime($eventopen));
 	}
 	if( $eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) ) ) {
-		$info = $info . '<tr><th>End date</th><td>' . $eventclose . '</td></tr>';
+		$eventclose = date('l, j F, Y', strtotime($eventclose));
 	}
+	if( $eventopen || $eventclose ) {
+		$dates = $eventopen . ' ~ ' . $eventclose;
+		$info = $info . '<tr><th>Dates</th><td>' . $dates . '</td></tr>';
+		$preview = $preview . '<tr><th>Dates</th><td>' . $dates . '</td></tr>'; // preview information
+	}
+	// 注記
+	if( $note = esc_html( get_post_meta($post->ID, 'note', true) ) ) {
+		$info = $info . '<tr><th>Note</th><td>' . $note . '</td></tr>';
+		$preview = $preview . '<tr><th>Note</th><td>' . $note . '</td></tr>'; // preview information
+	}
+	// 営業時間
 	if( $bizhours = esc_html( get_post_meta($post->ID, 'bizhours', true) ) ) {
-		$info = $info . '<tr><th>Opening hours</th><td>' . $bizhours . '</td></tr>';
+		$info = $info . '<tr><th>Open hours</th><td>' . $bizhours . '</td></tr>';
 	}
-	if( $telephone = esc_html( get_post_meta($post->ID, 'telephone', true) ) ) {
-		$info = $info . '<tr><th>Contact</th><td>' . $telephone . '</td></tr>';
+	// 入場料
+	if( $price = esc_html( get_post_meta($post->ID, 'price', true) ) ) {
+		$info = $info . '<tr><th>Admission</th><td>' . $price . '</td></tr>';
 	}
-	if( $url = esc_html( get_post_meta($post->ID, 'url', true) ) ) {
-		$info = $info . '<tr><th>URL</th><td><a href="'.$url.'" target="_blank">'.$url.'</a></td></tr>';
-	}
+	// 住所
 	if( $showaddress = esc_html( get_post_meta($post->ID, 'showaddress', true) ) ) {
 		$info = $info . '<tr><th>Address</th><td>' . $showaddress . '</td></tr>';
 	}
-	if( $comment = esc_html( get_post_meta($post->ID, 'comment', true) ) ) {
-		$info = $info . '<tr><th>Comment</th><td>' . $comment . '</td></tr>';
+	// 問い合わせ
+	if( $telephone = esc_html( get_post_meta($post->ID, 'telephone', true) ) ) {
+		$info = $info . '<tr><th>Contact</th><td>' . $telephone . '</td></tr>';
 	}
 
+	$pretable = '<table class="event-info"><tbody>' . $preview . '</tbody></table>';
 	$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
 
-	return $content . $table;
+	return $pretable . $content . $table;
 }
 
 // 現在イベントが終了しているかどうかをチェック(ループのパラメータで指定できたので未使用)
@@ -376,3 +402,13 @@ function QueryListFilter($query) {
 	return $query;
 }
 add_filter('pre_get_posts','QueryListFilter');
+
+// Wordpress Popular Postsカスタマイズ
+/*function custom_single_popular_post( $content, $p, $instance ){
+     $thumb_id = get_post_thumbnail_id( $post->ID );
+     $img = wp_get_attachment_image_src( $thumb_id, 'full' );
+     $output = '<li><a href="' . get_the_permalink($p->id) . '" title="' . esc_attr($p->title) . '"><img src="' . $img . '" title="' . esc_attr($p->title) . '" width="100" height="60"' . '" alt="' . esc_attr($p->title) . 'class=wpp-thumbnail wpp_cached_thumb wpp_featured">' . $p->title . '</a></li>';
+     return $output;
+}
+add_filter( 'wpp_post', 'custom_single_popular_post', 10, 3 );
+*/

@@ -109,7 +109,9 @@ header, footer, .container, .sub-header
 			clear: both}
 
 .gaiyou img	{float: left;
-			width: 200px}
+			width: 200px;
+			height: 100px;
+			object-fit: contain;}
 
 .gaiyou .text	{float: none;
 			width: auto;
@@ -403,7 +405,8 @@ header, footer, .container, .sub-header
 				line-height: 1}
 
 .event-info		{width: 100%;
-			border-collapse: collapse}
+			border-collapse: collapse;
+			margin: 10px 0px}
 
 .event-info th	{width: 20%;
 			padding: 6px;
@@ -880,6 +883,7 @@ blockquote:after		{position: absolute;
 				margin-right: auto}
 
 @media (max-width: 599px) {
+	.wp-caption .wp-caption-text {font-size: 10px}
 	.alignleft, .alignright
 				{display: block;
 				margin-top: 30px;
