@@ -2,15 +2,6 @@
 
 <div class="container">
 
-<?php if( get_header_image() ): ?>
-<div class="hero">
-	<div class="hero-img" style="background-image: url(<?php header_image(); ?>)"></div>
-	<div class="hero-text">
-	<?php bloginfo( 'description' ); ?>
-	</div>
-</div>
-<?php endif; ?>
-
 <div class="contents">
 
 	<?php
