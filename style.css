@@ -2,7 +2,7 @@
 /*
 Theme Name: SAGASWHAT
 Theme URI: http://sagaswhat.com
-Author: H.Torigai
+Author: wwbewbe
 Author URI: http://sagaswhat.com
 Description: SAGASWHAT is created for Event finding service. It has basic layout - header, footer, contents, sidebar. The menu is customized on the page which is able to be choosed some items.
 Version: 1.0
@@ -788,6 +788,7 @@ blockquote:after		{position: absolute;
 /* トップページのコンテンツメニュー */
 .mymenu-top li a		{position: relative;
 					margin-bottom: 10px;
+					border-bottom: dotted 2px #dddddd;
 					padding: 0}
 
 .mymenu-top li a:hover	{opacity: 0.8}
