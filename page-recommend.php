@@ -11,7 +11,7 @@
 	$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
 ?>
 <?php if(($lat) && ($lng)) : ?>
-	<p>* It has sorted events in close order.</p>
+	<span class="highlight"><strong>* It has sorted events in close order.</strong></span>
 <?php else : ?>
 	<button type="button" id="nearnav">
 		<i class="fa fa-bars"></i><span>Sort in close order</span>
