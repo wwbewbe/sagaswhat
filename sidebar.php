@@ -6,7 +6,7 @@ $locations = get_nav_menu_locations();
 $myposts = wp_get_nav_menu_items( $locations[ $location_name ] );
 if( $myposts ): ?>
 <aside class="mymenu mymenu-large">
-<h2>Featured events</h2>
+<h2>Featured Events</h2>
 <ul>
 
 	<?php foreach($myposts as $post):

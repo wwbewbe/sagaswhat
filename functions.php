@@ -99,12 +99,30 @@ function mythumb( $size ) {
 	return $url;
 }
 
+// Upcoming Listのサムネイルを記事内に添付した画像から取得
+function get_image_url($size, $count) {
+	global $post;
+	$count--;
+	if (preg_match_all( '/wp-image-(\d+)/s', $post->post_content, $thumbid)) {
+		while (!isset($thumbid[1][$count])) {
+			$count--;
+			if ($count < 0) break;
+		}
+		if ($count > -1) {
+			$postthumb = wp_get_attachment_image_src( $thumbid[1][$count], $size );
+			$url = $postthumb[0];
+		}
+	}
+	return $url;
+}
+
 // カスタムメニュー
 register_nav_menu( 'sitenav', 'Site Navigation' );
 register_nav_menu( 'pickupnav', 'Pickup Posts' );
 register_nav_menu( 'pagenav', 'Page Navigation' );
 register_nav_menu( 'categorynav', 'Category Menu' );
 register_nav_menu( 'newsnav', 'News' );
+register_nav_menu( 'upcomingnav', 'Upcoming Menu' );
 
 // トグルボタン
 function navbtn_scripts() {
@@ -188,8 +206,6 @@ add_theme_support( 'custom-header', array(
 ) );
 
 // カスタムフィールド（イベント情報）
-add_filter( 'the_content', 'event_info_to_the_content', 1 );
-
 function event_info_to_the_content( $content ) {
 	global $post;
 	// イベント名
@@ -206,13 +222,27 @@ function event_info_to_the_content( $content ) {
 		$preview = $preview . '<tr><th>Venue/Location</th><td>' . $venue . '</td></tr>'; // preview information
 	}
 	// 開催期間
-	if( $eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) ) ) {
-		$eventopen = date('l, j F', strtotime($eventopen));
-	}
-	if( $eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) ) ) {
-		$eventclose = date('l, j F, Y', strtotime($eventclose));
-	}
-	if( $eventopen || $eventclose ) {
+	$eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) );
+	$eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) );
+	if($eventopen && $eventclose) {
+		if($eventopen == $eventclose) {
+			$dates = date('l, j F, Y', strtotime($eventclose));
+			$info = $info . '<tr><th>Dates</th><td>' . $dates . '</td></tr>';
+			$preview = $preview . '<tr><th>Dates</th><td>' . $dates . '</td></tr>'; // preview information
+		} else {
+			$eventopen = date('l, j F', strtotime($eventopen));
+			$eventclose = date('l, j F, Y', strtotime($eventclose));
+			$dates = $eventopen . ' ~ ' . $eventclose;
+			$info = $info . '<tr><th>Dates</th><td>' . $dates . '</td></tr>';
+			$preview = $preview . '<tr><th>Dates</th><td>' . $dates . '</td></tr>'; // preview information
+		}
+	} elseif($eventopen || $eventclose) {
+		if ($eventopen) {
+			$eventopen = date('l, j F', strtotime($eventopen));
+		}
+		if ($eventclose) {
+			$eventclose = date('l, j F, Y', strtotime($eventclose));
+		}
 		$dates = $eventopen . ' ~ ' . $eventclose;
 		$info = $info . '<tr><th>Dates</th><td>' . $dates . '</td></tr>';
 		$preview = $preview . '<tr><th>Dates</th><td>' . $dates . '</td></tr>'; // preview information
@@ -244,6 +274,7 @@ function event_info_to_the_content( $content ) {
 
 	return $pretable . $content . $table;
 }
+add_filter( 'the_content', 'event_info_to_the_content', 1 );
 
 // 現在イベントが終了しているかどうかをチェック(ループのパラメータで指定できたので未使用)
 function is_event_close() {
@@ -308,7 +339,6 @@ function set_taglist($params = array()) {
     include(get_theme_root() . '/' . get_template() . "/$file.php");
     return ob_get_clean();
 }
-
 add_shortcode('taglist', 'set_taglist');
 
 // Google Adsenseを表示するショートコード
@@ -347,7 +377,6 @@ function showads($params = array()) {
     	return $adcode;
 	}
 }
-
 add_shortcode('adsense', 'showads');
 
 // カテゴリ・タグ・検索の一覧表示のクエリー設定
@@ -403,12 +432,10 @@ function QueryListFilter($query) {
 }
 add_filter('pre_get_posts','QueryListFilter');
 
-// Wordpress Popular Postsカスタマイズ
-/*function custom_single_popular_post( $content, $p, $instance ){
-     $thumb_id = get_post_thumbnail_id( $post->ID );
-     $img = wp_get_attachment_image_src( $thumb_id, 'full' );
-     $output = '<li><a href="' . get_the_permalink($p->id) . '" title="' . esc_attr($p->title) . '"><img src="' . $img . '" title="' . esc_attr($p->title) . '" width="100" height="60"' . '" alt="' . esc_attr($p->title) . 'class=wpp-thumbnail wpp_cached_thumb wpp_featured">' . $p->title . '</a></li>';
-     return $output;
-}
-add_filter( 'wpp_post', 'custom_single_popular_post', 10, 3 );
-*/
+ // カテゴリ一覧ウィジェットから特定のカテゴリを除外
+ function my_theme_catexcept($cat_args){
+     $exclude_id = '1';						// 除外するカテゴリID(未分類)
+     $cat_args['exclude'] = $exclude_id;	// 除外
+     return $cat_args;
+ }
+add_filter('widget_categories_args', 'my_theme_catexcept',10);
