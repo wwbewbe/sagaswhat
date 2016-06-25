@@ -6,16 +6,6 @@
 <div class="text">
 	<h1><?php the_title(); ?></h1>
 
-	<div class="kiji-date">
-<!--
-	<i class="fa fa-pencil"></i>
-	<time
-	datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
-	Posted:<?php echo get_the_date(); ?>
-	</time>
-投稿日を非表示 -->
-	</div>
-
 	<?php the_excerpt(); ?>
 </div>
 </a>

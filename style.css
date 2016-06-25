@@ -788,7 +788,7 @@ blockquote:after		{position: absolute;
 /* トップページのコンテンツメニュー */
 .mymenu-top li a		{position: relative;
 					margin-bottom: 10px;
-					border-bottom: dotted 2px #dddddd;
+					border-bottom: solid 2px #dddddd;
 					padding: 0}
 
 .mymenu-top li a:hover	{opacity: 0.8}
