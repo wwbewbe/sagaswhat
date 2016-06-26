@@ -17,11 +17,18 @@ body	{margin: 0;
 /* -------------------- 基本構造 -------------------- */
 /* ヘッダーとフッターをバーの形にする設定 */
 header	{border-bottom: solid 1px #dddddd;
-		background-color: #f6f6f6}
+		background-color: #f6f6f6;
+		position: fixed; /*ここから以下４行はヘッダーメニューを固定するために追記*/
+		top: 0;
+		z-index: 999;
+		width: 100%;}
 footer	{border-top: solid 1px #dddddd}
 
 /* ボックスの上下の間隔 */
-.sub-header	{padding-top: 5px}
+.container {margin-top: 60px} /*ヘッダーを固定するためのmargin指定*/
+
+.sub-header	{padding-top: 5px;
+			margin-top: 50px;} /*ヘッダーを固定するためのmargin指定*/
 
 .contents		{padding-top: 20px;
 			padding-bottom: 20px}
@@ -994,7 +1001,7 @@ iframe			{max-width: 100%}
 
 #navbtn			{position: absolute;
 				top: 15px;
-				right: 0;
+				right: 15px; /*ヘッダーを固定するために値を指定*/
 				padding: 6px 12px;
 				border: solid 1px #aaaaaa;
 				border-radius: 5px;
@@ -1011,7 +1018,7 @@ iframe			{max-width: 100%}
 #navbtn span		{display: inline-block;
 				text-indent: -9999px}
 
-@media (min-width: 768px) {
+@media (min-width: 1040px) {
 	/* サイト名とナビゲーションメニューを横に並べる設定 */
 	.header-inner:after	{content: "";
 					display: block;
