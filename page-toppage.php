@@ -1,5 +1,8 @@
 <?php get_header(); ?>
 
+<div class="sub-header">
+</div>
+
 <div class="container">
 
 <?php if( get_header_image() ): ?>

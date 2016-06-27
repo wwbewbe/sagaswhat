@@ -1,10 +1,13 @@
 <?php get_header(); ?>
 
+<div class="sub-header">
+</div>
+
 <div class="container">
 <div class="contents">
 
-<div class="kiji kiji-body">
-	<p><h2>Recommended Events Select 10</h2></p>
+<article <?php post_class( 'kiji' ); ?>>
+	<h1>Recommended Events Select 10</h1>
 <?php
 	//  URLのパラメター(緯度と経度の位置情報)を取得
 	$lat = (isset($_GET['lat'])) ? esc_html($_GET['lat']) : '';
@@ -18,7 +21,7 @@
 	</button>
 	<p>* you can sort events in close oder from here</p>
 <?php endif; ?>
-</div>
+</article>
 
 <?php
 	//  距離チェック

@@ -116,6 +116,21 @@ function get_image_url($size, $count) {
 	return $url;
 }
 
+// Upcoming記事内に添付した画像からeventclose画像IDを取得
+function get_closeimage_id() {
+	global $post;
+	$count = 0;
+	if (preg_match_all( '/wp-image-(\d+)/s', $post->post_content, $thumbid)) {
+		while (isset($thumbid[1][$count])) {
+			$imgmeta = wp_get_attachment_metadata( $thumbid[1][$count] );
+			if ($imgmeta->image_meta->title == 'eventclose') {
+				return $thumbid[1][$count];
+			}
+		}
+	}
+	return false;
+}
+
 // カスタムメニュー
 register_nav_menu( 'sitenav', 'Site Navigation' );
 register_nav_menu( 'pickupnav', 'Pickup Posts' );

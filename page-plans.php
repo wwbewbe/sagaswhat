@@ -1,22 +1,6 @@
 <?php get_header(); ?>
 
 <div class="sub-header">
-	<div class="bread">
-	<ol>
-		<li><a href="<?php echo home_url(); ?>">
-		<i class="fa fa-home"></i><span>TOP</span>
-		</a></li>
-
-		<li>
-		<?php if( has_category() ): ?>
-		<?php $postcat=get_the_category(); ?>
-		<?php echo get_category_parents( $postcat[0], true, '</li><li>' ); ?>
-		<?php endif; ?>
-		<a><?php the_title(); ?></a>
-		</li>
-
-	</ol>
-	</div>
 </div>
 
 <div class="container">
@@ -74,7 +58,11 @@
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):
 	$the_query->the_post(); ?>
 
-	<?php get_template_part( 'gaiyou', 'medium' ); ?>
+	<?php
+	$eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) );
+	if ($eventclose >= date_i18n("Y/m/d"))
+		get_template_part( 'gaiyou', 'medium' );
+	?>
 
 	<?php endwhile; endif; ?>
 

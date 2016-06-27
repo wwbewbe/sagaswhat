@@ -1,7 +1,9 @@
 <?php get_header(); ?>
 
-<div class="container">
+<div class="sub-header">
+</div>
 
+<div class="container">
 <div class="contents">
 
 	<?php
@@ -35,10 +37,6 @@
 	<?php if(have_posts()): while(have_posts()):
 	the_post(); ?>
 	<article <?php post_class( 'kiji' ); ?>>
-
-	<div class="kiji-tag">
-	<?php the_tags( '<ul><li>', '</li><li>', '</li></ul>' ); ?>
-	</div>
 
 	<h1><?php the_title(); ?></h1>
 

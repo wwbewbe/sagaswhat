@@ -1,17 +1,6 @@
 <?php get_header(); ?>
 
 <div class="sub-header">
-	<div class="bread">
-	<ol>
-		<li><a href="<?php echo home_url(); ?>">
-		<i class="fa fa-home"></i><span>TOP</span>
-		</a></li>
-
-		<li>
-		<a>Search results</a>
-		</li>
-	</ol>
-	</div>
 </div>
 
 <div class="container">

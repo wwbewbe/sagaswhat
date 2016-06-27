@@ -1,7 +1,9 @@
 <?php get_header(); ?>
 
-<div class="container">
+<div class="sub-header">
+</div>
 
+<div class="container">
 <div class="contents">
 	<?php
 	$location_name = 'categorynav';
