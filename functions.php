@@ -374,11 +374,11 @@ function showads($params = array()) {
 </script>';
 
 	$adcoderes = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- sagaswhat-sidebar -->
+<!-- sagaswhat-responsive -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-6212569927869845"
-     data-ad-slot="6670171218"
+     data-ad-slot="3812496019"
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
@@ -386,7 +386,7 @@ function showads($params = array()) {
 
 	if (($count == 2) && ($type == 'rectangle')) {
 		return $adcode . $adcode;
-	} else if (($count == 1) && ($type == 'responsive')) {
+	} elseif ($type == 'responsive') {
 		return $adcoderes;
 	} else {
     	return $adcode;
