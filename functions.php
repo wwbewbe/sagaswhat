@@ -1,5 +1,8 @@
 <?php
 
+//多言語対応
+load_theme_textdomain( 'SagasWhat', get_template_directory() . '/languages' );
+
 //概要（抜粋）の文字数
 function my_length($length) {
 	return 50;
@@ -226,30 +229,33 @@ function event_info_to_the_content( $content ) {
 	// イベント名
 	$url = esc_html( get_post_meta($post->ID, 'url', true) );
 	$eventname = esc_html( get_post_meta($post->ID, 'eventname', true) );
+	$thname = __('Event name', 'SagasWhat');
 	if( $eventname && $url ) {
-		$info = $info . '<tr><th>Event name</th><td><a href="'.$url.'" target="_blank">' . $eventname . '</a></td></tr>';
+		$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$url.'" target="_blank">' . $eventname . '</a></td></tr>';
 	} elseif( $eventname ) {
-		$info = $info . '<tr><th>Event name</th><td>' . $eventname . '</td></tr>';
+		$info = $info . '<tr><th>'.$thname.'</th><td>' . $eventname . '</td></tr>';
 	}
 	// 会場・場所
 	if( $venue = esc_html( get_post_meta($post->ID, 'venue', true) ) ) {
-		$info = $info . '<tr><th>Venue/Location</th><td>' . $venue . '</td></tr>';
-		$preview = $preview . '<tr><th>Venue/Location</th><td>' . $venue . '</td></tr>'; // preview information
+		$thname = __('Venue/Location', 'SagasWhat');
+		$info = $info . '<tr><th>'.$thname.'</th><td>' . $venue . '</td></tr>';
+		$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $venue . '</td></tr>'; // preview information
 	}
 	// 開催期間
 	$eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) );
 	$eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) );
+	$thname = __('Dates', 'SagasWhat');
 	if($eventopen && $eventclose) {
 		if($eventopen == $eventclose) {
 			$dates = date('l, j F, Y', strtotime($eventclose));
-			$info = $info . '<tr><th>Dates</th><td>' . $dates . '</td></tr>';
-			$preview = $preview . '<tr><th>Dates</th><td>' . $dates . '</td></tr>'; // preview information
+			$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
+			$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>'; // preview information
 		} else {
 			$eventopen = date('l, j F', strtotime($eventopen));
 			$eventclose = date('l, j F, Y', strtotime($eventclose));
 			$dates = $eventopen . ' ~ ' . $eventclose;
-			$info = $info . '<tr><th>Dates</th><td>' . $dates . '</td></tr>';
-			$preview = $preview . '<tr><th>Dates</th><td>' . $dates . '</td></tr>'; // preview information
+			$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
+			$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>'; // preview information
 		}
 	} elseif($eventopen || $eventclose) {
 		if ($eventopen) {
@@ -259,29 +265,34 @@ function event_info_to_the_content( $content ) {
 			$eventclose = date('l, j F, Y', strtotime($eventclose));
 		}
 		$dates = $eventopen . ' ~ ' . $eventclose;
-		$info = $info . '<tr><th>Dates</th><td>' . $dates . '</td></tr>';
-		$preview = $preview . '<tr><th>Dates</th><td>' . $dates . '</td></tr>'; // preview information
+		$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
+		$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>'; // preview information
 	}
 	// 注記
+	$thname = __('Note', 'SagasWhat');
 	if( $note = esc_html( get_post_meta($post->ID, 'note', true) ) ) {
-		$info = $info . '<tr><th>Note</th><td>' . $note . '</td></tr>';
-		$preview = $preview . '<tr><th>Note</th><td>' . $note . '</td></tr>'; // preview information
+		$info = $info . '<tr><th>'.$thname.'</th><td>' . $note . '</td></tr>';
+		$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $note . '</td></tr>'; // preview information
 	}
 	// 営業時間
+	$thname = __('Open hours', 'SagasWhat');
 	if( $bizhours = esc_html( get_post_meta($post->ID, 'bizhours', true) ) ) {
-		$info = $info . '<tr><th>Open hours</th><td>' . $bizhours . '</td></tr>';
+		$info = $info . '<tr><th>'.$thname.'</th><td>' . $bizhours . '</td></tr>';
 	}
 	// 入場料
+	$thname = __('Admission', 'SagasWhat');
 	if( $price = esc_html( get_post_meta($post->ID, 'price', true) ) ) {
-		$info = $info . '<tr><th>Admission</th><td>' . $price . '</td></tr>';
+		$info = $info . '<tr><th>'.$thname.'</th><td>' . $price . '</td></tr>';
 	}
 	// 住所
+	$thname = __('Address', 'SagasWhat');
 	if( $showaddress = esc_html( get_post_meta($post->ID, 'showaddress', true) ) ) {
-		$info = $info . '<tr><th>Address</th><td>' . $showaddress . '</td></tr>';
+		$info = $info . '<tr><th>'.$thname.'</th><td>' . $showaddress . '</td></tr>';
 	}
 	// 問い合わせ
+	$thname = __('Contact', 'SagasWhat');
 	if( $telephone = esc_html( get_post_meta($post->ID, 'telephone', true) ) ) {
-		$info = $info . '<tr><th>Contact</th><td>' . $telephone . '</td></tr>';
+		$info = $info . '<tr><th>'.$thname.'</th><td>' . $telephone . '</td></tr>';
 	}
 
 	$pretable = '<table class="event-info"><tbody>' . $preview . '</tbody></table>';
@@ -447,10 +458,10 @@ function QueryListFilter($query) {
 }
 add_filter('pre_get_posts','QueryListFilter');
 
- // カテゴリ一覧ウィジェットから特定のカテゴリを除外
- function my_theme_catexcept($cat_args){
-     $exclude_id = '1';						// 除外するカテゴリID(未分類)
-     $cat_args['exclude'] = $exclude_id;	// 除外
-     return $cat_args;
- }
+// カテゴリ一覧ウィジェットから特定のカテゴリを除外
+function my_theme_catexcept($cat_args){
+    $exclude_id = '1';						// 除外するカテゴリID(未分類)
+    $cat_args['exclude'] = $exclude_id;	// 除外
+    return $cat_args;
+}
 add_filter('widget_categories_args', 'my_theme_catexcept',10);

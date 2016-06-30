@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html <?php language_attributes(); ?>>
 <head prefix="og: http://ogp.me/ns#">
-<meta charset="UTF-8">
+<meta charset="<?php bloginfo('charset'); ?>">
 <title>
 <?php wp_title( '|', true, 'right'); ?>
 <?php bloginfo( 'name' ); ?>

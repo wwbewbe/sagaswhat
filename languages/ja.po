@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2016-06-30 08:56+0900\n"
+"PO-Revision-Date: 2016-06-30 09:08+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:7
+msgid "This is not the web page you are looking for."
+msgstr "４０４エラー：あなたが探している web ページはありません。"
+
+#: 404.php:7
+msgid "Please use below search form to find the page."
+msgstr "ページを見つけるための以下の検索フォームを使用してください。"
+
+#: functions.php:232
+msgid "Event name"
+msgstr "イベント名"
+
+#: functions.php:240
+msgid "Venue/Location"
+msgstr "会場/場所"
+
+#: functions.php:247
+msgid "Dates"
+msgstr "開催期間"
+
+#: functions.php:272
+msgid "Note"
+msgstr "備考"
+
+#: functions.php:278
+msgid "Open hours"
+msgstr "時間"
+
+#: functions.php:283
+msgid "Admission"
+msgstr "料金"
+
+#: functions.php:288
+msgid "Address"
+msgstr "住  所  "
+
+#: functions.php:293
+msgid "Contact"
+msgstr "お問合わせ"
+
+#: page-recommend.php:10
+msgid "Recommended Events Select 10"
+msgstr "おすすめイベント　10選"
+
+#: page-recommend.php:17
+msgid "* It has sorted events in close order."
+msgstr "＊近い順に並び替えました。"
+
+#: page-recommend.php:20
+msgid "Sort in close order"
+msgstr "近い順に並び替え"
+
+#: page-recommend.php:22
+msgid "* you can sort events in close oder from here"
+msgstr "＊ここから場所の近い順にイベントを並び替えることができます。"
+
+#: search.php:9
+msgid "search results"
+msgstr "検索結果"
+
+#: sidebar.php:9
+msgid "Featured Events"
+msgstr "注目のイベント"
