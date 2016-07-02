@@ -227,19 +227,24 @@ add_theme_support( 'custom-header', array(
 function event_info_to_the_content( $content ) {
 	global $post;
 	// イベント名
-	$url = esc_html( get_post_meta($post->ID, 'url', true) );
-	$eventname = esc_html( get_post_meta($post->ID, 'eventname', true) );
-	$thname = __('Event name', 'SagasWhat');
-	if( $eventname && $url ) {
-		$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$url.'" target="_blank">' . $eventname . '</a></td></tr>';
-	} elseif( $eventname ) {
-		$info = $info . '<tr><th>'.$thname.'</th><td>' . $eventname . '</td></tr>';
+	if( $eventname = esc_html( get_post_meta($post->ID, 'eventname', true) ) ) {
+		$thname = __('Event name', 'SagasWhat');
+		if( $url = esc_html( get_post_meta($post->ID, 'url', true) ) ) {
+			$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$url.'" target="_blank">' . $eventname . '</a></td></tr>';
+		} else {
+			$info = $info . '<tr><th>'.$thname.'</th><td>' . $eventname . '</td></tr>';
+		}
 	}
 	// 会場・場所
 	if( $venue = esc_html( get_post_meta($post->ID, 'venue', true) ) ) {
 		$thname = __('Venue/Location', 'SagasWhat');
-		$info = $info . '<tr><th>'.$thname.'</th><td>' . $venue . '</td></tr>';
-		$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $venue . '</td></tr>'; // preview information
+		if ( $venueurl = esc_html( get_post_meta($post->ID, 'venueurl', true) ) ) {
+			$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$venueurl.'" target="_blank">' . $venue . '</a></td></tr>';
+			$preview = $preview . '<tr><th>'.$thname.'</th><td><a href="'.$venueurl.'" target="_blank">' . $venue . '</a></td></tr>'; // preview information
+		} else {
+			$info = $info . '<tr><th>'.$thname.'</th><td>' . $venue . '</td></tr>';
+			$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $venue . '</td></tr>'; // preview information
+		}
 	}
 	// 開催期間
 	$eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) );
