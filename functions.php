@@ -252,22 +252,39 @@ function event_info_to_the_content( $content ) {
 	$thname = __('Dates', 'SagasWhat');
 	if($eventopen && $eventclose) {
 		if($eventopen == $eventclose) {
-			$dates = date('l, j F, Y', strtotime($eventclose));
+			if ( get_bloginfo('language') == 'ja' ) {
+				$dates = date_i18n('Y年n月j日(D)', strtotime($eventclose));
+			} else {
+				$dates = date_i18n('l, j F, Y', strtotime($eventclose));
+			}
 			$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 			$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>'; // preview information
 		} else {
-			$eventopen = date('l, j F', strtotime($eventopen));
-			$eventclose = date('l, j F, Y', strtotime($eventclose));
+			if ( get_bloginfo('language') == 'ja' ) {
+				$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
+				$eventclose = date_i18n('Y年n月j日(D)', strtotime($eventclose));
+			} else {
+				$eventopen = date_i18n('l, j F', strtotime($eventopen));
+				$eventclose = date_i18n('l, j F, Y', strtotime($eventclose));
+			}
 			$dates = $eventopen . ' ~ ' . $eventclose;
 			$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 			$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>'; // preview information
 		}
 	} elseif($eventopen || $eventclose) {
 		if ($eventopen) {
-			$eventopen = date('l, j F', strtotime($eventopen));
+			if ( get_bloginfo('language') == 'ja' ) {
+				$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
+			} else {
+				$eventopen = date_i18n('l, j F', strtotime($eventopen));
+			}
 		}
 		if ($eventclose) {
-			$eventclose = date('l, j F, Y', strtotime($eventclose));
+			if ( get_bloginfo('language') == 'ja' ) {
+				$eventclose = date_i18n('Y年n月j日(D)', strtotime($eventclose));
+			} else {
+				$eventclose = date_i18n('l, j F, Y', strtotime($eventclose));
+			}
 		}
 		$dates = $eventopen . ' ~ ' . $eventclose;
 		$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
