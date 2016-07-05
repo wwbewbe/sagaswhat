@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-06-30 08:56+0900\n"
-"PO-Revision-Date: 2016-06-30 13:37+0900\n"
+"POT-Creation-Date: 2016-07-05 20:11+0900\n"
+"PO-Revision-Date: 2016-07-05 20:12+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -24,7 +24,7 @@ msgstr "４０４エラー：あなたが探している web ページはあり�
 msgid "Please use below search form to find the page."
 msgstr "ページを見つけるための以下の検索フォームを使用してください。"
 
-#: functions.php:232
+#: functions.php:231
 msgid "Event name"
 msgstr "イベント名"
 
@@ -32,27 +32,27 @@ msgstr "イベント名"
 msgid "Venue/Location"
 msgstr "会場/場所"
 
-#: functions.php:247
+#: functions.php:252
 msgid "Dates"
 msgstr "開催期間"
 
-#: functions.php:272
+#: functions.php:294
 msgid "Note"
 msgstr "備考"
 
-#: functions.php:278
+#: functions.php:300
 msgid "Open hours"
 msgstr "時間"
 
-#: functions.php:283
+#: functions.php:305
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:288
+#: functions.php:310
 msgid "Address"
 msgstr "住所"
 
-#: functions.php:293
+#: functions.php:315
 msgid "Contact"
 msgstr "お問合わせ"
 
@@ -71,6 +71,10 @@ msgstr "近い順に並び替え"
 #: page-recommend.php:22
 msgid "* you can sort events in close oder from here"
 msgstr "＊ここから場所の近い順にイベントを並び替えることができます。"
+
+#: page-toppage.php:52
+msgid "Upcoming Events"
+msgstr "開催予定のイベント"
 
 #: search.php:9
 msgid "search results"
