@@ -86,9 +86,7 @@
 	        // 並び替え用の数値として距離「distance」を追加
 //			update_post_meta($spot_item->ID, 'distance', $distance);
 	        $myposts[$key]->distance = $distance;
-	    } else {
-			$myposts[$key]->distance = 0;
-		}
+	    }
 	}
 	//      距離で並び替えるという比較関数を定義
 	function itemsort_by_distance( $a , $b){
@@ -96,8 +94,10 @@
 		$myposts = strcmp( $a->distance , $b->distance );
 		return $myposts;
 	}
-	//      比較関数にそって並び替え
-	usort( $myposts , "itemsort_by_distance" );
+	if (($spotLat) && ($spotLng) && ($lat) && ($lng)) {
+		//      比較関数にそって並び替え
+		usort( $myposts , "itemsort_by_distance" );
+	}
 
 	//  並び替えたイベント情報を出力
 ?>
