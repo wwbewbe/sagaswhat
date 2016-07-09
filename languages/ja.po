@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-07-05 20:11+0900\n"
-"PO-Revision-Date: 2016-07-05 20:12+0900\n"
+"POT-Creation-Date: 2016-07-09 16:56+0900\n"
+"PO-Revision-Date: 2016-07-09 16:56+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -83,3 +83,7 @@ msgstr "検索結果"
 #: sidebar.php:9
 msgid "Featured Events"
 msgstr "注目のイベント"
+
+#: single.php:105
+msgid "Related events"
+msgstr "関連イベント"

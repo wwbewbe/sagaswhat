@@ -102,7 +102,7 @@
 	} else { $myposts = null; }
 	if( $myposts ): ?>
 	<aside class="mymenu mymenu-thumb mymenu-related">
-	<h2>Related events</h2>
+	<h2><?php _e('Related events', 'SagasWhat'); ?></h2>
 	<ul>
 		<?php foreach($myposts as $post):
 		setup_postdata($post); ?>
