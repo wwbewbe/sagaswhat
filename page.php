@@ -12,48 +12,9 @@
 			'posts_per_page'=> '10',
 			'category_name'	=> esc_attr($post->post_name),  // 'カテゴリースラッグ' => 'ページスラッグ'
 			'meta_key'		=> 'recommend',
-			'orderby'		=> 'meta_value_num',
-			'meta_query'	=> array(
-				'relation'		=> 'OR',
-				array(
-					'relation'		=> 'AND',
-					array(
-						'key'		=> 'eventclose',
-						'compare'	=> 'NOT EXISTS',
-					),
-					array(
-						'key'		=> 'eventopen',			//カスタムフィールドのイベント開催日欄
-						'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
-						'compare'	=> '<=',				//今日以前なら表示
-					),
-				),
-				array(
-					'relation'		=> 'AND',
-					array(
-						'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
-						'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
-						'compare'	=> '>=',				//今日以降なら表示
-					),
-					array(
-						'key'		=> 'eventopen',
-						'compare'	=> 'NOT EXISTS',
-					),
-				),
-				array(
-					'reration'		=> 'AND',
-					array(
-						'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
-						'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
-						'compare'	=> '>=',				//今日以降なら表示
-					),
-					array(
-						'key'		=> 'eventopen',			//カスタムフィールドのイベント開催日欄
-						'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
-						'compare'	=> '<=',				//今日以前なら表示
-					),
-				),
-			),
-			'paged'=>$paged
+			'orderby'		=> array('meta_value_num'=>'DESC'),
+			'meta_query'	=> get_meta_query_recargs(),
+			'paged'			=> $paged,
 		); ?>
 	<?php $the_query = new WP_Query($args); ?>
 

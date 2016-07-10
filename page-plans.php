@@ -34,7 +34,7 @@
 			'posts_per_page'=> '10',
 			'cat'           => '-1',		// 未分類を除外
 			'meta_key'		=> 'recommend',
-			'orderby'		=> 'meta_value_num',
+			'orderby'		=> array('meta_value_num'=>'DESC'),
 			'meta_query'	=> array(
 				'relation'		=> 'AND',
 				array(

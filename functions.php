@@ -167,7 +167,6 @@ function strAddrToLatLng( $strAddr ) {
 
     $strLat = (string)$aryGeo['results'][0]['geometry']['location']['lat'];
     $strLng = (string)$aryGeo['results'][0]['geometry']['location']['lng'];
-//    return $strLat . ',' . $strLng;
 	$LatLng = array('Lat'=>$strLat, 'Lng'=>$strLng);
 	return $LatLng;
 }
@@ -322,7 +321,7 @@ function event_info_to_the_content( $content ) {
 
 	return $pretable . $content . $table;
 }
-add_filter( 'the_content', 'event_info_to_the_content', 1 );
+add_action( 'the_content', 'event_info_to_the_content', 1 );
 
 // 現在イベントが終了しているかどうかをチェック(ループのパラメータで指定できたので未使用)
 function is_event_close() {
@@ -434,56 +433,83 @@ function QueryListFilter($query) {
 		$query->set('posts_per_page', '10');		// 一覧表示数
 		$query->set('category__not_in', array(1));	// 未分類のカテゴリを非表示
 		$query->set('meta_key', 'recommend');		// 推奨値の順に表示
-		$query->set('orderby', 'meta_value_num');	// 推奨値の高い順
-		$query->set('meta_query', array(
-			'relation'		=> 'OR',
-			array(
-				'relation'		=> 'AND',
-				array(
-					'key'		=> 'eventclose',
-					'compare'	=> 'NOT EXISTS',
-				),
-				array(
-					'key'		=> 'eventopen', 		//カスタムフィールドのイベント開催日欄
-					'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
-					'compare'	=> '<=', 				//今日以前なら表示
-				),
-			),
-			array(
-				'relation'		=> 'AND',
-				array(
-					'key'		=> 'eventclose', 		//カスタムフィールドのイベント終了日欄
-					'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
-					'compare'	=> '>=', 				//今日以降なら表示
-				),
-				array(
-					'key'		=> 'eventopen',
-					'compare'	=> 'NOT EXISTS',
-				),
-			),
-			array(
-				'reration'		=> 'AND',
-				array(
-					'key'		=> 'eventclose', 		//カスタムフィールドのイベント終了日欄
-					'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
-					'compare'	=> '>=', 				//今日以降なら表示
-				),
-				array(
-					'key'		=> 'eventopen', 		//カスタムフィールドのイベント開催日欄
-					'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
-					'compare'	=> '<=', 				//今日以前なら表示
-				),
-			),
-		));
+		$query->set('orderby', array('meta_value_num'=>'DESC'));	// 推奨値の高い順
+		$query->set('meta_query', get_meta_query_args());
 	}
 	return $query;
 }
-add_filter('pre_get_posts','QueryListFilter');
+add_action('pre_get_posts','QueryListFilter');
 
 // カテゴリ一覧ウィジェットから特定のカテゴリを除外
 function my_theme_catexcept($cat_args){
-    $exclude_id = '1';						// 除外するカテゴリID(未分類)
+    $exclude_id = '1';					// 除外するカテゴリID(未分類)
     $cat_args['exclude'] = $exclude_id;	// 除外
     return $cat_args;
 }
 add_filter('widget_categories_args', 'my_theme_catexcept',10);
+
+function get_meta_query_args() {
+	$args = array(
+		'relation'		=> 'OR',
+		array(
+			'relation'		=> 'AND',
+			array(
+				'key'		=> 'eventclose',
+				'compare'	=> 'NOT EXISTS',
+			),
+			array(
+				'key'		=> 'eventopen',			//カスタムフィールドのイベント開催日欄
+				'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
+				'compare'	=> '<=',				//今日以前なら表示
+			),
+		),
+		array(
+			'relation'		=> 'AND',
+			array(
+				'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
+				'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
+				'compare'	=> '>=',				//今日以降なら表
+			),
+			array(
+				'key'		=> 'eventopen',
+				'compare'	=> 'NOT EXISTS',
+			),
+		),
+		array(
+			'reration'		=> 'AND',
+			array(
+				'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
+				'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
+				'compare'	=> '>=',				// 今日以降なら表示
+			),
+			array(
+				'key'		=> 'eventopen',			//カスタムフィールドのイベント開催日欄
+				'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
+				'compare'	=> '<=',				//今日以前なら表示
+			),
+		),
+	);
+	return $args;
+}
+
+function get_meta_query_recargs( $recommend ) {
+	$args = array(
+		'reration'		=> 'AND',
+		array(
+			'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
+			'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
+			'compare'	=> '>=',				// 今日以降なら表示
+		),
+		array(
+			'key'		=> 'eventopen',			//カスタムフィールドのイベント開催日欄
+			'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
+			'compare'	=> '<=',				//今日以前なら表示
+		),
+		array(
+			'key'		=> 'recommend',			//カスタムフィールドのおすすめ度
+			'value'		=> $recommend,			//
+			'compare'	=> '>=',				//指定のおすすめ度以上を表示
+		),
+	);
+	return $args;
+}
