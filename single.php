@@ -58,7 +58,7 @@
 			'post__not_in'	=> array( $post->ID),
 			'category__in'	=> $catkwds,
 			'orderby'		=> 'rand',
-			'meta_query'	=> get_meta_query_recargs(),
+			'meta_query'	=> get_meta_query_args(),
 		) );
 	} else { $myposts = null; }
 	if( $myposts ): ?>

@@ -7,7 +7,7 @@
 <div class="contents">
 
 <article <?php post_class( 'kiji' ); ?>>
-	<h1><?php _e('Recommended Events Select 10', 'SagasWhat'); ?></h1>
+	<h1><?php _e('Recommended Events', 'SagasWhat'); ?></h1>
 <?php
 	//  URLのパラメター(緯度と経度の位置情報)を取得
 	$lat = (isset($_GET['lat'])) ? esc_html($_GET['lat']) : '';
@@ -25,7 +25,7 @@
 
 <?php
 	//  距離チェック
-	$meta_query_args = get_meta_query_recargs('4');
+	$meta_query_args = get_meta_query_args('4');
 	$args = array(
 	    'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
 	    'posts_per_page' => '-1',		// 全件表示
@@ -60,7 +60,7 @@
 
 	<?php
 	//並び替え
-	$meta_query_args = get_meta_query_recargs('4');
+	$meta_query_args = get_meta_query_args('4');
 	if (($lat) && ($lng)) {
 		$args = array(
 		    'post_type'		=> 'post',		// カスタム投稿タイプチェックイン

@@ -13,7 +13,7 @@
 			'category_name'	=> esc_attr($post->post_name),  // 'カテゴリースラッグ' => 'ページスラッグ'
 			'meta_key'		=> 'recommend',
 			'orderby'		=> array('meta_value_num'=>'DESC'),
-			'meta_query'	=> get_meta_query_recargs(),
+			'meta_query'	=> get_meta_query_args(),
 			'paged'			=> $paged,
 		); ?>
 	<?php $the_query = new WP_Query($args); ?>

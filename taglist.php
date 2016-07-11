@@ -7,7 +7,7 @@ $args=array(
             'tag'           => $tagname,    // タグを指定
             'meta_key'		=> 'recommend',
             'orderby'		=> array('meta_value_num'=>'DESC'),
-            'meta_query'	=> get_meta_query_recargs(),
+            'meta_query'	=> get_meta_query_args(),
         ); ?>
 <?php $the_query = new WP_Query($args); ?>
 

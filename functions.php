@@ -448,7 +448,7 @@ function my_theme_catexcept($cat_args){
 }
 add_filter('widget_categories_args', 'my_theme_catexcept',10);
 
-function get_meta_query_args() {
+function get_meta_query_args( $recommend ) {
 	$args = array(
 		'relation'		=> 'OR',
 		array(
@@ -462,17 +462,10 @@ function get_meta_query_args() {
 				'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
 				'compare'	=> '<=',				//今日以前なら表示
 			),
-		),
-		array(
-			'relation'		=> 'AND',
 			array(
-				'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
-				'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
-				'compare'	=> '>=',				//今日以降なら表
-			),
-			array(
-				'key'		=> 'eventopen',
-				'compare'	=> 'NOT EXISTS',
+				'key'		=> 'recommend',			//カスタムフィールドのおすすめ度
+				'value'		=> $recommend,			//
+				'compare'	=> '>=',				//指定のおすすめ度以上を表示
 			),
 		),
 		array(
@@ -487,28 +480,11 @@ function get_meta_query_args() {
 				'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
 				'compare'	=> '<=',				//今日以前なら表示
 			),
-		),
-	);
-	return $args;
-}
-
-function get_meta_query_recargs( $recommend ) {
-	$args = array(
-		'reration'		=> 'AND',
-		array(
-			'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
-			'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
-			'compare'	=> '>=',				// 今日以降なら表示
-		),
-		array(
-			'key'		=> 'eventopen',			//カスタムフィールドのイベント開催日欄
-			'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
-			'compare'	=> '<=',				//今日以前なら表示
-		),
-		array(
-			'key'		=> 'recommend',			//カスタムフィールドのおすすめ度
-			'value'		=> $recommend,			//
-			'compare'	=> '>=',				//指定のおすすめ度以上を表示
+			array(
+				'key'		=> 'recommend',			//カスタムフィールドのおすすめ度
+				'value'		=> $recommend,			//
+				'compare'	=> '>=',				//指定のおすすめ度以上を表示
+			),
 		),
 	);
 	return $args;
