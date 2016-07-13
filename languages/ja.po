@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2016-07-11 15:44+0900\n"
-"PO-Revision-Date: 2016-07-11 15:45+0900\n"
+"PO-Revision-Date: 2016-07-13 13:06+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -70,7 +70,7 @@ msgstr "近い順に並び替え"
 
 #: page-recommend.php:22
 msgid "* you can sort events in close oder from here"
-msgstr "＊ここから場所の近い順にイベントを並び替えることができます。"
+msgstr "＊現在地から会場の近い順にイベントを並び替えることができます。"
 
 #: page-toppage.php:52
 msgid "Upcoming Events"
