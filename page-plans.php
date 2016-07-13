@@ -12,7 +12,7 @@
 		$target = (isset($_GET['target'])) ? esc_html($_GET['target']) : '';
 		if($target == 1) {
 			$opendates=date_i18n( "Y/m/t" );
-			$closedates=date_i18n( "Y/m/01" );
+			$closedates=date_i18n( "Y/m/d" );//今日以降の終了日のイベント抽出（開催中のものだけ表示）
 			$showmonth=date_i18n("[F, Y]");
 		} elseif($target == 2) {
 			$opendates=date_i18n( "Y/m/t", strtotime("+1 month") );
@@ -32,9 +32,10 @@
 	$args=array(
 			'post_type'		=> 'post',
 			'posts_per_page'=> '10',
-			'cat'           => '-1',		// 未分類を除外
+			'cat'           => '-1',				// 未分類を除外
 			'meta_key'		=> 'recommend',
 			'orderby'		=> array('meta_value_num'=>'DESC'),
+			'paged'			=> $paged,
 			'meta_query'	=> array(
 				'relation'		=> 'AND',
 				array(
@@ -48,7 +49,6 @@
 					'compare'	=> '<=',			//対象月以前なら表示
 				),
 			),
-			'paged'=>$paged
 		); ?>
 	<?php $the_query = new WP_Query($args); ?>
 
@@ -58,11 +58,7 @@
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):
 	$the_query->the_post(); ?>
 
-	<?php
-	$eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) );
-	if ($eventclose >= date_i18n("Y/m/d"))
-		get_template_part( 'gaiyou', 'medium' );
-	?>
+	<?php get_template_part( 'gaiyou', 'medium' ); ?>
 
 	<?php endwhile; endif; ?>
 
