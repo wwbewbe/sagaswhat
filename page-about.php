@@ -1,5 +1,8 @@
 <?php get_header(); ?>
 
+<div class="sub-header">
+</div>
+
 <div class="container">
 <div class="contents">
 	<?php if(have_posts()): while(have_posts()):

@@ -58,7 +58,7 @@
 		$post = get_post( $post->object_id );
 		setup_postdata($post); $count++;?>
 		<li><a href="<?php the_permalink(); ?>?target=<?php echo $count; ?>">
-		<div class="thumb" style="background-image: url(<?php echo get_image_url('full', $count); ?>)"></div>
+		<div class="thumb" style="background-image: url(<?php echo get_upcoming_image($count); ?>)"></div>
 		<div class="text">
 		<?php //echo $title; //the_title(); ?>
 		</div>

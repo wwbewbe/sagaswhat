@@ -119,19 +119,40 @@ function get_image_url($size, $count) {
 	return $url;
 }
 
-// Upcoming記事内に添付した画像からeventclose画像IDを取得
-function get_closeimage_id() {
-	global $post;
-	$count = 0;
-	if (preg_match_all( '/wp-image-(\d+)/s', $post->post_content, $thumbid)) {
-		while (isset($thumbid[1][$count])) {
-			$imgmeta = wp_get_attachment_metadata( $thumbid[1][$count] );
-			if ($imgmeta->image_meta->title == 'eventclose') {
-				return $thumbid[1][$count];
+// Upcoming Listのサムネイル画像をメディアライブラリから取得(URLを返却)
+function get_upcoming_image($count) {
+	$attachments = get_children(array('post_type' => 'attachment', 'post_mime_type' => 'image'));
+	if(!empty($attachments)){
+		$thismonth=date_i18n('F');//This Month
+		$nextmonth=date_i18n('F', strtotime("+1 month"));//Next Month
+		$twomonth=date_i18n('F', strtotime("+2 month"));//2 Month Later
+		$threemonth=date_i18n('F', strtotime("+3 month"));//3 Month Later
+		foreach($attachments as $attachment){
+			switch($count) {
+			case '1':	//This Month
+				if($attachment->post_title == $thismonth) {
+					$url = wp_get_attachment_url($attachment->ID);
+				}
+				break;
+			case '2':	//Next Month
+				if($attachment->post_title == $nextmonth) {
+					$url = wp_get_attachment_url($attachment->ID);
+				}
+				break;
+			case '3':	//2 Month Later
+				if($attachment->post_title == $twomonth) {
+					$url = wp_get_attachment_url($attachment->ID);
+				}
+				break;
+			case '4':	//3 Month Later
+				if($attachment->post_title == $threemonth) {
+					$url = wp_get_attachment_url($attachment->ID);
+				}
+				break;
 			}
 		}
 	}
-	return false;
+	return $url;
 }
 
 // カスタムメニュー

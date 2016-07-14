@@ -8,24 +8,28 @@
 
 	<?php
 		//  URLのパラメター(リストする対象の月)を取得
-		// 1:This Month, 2:Next Month, 3:2 Month Later, 4:3 Month Later
 		$target = (isset($_GET['target'])) ? esc_html($_GET['target']) : '';
-		if($target == 1) {
+		switch($target) {
+		case '1':	//This Month
 			$opendates=date_i18n( "Y/m/t" );
 			$closedates=date_i18n( "Y/m/d" );//今日以降の終了日のイベント抽出（開催中のものだけ表示）
 			$showmonth=date_i18n("[F, Y]");
-		} elseif($target == 2) {
+			break;
+		case '2':	//Next Month
 			$opendates=date_i18n( "Y/m/t", strtotime("+1 month") );
 			$closedates=date_i18n( "Y/m/01", strtotime("+1 month") );
 			$showmonth=date_i18n("[F, Y]", strtotime("+1 month"));
-		} elseif($target == 3) {
+			break;
+		case '3':	//2 Month Later
 			$opendates=date_i18n( "Y/m/t", strtotime("+2 month") );
 			$closedates=date_i18n( "Y/m/01", strtotime("+2 month") );
 			$showmonth=date_i18n("[F, Y]", strtotime("+2 month"));
-		} elseif($target == 4) {
+			break;
+		case '4':	//3 Month Later
 			$opendates=date_i18n( "Y/m/t", strtotime("+3 month") );
 			$closedates=date_i18n( "Y/m/01", strtotime("+3 month") );
 			$showmonth=date_i18n("[F, Y]", strtotime("+3 month"));
+			break;
 		}
 	?>
 	<?php
