@@ -1,24 +1,6 @@
 <?php get_header(); ?>
 
 <div class="sub-header">
-	<div class="bread">
-	<ol>
-		<li><a href="<?php echo home_url(); ?>">
-		<i class="fa fa-home"></i><span>TOP</span>
-		</a></li>
-
-		<li>
-		<?php if( $cat ): ?>
-		<?php $catdata=get_category( $cat ); ?>
-		<?php if( $catdata->parent ): ?>
-		<?php echo get_category_parents( $catdata->parent, true, '</li><li>'); ?>
-		<?php endif; ?>
-		<?php endif; ?>
-		<a><?php single_term_title(); ?></a>
-		</li>
-
-	</ol>
-	</div>
 </div>
 
 <div class="container">

@@ -510,3 +510,6 @@ function get_meta_query_args( $recommend ) {
 	);
 	return $args;
 }
+
+//固定ページにも抜粋(excerpt)を使えるようにする。
+add_post_type_support( 'page', 'excerpt' );
