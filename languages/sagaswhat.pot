@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SagasWhat\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2016-07-11 15:44+0900\n"
+"POT-Creation-Date: 2016-07-16 11:18+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,36 +26,52 @@ msgstr ""
 msgid "Please use below search form to find the page."
 msgstr ""
 
-#: functions.php:230
+#: functions.php:252
 msgid "Event name"
 msgstr ""
 
-#: functions.php:239
+#: functions.php:261
 msgid "Venue/Location"
 msgstr ""
 
-#: functions.php:251
+#: functions.php:273
 msgid "Dates"
 msgstr ""
 
-#: functions.php:293
+#: functions.php:315
 msgid "Note"
 msgstr ""
 
-#: functions.php:299
+#: functions.php:321
 msgid "Open hours"
 msgstr ""
 
-#: functions.php:304
+#: functions.php:326
 msgid "Admission"
 msgstr ""
 
-#: functions.php:309
+#: functions.php:331
 msgid "Address"
 msgstr ""
 
-#: functions.php:314
+#: functions.php:336
 msgid "Contact"
+msgstr ""
+
+#: page-nearby.php:41
+msgid "Nearby Events"
+msgstr ""
+
+#: page-nearby.php:43
+msgid "Please wait until get the location information & list Nearby Events..."
+msgstr ""
+
+#: page-nearby.php:104
+msgid "Nearby Events being held were not found..."
+msgstr ""
+
+#: page-nearby.php:106
+msgid "Nearby Events being held found &quot;"
 msgstr ""
 
 #: page-recommend.php:10
@@ -74,7 +90,7 @@ msgstr ""
 msgid "* you can sort events in close oder from here"
 msgstr ""
 
-#: page-toppage.php:52
+#: page-toppage.php:78
 msgid "Upcoming Events"
 msgstr ""
 

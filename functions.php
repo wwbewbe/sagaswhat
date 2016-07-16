@@ -162,6 +162,7 @@ register_nav_menu( 'pagenav', 'Page Navigation' );
 register_nav_menu( 'categorynav', 'Category Menu' );
 register_nav_menu( 'newsnav', 'News' );
 register_nav_menu( 'upcomingnav', 'Upcoming Menu' );
+register_nav_menu( 'nearbynav', 'Nearby Menu' );
 
 // トグルボタン
 function navbtn_scripts() {

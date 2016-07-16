@@ -24,6 +24,7 @@
 </article>
 
 <?php
+if (($lat) && ($lng)) {
 	//  距離チェック
 	$meta_query_args = get_meta_query_args('4');
 	$args = array(
@@ -41,24 +42,25 @@
 		while($the_query->have_posts()) {
 			$the_query->the_post();
 			//現在地からイベント場所の距離を算出してデータに追加
-				$address = esc_html( get_post_meta($post->ID, 'address', true) );
-				$LatLng = strAddrToLatLng($address);
-				$spotLat = $LatLng['Lat'];
-				$spotLng = $LatLng['Lng'];
-			    if (($spotLat) && ($spotLng) && ($lat) && ($lng)) {
-			        $distanceLat = $spotLat - $lat;
-			        $distanceLng = $spotLng - $lng;
-			        // 距離の算出　pow = 乗算 / sqrt = 平方根
-			        $distance = sqrt(pow( $distanceLat ,2) + pow( $distanceLng ,2));
-			        // 並び替え用の数値として距離「distance」を追加
-					update_post_meta($post->ID, 'distance', $distance);
-			    }
+			$address = esc_html( get_post_meta($post->ID, 'address', true) );
+			$LatLng = strAddrToLatLng($address);
+			$spotLat = $LatLng['Lat'];
+			$spotLng = $LatLng['Lng'];
+		    if (($spotLat) && ($spotLng)) {
+		        $distanceLat = $spotLat - $lat;
+		        $distanceLng = $spotLng - $lng;
+		        // 距離の算出　pow = 乗算 / sqrt = 平方根
+		        $distance = sqrt(pow( $distanceLat ,2) + pow( $distanceLng ,2));
+		        // 並び替え用の数値として距離「distance」を追加
+				update_post_meta($post->ID, 'distance', $distance);
+		    }
 		}
 	}
-	?>
-	<?php wp_reset_postdata(); ?>
+	wp_reset_postdata();
+}
+?>
 
-	<?php
+<?php
 	//並び替え
 	$meta_query_args = get_meta_query_args('4');
 	if (($lat) && ($lng)) {
@@ -83,7 +85,7 @@
 			'meta_query'	=> $meta_query_args,//開催中のイベント抽出
 		);
 	}
-	?>
+?>
 	<?php $the_query = new WP_Query($args); ?>
 
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):

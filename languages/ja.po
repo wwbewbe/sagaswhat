@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-07-11 15:44+0900\n"
-"PO-Revision-Date: 2016-07-13 13:06+0900\n"
+"POT-Creation-Date: 2016-07-16 11:19+0900\n"
+"PO-Revision-Date: 2016-07-16 15:29+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -24,37 +24,53 @@ msgstr "４０４エラー：あなたが探している web ページはあり�
 msgid "Please use below search form to find the page."
 msgstr "ページを見つけるための以下の検索フォームを使用してください。"
 
-#: functions.php:230
+#: functions.php:252
 msgid "Event name"
 msgstr "イベント名"
 
-#: functions.php:239
+#: functions.php:261
 msgid "Venue/Location"
 msgstr "会場/場所"
 
-#: functions.php:251
+#: functions.php:273
 msgid "Dates"
 msgstr "開催期間"
 
-#: functions.php:293
+#: functions.php:315
 msgid "Note"
 msgstr "備考"
 
-#: functions.php:299
+#: functions.php:321
 msgid "Open hours"
 msgstr "時間"
 
-#: functions.php:304
+#: functions.php:326
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:309
+#: functions.php:331
 msgid "Address"
 msgstr "住所"
 
-#: functions.php:314
+#: functions.php:336
 msgid "Contact"
 msgstr "お問合わせ"
+
+#: page-nearby.php:41
+msgid "Nearby Events"
+msgstr "周辺イベント"
+
+#: page-nearby.php:43
+msgid "Please wait until get the location information & list Nearby Events..."
+msgstr "位置情報を取得し周辺のイベントを探しています。しばらくお待ちください。"
+
+#: page-nearby.php:104
+msgid "Nearby Events being held were not found..."
+msgstr "周辺で開催中のイベントは見つかりませんでした。"
+
+#: page-nearby.php:106
+msgid "Nearby Events being held found &quot;"
+msgstr "周辺で開催中のイベント数 &quot;"
 
 #: page-recommend.php:10
 msgid "Recommended Events"
@@ -72,7 +88,7 @@ msgstr "近い順に並び替え"
 msgid "* you can sort events in close oder from here"
 msgstr "＊現在地から会場の近い順にイベントを並び替えることができます。"
 
-#: page-toppage.php:52
+#: page-toppage.php:78
 msgid "Upcoming Events"
 msgstr "開催予定のイベント"
 
