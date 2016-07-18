@@ -58,7 +58,6 @@
 		<div class="thumb" style="background-image: url(<?php echo mythumb( 'medium' ); ?>)"></div>
 		<div class="text">
 		<h2><?php the_title(); ?></h2>
-		<?php the_excerpt(); ?>
 		</div>
 		</a></li>
 		<?php endif;
