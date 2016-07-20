@@ -470,47 +470,58 @@ function my_theme_catexcept($cat_args){
 }
 add_filter('widget_categories_args', 'my_theme_catexcept',10);
 
-function get_meta_query_args( $recommend ) {
+function get_meta_query_args( $recommend, $distance = NULL ) {
 	$args = array(
-		'relation'		=> 'OR',
-		array(
-			'relation'		=> 'AND',
+		'relation'		=> 'AND',
+		'meta_close'=>array(
+			'relation'		=> 'OR',
 			array(
-				'key'		=> 'eventclose',
-				'compare'	=> 'NOT EXISTS',
+				'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
+				'compare'	=> 'NOT EXISTS',		//カスタムフィールドがない場合も表示
 			),
-			array(
-				'key'		=> 'eventopen',			//カスタムフィールドのイベント開催日欄
-				'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
-				'compare'	=> '<=',				//今日以前なら表示
-			),
-			array(
-				'key'		=> 'recommend',			//カスタムフィールドのおすすめ度
-				'value'		=> $recommend,			//
-				'compare'	=> '>=',				//指定のおすすめ度以上を表示
-			),
-		),
-		array(
-			'reration'		=> 'AND',
 			array(
 				'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
 				'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
-				'compare'	=> '>=',				// 今日以降なら表示
-			),
-			array(
-				'key'		=> 'eventopen',			//カスタムフィールドのイベント開催日欄
-				'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
-				'compare'	=> '<=',				//今日以前なら表示
-			),
-			array(
-				'key'		=> 'recommend',			//カスタムフィールドのおすすめ度
-				'value'		=> $recommend,			//
-				'compare'	=> '>=',				//指定のおすすめ度以上を表示
+				'compare'	=> '>=',				//今日以降なら表示
+				'type'		=> 'date',				//タイプに日付を指定
 			),
 		),
+		'meta_open'=>array(
+/*			'reration'		=> 'OR',
+			array(
+				'key'		=> 'eventopen',
+				'compare'	=> 'NOT EXISTS',
+			),
+			array(
+*/				'key'		=> 'eventopen',			//カスタムフィールドのイベント開催日欄
+				'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
+				'compare'	=> '<=',				//今日以前なら表示
+				'type'		=> 'date',				//タイプに日付を指定
+//			),
+		),
+		'meta_recommend'=>array(
+			'key'		=> 'recommend',				//カスタムフィールドのおすすめ度
+			'value'		=> $recommend,				//
+			'compare'	=> '>=',					//指定のおすすめ度以上を表示
+			'type'		=> 'numeric',				//タイプに数値を指定
+		),
 	);
+	if ($distance == 'exists') {
+		$args += array('meta_distance'=>array(
+					'key'		=> 'distance',		//カスタムフィールドの距離データ
+					'compare'	=> 'exists',		//距離データのあるイベントを表示
+				));
+	} elseif ($distance) {
+		$args += array('meta_distance'=>array(
+					'key'		=> 'distance',		//カスタムフィールドの距離データ
+					'value'		=> $distance,		//
+					'compare'	=> '<=',			//指定距離内のイベントを表示
+					'type'		=> 'char',			//タイプに数値を指定
+				));
+	}
+
 	return $args;
 }
 
-//固定ページにも抜粋(excerpt)を使えるようにする。
+//固定ページにも抜粋(excerpt)を使えるようにする
 add_post_type_support( 'page', 'excerpt' );

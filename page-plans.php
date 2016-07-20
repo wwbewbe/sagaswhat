@@ -37,8 +37,7 @@
 			'post_type'		=> 'post',
 			'posts_per_page'=> '10',
 			'cat'           => '-1',				// 未分類を除外
-			'meta_key'		=> 'recommend',
-			'orderby'		=> array('meta_value_num'=>'DESC'),
+			'orderby'		=> array('meta_recommend'=>'desc'),//おすすめ度の高い順で表示
 			'paged'			=> $paged,
 			'meta_query'	=> array(
 				'relation'		=> 'AND',

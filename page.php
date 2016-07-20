@@ -11,8 +11,7 @@
 			'post_type'		=> 'post',
 			'posts_per_page'=> '10',
 			'category_name'	=> esc_attr($post->post_name),  // 'カテゴリースラッグ' => 'ページスラッグ'
-			'meta_key'		=> 'recommend',
-			'orderby'		=> array('meta_value_num'=>'DESC'),
+			'orderby'		=> array('meta_recommend'=>'desc'),//おすすめ度の高い順で表示
 			'meta_query'	=> get_meta_query_args(),
 			'paged'			=> $paged,
 		); ?>
