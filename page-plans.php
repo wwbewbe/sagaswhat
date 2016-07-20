@@ -51,6 +51,12 @@
 					'value'		=> $opendates,		//イベント開催月を比較
 					'compare'	=> '<=',			//対象月以前なら表示
 				),
+				'meta_recommend'=>array(
+					'key'		=> 'recommend',		//カスタムフィールドのおすすめ度
+					'value'		=> '0',				//
+					'compare'	=> '>=',			//おすすめ度0以上を表示
+					'type'		=> 'numeric',		//タイプに数値を指定
+				),
 			),
 		); ?>
 	<?php $the_query = new WP_Query($args); ?>
