@@ -413,21 +413,32 @@ add_shortcode('taglist', 'set_taglist');
 // Google Adsenseを表示するショートコード
 function showads($params = array()) {
 	extract(shortcode_atts(array(
-        				'count' => 1,
+        				'line' => 'off',
 						'type' => 'rectangle',
+						'lang' => 'en',
     					), $params));
-
+//adsense記事用（英語版）
 	$adcode = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- sagaswhat-shortcode -->
+<!-- sagaswhat-post -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:300px;height:250px"
      data-ad-client="ca-pub-6212569927869845"
-     data-ad-slot="2100370814"></ins>
+     data-ad-slot="6381598810"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>';
-
-	$adcoderes = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+//adsense記事用（日本語版）
+	$adcodejp = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- sagaswhat-post-jp -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-6212569927869845"
+     data-ad-slot="9474666013"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>';
+//adsenseレスポンシブデザイン（英語版）
+	$adres = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- sagaswhat-responsive -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -437,13 +448,34 @@ function showads($params = array()) {
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>';
+//adsenseレスポンシブデザイン（日本語版）
+	$adresjp = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- sagaswhat-responsive-jp -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6212569927869845"
+     data-ad-slot="1951399219"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>';
 
-	if (($count == 2) && ($type == 'rectangle')) {
-		return $adcode . $adcode;
-	} elseif ($type == 'responsive') {
-		return $adcoderes;
+	if ($lang == 'jp') {
+		if (($line == 'on') && ($type == 'rectangle')) {
+			return $adcodejp . $adcodejp;
+		} elseif ($type == 'responsive') {
+			return $adresjp;
+		} else {
+	    	return $adcodejp;
+		}
 	} else {
-    	return $adcode;
+		if (($line == 'on') && ($type == 'rectangle')) {
+			return $adcode . $adcode;
+		} elseif ($type == 'responsive') {
+			return $adres;
+		} else {
+	    	return $adcode;
+		}
 	}
 }
 add_shortcode('adsense', 'showads');
