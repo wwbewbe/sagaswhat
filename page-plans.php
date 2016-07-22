@@ -45,11 +45,13 @@
 					'key'		=> 'eventclose',	//カスタムフィールドのイベント終了日欄
 					'value'		=> $closedates,		//イベント終了月を比較
 					'compare'	=> '>=',			//対象月以降なら表示
+					'type'		=> 'date',			//タイプに日付を指定
 				),
 				array(
 					'key'		=> 'eventopen',		//カスタムフィールドのイベント開催日欄
 					'value'		=> $opendates,		//イベント開催月を比較
 					'compare'	=> '<=',			//対象月以前なら表示
+					'type'		=> 'date',			//タイプに日付を指定
 				),
 				'meta_recommend'=>array(
 					'key'		=> 'recommend',		//カスタムフィールドのおすすめ度

@@ -486,8 +486,7 @@ function QueryListFilter($query) {
 		$query->set('post_type', 'post');			// 投稿記事を対象
 		$query->set('posts_per_page', '10');		// 一覧表示数
 		$query->set('category__not_in', array(1));	// 未分類のカテゴリを非表示
-		$query->set('meta_key', 'recommend');		// 推奨値の順に表示
-		$query->set('orderby', array('meta_value_num'=>'DESC'));	// 推奨値の高い順
+		$query->set('orderby', array('meta_recommend'=>'desc'));	// 推奨値の高い順
 		$query->set('meta_query', get_meta_query_args());
 	}
 	return $query;
