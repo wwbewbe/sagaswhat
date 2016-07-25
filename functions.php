@@ -170,6 +170,23 @@ function navbtn_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'navbtn_scripts' );
 
+// Calendar(JQuery datepicker使用)
+function calendar_scripts(){
+	wp_enqueue_script('jquery-ui-core');
+	wp_enqueue_script('jquery-ui-datepicker');
+	wp_enqueue_style('jquery-ui-css', '//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.css');
+	if (get_bloginfo('language') == 'ja') {
+		wp_enqueue_script('jquery-ui-js-ja', '//ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js');
+	}
+}
+add_action( 'wp_enqueue_scripts', 'calendar_scripts' );
+
+// Infinite-scrollを使用
+function scroll_scripts() {
+	wp_enqueue_script( 'scroll-script', get_template_directory_uri() .'/js/jquery.infinitescroll.min.js', array( 'jquery' ) );
+}
+add_action( 'wp_enqueue_scripts', 'scroll_scripts' );
+
 // Geolocationを使用
 function geoloc_scripts() {
 	wp_enqueue_script( 'geoloc-script', get_template_directory_uri() .'/js/geoloc.js', array( 'jquery' ) );

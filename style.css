@@ -1071,3 +1071,25 @@ iframe			{max-width: 100%}
 @media (max-width: 599px) {
 	#nearnav span	{font-size: 12px}
 }
+
+/* Calendar 検索ボタン */
+.ui-datepicker	{font-size: 80% !important}
+#search_date	{padding: 6px 12px;
+				border: solid 1px #aaaaaa;
+				border-radius: 5px;
+				background-color: #87b7db;
+				font-family: 'FontAwesome';
+				font-size: 16px;
+				cursor: pointer;
+				margin-top: 10px;}
+
+#search_date:hover		{background-color: #dddddd}
+
+#search_date:focus		{outline: none}
+
+#search_date i	{color: #888888;
+				font-size: 18px}
+
+#search_date span	{display: inline-block;
+					font-size: 18px;
+					text-indent: 5px}
