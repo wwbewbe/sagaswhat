@@ -12,23 +12,39 @@
 		switch($target) {
 		case '1':	//This Month
 			$opendates=date_i18n( "Y/m/t" );
-			$closedates=date_i18n( "Y/m/d" );//今日以降の終了日のイベント抽出（開催中のものだけ表示）
-			$showmonth=date_i18n("[F, Y]");
+			$closedates=date_i18n( "Y/m/d" );
+			if (get_bloginfo('language') == 'ja') {
+				$showmonth=date_i18n("[Y年F]");
+			} else {
+				$showmonth=date_i18n("[F, Y]");
+			}
 			break;
 		case '2':	//Next Month
 			$opendates=date_i18n( "Y/m/t", strtotime("+1 month") );
 			$closedates=date_i18n( "Y/m/01", strtotime("+1 month") );
-			$showmonth=date_i18n("[F, Y]", strtotime("+1 month"));
+			if (get_bloginfo('language') == 'ja') {
+				$showmonth=date_i18n("[Y年F]", strtotime("+1 month"));
+			} else {
+				$showmonth=date_i18n("[F, Y]", strtotime("+1 month"));
+			}
 			break;
 		case '3':	//2 Month Later
 			$opendates=date_i18n( "Y/m/t", strtotime("+2 month") );
 			$closedates=date_i18n( "Y/m/01", strtotime("+2 month") );
-			$showmonth=date_i18n("[F, Y]", strtotime("+2 month"));
+			if (get_bloginfo('language') == 'ja') {
+				$showmonth=date_i18n("[Y年F]", strtotime("+2 month"));
+			} else {
+				$showmonth=date_i18n("[F, Y]", strtotime("+2 month"));
+			}
 			break;
 		case '4':	//3 Month Later
 			$opendates=date_i18n( "Y/m/t", strtotime("+3 month") );
 			$closedates=date_i18n( "Y/m/01", strtotime("+3 month") );
-			$showmonth=date_i18n("[F, Y]", strtotime("+3 month"));
+			if (get_bloginfo('language') == 'ja') {
+				$showmonth=date_i18n("[Y年F]", strtotime("+3 month"));
+			} else {
+				$showmonth=date_i18n("[F, Y]", strtotime("+3 month"));
+			}
 			break;
 		}
 	?>
