@@ -278,10 +278,8 @@ function event_info_to_the_content( $content ) {
 		$thname = __('Venue/Location', 'SagasWhat');
 		if ( $venueurl = esc_html( get_post_meta($post->ID, 'venueurl', true) ) ) {
 			$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$venueurl.'" target="_blank">' . $venue . '</a></td></tr>';
-			$preview = $preview . '<tr><th>'.$thname.'</th><td><a href="'.$venueurl.'" target="_blank">' . $venue . '</a></td></tr>'; // preview information
 		} else {
 			$info = $info . '<tr><th>'.$thname.'</th><td>' . $venue . '</td></tr>';
-			$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $venue . '</td></tr>'; // preview information
 		}
 	}
 	// 開催期間
@@ -296,7 +294,6 @@ function event_info_to_the_content( $content ) {
 				$dates = date_i18n('l, j F, Y', strtotime($eventclose));
 			}
 			$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
-			$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>'; // preview information
 		} else {
 			if ( get_bloginfo('language') == 'ja' ) {
 				$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
@@ -307,7 +304,6 @@ function event_info_to_the_content( $content ) {
 			}
 			$dates = $eventopen . ' ~ ' . $eventclose;
 			$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
-			$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>'; // preview information
 		}
 	} elseif($eventopen || $eventclose) {
 		if ($eventopen) {
@@ -326,13 +322,11 @@ function event_info_to_the_content( $content ) {
 		}
 		$dates = $eventopen . ' ~ ' . $eventclose;
 		$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
-		$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>'; // preview information
 	}
 	// 注記
 	$thname = __('Note', 'SagasWhat');
 	if( $note = esc_html( get_post_meta($post->ID, 'note', true) ) ) {
 		$info = $info . '<tr><th>'.$thname.'</th><td>' . $note . '</td></tr>';
-		$preview = $preview . '<tr><th>'.$thname.'</th><td>' . $note . '</td></tr>'; // preview information
 	}
 	// 営業時間
 	$thname = __('Open hours', 'SagasWhat');
@@ -358,7 +352,7 @@ function event_info_to_the_content( $content ) {
 	$pretable = '<table class="event-info"><tbody>' . $preview . '</tbody></table>';
 	$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
 
-	return $pretable . $content . $table;
+	return $content . $table;
 }
 add_action( 'the_content', 'event_info_to_the_content', 1 );
 
