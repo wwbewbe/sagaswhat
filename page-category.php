@@ -31,6 +31,9 @@
 	</aside>
 	<?php wp_reset_postdata();
 	endif; ?>
+	<aside class="mymenu-adsense">
+	<?php echo (get_adsense()); ?>
+	</aside>
 </div>
 
 <div class="sub">

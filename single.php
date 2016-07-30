@@ -43,6 +43,10 @@
 		'pagelink' => '<span>%</span>'
 	) ); ?>
 
+	<aside class="mymenu-adsense">
+	<?php echo (get_adsense()); ?>
+	</aside>
+
 	<?php if( has_category() ) {
 		$cats = get_the_category();
 		$catkwds = array();
@@ -82,6 +86,7 @@
 
 	</article>
 	<?php endwhile; endif; ?>
+
 </div>
 
 <div class="sub">

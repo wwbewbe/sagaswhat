@@ -95,6 +95,10 @@
 	<?php wp_reset_postdata();
 	endif; ?>
 
+	<aside class="mymenu-adsense">
+	<?php echo (get_adsense()); ?>
+	</aside>
+
 </div><!-- end contents -->
 
 <div class="sub">

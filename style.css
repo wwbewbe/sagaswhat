@@ -752,6 +752,16 @@ blockquote:after		{position: absolute;
 	.mymenu-related li .text	{margin-left: 0}
 }
 
+/* アドセンスタイトル用 */
+.mymenu-adsense h2	{margin-top: 0;
+				margin-bottom: 10px;
+				border-bottom: solid 2px #dddddd;
+				color: #666666;
+				font-size: 18px;
+				padding-left: 0px;}
+
+.mymenu-adsense h2:before	{content: none;}
+
 /* -------------------- ウィジェット -------------------- */
 /* 検索フォーム */
 .search-field	{width: 100%;

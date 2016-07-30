@@ -426,9 +426,8 @@ function showads($params = array()) {
 	extract(shortcode_atts(array(
         				'line' => 'off',
 						'type' => 'rectangle',
-						'lang' => 'en',
     					), $params));
-//adsense記事用（英語版）
+//adsense記事用（英語版1）
 	$adcode = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- sagaswhat-post -->
 <ins class="adsbygoogle"
@@ -438,7 +437,17 @@ function showads($params = array()) {
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>';
-//adsense記事用（日本語版）
+//adsense記事用（英語版2）
+	$adcode2 = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- sagaswhat-post-2 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-6212569927869845"
+     data-ad-slot="2100370814"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>';
+//adsense記事用（日本語版1）
 	$adcodejp = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- sagaswhat-post-jp -->
 <ins class="adsbygoogle"
@@ -448,32 +457,42 @@ function showads($params = array()) {
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>';
+//adsense記事用（日本語版2）
+	$adcodejp2 = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- sagaswhat-post-jp-2 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-6212569927869845"
+     data-ad-slot="8678283616"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>';
 //adsenseレスポンシブデザイン（英語版）
 	$adres = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- sagaswhat-responsive -->
+<!-- sagaswhat-responsive-2 -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-6212569927869845"
-     data-ad-slot="3812496019"
+     data-ad-slot="6670171218"
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>';
 //adsenseレスポンシブデザイン（日本語版）
 	$adresjp = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- sagaswhat-responsive-jp -->
+<!-- sagaswhat-responsive-jp-2 -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-6212569927869845"
-     data-ad-slot="1951399219"
+     data-ad-slot="1155016815"
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>';
 
-	if ($lang == 'jp') {
+	if ( get_bloginfo('language') == 'ja' ) {
 		if (($line == 'on') && ($type == 'rectangle')) {
-			return $adcodejp . $adcodejp;
+			return $adcodejp . $adcodejp2;
 		} elseif ($type == 'responsive') {
 			return $adresjp;
 		} else {
@@ -481,7 +500,7 @@ function showads($params = array()) {
 		}
 	} else {
 		if (($line == 'on') && ($type == 'rectangle')) {
-			return $adcode . $adcode;
+			return $adcode . $adcode2;
 		} elseif ($type == 'responsive') {
 			return $adres;
 		} else {
@@ -490,6 +509,36 @@ function showads($params = array()) {
 	}
 }
 add_shortcode('adsense', 'showads');
+
+function get_adsense() {
+	$title = __('Sponsored Links', 'SagasWhat');
+	$title = '<h2>'.$title.'</h2>';
+	//レスポンシブ広告の英語版もしくは日本語版の挿入
+	if ( get_bloginfo('language') == 'ja' ) {
+		$adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- sagaswhat-responsive-jp-3 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6212569927869845"
+     data-ad-slot="5585216411"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>';
+	} else {
+		$adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- sagaswhat-responsive-3 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6212569927869845"
+     data-ad-slot="4108483211"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>';
+	}
+	return $title.$adsense;
+}
 
 // カテゴリ・タグ・検索の一覧表示のクエリー設定
 function QueryListFilter($query) {
