@@ -124,9 +124,9 @@ function get_upcoming_image($count) {
 	$attachments = get_children(array('post_type' => 'attachment', 'post_mime_type' => 'image'));
 	if(!empty($attachments)){
 		$thismonth=date_i18n('F');//This Month
-		$nextmonth=date_i18n('F', strtotime("+1 month"));//Next Month
-		$twomonth=date_i18n('F', strtotime("+2 month"));//2 Month Later
-		$threemonth=date_i18n('F', strtotime("+3 month"));//3 Month Later
+		$nextmonth=date_i18n('F', strtotime(date_i18n('Y/m/1') . '+1 month'));//Next Month
+		$twomonth=date_i18n('F', strtotime(date_i18n('Y/m/1') . '+2 month'));//2 Month Later
+		$threemonth=date_i18n('F', strtotime(date_i18n('Y/m/1') . '+3 month'));//3 Month Later
 		foreach($attachments as $attachment){
 			switch($count) {
 			case '1':	//This Month
