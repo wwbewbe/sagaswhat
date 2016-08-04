@@ -53,17 +53,17 @@
 			'post_type'		=> 'post',
 			'posts_per_page'=> '10',
 			'cat'           => '-1',				// 未分類を除外
-			'orderby'		=> array('meta_recommend'=>'desc'),//おすすめ度の高い順で表示
+			'orderby'		=> array('meta_recommend'=>'desc', 'meta_open'=>'asc'),//おすすめ度の高い順で表示
 			'paged'			=> $paged,
 			'meta_query'	=> array(
 				'relation'		=> 'AND',
-				array(
+				'meta_close'=>array(
 					'key'		=> 'eventclose',	//カスタムフィールドのイベント終了日欄
 					'value'		=> $closedates,		//イベント終了月を比較
 					'compare'	=> '>=',			//対象月以降なら表示
 					'type'		=> 'date',			//タイプに日付を指定
 				),
-				array(
+				'meta_open'=>array(
 					'key'		=> 'eventopen',		//カスタムフィールドのイベント開催日欄
 					'value'		=> $opendates,		//イベント開催月を比較
 					'compare'	=> '<=',			//対象月以前なら表示

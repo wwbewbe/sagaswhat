@@ -92,7 +92,7 @@ jQuery(document).ready(function(){
 	    'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
 	    'posts_per_page' => '10',		// 10件表示
 		'cat'			=> '-1',		// カテゴリが未分類の記事は非表示
-		'orderby'		=> array('meta_distance'=>'asc', 'meta_recommend'=>'desc'),//距離の近い順＆おすすめ度の高い順で表示
+		'orderby'		=> array('meta_distance'=>'asc', 'meta_recommend'=>'desc', 'meta_open'=>'asc'),//距離の近い順＆おすすめ度の高い順で表示
 		'paged'			=> $paged,
 		'meta_query'	=> $meta_query_args,//開催中&約3Km範囲のイベント抽出
 	);
