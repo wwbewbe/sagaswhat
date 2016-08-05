@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-<head prefix="og: http://ogp.me/ns#">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 <meta charset="<?php bloginfo('charset'); ?>">
 <title>
 <?php wp_title( '|', true, 'right'); ?>
@@ -74,6 +74,8 @@ foreach($childcats as $childcat) {
 
 <meta property="og:site_name" content="<?php bloginfo( 'name' ); ?>">
 <meta property="og:locale" content="ja_JP">
+
+<meta property="fb:app_id" cantent="1229488633736438">
 
 <meta name="twitter:site" content="@sagaswhat">
 <meta name="twitter:card" content="summary_large_image">
