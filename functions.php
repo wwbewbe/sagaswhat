@@ -97,7 +97,7 @@ function mythumb( $size ) {
 		$postthumb = wp_get_attachment_image_src( $thumbid[1], $size );
 		$url = $postthumb[0];
 	} else {
-		$url = get_template_directory_uri() . '/sagaswhat.png';
+		$url = get_template_directory_uri() . '/noimage.png';
 	}
 	return $url;
 }

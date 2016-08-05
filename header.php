@@ -73,7 +73,7 @@ foreach($childcats as $childcat) {
 <meta property="og:title" content="Post for <?php single_term_title(); ?> | <?php bloginfo( 'name' ); ?>">
 <meta property="og:url" content="<?php echo get_term_link( $termid, $taxname ); ?>">
 <meta property="og:description" content="This is a list for <?php single_term_title(); ?>">
-<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/sagaswhat.png">
+<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/sagaswhat-top.png">
 <?php endif; // カテゴリ・タグページ用のメタデータ【ここまで】 ?>
 
 <meta property="og:site_name" content="<?php bloginfo( 'name' ); ?>">
