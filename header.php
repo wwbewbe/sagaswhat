@@ -14,7 +14,24 @@
 <link rel="stylesheet"
  href="<?php echo get_stylesheet_uri(); ?>?ver=<?php echo date('U'); ?>">
 
-<?php if( is_single() || is_page() ): //記事の個別ページ用のメタデータ ?>
+ <?php if( is_home() || is_front_page() ): // トップページ用のメタデータ ?>
+ <meta name="description" content="<?php bloginfo( 'description' ); ?>">
+
+ <?php $allcats = get_categories();
+ $kwds = array();
+ foreach($allcats as $allcat) {
+ 	$kwds[] = $allcat -> name;
+ } ?>
+ <meta name="keywords" content="<?php echo implode( ',', $kwds ); ?>">
+
+ <meta property="og:type" content="website">
+ <meta property="og:title" content="<?php bloginfo( 'name' ); ?>">
+ <meta property="og:url" content="<?php home_url( '/' ); ?>">
+ <meta property="og:description" content="<?php bloginfo( 'description' ); ?>">
+ <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/sagaswhat-top.png">
+ <?php //endif; // トップページ用のメタデータ【ここまで】 ?>
+
+<?php elseif( is_single() || is_page() ): //記事の個別ページ用のメタデータ ?>
 <meta name="description" content="<?php echo wp_trim_words( $post->post_content, 100, '…' ); ?>">
 
 <?php if( has_tag() ): ?>
@@ -33,23 +50,6 @@ foreach($tags as $tag) {
 
 <meta property="og:image" content="<?php echo mythumb( 'large' ); ?>">
 <?php endif; //記事の個別ページ用のメタデータ【ここまで】?>
-
-<?php if( is_home() ): // トップページ用のメタデータ ?>
-<meta name="description" content="<?php bloginfo( 'description' ); ?>">
-
-<?php $allcats = get_categories();
-$kwds = array();
-foreach($allcats as $allcat) {
-	$kwds[] = $allcat -> name;
-} ?>
-<meta name="keywords" content="<?php echo implode( ',', $kwds ); ?>">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="<?php bloginfo( 'name' ); ?>">
-<meta property="og:url" content="<?php home_url( '/' ); ?>">
-<meta property="og:description" content="<?php bloginfo( 'description' ); ?>">
-<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/sagaswhat-top.png">
-<?php endif; // トップページ用のメタデータ【ここまで】 ?>
 
 <?php if( is_category() || is_tag() ): // カテゴリー・タグページ用のメタデータ ?>
 <?php if( is_category() ) {
