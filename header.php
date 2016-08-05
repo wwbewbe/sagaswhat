@@ -14,25 +14,22 @@
 <link rel="stylesheet"
  href="<?php echo get_stylesheet_uri(); ?>?ver=<?php echo date('U'); ?>">
 
- <?php if( is_home() || is_front_page() ): // トップページ用のメタデータ ?>
- <meta name="description" content="<?php bloginfo( 'description' ); ?>">
+<?php if( is_home() || is_front_page() ): // トップページ用のメタデータ ?>
 
- <?php $allcats = get_categories();
- $kwds = array();
- foreach($allcats as $allcat) {
- 	$kwds[] = $allcat -> name;
- } ?>
- <meta name="keywords" content="<?php echo implode( ',', $kwds ); ?>">
+<?php $allcats = get_categories();
+$kwds = array();
+foreach($allcats as $allcat) {
+	$kwds[] = $allcat -> name;
+} ?>
+<meta name="keywords" content="<?php echo implode( ',', $kwds ); ?>">
 
- <meta property="og:type" content="website">
- <meta property="og:title" content="<?php bloginfo( 'name' ); ?>">
- <meta property="og:url" content="<?php home_url( '/' ); ?>">
- <meta property="og:description" content="<?php bloginfo( 'description' ); ?>">
- <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/sagaswhat-top.png">
- <?php //endif; // トップページ用のメタデータ【ここまで】 ?>
+<meta property="og:type" content="website">
+<meta property="og:title" content="<?php bloginfo( 'name' ); ?>">
+<meta property="og:url" content="<?php echo esc_url(home_url( '/' )); ?>">
+<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/sagaswhat-top.png">
+<?php //endif; // トップページ用のメタデータ【ここまで】 ?>
 
 <?php elseif( is_single() || is_page() ): //記事の個別ページ用のメタデータ ?>
-<meta name="description" content="<?php echo wp_trim_words( $post->post_content, 100, '…' ); ?>">
 
 <?php if( has_tag() ): ?>
 <?php $tags = get_the_tags();
@@ -46,7 +43,6 @@ foreach($tags as $tag) {
 <meta property="og:type" content="article">
 <meta property="og:title" content="<?php the_title(); ?>">
 <meta property="og:url" content="<?php the_permalink(); ?>">
-<meta property="og:description" content="<?php echo wp_trim_words( $post->post_content, 100, '…' ); ?>">
 
 <meta property="og:image" content="<?php echo mythumb( 'large' ); ?>">
 <?php endif; //記事の個別ページ用のメタデータ【ここまで】?>
@@ -59,7 +55,7 @@ foreach($tags as $tag) {
 		$termid = $tag_id;
 		$taxname = 'post_tag';
 } ?>
-<meta name="description" content="This is a list for <?php single_term_title(); ?>">
+<meta name="description" content="<?php single_term_title(); ?><?php _e(' Events List'); ?>">
 
 <?php $childcats = get_categories( array( 'child_of' => $termid ) );
 $kwds = array();
@@ -70,9 +66,9 @@ foreach($childcats as $childcat) {
 <meta name="keywords" content="<?php echo implode( ',', $kwds ); ?>">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Post for <?php single_term_title(); ?> | <?php bloginfo( 'name' ); ?>">
+<meta property="og:title" content="<?php single_term_title(); ?> | <?php bloginfo( 'name' ); ?>">
 <meta property="og:url" content="<?php echo get_term_link( $termid, $taxname ); ?>">
-<meta property="og:description" content="This is a list for <?php single_term_title(); ?>">
+<meta property="og:description" content="<?php single_term_title(); ?><?php _e(' Events List'); ?>">
 <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/sagaswhat-top.png">
 <?php endif; // カテゴリ・タグページ用のメタデータ【ここまで】 ?>
 
@@ -89,7 +85,7 @@ foreach($childcats as $childcat) {
 <header>
 <div class="header-inner">
 	<div class="site">
-	<h1><a href="<?php echo home_url(); ?>">
+	<h1><a href="<?php echo esc_url(home_url()); ?>">
 	<img src="<?php echo get_template_directory_uri(); ?>/sagaswhat-site.png"
 	alt="<?php bloginfo( 'name' ); ?>" width="100" height="25">
 	</a></h1>
