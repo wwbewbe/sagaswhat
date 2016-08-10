@@ -16,34 +16,19 @@
 
 <?php if( is_home() || is_front_page() ): // トップページ用のメタデータ ?>
 
-<?php $allcats = get_categories();
-$kwds = array();
-foreach($allcats as $allcat) {
-	$kwds[] = $allcat -> name;
-} ?>
-<meta name="keywords" content="<?php echo implode( ',', $kwds ); ?>">
-
 <meta property="og:type" content="website">
 <meta property="og:title" content="<?php bloginfo( 'name' ); ?>">
 <meta property="og:url" content="<?php echo esc_url(home_url( '/' )); ?>">
+<meta property="og:description" content="<?php echo esc_attr( wp_trim_words( $post->post_excerpt, 100, '…' ) ); ?>">
 <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/sagaswhat-top.png">
 <?php //endif; // トップページ用のメタデータ【ここまで】 ?>
 
 <?php elseif( is_single() || is_page() ): //記事の個別ページ用のメタデータ ?>
 
-<?php if( has_tag() ): ?>
-<?php $tags = get_the_tags();
-$kwds = array();
-foreach($tags as $tag) {
-	$kwds[] = $tag->name;
-} ?>
-<meta name="keywords" content="<?php echo implode( ',', $kwds ); ?>">
-<?php endif; ?>
-
 <meta property="og:type" content="article">
 <meta property="og:title" content="<?php the_title(); ?>">
 <meta property="og:url" content="<?php the_permalink(); ?>">
-
+<meta property="og:description" content="<?php echo esc_attr( wp_trim_words( $post->post_excerpt, 100, '…' ) ); ?>">
 <meta property="og:image" content="<?php echo mythumb( 'large' ); ?>">
 <?php endif; //記事の個別ページ用のメタデータ【ここまで】?>
 
@@ -57,14 +42,6 @@ foreach($tags as $tag) {
 } ?>
 <meta name="description" content="<?php single_term_title(); ?><?php _e(' Events List'); ?>">
 
-<?php $childcats = get_categories( array( 'child_of' => $termid ) );
-$kwds = array();
-$kwds[] = single_term_title( '', false);
-foreach($childcats as $childcat) {
-		$kwds[] = $childcat->name;
-} ?>
-<meta name="keywords" content="<?php echo implode( ',', $kwds ); ?>">
-
 <meta property="og:type" content="website">
 <meta property="og:title" content="<?php single_term_title(); ?> | <?php bloginfo( 'name' ); ?>">
 <meta property="og:url" content="<?php echo get_term_link( $termid, $taxname ); ?>">
@@ -74,8 +51,11 @@ foreach($childcats as $childcat) {
 
 <meta property="og:site_name" content="<?php bloginfo( 'name' ); ?>">
 <meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="zh_TW">
 
-<meta property="fb:app_id" cantent="1229488633736438">
+<meta property="fb:app_id" content="1229488633736438">
 
 <meta name="twitter:site" content="@sagaswhat">
 <meta name="twitter:card" content="summary_large_image">
@@ -91,7 +71,6 @@ foreach($childcats as $childcat) {
 	<img src="<?php echo get_template_directory_uri(); ?>/sagaswhat-site.png"
 	alt="<?php bloginfo( 'name' ); ?>" width="100" height="25">
 	</a></h1>
-	<!--<p><?php bloginfo( 'description' ); ?></p>-->
 	</div>
 
 	<div class="sitenav">
