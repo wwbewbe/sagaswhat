@@ -7,19 +7,19 @@
 <div class="contents">
 
 <article <?php post_class( 'kiji' ); ?>>
-	<h1><?php _e('Recommended Events', 'SagasWhat'); ?></h1>
+	<h1><?php echo esc_html(__('Recommended Events', 'SagasWhat')); ?></h1>
 <?php
 	//  URLのパラメター(緯度と経度の位置情報)を取得
 	$lat = (isset($_GET['lat'])) ? esc_html($_GET['lat']) : '';
 	$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
 ?>
 <?php if(($lat) && ($lng)) : ?>
-	<span class="highlight"><strong><?php _e('* It has sorted events in close order.', 'SagasWhat'); ?></strong></span>
+	<span class="highlight"><strong><?php echo esc_html(__('* It has sorted events in close order.', 'SagasWhat')); ?></strong></span>
 <?php else : ?>
 	<button type="button" id="nearnav">
-		<i class="fa fa-bars"></i><span><?php _e('Sort in close order', 'SagasWhat'); ?></span>
+		<i class="fa fa-bars"></i><span><?php echo esc_html(__('Sort by Distance', 'SagasWhat')); ?></span>
 	</button>
-	<p><?php _e('* you can sort events in close oder from here', 'SagasWhat'); ?></p>
+	<p><?php echo esc_html(__('* Use this to see nearby events.', 'SagasWhat')); ?></p>
 <?php endif; ?>
 </article>
 

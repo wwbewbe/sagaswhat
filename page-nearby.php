@@ -38,9 +38,9 @@ jQuery(document).ready(function(){
 <div class="contents">
 
 <article <?php post_class( 'kiji' ); ?>>
-	<h1><?php _e('Nearby Events', 'SagasWhat'); ?></h1>
+	<h1><?php echo esc_html(__('Nearby Events', 'SagasWhat')); ?></h1>
 <?php if((!$lat) && (!$lng)) : ?>
-	<p><?php _e('Please wait until get the location information & list Nearby Events...', 'SagasWhat'); ?></p>
+	<p><?php echo esc_html(__('Checking for fun stuff near you...', 'SagasWhat')); ?></p>
 <?php endif; ?>
 </article>
 
@@ -101,9 +101,11 @@ jQuery(document).ready(function(){
 	<?php $the_query = new WP_Query($args); ?>
 
 	<?php if(!$the_query->found_posts) : ?>
-		<p><?php _e('Nearby Events being held were not found...', 'SagasWhat'); ?></p>
+		<p><?php echo esc_html(__('No nearby events found. Please try again later at a different location.', 'SagasWhat')); ?></p>
 	<?php else : ?>
-		<p><?php _e('Nearby Events being held found &quot;'.$the_query->found_posts.'&quot;', 'SagasWhat'); ?></p>
+		<p><?php echo esc_html(__('Found &quot;', 'SagasWhat')); ?>
+		<?php echo ($the_query->found_posts); ?>
+		<?php echo esc_html(__('&quot; Nearby Events', 'SagasWhat')); ?></p>
 	<?php endif; ?>
 
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):

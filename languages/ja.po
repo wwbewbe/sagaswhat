@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-08-10 10:30+0900\n"
-"PO-Revision-Date: 2016-08-10 10:31+0900\n"
+"POT-Creation-Date: 2016-08-10 17:29+0900\n"
+"PO-Revision-Date: 2016-08-10 18:13+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -18,11 +18,11 @@ msgstr ""
 
 #: 404.php:7
 msgid "This is not the web page you are looking for."
-msgstr "４０４エラー：あなたが探している web ページはありません。"
+msgstr "４０４エラー：あなたが探している web ページはありません"
 
 #: 404.php:7
 msgid "Please use below search form to find the page."
-msgstr "ページを見つけるための以下の検索フォームを使用してください。"
+msgstr "ページを見つけるための以下の検索フォームを使用してください"
 
 #: functions.php:269
 msgid "Event name"
@@ -81,16 +81,20 @@ msgid "Nearby Events"
 msgstr "周辺イベント"
 
 #: page-nearby.php:43
-msgid "Please wait until get the location information & list Nearby Events..."
-msgstr "位置情報を取得し周辺のイベントを探しています。しばらくお待ちください。"
+msgid "Checking for fun stuff near you..."
+msgstr "周辺のイベントを探しています　しばらくお待ちください"
 
 #: page-nearby.php:104
-msgid "Nearby Events being held were not found..."
-msgstr "周辺で開催中のイベントは見つかりませんでした。"
+msgid "No nearby events found. Please try again later at a different location."
+msgstr "周辺で開催中のイベントは見つかりませんでした"
 
 #: page-nearby.php:106
-msgid "Nearby Events being held found &quot;"
-msgstr "周辺で開催中のイベント数 &quot;"
+msgid "Found &quot;"
+msgstr "イベントが &quot;"
+
+#: page-nearby.php:108
+msgid "&quot; Nearby Events"
+msgstr "&quot; 件見つかりました"
 
 #: page-recommend.php:10
 msgid "Recommended Events"
@@ -98,15 +102,15 @@ msgstr "おすすめイベント"
 
 #: page-recommend.php:17
 msgid "* It has sorted events in close order."
-msgstr "＊近い順に並び替えました。"
+msgstr "＊近い順に並び替えました"
 
 #: page-recommend.php:20
-msgid "Sort in close order"
+msgid "Sort by Distance"
 msgstr "近い順に並び替え"
 
 #: page-recommend.php:22
-msgid "* you can sort events in close oder from here"
-msgstr "＊現在地から会場の近い順にイベントを並び替えることができます。"
+msgid "* Use this to see nearby events."
+msgstr "現在地から近い順に並び替えます"
 
 #: page-toppage.php:77
 msgid "Upcoming Events"
@@ -123,6 +127,25 @@ msgstr "注目のイベント"
 #: single.php:70
 msgid "Related events"
 msgstr "関連イベント"
+
+#: snsbtn.php:6 snsbtn.php:11 snsbtn.php:16
+msgid "Share on "
+msgstr "シェア "
+
+#~ msgid "Please wait until get the location information & list Nearby Events..."
+#~ msgstr "位置情報を取得し周辺のイベントを探しています。しばらくお待ちください。"
+
+#~ msgid "Nearby Events being held were not found..."
+#~ msgstr "周辺で開催中のイベントは見つかりませんでした。"
+
+#~ msgid "Nearby Events being held found &quot;"
+#~ msgstr "周辺で開催中のイベント数 &quot;"
+
+#~ msgid "Sort in close order"
+#~ msgstr "近い順に並び替え"
+
+#~ msgid "* you can sort events in close oder from here"
+#~ msgstr "＊現在地から会場の近い順にイベントを並び替えることができます。"
 
 #~ msgid "Recommended Events Select 10"
 #~ msgstr "おすすめイベント　10選"

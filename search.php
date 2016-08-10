@@ -6,7 +6,7 @@
 <div class="container">
 <div class="contents">
 
-	<h1>"<?php echo get_search_query(); ?>" <?php _e('search results', 'SagasWhat'); ?></h1>
+	<h1>"<?php echo get_search_query(); ?>" <?php echo esc_html(__('search results', 'SagasWhat')); ?></h1>
 
 	<?php if(have_posts()): while(have_posts()):
 	the_post(); ?>

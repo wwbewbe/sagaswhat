@@ -74,7 +74,7 @@
 	$myposts = wp_get_nav_menu_items( $locations[ $location_name ] );
 	if( $myposts ): ?>
 	<aside class="mymenu mymenu-large">
-	<h2><?php _e('Upcoming Events', 'SagasWhat'); ?></h2>
+	<h2><?php echo esc_html(__('Upcoming Events', 'SagasWhat')); ?></h2>
 	<ul>
 
 		<?php foreach($myposts as $post):

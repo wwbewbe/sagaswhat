@@ -40,12 +40,12 @@
 		$termid = $tag_id;
 		$taxname = 'post_tag';
 } ?>
-<meta name="description" content="<?php single_term_title(); ?><?php _e(' Events List'); ?>">
+<meta name="description" content="<?php single_term_title(); ?><?php echo esc_attr(__(' Events List', 'SagasWhat')); ?>">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="<?php single_term_title(); ?> | <?php bloginfo( 'name' ); ?>">
 <meta property="og:url" content="<?php echo get_term_link( $termid, $taxname ); ?>">
-<meta property="og:description" content="<?php single_term_title(); ?><?php _e(' Events List'); ?>">
+<meta property="og:description" content="<?php single_term_title(); ?><?php echo esc_attr(__(' Events List', 'SagasWhat')); ?>">
 <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/sagaswhat-top.png">
 <?php endif; // カテゴリ・タグページ用のメタデータ【ここまで】 ?>
 

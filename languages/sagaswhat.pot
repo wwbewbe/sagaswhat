@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SagasWhat\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2016-08-10 10:30+0900\n"
+"POT-Creation-Date: 2016-08-10 17:29+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -83,15 +83,19 @@ msgid "Nearby Events"
 msgstr ""
 
 #: page-nearby.php:43
-msgid "Please wait until get the location information & list Nearby Events..."
+msgid "Checking for fun stuff near you..."
 msgstr ""
 
 #: page-nearby.php:104
-msgid "Nearby Events being held were not found..."
+msgid "No nearby events found. Please try again later at a different location."
 msgstr ""
 
 #: page-nearby.php:106
-msgid "Nearby Events being held found &quot;"
+msgid "Found &quot;"
+msgstr ""
+
+#: page-nearby.php:108
+msgid "&quot; Nearby Events"
 msgstr ""
 
 #: page-recommend.php:10
@@ -103,11 +107,11 @@ msgid "* It has sorted events in close order."
 msgstr ""
 
 #: page-recommend.php:20
-msgid "Sort in close order"
+msgid "Sort by Distance"
 msgstr ""
 
 #: page-recommend.php:22
-msgid "* you can sort events in close oder from here"
+msgid "* Use this to see nearby events."
 msgstr ""
 
 #: page-toppage.php:77
@@ -124,4 +128,8 @@ msgstr ""
 
 #: single.php:70
 msgid "Related events"
+msgstr ""
+
+#: snsbtn.php:6 snsbtn.php:11 snsbtn.php:16
+msgid "Share on "
 msgstr ""

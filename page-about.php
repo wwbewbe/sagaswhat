@@ -20,14 +20,14 @@
 
 	<time
 	datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
-	<?php _e('Posted:', 'SagasWhat'); echo get_the_date(); ?>
+	<?php echo esc_html(__('Posted:', 'SagasWhat')); echo get_the_date(); ?>
 	</time>
 
 	<?php if( get_the_modified_date( 'Ymd' ) > get_the_date( 'Ymd' ) ): ?>
 	｜
 	<time
 	datetime="<?php echo get_the_modified_date( 'Y-m-d' ); ?>">
-	<?php _e('Updated:', 'SagasWhat'); echo get_the_modified_date(); ?>
+	<?php echo esc_html(__('Updated:', 'SagasWhat')); echo get_the_modified_date(); ?>
 	</time>
 	<?php endif; ?>
 	</div>
