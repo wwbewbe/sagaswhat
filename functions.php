@@ -511,7 +511,7 @@ function showads($params = array()) {
 add_shortcode('adsense', 'showads');
 
 function get_adsense() {
-	$title = __('Sponsored Links', 'SagasWhat');
+	$title = esc_html(__('Sponsored Links', 'SagasWhat'));
 	$title = '<h2>'.$title.'</h2>';
 	//レスポンシブ広告の英語版もしくは日本語版の挿入
 	if ( get_bloginfo('language') == 'ja' ) {
@@ -616,3 +616,60 @@ function get_meta_query_args( $recommend, $distance = NULL ) {
 
 //固定ページにも抜粋(excerpt)を使えるようにする
 add_post_type_support( 'page', 'excerpt' );
+
+//管理画面の投稿一覧から作成者列を削除
+function custom_columns($columns) {
+        unset($columns['author']);
+        return $columns;
+}
+add_filter( 'manage_posts_columns', 'custom_columns' );
+
+//管理画面の投稿一覧にイベント開催日と終了日の列を追加
+function add_posts_columns_name($columns) {
+    $columns['eventopen'] = esc_html(__('Open date', 'SagasWhat'));
+	$columns['eventclose'] = esc_html(__('Close date', 'SagasWhat'));
+    return $columns;
+}
+add_filter( 'manage_posts_columns', 'add_posts_columns_name' );
+
+//追加した列を並び替えれるようにする
+function custom_sortable_columns($sortable_column) {
+    $sortable_column['eventopen'] = 'eventopen';
+	$sortable_column['eventclose'] = 'eventclose';
+    return $sortable_column;
+}
+function custom_orderby_columns( $vars ) {
+    if (isset($vars['orderby']) && 'eventopen' == $vars['orderby']) {
+        $vars = array_merge($vars, array(
+            'meta_key' => 'eventopen',
+            'orderby' => 'meta_value'
+        ));
+    }
+	if (isset($vars['orderby']) && 'eventclose' == $vars['orderby']) {
+        $vars = array_merge($vars, array(
+            'meta_key' => 'eventclose',
+            'orderby' => 'meta_value'
+        ));
+    }
+    return $vars;
+}
+add_filter( 'manage_edit-post_sortable_columns', 'custom_sortable_columns');
+add_filter( 'request', 'custom_orderby_columns' );
+
+//管理画面の投稿一覧にイベント開催日と終了日を表示
+function add_column($column_name, $post_id) {
+    if ($column_name == 'eventopen') {
+        $opendate = get_post_meta($post_id, 'eventopen', true);
+    }
+	if ($column_name == 'eventclose') {
+        $closedate = get_post_meta($post_id, 'eventclose', true);
+    }
+	if (isset($opendate) && $opendate) {
+        echo attribute_escape($opendate);
+    } elseif (isset($closedate) && $closedate) {
+        echo attribute_escape($closedate);
+	} else {
+		echo esc_html(__('None', 'SagasWhat'));
+    }
+}
+add_action( 'manage_posts_custom_column', 'add_column', 10, 2 );

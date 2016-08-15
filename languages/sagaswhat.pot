@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SagasWhat\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2016-08-10 17:29+0900\n"
+"POT-Creation-Date: 2016-08-15 14:20+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,6 +60,18 @@ msgstr ""
 
 #: functions.php:514
 msgid "Sponsored Links"
+msgstr ""
+
+#: functions.php:629
+msgid "Open date"
+msgstr ""
+
+#: functions.php:630
+msgid "Close date"
+msgstr ""
+
+#: functions.php:672
+msgid "None"
 msgstr ""
 
 #: header.php:43 header.php:48
