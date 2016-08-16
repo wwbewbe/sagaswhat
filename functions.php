@@ -642,13 +642,15 @@ function custom_orderby_columns( $vars ) {
     if (isset($vars['orderby']) && 'eventopen' == $vars['orderby']) {
         $vars = array_merge($vars, array(
             'meta_key' => 'eventopen',
-            'orderby' => 'meta_value'
+            'orderby' => 'meta_value',
+			'meta_type' => 'date',
         ));
     }
 	if (isset($vars['orderby']) && 'eventclose' == $vars['orderby']) {
         $vars = array_merge($vars, array(
             'meta_key' => 'eventclose',
-            'orderby' => 'meta_value'
+            'orderby' => 'meta_value',
+			'meta_type' => 'date',
         ));
     }
     return $vars;
