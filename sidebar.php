@@ -27,4 +27,8 @@ if( $myposts ): ?>
 <?php wp_reset_postdata();
 endif; ?>
 
-<?php dynamic_sidebar( 'submenu' ); ?>
+<?php if (is_single()) {
+	dynamic_sidebar( 'submenu-post' );
+} else {
+	dynamic_sidebar( 'submenu-page' );
+} ?>
