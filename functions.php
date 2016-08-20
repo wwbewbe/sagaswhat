@@ -264,9 +264,11 @@ add_theme_support( 'custom-header', array(
 // カスタムフィールド（イベント情報）
 function event_info_to_the_content( $content ) {
 	global $post;
+
+	$adsense = '<aside class="mymenu-adsense">' . get_adsense(true) . '</aside>';
 	// イベント名
 	if( $eventname = esc_html( get_post_meta($post->ID, 'eventname', true) ) ) {
-		$thname = __('Event name', 'SagasWhat');
+		$thname = esc_html__('Event name', 'SagasWhat');
 		if( $url = esc_html( get_post_meta($post->ID, 'url', true) ) ) {
 			$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$url.'" target="_blank">' . $eventname . '</a></td></tr>';
 		} else {
@@ -275,7 +277,7 @@ function event_info_to_the_content( $content ) {
 	}
 	// 会場・場所
 	if( $venue = esc_html( get_post_meta($post->ID, 'venue', true) ) ) {
-		$thname = __('Venue/Location', 'SagasWhat');
+		$thname = esc_html__('Venue/Location', 'SagasWhat');
 		if ( $venueurl = esc_html( get_post_meta($post->ID, 'venueurl', true) ) ) {
 			$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$venueurl.'" target="_blank">' . $venue . '</a></td></tr>';
 		} else {
@@ -285,7 +287,7 @@ function event_info_to_the_content( $content ) {
 	// 開催期間
 	$eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) );
 	$eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) );
-	$thname = __('Dates', 'SagasWhat');
+	$thname = esc_html__('Dates', 'SagasWhat');
 	if($eventopen && $eventclose) {
 		if($eventopen == $eventclose) {
 			if ( get_bloginfo('language') == 'ja' ) {
@@ -324,27 +326,27 @@ function event_info_to_the_content( $content ) {
 		$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 	}
 	// 注記
-	$thname = __('Note', 'SagasWhat');
+	$thname = esc_html__('Note', 'SagasWhat');
 	if( $note = esc_html( get_post_meta($post->ID, 'note', true) ) ) {
 		$info = $info . '<tr><th>'.$thname.'</th><td>' . $note . '</td></tr>';
 	}
 	// 営業時間
-	$thname = __('Open hours', 'SagasWhat');
+	$thname = esc_html__('Open hours', 'SagasWhat');
 	if( $bizhours = esc_html( get_post_meta($post->ID, 'bizhours', true) ) ) {
 		$info = $info . '<tr><th>'.$thname.'</th><td>' . $bizhours . '</td></tr>';
 	}
 	// 入場料
-	$thname = __('Admission', 'SagasWhat');
+	$thname = esc_html__('Admission', 'SagasWhat');
 	if( $price = esc_html( get_post_meta($post->ID, 'price', true) ) ) {
 		$info = $info . '<tr><th>'.$thname.'</th><td>' . $price . '</td></tr>';
 	}
 	// 住所
-	$thname = __('Address', 'SagasWhat');
+	$thname = esc_html__('Address', 'SagasWhat');
 	if( $showaddress = esc_html( get_post_meta($post->ID, 'showaddress', true) ) ) {
 		$info = $info . '<tr><th>'.$thname.'</th><td>' . $showaddress . '</td></tr>';
 	}
 	// 問い合わせ
-	$thname = __('Contact', 'SagasWhat');
+	$thname = esc_html__('Contact', 'SagasWhat');
 	if( $telephone = esc_html( get_post_meta($post->ID, 'telephone', true) ) ) {
 		$info = $info . '<tr><th>'.$thname.'</th><td>' . $telephone . '</td></tr>';
 	}
@@ -352,7 +354,7 @@ function event_info_to_the_content( $content ) {
 	$pretable = '<table class="event-info"><tbody>' . $preview . '</tbody></table>';
 	$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
 
-	return $content . $table;
+	return $content . $adsense . $table;
 }
 add_action( 'the_content', 'event_info_to_the_content', 1 );
 
@@ -510,9 +512,13 @@ function showads($params = array()) {
 }
 add_shortcode('adsense', 'showads');
 
-function get_adsense() {
+function get_adsense($kiji=false) {
 	$title = esc_html(__('Sponsored Links', 'SagasWhat'));
-	$title = '<h2>'.$title.'</h2>';
+	if ($kiji) {
+		$title = '<h4>'.$title.'</h4>';
+	} else {
+		$title = '<h2>'.$title.'</h2>';
+	}
 	//レスポンシブ広告の英語版もしくは日本語版の挿入
 	if ( get_bloginfo('language') == 'ja' ) {
 		$adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

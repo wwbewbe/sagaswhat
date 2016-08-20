@@ -30,7 +30,7 @@
 	<form name="send_date" method="post" action="">
 	<input type="hidden" name="input_date" id="date_val" value="">
 	<div class="datepicker"></div>
-	<input type="submit" id="search_date" value=<?php echo ('&#xf002;&nbsp;'.__('Search', 'SagasWhat')); ?>>
+	<input type="submit" id="search_date" value=<?php echo ('&#xf002;&nbsp;'.esc_html__('Search', 'SagasWhat')); ?>>
 	</form>
 	</div>
 	<?php the_content(); ?>

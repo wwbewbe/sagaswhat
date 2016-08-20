@@ -43,11 +43,38 @@
 		'pagelink' => '<span>%</span>'
 	) ); ?>
 
+	<?php // Nearby Menu on each Post
+	$location_name = 'nearbynav';
+	$locations = get_nav_menu_locations();
+	$myposts = wp_get_nav_menu_items( $locations[ $location_name ] );
+	if( $myposts ): ?>
+	<aside class="mymenu mymenu-nearby">
+	<ul>
+
+		<?php foreach($myposts as $post):
+		if( $post->object == 'page' ):
+		$post = get_post( $post->object_id );
+		setup_postdata($post); ?>
+		<li><a href="<?php the_permalink(); ?>">
+		<div class="thumb" style="background-image: url(<?php echo mythumb( 'full' ); ?>)"></div>
+		<div class="text">
+		<?php the_title(); ?>
+		</div>
+		</a></li>
+		<?php endif;
+		endforeach; ?>
+
+	</ul>
+	</aside>
+	<?php wp_reset_postdata();
+	endif; ?>
+
 	<aside class="mymenu-adsense">
 	<?php echo (get_adsense()); ?>
 	</aside>
 
-	<?php if( has_category() ) {
+	<?php // Related menu on each Post
+	if( has_category() ) {
 		$cats = get_the_category();
 		$catkwds = array();
 		foreach($cats as $cat) {

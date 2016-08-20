@@ -753,6 +753,8 @@ blockquote:after		{position: absolute;
 }
 
 /* アドセンスタイトル用 */
+.mymenu-adsense p	{margin-bottom: 0;}
+.mymenu-adsense h4	{margin-bottom: 0;}
 .mymenu-adsense h2	{margin-top: 0;
 				margin-bottom: 10px;
 				border-bottom: solid 2px #dddddd;
