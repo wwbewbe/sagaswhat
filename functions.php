@@ -721,3 +721,16 @@ function add_column($column_name, $post_id) {
     }
 }
 add_action( 'manage_posts_custom_column', 'add_column', 10, 2 );
+
+//イベント終了画像IDをメディアライブラリから取得
+function get_closed_img() {
+	$attachments = get_children(array('post_type' => 'attachment', 'post_mime_type' => 'image'));
+	if(!empty($attachments)){
+		foreach($attachments as $attachment){
+			if($attachment->post_title == 'eventclosed') {
+				return $attachment->ID;
+			}
+		}
+	}
+	return NULL;
+}

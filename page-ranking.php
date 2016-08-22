@@ -6,17 +6,7 @@
 <div class="container">
 <div class="contents">
 
-<?php
-//イベント終了画像IDをメディアライブラリから取得
-$attachments = get_children(array('post_type' => 'attachment', 'post_mime_type' => 'image'));
-if(!empty($attachments)){
-	foreach($attachments as $attachment){
-		if($attachment->post_title == 'eventclosed') {
-			$closed_imgid = $attachment->ID;
-		}
-	}
-}
-?>
+<?php $closed_imgid = get_closed_img();//イベント終了画像IDをメディアライブラリから取得 ?>
 
 <?php
 $args=array(
