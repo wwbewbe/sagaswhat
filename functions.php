@@ -172,9 +172,12 @@ add_action( 'wp_enqueue_scripts', 'navbtn_scripts' );
 
 // Calendar(JQuery datepicker使用)
 function calendar_scripts(){
+	global $wp_scripts;
+	$ui = $wp_scripts->query('jquery-ui-core');
+
 	wp_enqueue_script('jquery-ui-core');
 	wp_enqueue_script('jquery-ui-datepicker');
-	wp_enqueue_style('jquery-ui-css', '//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.css');
+	wp_enqueue_style('jquery-ui-css', "//ajax.googleapis.com/ajax/libs/jqueryui/{$ui->ver}/themes/redmond/jquery-ui.css");
 	if (get_bloginfo('language') == 'ja') {
 		wp_enqueue_script('jquery-ui-js-ja', '//ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js');
 	}
