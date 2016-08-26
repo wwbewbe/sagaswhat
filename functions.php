@@ -591,13 +591,7 @@ function get_adsense($kiji=false) {
 
 // カテゴリ・タグ・検索の一覧表示のクエリー設定
 function QueryListFilter($query) {
-	if ( !is_admin() && $query->is_main_query() && ($query->is_tag() || $query->is_category()) ) {
-		$query->set('post_type', 'post');			// 投稿記事を対象
-		$query->set('posts_per_page', '10');		// 一覧表示数
-		$query->set('category__not_in', array(1));	// 未分類のカテゴリを非表示
-		$query->set('orderby', array('meta_recommend'=>'desc', 'meta_open'=>'asc'));	// 推奨値の高い順
-		$query->set('meta_query', get_meta_query_args());
-	} elseif (!is_admin() && $query->is_main_query() && $query->is_search()) {
+	if (!is_admin() && $query->is_main_query() && $query->is_search()) {
 		$query->set('post_type', 'post');			// 投稿記事を対象
 		$query->set('posts_per_page', '10');		// 一覧表示数
 		$query->set('category__not_in', array(1));	// 未分類のカテゴリを非表示
@@ -624,7 +618,12 @@ function QueryListFilter($query) {
 							'type'		=> 'numeric',				//タイプに数値を指定
 						),
 					));
-
+	} elseif ( !is_admin() && $query->is_main_query() && ($query->is_tag() || $query->is_category()) ) {
+		$query->set('post_type', 'post');			// 投稿記事を対象
+		$query->set('posts_per_page', '10');		// 一覧表示数
+		$query->set('category__not_in', array(1));	// 未分類のカテゴリを非表示
+		$query->set('orderby', array('meta_recommend'=>'desc', 'meta_open'=>'asc'));	// 推奨値の高い順
+		$query->set('meta_query', get_meta_query_args());
 	}
 	return $query;
 }

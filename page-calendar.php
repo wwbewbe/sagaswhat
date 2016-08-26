@@ -15,9 +15,10 @@
 	    $('.datepicker').datepicker({
 			 dateFormat: 'yy/mm/dd',
 			 minDate: '0y',
+			 firstDay: '0',
 			 onSelect: function(dateText, inst) {
 				 $("#date_val").val(dateText);
-				 document.forms['send_date'].elements['input_date'].value=dateText;//選択した日付をPOST送信
+//				 document.forms['send_date'].elements['input_date'].value=dateText;//選択した日付をPOST送信
 //				 var div_element = document.createElement("div");//選択した日付を表示
 //				 document.getElementById("show_date").innerHTML = '<h3><font color="#e90000">['+dateText+']</font></h3>';
 			 }
