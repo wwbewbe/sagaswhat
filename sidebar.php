@@ -18,7 +18,7 @@ if( $myposts ): ?>
 	<?php $closedate = get_post_meta($post->ID, 'eventclose', true);
 	$today = date_i18n("Y/m/d");
 	if ($closedate) { //すでにイベントが終了しているときはclosed imageにアイキャッチ画像変更
-		if (strtotime($closedate) < strtotime($today)) {
+		if ((strtotime($closedate) < strtotime($today)) && (get_post_thumbnail_id($post->ID) != $closed_imgid)) {
 			update_post_meta( $post->ID, $meta_key = '_thumbnail_id', $meta_value = $closed_imgid );
 		}
 	}
