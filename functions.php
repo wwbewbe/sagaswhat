@@ -177,7 +177,7 @@ function calendar_scripts(){
 
 	wp_enqueue_script('jquery-ui-core');
 	wp_enqueue_script('jquery-ui-datepicker');
-	wp_enqueue_style('jquery-ui-css', "//ajax.googleapis.com/ajax/libs/jqueryui/{$ui->ver}/themes/redmond/jquery-ui.css");
+	wp_enqueue_style('jquery-ui-css', "//ajax.googleapis.com/ajax/libs/jqueryui/{$ui->ver}/themes/cupertino/jquery-ui.css");
 	if (get_bloginfo('language') == 'ja') {
 		wp_enqueue_script('jquery-ui-js-ja', '//ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js');
 	}

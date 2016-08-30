@@ -15,7 +15,7 @@
 	    $('.datepicker').datepicker({
 			 dateFormat: 'yy/mm/dd',
 			 minDate: '0y',
-			 firstDay: '0',
+			 firstDay: '1',
 			 onSelect: function(dateText, inst) {
 				 $("#date_val").val(dateText);
 //				 document.forms['send_date'].elements['input_date'].value=dateText;//選択した日付をPOST送信
