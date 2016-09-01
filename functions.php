@@ -597,20 +597,20 @@ function QueryListFilter($query) {
 		$query->set('category__not_in', array(1));	// 未分類のカテゴリを非表示
 		$query->set('orderby', array('meta_recommend'=>'desc'));	// 推奨値の高い順
 		$query->set('meta_query', array(
-						'relation'		=> 'AND',
-						'meta_close'=>array(
-							'relation'		=> 'OR',
-							array(
-								'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
-								'compare'	=> 'NOT EXISTS',		//カスタムフィールドがない場合も表示
-							),
-							array(
-								'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
-								'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
-								'compare'	=> '>=',				//今日以降なら表示
-								'type'		=> 'date',				//タイプに日付を指定
-							),
-						),
+//						'relation'		=> 'AND',
+//						'meta_close'=>array(
+//							'relation'		=> 'OR',
+//							array(
+//								'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
+//								'compare'	=> 'NOT EXISTS',		//カスタムフィールドがない場合も表示
+//							),
+//							array(
+//								'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
+//								'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
+//								'compare'	=> '>=',				//今日以降なら表示
+//								'type'		=> 'date',				//タイプに日付を指定
+//							),
+//						),
 						'meta_recommend'=>array(
 							'key'		=> 'recommend',				//カスタムフィールドのおすすめ度
 							'value'		=> 0,						//
