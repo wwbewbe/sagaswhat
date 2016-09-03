@@ -5,72 +5,76 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SagasWhat\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2016-08-15 14:20+0900\n"
+"POT-Creation-Date: 2016-09-03 13:53+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.8.9\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: 404.php:7
+#: 404.php:9
 msgid "This is not the web page you are looking for."
 msgstr ""
 
-#: 404.php:7
+#: 404.php:9
 msgid "Please use below search form to find the page."
 msgstr ""
 
-#: functions.php:269
+#: functions.php:286
 msgid "Event name"
 msgstr ""
 
-#: functions.php:278
+#: functions.php:295
 msgid "Venue/Location"
 msgstr ""
 
-#: functions.php:288
+#: functions.php:305
 msgid "Dates"
 msgstr ""
 
-#: functions.php:327
+#: functions.php:344
 msgid "Note"
 msgstr ""
 
-#: functions.php:332
+#: functions.php:347 functions.php:355 functions.php:363 functions.php:376
+msgid "Click here"
+msgstr ""
+
+#: functions.php:352
 msgid "Open hours"
 msgstr ""
 
-#: functions.php:337
+#: functions.php:360
 msgid "Admission"
 msgstr ""
 
-#: functions.php:342
+#: functions.php:368
 msgid "Address"
 msgstr ""
 
-#: functions.php:347
+#: functions.php:373
 msgid "Contact"
 msgstr ""
 
-#: functions.php:514
+#: functions.php:545
 msgid "Sponsored Links"
 msgstr ""
 
-#: functions.php:629
+#: functions.php:717
 msgid "Open date"
 msgstr ""
 
-#: functions.php:630
+#: functions.php:718
 msgid "Close date"
 msgstr ""
 
-#: functions.php:672
+#: functions.php:762
 msgid "None"
 msgstr ""
 
@@ -86,7 +90,7 @@ msgstr ""
 msgid "Updated:"
 msgstr ""
 
-#: page-calendar.php:33
+#: page-calendar.php:34
 msgid "Search"
 msgstr ""
 
@@ -138,7 +142,7 @@ msgstr ""
 msgid "Featured Events"
 msgstr ""
 
-#: single.php:70
+#: single.php:97
 msgid "Related events"
 msgstr ""
 

@@ -1,74 +1,78 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-08-15 14:20+0900\n"
-"PO-Revision-Date: 2016-08-15 14:20+0900\n"
+"POT-Creation-Date: 2016-09-03 13:54+0900\n"
+"PO-Revision-Date: 2016-09-03 14:00+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.8.9\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: 404.php:7
+#: 404.php:9
 msgid "This is not the web page you are looking for."
 msgstr "４０４エラー：あなたが探している web ページはありません"
 
-#: 404.php:7
+#: 404.php:9
 msgid "Please use below search form to find the page."
 msgstr "ページを見つけるための以下の検索フォームを使用してください"
 
-#: functions.php:269
+#: functions.php:286
 msgid "Event name"
 msgstr "イベント名"
 
-#: functions.php:278
+#: functions.php:295
 msgid "Venue/Location"
 msgstr "会場/場所"
 
-#: functions.php:288
+#: functions.php:305
 msgid "Dates"
 msgstr "開催期間"
 
-#: functions.php:327
+#: functions.php:344
 msgid "Note"
 msgstr "備考"
 
-#: functions.php:332
+#: functions.php:347 functions.php:355 functions.php:363 functions.php:376
+msgid "Click here"
+msgstr "詳細はこちら"
+
+#: functions.php:352
 msgid "Open hours"
 msgstr "時間"
 
-#: functions.php:337
+#: functions.php:360
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:342
+#: functions.php:368
 msgid "Address"
 msgstr "住所"
 
-#: functions.php:347
+#: functions.php:373
 msgid "Contact"
 msgstr "お問合わせ"
 
-#: functions.php:514
+#: functions.php:545
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: functions.php:629
+#: functions.php:717
 msgid "Open date"
 msgstr "開催日"
 
-#: functions.php:630
+#: functions.php:718
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:672
+#: functions.php:762
 msgid "None"
 msgstr "なし"
 
@@ -84,7 +88,7 @@ msgstr "投稿："
 msgid "Updated:"
 msgstr "更新："
 
-#: page-calendar.php:33
+#: page-calendar.php:34
 msgid "Search"
 msgstr "検索"
 
@@ -136,7 +140,7 @@ msgstr "検索結果"
 msgid "Featured Events"
 msgstr "注目のイベント"
 
-#: single.php:70
+#: single.php:97
 msgid "Related events"
 msgstr "関連イベント"
 

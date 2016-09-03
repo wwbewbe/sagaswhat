@@ -341,32 +341,43 @@ function event_info_to_the_content( $content ) {
 			$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 		}
 		// 注記
-		$thname = esc_html__('Note', 'SagasWhat');
+		$thname = esc_html(__('Note', 'SagasWhat'));
 		if( $note = esc_html( get_post_meta($post->ID, 'note', true) ) ) {
-			$info = $info . '<tr><th>'.$thname.'</th><td>' . $note . '</td></tr>';
+			if ( $noteurl = esc_html( get_post_meta($post->ID, 'noteurl', true) ) ) {
+				$note = $note.'<div><a href="'.$noteurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+			}
+			$info = $info.'<tr><th>'.$thname.'</th><td>'.$note.'</td></tr>';
 		}
 		// 営業時間
 		$thname = esc_html__('Open hours', 'SagasWhat');
 		if( $bizhours = esc_html( get_post_meta($post->ID, 'bizhours', true) ) ) {
-			$info = $info . '<tr><th>'.$thname.'</th><td>' . $bizhours . '</td></tr>';
+			if ( $bizhoursurl = esc_html( get_post_meta($post->ID, 'bizhoursurl', true) ) ) {
+				$bizhours = $bizhours.'<div><a href="'.$bizhoursurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+			}
+			$info = $info.'<tr><th>'.$thname.'</th><td>'.$bizhours.'</td></tr>';
 		}
 		// 入場料
 		$thname = esc_html__('Admission', 'SagasWhat');
 		if( $price = esc_html( get_post_meta($post->ID, 'price', true) ) ) {
-			$info = $info . '<tr><th>'.$thname.'</th><td>' . $price . '</td></tr>';
+			if ( $priceurl = esc_html( get_post_meta($post->ID, 'priceurl', true) ) ) {
+				$price = $price.'<div><a href="'.$priceurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+			}
+			$info = $info.'<tr><th>'.$thname.'</th><td>'.$price.'</td></tr>';
 		}
 		// 住所
 		$thname = esc_html__('Address', 'SagasWhat');
 		if( $showaddress = esc_html( get_post_meta($post->ID, 'showaddress', true) ) ) {
-			$info = $info . '<tr><th>'.$thname.'</th><td>' . $showaddress . '</td></tr>';
+			$info = $info.'<tr><th>'.$thname.'</th><td>'.$showaddress.'</td></tr>';
 		}
 		// 問い合わせ
 		$thname = esc_html__('Contact', 'SagasWhat');
 		if( $telephone = esc_html( get_post_meta($post->ID, 'telephone', true) ) ) {
-			$info = $info . '<tr><th>'.$thname.'</th><td>' . $telephone . '</td></tr>';
+			if ( $telephoneurl = esc_html( get_post_meta($post->ID, 'telephoneurl', true) ) ) {
+				$telephone = $telephone.'<div><a href="'.$telephoneurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+			}
+			$info = $info.'<tr><th>'.$thname.'</th><td>'.$telephone.'</td></tr>';
 		}
 
-		$pretable = '<table class="event-info"><tbody>' . $preview . '</tbody></table>';
 		$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
 
 		return $content . $adsense . $table;
