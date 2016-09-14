@@ -48,7 +48,7 @@
 	$locations = get_nav_menu_locations();
 	$myposts = wp_get_nav_menu_items( $locations[ $location_name ] );
 	if( $myposts ): ?>
-	<aside class="mymenu mymenu-nearby">
+	<aside class="mymenu mymenu-largefix">
 	<ul>
 
 		<?php foreach($myposts as $post):
@@ -58,7 +58,7 @@
 		<li><a href="<?php the_permalink(); ?>">
 		<div class="thumb" style="background-image: url(<?php echo mythumb( 'full' ); ?>)"></div>
 		<div class="text">
-		<?php the_title(); ?>
+		<?php the_excerpt(); ?>
 		</div>
 		</a></li>
 		<?php endif;
