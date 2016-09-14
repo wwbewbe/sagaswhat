@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-09-03 13:54+0900\n"
-"PO-Revision-Date: 2016-09-03 14:00+0900\n"
+"POT-Creation-Date: 2016-09-14 22:04+0900\n"
+"PO-Revision-Date: 2016-09-14 22:04+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -24,55 +24,55 @@ msgstr "４０４エラー：あなたが探している web ページはあり�
 msgid "Please use below search form to find the page."
 msgstr "ページを見つけるための以下の検索フォームを使用してください"
 
-#: functions.php:286
+#: functions.php:287
 msgid "Event name"
 msgstr "イベント名"
 
-#: functions.php:295
+#: functions.php:296
 msgid "Venue/Location"
 msgstr "会場/場所"
 
-#: functions.php:305
+#: functions.php:306
 msgid "Dates"
 msgstr "開催期間"
 
-#: functions.php:344
+#: functions.php:345
 msgid "Note"
 msgstr "備考"
 
-#: functions.php:347 functions.php:355 functions.php:363 functions.php:376
+#: functions.php:348 functions.php:356 functions.php:364 functions.php:377
 msgid "Click here"
 msgstr "詳細はこちら"
 
-#: functions.php:352
+#: functions.php:353
 msgid "Open hours"
 msgstr "時間"
 
-#: functions.php:360
+#: functions.php:361
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:368
+#: functions.php:369
 msgid "Address"
 msgstr "住所"
 
-#: functions.php:373
+#: functions.php:374
 msgid "Contact"
 msgstr "お問合わせ"
 
-#: functions.php:545
+#: functions.php:546
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: functions.php:717
+#: functions.php:718
 msgid "Open date"
 msgstr "開催日"
 
-#: functions.php:718
+#: functions.php:719
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:762
+#: functions.php:763
 msgid "None"
 msgstr "なし"
 
@@ -128,7 +128,11 @@ msgstr "近い順に並び替え"
 msgid "* Use this to see nearby events."
 msgstr "現在地から近い順に並び替えます"
 
-#: page-toppage.php:77
+#: page-toppage.php:25
+msgid "Now Open Events"
+msgstr "開催中のイベント"
+
+#: page-toppage.php:104
 msgid "Upcoming Events"
 msgstr "開催予定のイベント"
 
