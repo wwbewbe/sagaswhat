@@ -21,7 +21,8 @@
 	$locations = get_nav_menu_locations();
 	$myposts = wp_get_nav_menu_items( $locations[ $location_name ] );
 	if( $myposts ): ?>
-	<aside class="mymenu mymenu-nearby">
+	<aside class="mymenu mymenu-largefix">
+	<h2><?php echo esc_html(__('Now Open Events', 'SagasWhat')); ?></h2>
 	<ul>
 
 		<?php foreach($myposts as $post):
@@ -31,7 +32,7 @@
 		<li><a href="<?php the_permalink(); ?>">
 		<div class="thumb" style="background-image: url(<?php echo mythumb( 'full' ); ?>)"></div>
 		<div class="text">
-		<?php the_title(); ?>
+		<?php the_excerpt(); ?>
 		</div>
 		</a></li>
 		<?php endif;
@@ -58,6 +59,32 @@
 		<div class="thumb" style="background-image: url(<?php echo mythumb( 'medium' ); ?>)"></div>
 		<div class="text">
 		<h2><?php the_title(); ?></h2>
+		</div>
+		</a></li>
+		<?php endif;
+		endforeach; ?>
+
+	</ul>
+	</aside>
+	<?php wp_reset_postdata();
+	endif; ?>
+
+	<?php // Calendar Menu on Top Page
+	$location_name = 'calendarnav';
+	$locations = get_nav_menu_locations();
+	$myposts = wp_get_nav_menu_items( $locations[ $location_name ] );
+	if( $myposts ): ?>
+	<aside class="mymenu mymenu-largefix">
+	<ul>
+
+		<?php foreach($myposts as $post):
+		if( $post->object == 'page' ):
+		$post = get_post( $post->object_id );
+		setup_postdata($post); ?>
+		<li><a href="<?php the_permalink(); ?>">
+		<div class="thumb" style="background-image: url(<?php echo mythumb( 'full' ); ?>)"></div>
+		<div class="text">
+		<?php the_excerpt(); ?>
 		</div>
 		</a></li>
 		<?php endif;

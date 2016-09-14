@@ -163,6 +163,7 @@ register_nav_menu( 'categorynav', 'Category Menu' );
 register_nav_menu( 'newsnav', 'News' );
 register_nav_menu( 'upcomingnav', 'Upcoming Menu' );
 register_nav_menu( 'nearbynav', 'Nearby Menu' );
+register_nav_menu( 'calendarnav', 'Calendar Menu' );
 
 // トグルボタン
 function navbtn_scripts() {

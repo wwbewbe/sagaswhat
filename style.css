@@ -662,21 +662,21 @@ blockquote:after		{position: absolute;
 					font-size: 12px}
 
 /* サムネイル画像に文字を重ねたメニュー */
-.mymenu-large li a, .mymenu-nearby li a
+.mymenu-large li a, .mymenu-largefix li a
 					{position: relative;
 					margin-bottom: 10px;
 					padding: 0}
 
-.mymenu-large li a:hover, .mymenu-nearby li a:hover
+.mymenu-large li a:hover, .mymenu-largefix li a:hover
 					{opacity: 0.8}
 
-.mymenu-large li .thumb, .mymenu-nearby li .thumb
+.mymenu-large li .thumb, .mymenu-largefix li .thumb
 					{width: 100%;
 					height: 130px;
 					background-size: cover;
 					background-position: 50% 50%;}
 
-.mymenu-large li .text, .mymenu-nearby li .text
+.mymenu-large li .text, .mymenu-largefix li .text
 			{position: absolute;
 			bottom: 0;
 			left: 0;
@@ -687,6 +687,8 @@ blockquote:after		{position: absolute;
 			-moz-box-siging: border-box;
 			-webkit-box-sizing: border-box;
 			box-sizing: border-box}
+
+.mymenu-largefix p {margin: 0;}
 
 @media (min-width: 400px) and (max-width: 1039px) {
 	.mymenu-large ul:after	{content: "";
