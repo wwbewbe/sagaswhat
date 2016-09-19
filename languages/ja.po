@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-09-18 21:16+0900\n"
-"PO-Revision-Date: 2016-09-18 21:57+0900\n"
+"POT-Creation-Date: 2016-09-19 13:53+0900\n"
+"PO-Revision-Date: 2016-09-19 13:54+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -36,11 +36,11 @@ msgstr "件"
 msgid "Favorite Events"
 msgstr "お気に入り"
 
-#: favorite-events.php:25 single.php:93
+#: favorite-events.php:25 single.php:111
 msgid "Prev"
 msgstr "戻る"
 
-#: favorite-events.php:26 single.php:94
+#: favorite-events.php:26 single.php:112
 msgid "Next"
 msgstr "次へ"
 
@@ -160,7 +160,11 @@ msgstr "検索結果"
 msgid "Featured Events"
 msgstr "注目のイベント"
 
-#: single.php:91
+#: single.php:41
+msgid "This event has closed."
+msgstr "このイベントは終了しました"
+
+#: single.php:109
 msgid "Related Events"
 msgstr "関連イベント"
 

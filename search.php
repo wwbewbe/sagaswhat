@@ -8,8 +8,19 @@
 
 	<h1>"<?php echo get_search_query(); ?>" <?php echo esc_html(__('search results', 'SagasWhat')); ?></h1>
 
+	<?php $closed_imgid = get_closed_img();//イベント終了画像IDをメディアライブラリから取得 ?>
+
 	<?php if(have_posts()): while(have_posts()):
 	the_post(); ?>
+
+	<?php $post_id = get_the_ID();
+	$closedate = get_post_meta($post_id, 'eventclose', true);
+	$today = date_i18n("Y/m/d");
+	if ($closedate) { //すでにイベントが終了しているときはclosed imageにアイキャッチ画像変更
+		if ((strtotime($closedate) < strtotime($today)) && (get_post_thumbnail_id($post_id) != $closed_imgid)) {
+			update_post_meta( $post_id, $meta_key = '_thumbnail_id', $meta_value = $closed_imgid );
+		}
+	} ?>
 
 	<?php get_template_part( 'gaiyou', 'medium' ); ?>
 

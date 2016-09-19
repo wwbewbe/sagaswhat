@@ -530,6 +530,11 @@ blockquote:after		{position: absolute;
 	.bread li:last-child	{text-indent: -9999px}
 }
 
+/* イベントが終了しているときのアラートメッセージ */
+.closealert {font-size: 20px;
+			margin-bottom: 10px;
+			background-color: #ffff00;}
+
 /* シェアボタン コンテンツに表示するときはmargin-top: 40px*/
 .share		{margin-top: 0px;
 			clear: both}
