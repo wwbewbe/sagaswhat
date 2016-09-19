@@ -198,6 +198,12 @@ function geoloc_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'geoloc_scripts' );
 
+// jCarouselを使用
+function carousel_scripts() {
+	wp_enqueue_script( 'carousel-script', get_template_directory_uri() .'/js/jquery.jcarousellite.min.js', array( 'jquery' ) );
+}
+add_action( 'wp_enqueue_scripts', 'carousel_scripts' );
+
 // 住所 → 緯度/経度変換
 function strAddrToLatLng( $strAddr ) {
     $strRes = file_get_contents(
@@ -667,17 +673,17 @@ function get_meta_query_args( $recommend, $distance = NULL ) {
 			),
 		),
 		'meta_open'=>array(
-/*			'reration'		=> 'OR',
+//			'reration'		=> 'OR',
+//			array(
+//				'key'		=> 'eventopen',
+//				'compare'	=> 'NOT EXISTS',
+//			),
 			array(
-				'key'		=> 'eventopen',
-				'compare'	=> 'NOT EXISTS',
-			),
-			array(
-*/				'key'		=> 'eventopen',			//カスタムフィールドのイベント開催日欄
+				'key'		=> 'eventopen',			//カスタムフィールドのイベント開催日欄
 				'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
 				'compare'	=> '<=',				//今日以前なら表示
 				'type'		=> 'date',				//タイプに日付を指定
-//			),
+			),
 		),
 		'meta_recommend'=>array(
 			'key'		=> 'recommend',				//カスタムフィールドのおすすめ度

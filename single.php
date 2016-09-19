@@ -22,15 +22,17 @@
 
 <div class="container">
 <div class="contents">
-	<?php if(have_posts()): while(have_posts()):
-	the_post(); ?>
-	<article <?php post_class( 'kiji' ); ?>>
+<?php if(have_posts()): while(have_posts()):
+the_post(); ?>
+<article <?php post_class( 'kiji' ); ?>>
 
 	<div class="kiji-tag">
 	<?php the_tags( '<ul><li>', '</li><li>', '</li></ul>' ); ?>
 	</div>
 
 	<h1><?php the_title(); ?></h1>
+
+	<div class="favorite-link"><?php if (function_exists('wpfp_link')) { wpfp_link(); } //add/remove Favorite Events?></div>
 
 	<div class="kiji-body">
 	<?php the_content(); ?>
@@ -43,37 +45,29 @@
 		'pagelink' => '<span>%</span>'
 	) ); ?>
 
-	<?php // Nearby Menu on each Post
-	$location_name = 'nearbynav';
-	$locations = get_nav_menu_locations();
-	$myposts = wp_get_nav_menu_items( $locations[ $location_name ] );
-	if( $myposts ): ?>
-	<aside class="mymenu mymenu-largefix">
-	<ul>
-
-		<?php foreach($myposts as $post):
-		if( $post->object == 'page' ):
-		$post = get_post( $post->object_id );
-		setup_postdata($post); ?>
-		<li><a href="<?php the_permalink(); ?>">
-		<div class="thumb" style="background-image: url(<?php echo mythumb( 'full' ); ?>)"></div>
-		<div class="text">
-		<?php the_excerpt(); ?>
-		</div>
-		</a></li>
-		<?php endif;
-		endforeach; ?>
-
-	</ul>
-	</aside>
-	<?php wp_reset_postdata();
-	endif; ?>
+	<?php get_template_part( 'nearby', 'events' ); //Nearby Events list function ?>
 
 	<aside class="mymenu-adsense">
-	<?php echo (get_adsense()); ?>
+	<?php echo (get_adsense()); // Google Adsense?>
 	</aside>
 
-	<?php // Related menu on each Post
+	<?php if (function_exists('wpfp_list_favorite_posts')) {
+		get_template_part( 'favorite', 'events' );
+	} //Favorite Events list function?>
+
+	<script type="text/javascript">
+	jQuery(function() {
+	    jQuery(".carousel-rel-list").jCarouselLite({
+			btnNext: ".next",
+			btnPrev: ".prev",
+			visible: 4,
+			speed: 100,
+			circular: false,
+		});
+	});
+	</script>
+
+	<?php // Related Events menu on each Post
 	if( has_category() ) {
 		$cats = get_the_category();
 		$catkwds = array();
@@ -85,7 +79,7 @@
 	if ( $catkwds ) {
 		$myposts = get_posts( array(
 			'post_type'		=> 'post',
-			'posts_per_page'=> '4',
+			'posts_per_page'=> '-1',
 			'post__not_in'	=> array( $post->ID),
 			'category__in'	=> $catkwds,
 			'orderby'		=> 'rand',
@@ -94,12 +88,16 @@
 	} else { $myposts = null; }
 	if( $myposts ): ?>
 	<aside class="mymenu mymenu-thumb mymenu-related">
-	<h2><?php echo esc_html(__('Related events', 'SagasWhat')); ?></h2>
+	<h2><?php echo esc_html(__('Related Events', 'SagasWhat')); ?></h2>
+	<div class="carousel-rel">
+	<a href="#" class="prev"><i class="fa fa-arrow-left"></i><?php echo esc_html__('Prev', 'SagasWhat'); ?></a>
+    <a href="#" class="next"><?php echo esc_html__('Next', 'SagasWhat'); ?><i class="fa fa-arrow-right"></i></a>
+	<div class="carousel-rel-list">
 	<ul>
 		<?php foreach($myposts as $post):
 		setup_postdata($post); ?>
 		<li><a href="<?php the_permalink(); ?>">
-		<div class="thumb" style="background-image: url(<?php echo mythumb( 'medium' ); ?>)">
+		<div class="thumb" style="background-image: url(<?php echo mythumb( 'full' ); ?>)">
 		</div>
 		<div class="text">
 		<?php the_title(); ?>
@@ -107,12 +105,14 @@
 		</a></li>
 		<?php endforeach; ?>
 	</ul>
+	</div>
+	</div>
 	</aside>
 	<?php wp_reset_postdata();
 	endif; ?>
 
-	</article>
-	<?php endwhile; endif; ?>
+</article>
+<?php endwhile; endif; ?>
 
 </div>
 

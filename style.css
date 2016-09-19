@@ -204,7 +204,7 @@ header, footer, .container, .sub-header
 			z-index: 1;
 }
 
-.wpp-list li:nth-child(1):before {background-color: rgba(230,180,34,0.8);}
+.wpp-list li:nth-child(1):before {background-color: rgba(233,187,51,0.8);}
 .wpp-list li:nth-child(2):before {background-color: rgba(192,192,192,0.8);}
 .wpp-list li:nth-child(3):before {background-color: rgba(196,112,34,0.8);}
 .wpp-list li:before	{border-radius: 0 0 5px 0;
@@ -726,16 +726,16 @@ blockquote:after		{position: absolute;
 .mymenu-related li a	{border: none;
 				color: #000000}
 
-@media (max-width: 599px) {
+/*@media (max-width: 599px) {
 	.mymenu-related	{padding: 10px}
 
 	.mymenu-related li .thumb	{width: 80px;
 						height: 50px}
 
 	.mymenu-related li .text	{margin-left: 95px}
-}
+}*/
 
-@media (min-width: 600px) {
+/*@media (min-width: 600px) {*/
 	.mymenu-related ul:after	{content: "";
 						display: block;
 						clear: both}
@@ -751,8 +751,125 @@ blockquote:after		{position: absolute;
 						height: 80px;
 						margin-bottom: 5px}
 
-	.mymenu-related li .text	{margin-left: 0}
+	.mymenu-related li .text	{margin-left: 0;
+						font-size: 10px;}
+/*}*/
+.carousel-rel {position: relative;}
+.carousel-rel a.next {font-size: 16px;
+					color: #666666;
+					position: absolute;
+					text-decoration: none;
+					right: 0px;}
+.carousel-rel a.prev {font-size: 16px;
+					color: #666666;
+					text-decoration: none;}
+
+/* お気に入り記事メニュー */
+.mymenu-favorite	{margin: 20px 0 0;
+				padding: 20px;
+				border: solid 1px #dddddd;
+				background-color: #f6f6f6;}
+
+.mymenu-favorite h2	{padding: 0 0 0 7px;
+				border-left: solid 8px #bac6cb;
+				border-bottom: none;
+				font-size: 20px;
+				font-weight: normal;
+				margin-top: 0;
+				color: #666666;}
+
+.mymenu-favorite h2:before	{content: none}
+
+.mymenu-favorite ul	{margin: 0;
+			padding: 0;
+			list-style: none;}
+
+.mymenu-favorite ul:after	{content: "";
+					display: block;
+					clear: both}
+
+.mymenu-favorite li a	{border: none;
+						color: #000000;
+						text-decoration: none;}
+
+.mymenu-favorite li a:hover	{background-color: #eeeeee}
+
+.mymenu-favorite li	{float: left;
+				width: 25%;
+				padding: 5px 5px;
+				-moz-box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box}
+
+.mymenu-favorite li .thumb	{width: 100%;
+					height: 80px;
+					margin-bottom: 5px}
+
+.mymenu-favorite li .text	{margin-left: 0;
+					font-size: 10px;}
+
+.carousel-fav {position: relative;}
+.carousel-fav a.next-fav {font-size: 16px;
+					color: #666666;
+					position: absolute;
+					text-decoration: none;
+					right: 0px;}
+.carousel-fav a.prev-fav {font-size: 16px;
+					color: #666666;
+					text-decoration: none;}
+
+.remove {font-size: 10px;
+		position: absolute;
+		top:0;
+		background-color: #e9bb33}
+.remove .remove-parent {font-size: 12px;
+		text-decoration: none;
+		position: absolute;
+		padding: 1px;
+		top:0;
+		left:auto;
+		background-color: #e90000;
+		border-radius: 0 0 5px 0;
+		box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.3);}
+.remove .remove-parent a:hover {background-color: #d52e2e}
+
+.favbtn {display: block;
+	font-size: 15px;
+	cursor: pointer;
+	margin: 40px 5px auto;
+	padding: 10px;
+	color: #ffffff;
+	text-align: center;
+	background-color: #e90000;
+	border-radius: 5px;
 }
+
+.favbtn:hover {
+	background-color: #e95252;
+}
+
+.favbtn:active {
+	color: #ddd;
+	background-color: #e90000;
+}
+
+/* お気に入りの星 */
+.stars {color: #e9bb33;}
+
+/* お気に入りリンク */
+.favorite-link {padding: 10px;}
+.favorite-link .wpfp-link {text-decoration: none;
+			color: #ffffff;
+			cursor: pointer;
+			padding: 2px 5px;
+			background-color: #55acee;
+			border-radius: 5px;
+			margin-bottom: 5px;}
+.favorite-link .wpfp-link:hover {background-color: #007ede;}
+.favorite-link .wpfp-link:before	{content: '\f005';
+			color: #e9bb33;
+			font-family: 'FontAwesome';
+			padding-right: 5px;}
 
 /* アドセンスタイトル用 */
 .mymenu-adsense p	{margin-bottom: 0;}

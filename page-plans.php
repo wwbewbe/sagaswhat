@@ -58,10 +58,17 @@
 			'meta_query'	=> array(
 				'relation'		=> 'AND',
 				'meta_close'=>array(
-					'key'		=> 'eventclose',	//カスタムフィールドのイベント終了日欄
-					'value'		=> $closedates,		//イベント終了月を比較
-					'compare'	=> '>=',			//対象月以降なら表示
-					'type'		=> 'date',			//タイプに日付を指定
+					'relation'		=> 'OR',
+					array(
+						'key'		=> 'eventclose',	//カスタムフィールドのイベント終了日欄
+						'compare'	=> 'NOT EXISTS',	//カスタムフィールドがない場合も表示
+					),
+					array(
+						'key'		=> 'eventclose',	//カスタムフィールドのイベント終了日欄
+						'value'		=> $closedates,		//イベント終了月を比較
+						'compare'	=> '>=',			//対象月以降なら表示
+						'type'		=> 'date',			//タイプに日付を指定
+					),
 				),
 				'meta_open'=>array(
 					'key'		=> 'eventopen',		//カスタムフィールドのイベント開催日欄
@@ -101,6 +108,10 @@
 	<aside class="mymenu-adsense">
 	<?php echo (get_adsense()); ?>
 	</aside>
+
+	<?php if (function_exists('wpfp_list_favorite_posts')) {
+		get_template_part( 'favorite', 'events' );
+	} //Favorite Events list function?>
 
 </div>
 

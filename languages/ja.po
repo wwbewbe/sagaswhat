@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-09-14 22:04+0900\n"
-"PO-Revision-Date: 2016-09-14 22:04+0900\n"
+"POT-Creation-Date: 2016-09-18 21:16+0900\n"
+"PO-Revision-Date: 2016-09-18 21:57+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -24,55 +24,75 @@ msgstr "４０４エラー：あなたが探している web ページはあり�
 msgid "Please use below search form to find the page."
 msgstr "ページを見つけるための以下の検索フォームを使用してください"
 
-#: functions.php:287
+#: favorite-events.php:19
+msgid "Your Favorite Lists "
+msgstr "お気に入りリスト "
+
+#: favorite-events.php:19
+msgid "events"
+msgstr "件"
+
+#: favorite-events.php:22
+msgid "Favorite Events"
+msgstr "お気に入り"
+
+#: favorite-events.php:25 single.php:93
+msgid "Prev"
+msgstr "戻る"
+
+#: favorite-events.php:26 single.php:94
+msgid "Next"
+msgstr "次へ"
+
+#: functions.php:293
 msgid "Event name"
 msgstr "イベント名"
 
-#: functions.php:296
+#: functions.php:302
 msgid "Venue/Location"
 msgstr "会場/場所"
 
-#: functions.php:306
+#: functions.php:312
 msgid "Dates"
 msgstr "開催期間"
 
-#: functions.php:345
+#: functions.php:351
 msgid "Note"
 msgstr "備考"
 
-#: functions.php:348 functions.php:356 functions.php:364 functions.php:377
+#: functions.php:354 functions.php:362 functions.php:370 functions.php:383
 msgid "Click here"
 msgstr "詳細はこちら"
 
-#: functions.php:353
+#: functions.php:359
 msgid "Open hours"
 msgstr "時間"
 
-#: functions.php:361
+#: functions.php:367
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:369
+#: functions.php:375
 msgid "Address"
 msgstr "住所"
 
-#: functions.php:374
+#: functions.php:380
 msgid "Contact"
 msgstr "お問合わせ"
 
-#: functions.php:546
+#: functions.php:552
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: functions.php:718
+#: functions.php:724
 msgid "Open date"
 msgstr "開催日"
 
-#: functions.php:719
+#: functions.php:725
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:763
+#: functions.php:769
 msgid "None"
 msgstr "なし"
 
@@ -128,11 +148,7 @@ msgstr "近い順に並び替え"
 msgid "* Use this to see nearby events."
 msgstr "現在地から近い順に並び替えます"
 
-#: page-toppage.php:25
-msgid "Now Open Events"
-msgstr "開催中のイベント"
-
-#: page-toppage.php:104
+#: page-toppage.php:79
 msgid "Upcoming Events"
 msgstr "開催予定のイベント"
 
@@ -144,13 +160,19 @@ msgstr "検索結果"
 msgid "Featured Events"
 msgstr "注目のイベント"
 
-#: single.php:97
-msgid "Related events"
+#: single.php:91
+msgid "Related Events"
 msgstr "関連イベント"
 
 #: snsbtn.php:6 snsbtn.php:11 snsbtn.php:16
 msgid "Share on "
 msgstr "シェア "
+
+#~ msgid "Now Open Events"
+#~ msgstr "開催中のイベント"
+
+#~ msgid "Related events"
+#~ msgstr "関連イベント"
 
 #~ msgid "Please wait until get the location information & list Nearby Events..."
 #~ msgstr "位置情報を取得し周辺のイベントを探しています。しばらくお待ちください。"
