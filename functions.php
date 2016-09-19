@@ -678,12 +678,12 @@ function get_meta_query_args( $recommend, $distance = NULL ) {
 //				'key'		=> 'eventopen',
 //				'compare'	=> 'NOT EXISTS',
 //			),
-			array(
+//			array(
 				'key'		=> 'eventopen',			//カスタムフィールドのイベント開催日欄
 				'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
 				'compare'	=> '<=',				//今日以前なら表示
 				'type'		=> 'date',				//タイプに日付を指定
-			),
+//			),
 		),
 		'meta_recommend'=>array(
 			'key'		=> 'recommend',				//カスタムフィールドのおすすめ度
