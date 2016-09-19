@@ -87,7 +87,7 @@ jQuery(document).ready(function(){
 <?php if(($lat) && ($lng)) : ?>
 <?php
 	//並び替え
-	$meta_query_args = get_meta_query_args('0', '0.035');//開催中&約3Km範囲のイベント抽出
+	$meta_query_args = get_meta_query_args('0', '0.05');//開催中&約3Km範囲のイベント抽出
 	$args = array(
 	    'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
 	    'posts_per_page' => '10',		// 10件表示
