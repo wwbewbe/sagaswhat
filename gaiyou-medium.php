@@ -16,37 +16,34 @@
 			if ( get_bloginfo('language') == 'ja' ) {
 				$dates = date_i18n('Y年n月j日(D)', strtotime($eventclose));
 			} else {
-				$dates = date_i18n('F jS, Y', strtotime($eventclose));
+				$dates = date_i18n('M j, Y', strtotime($eventclose));
 			}
 		} else {
 			if ( get_bloginfo('language') == 'ja' ) {
 				$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
 				$eventclose = date_i18n('Y年n月j日(D)', strtotime($eventclose));
 			} else {
-				$eventopen = date_i18n('F jS', strtotime($eventopen));
-				$eventclose = date_i18n('F jS, Y', strtotime($eventclose));
+				$eventopen = date_i18n('M j, Y', strtotime($eventopen));
+				$eventclose = date_i18n('M j, Y', strtotime($eventclose));
 			}
-			$dates = $eventopen . ' ~ ' . $eventclose;
+			$dates = $eventopen . ' - ' . $eventclose;
 		}
-	} elseif($eventopen || $eventclose) {
-		if ($eventopen) {
-			$datetime = date_i18n('Y-m-d', strtotime($eventopen));
-			if ( get_bloginfo('language') == 'ja' ) {
-				$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
-			} elseif (!$eventclose) {
-				$eventopen = date_i18n('F jS, Y', strtotime($eventopen));
-			} else {
-				$eventopen = date_i18n('F jS', strtotime($eventopen));
-			}
+	} elseif ($eventopen) {
+		$datetime = date_i18n('Y-m-d', strtotime($eventopen));
+		if ( get_bloginfo('language') == 'ja' ) {
+			$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
+		} elseif (!$eventclose) {
+			$eventopen = date_i18n('M j, Y', strtotime($eventopen));
+		} else {
+			$eventopen = date_i18n('M j, Y', strtotime($eventopen));
 		}
-		if ($eventclose) {
-			if ( get_bloginfo('language') == 'ja' ) {
-				$eventclose = date_i18n('Y年n月j日(D)', strtotime($eventclose));
-			} else {
-				$eventclose = date_i18n('F jS, Y', strtotime($eventclose));
-			}
+		$dates = $eventopen . ' - ' . esc_html__('now open', 'SagasWhat');
+	} elseif ($eventclose) {
+		if ( get_bloginfo('language') == 'ja' ) {
+			$dates = date_i18n('Y年n月j日(D)', strtotime($eventclose));
+		} else {
+			$dates = date_i18n('M j, Y', strtotime($eventclose));
 		}
-		$dates = $eventopen . ' ~ ' . $eventclose;
 	}
 
 	//Favorite Events total number for each event
