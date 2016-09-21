@@ -31,12 +31,12 @@ the_post(); ?>
 <?php $post_id = get_the_ID();
 $closedate = get_post_meta($post_id, 'eventclose', true);
 $today = date_i18n("Y/m/d");
-if ($closedate) { //すでにイベントが終了しているときはclosed imageにアイキャッチ画像変更
+if (!empty($closedate)) { //すでにイベントが終了しているときはclosed imageにアイキャッチ画像変更
 	if ((strtotime($closedate) < strtotime($today)) && (get_post_thumbnail_id($post_id) != $closed_imgid)) {
 		update_post_meta( $post_id, $meta_key = '_thumbnail_id', $meta_value = $closed_imgid );
 	}
 } ?>
-<?php if (strtotime($closedate) < strtotime($today)): ?>
+<?php if ((!empty($closedate)) && (strtotime($closedate) < strtotime($today))): ?>
 	<div class="closealert">
 	<i class="fa fa-close"></i><?php echo esc_html__('This event has closed.', 'SagasWhat'); ?>
 	</div>
