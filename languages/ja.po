@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-10-02 11:14+0900\n"
-"PO-Revision-Date: 2016-10-02 11:15+0900\n"
+"POT-Creation-Date: 2016-10-02 22:57+0900\n"
+"PO-Revision-Date: 2016-10-02 22:58+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -44,80 +44,80 @@ msgstr "戻る"
 msgid "Next"
 msgstr "次へ"
 
-#: functions.php:295
+#: functions.php:296
 msgid "Center Name"
 msgstr "観光案内所名"
 
-#: functions.php:304
+#: functions.php:305
 msgid "JP Name"
 msgstr "日本語名"
 
-#: functions.php:309
+#: functions.php:310
 msgid "TIC Category"
 msgstr "TICカテゴリー"
 
-#: functions.php:311
-msgid "Click here for category description"
-msgstr "TICカテゴリーの説明はこちら"
+#: functions.php:312
+msgid "Category description (Japan National Tourism Organization)"
+msgstr "カテゴリー説明 (日本政府観光局)"
 
-#: functions.php:317
+#: functions.php:318
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: functions.php:322
+#: functions.php:323
 msgid "PC"
 msgstr "PC"
 
-#: functions.php:327 functions.php:428
+#: functions.php:328 functions.php:429
 msgid "Address"
 msgstr "住所"
 
-#: functions.php:332 functions.php:433
+#: functions.php:333 functions.php:434
 msgid "Contact"
 msgstr "お問合わせ"
 
-#: functions.php:334 functions.php:407 functions.php:415 functions.php:423
-#: functions.php:436
+#: functions.php:335 functions.php:408 functions.php:416 functions.php:424
+#: functions.php:437
 msgid "Click here"
 msgstr "詳細はこちら"
 
-#: functions.php:346
+#: functions.php:347
 msgid "Event name"
 msgstr "イベント名"
 
-#: functions.php:355
+#: functions.php:356
 msgid "Venue/Location"
 msgstr "会場/場所"
 
-#: functions.php:365
+#: functions.php:366
 msgid "Dates"
 msgstr "開催期間"
 
-#: functions.php:405
+#: functions.php:406
 msgid "Note"
 msgstr "備考"
 
-#: functions.php:413
+#: functions.php:414
 msgid "Open hours"
 msgstr "時間"
 
-#: functions.php:420
+#: functions.php:421
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:554
+#: functions.php:555
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: functions.php:766
+#: functions.php:777
 msgid "Open date"
 msgstr "開催日"
 
-#: functions.php:767
+#: functions.php:778
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:811
+#: functions.php:822
 msgid "None"
 msgstr "なし"
 
@@ -226,6 +226,9 @@ msgstr "関連イベント"
 #: snsbtn.php:6 snsbtn.php:11 snsbtn.php:16
 msgid "Share on "
 msgstr "シェア "
+
+#~ msgid "Click here for category description"
+#~ msgstr "TICカテゴリーの説明はこちら"
 
 #~ msgid "Now Open Events"
 #~ msgstr "開催中のイベント"
