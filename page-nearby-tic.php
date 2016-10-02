@@ -17,44 +17,49 @@
 <div class="contents">
 
 <article <?php post_class( 'kiji' ); ?>>
-	<h1><?php echo esc_html(__('Nearby Events', 'SagasWhat')); ?></h1>
+	<h1><?php echo esc_html(__('Nearby Centers', 'SagasWhat')); ?></h1>
 <?php if((!$lat) || (!$lng)) : ?>
-	<p><?php echo esc_html(__('Checking for fun stuff near you...', 'SagasWhat')); ?></p>
+	<p><?php echo esc_html(__('Checking for TIC near you...', 'SagasWhat')); ?></p>
 <?php endif; ?>
 </article>
 
 <?php if(($lat) && ($lng)) : ?>
 
-	<?php set_event_distance($lat, $lng);//イベント会場までの距離をカスタムフィールドに保存 ?>
+	<?php set_event_distance($lat, $lng, 'tic');//TICまでの距離をTIC記事のカスタムフィールドに保存 ?>
 
 	<?php
 	//並び替え
-	$infocat = get_category_by_slug('tourist-info-center');//観光案内所をリストから除外
-	$meta_query_args = get_meta_query_args('0', '0.05');//開催中&約3駅範囲のイベント抽出
+	$infocat = get_category_by_slug('tourist-info-center');
 	$args = array(
 	    'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
 	    'posts_per_page' => '10',		// 10件表示
-		'category__not_in' => array(1, $infocat->cat_ID), // カテゴリが未分類と観光案内所の記事は非表示
-		'orderby'		=> array('meta_distance'=>'asc', 'meta_recommend'=>'desc', 'meta_open'=>'asc'),//距離の近い順＆おすすめ度の高い順で表示
+		'cat' => $infocat->cat_ID, 		// カテゴリが観光案内所の記事を表示
+		'orderby'		=> array('meta_distance'=>'asc'),//距離の近い順で表示
 		'paged'			=> $paged,
-		'meta_query'	=> $meta_query_args,//開催中&約3Km範囲のイベント抽出
+		'meta_query'	=> array(
+				'meta_distance'=>array(
+					'key'		=> 'distance',		//カスタムフィールドの距離データ
+					'value'		=> '0.1',			//約3駅範囲の観光案内所を抽出
+					'compare'	=> '<=',			//指定距離内のイベントを表示
+					'type'		=> 'char',			//タイプに数値を指定
+				)),
 	);
 	?>
 
 	<?php $the_query = new WP_Query($args); ?>
 
 	<?php if(!$the_query->found_posts) : ?>
-		<p><?php echo esc_html(__('No nearby events found. Please try again later at a different location.', 'SagasWhat')); ?></p>
+		<p><?php echo esc_html(__('No nearby TICs found. Please try again later at a different location.', 'SagasWhat')); ?></p>
 	<?php else : ?>
 		<p><?php echo esc_html(__('Found &quot;', 'SagasWhat')); ?>
 		<?php echo ($the_query->found_posts); ?>
-		<?php echo esc_html(__('&quot; Nearby Events', 'SagasWhat')); ?></p>
+		<?php echo esc_html(__('&quot; Nearby TICs', 'SagasWhat')); ?></p>
 	<?php endif; ?>
 
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):
 	$the_query->the_post(); //  並び替えたイベント情報を出力?>
 
-		<?php get_template_part( 'gaiyou', 'medium' ); ?>
+		<?php get_template_part( 'gaiyou', 'medium-tic' ); ?>
 
 	<?php endwhile; endif; ?>
 

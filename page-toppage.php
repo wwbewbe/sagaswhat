@@ -44,6 +44,8 @@
 	<?php wp_reset_postdata();
 	endif; ?>
 
+	<?php get_template_part( 'nearby', 'tic' ); //Nearby TIC list function ?>
+
 	<?php // Calendar Menu on Top Page
 	$location_name = 'calendarnav';
 	$locations = get_nav_menu_locations();
@@ -98,7 +100,7 @@
 	endif; ?>
 
 	<aside class="mymenu-adsense">
-	<?php echo (get_adsense()); ?>
+	<?php echo get_adsense(); ?>
 	</aside>
 
 	<?php if (function_exists('wpfp_list_favorite_posts')) {

@@ -32,7 +32,7 @@
 	<?php wp_reset_postdata();
 	endif; ?>
 	<aside class="mymenu-adsense">
-	<?php echo (get_adsense()); ?>
+	<?php echo get_adsense(); ?>
 	</aside>
 
 	<?php if (function_exists('wpfp_list_favorite_posts')) {

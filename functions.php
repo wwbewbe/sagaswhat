@@ -156,14 +156,15 @@ function get_upcoming_image($count) {
 }
 
 // カスタムメニュー
-register_nav_menu( 'sitenav', 'Site Navigation' );
-register_nav_menu( 'pickupnav', 'Pickup Posts' );
-register_nav_menu( 'pagenav', 'Page Navigation' );
-register_nav_menu( 'categorynav', 'Category Menu' );
-register_nav_menu( 'newsnav', 'News' );
-register_nav_menu( 'upcomingnav', 'Upcoming Menu' );
-register_nav_menu( 'nearbynav', 'Nearby Menu' );
-register_nav_menu( 'calendarnav', 'Calendar Menu' );
+register_nav_menu( 'sitenav', 'Site Navigation' );		//ヘッダーに表示するメニュー
+register_nav_menu( 'pickupnav', 'Pickup Posts' );		//注目のイベント
+register_nav_menu( 'pagenav', 'Page Navigation' );		//TOPページのメニュー１
+register_nav_menu( 'categorynav', 'Category Menu' );	//TOPにあるカテゴリーメニューから表示するメニュー
+register_nav_menu( 'newsnav', 'News' );					//
+register_nav_menu( 'upcomingnav', 'Upcoming Menu' );	//予定(Upcoming)のイベント表示用メニュー
+register_nav_menu( 'nearbynav', 'Nearby Menu' );		//周辺イベント検索用メニュー
+register_nav_menu( 'calendarnav', 'Calendar Menu' );	//カレンダーから探す用メニュー
+register_nav_menu( 'ticnav', 'TIC Menu' );				//TICのリスト表示用メニュー
 
 // トグルボタン
 function navbtn_scripts() {
@@ -287,164 +288,165 @@ function event_info_to_the_content( $content ) {
 	global $post;
 
 	if ( !is_admin() && is_main_query() && is_single() ) {
-		$adsense = '<aside class="mymenu-adsense">' . get_adsense(true) . '</aside>';
-		// イベント名
-		if( $eventname = esc_html( get_post_meta($post->ID, 'eventname', true) ) ) {
-			$thname = esc_html__('Event name', 'SagasWhat');
-			if( $url = esc_html( get_post_meta($post->ID, 'url', true) ) ) {
-				$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$url.'" target="_blank">' . $eventname . '</a></td></tr>';
-			} else {
-				$info = $info . '<tr><th>'.$thname.'</th><td>' . $eventname . '</td></tr>';
-			}
-		}
-		// 会場・場所
-		if( $venue = esc_html( get_post_meta($post->ID, 'venue', true) ) ) {
-			$thname = esc_html__('Venue/Location', 'SagasWhat');
-			if ( $venueurl = esc_html( get_post_meta($post->ID, 'venueurl', true) ) ) {
-				$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$venueurl.'" target="_blank">' . $venue . '</a></td></tr>';
-			} else {
-				$info = $info . '<tr><th>'.$thname.'</th><td>' . $venue . '</td></tr>';
-			}
-		}
-		// 開催期間
-		$eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) );
-		$eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) );
-		$thname = esc_html__('Dates', 'SagasWhat');
-		if($eventopen && $eventclose) {
-			if($eventopen == $eventclose) {
-				if ( get_bloginfo('language') == 'ja' ) {
-					$dates = date_i18n('Y年n月j日(D)', strtotime($eventclose));
+
+		if (in_category('tourist-info-center')) {//TIC記事の場合表示する項目
+			// TIC名
+			if( $eventname = esc_html( get_post_meta($post->ID, 'eventname', true) ) ) {
+				$thname = esc_html__('Center Name', 'SagasWhat');
+				if( $url = esc_html( get_post_meta($post->ID, 'url', true) ) ) {
+					$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$url.'" target="_blank">' . $eventname . '</a></td></tr>';
 				} else {
-					$dates = date_i18n('l, F jS, Y', strtotime($eventclose));
+					$info = $info . '<tr><th>'.$thname.'</th><td>' . $eventname . '</td></tr>';
 				}
-				$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
-			} else {
-				if ( get_bloginfo('language') == 'ja' ) {
-					$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
-					$eventclose = date_i18n('Y年n月j日(D)', strtotime($eventclose));
+			}
+			// TIC名(日本語名)
+			if( $ticjpname = esc_html( get_post_meta($post->ID, 'ticjpname', true) ) ) {
+				$thname = esc_html__('JP Name', 'SagasWhat');
+				$info = $info . '<tr><th>'.$thname.'</th><td>' . $ticjpname . '</td></tr>';
+			}
+			// 注記(Category:x)
+			if( $note = esc_html( get_post_meta($post->ID, 'note', true) ) ) {
+				$thname = esc_html(__('TIC Category', 'SagasWhat'));
+				if ( $noteurl = esc_html( get_post_meta($post->ID, 'noteurl', true) ) ) {
+					$note = $note.'<div><a href="'.$noteurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+				}
+				$info = $info.'<tr><th>'.$thname.'</th><td>'.$note.'</td></tr>';
+			}
+			// Wi-Fi
+			if( $wifi = esc_html( get_post_meta($post->ID, 'wifi', true) ) ) {
+				$thname = esc_html__('Wi-Fi', 'SagasWhat');
+				$info = $info.'<tr><th>'.$thname.'</th><td>'.$wifi.'</td></tr>';
+			}
+			// PC
+			if( $pc = esc_html( get_post_meta($post->ID, 'pc', true) ) ) {
+				$thname = esc_html__('PC', 'SagasWhat');
+				$info = $info.'<tr><th>'.$thname.'</th><td>'.$pc.'</td></tr>';
+			}
+			// 住所
+			if( $showaddress = esc_html( get_post_meta($post->ID, 'showaddress', true) ) ) {
+				$thname = esc_html__('Address', 'SagasWhat');
+				$info = $info.'<tr><th>'.$thname.'</th><td>'.$showaddress.'</td></tr>';
+			}
+			// 問い合わせ
+			if( $telephone = esc_html( get_post_meta($post->ID, 'telephone', true) ) ) {
+				$thname = esc_html__('Contact', 'SagasWhat');
+				if ( $telephoneurl = esc_html( get_post_meta($post->ID, 'telephoneurl', true) ) ) {
+					$telephone = $telephone.'<div><a href="'.$telephoneurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+				}
+				$info = $info.'<tr><th>'.$thname.'</th><td>'.$telephone.'</td></tr>';
+			}
+			$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
+			$adsense = '<aside class="mymenu-adsense">' . get_adsense(true) . '</aside>';
+
+			return $table.$content.$adsense;
+
+		} else {
+			// イベント名
+			if( $eventname = esc_html( get_post_meta($post->ID, 'eventname', true) ) ) {
+				$thname = esc_html__('Event name', 'SagasWhat');
+				if( $url = esc_html( get_post_meta($post->ID, 'url', true) ) ) {
+					$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$url.'" target="_blank">' . $eventname . '</a></td></tr>';
 				} else {
-					$eventopen = date_i18n('l, F jS', strtotime($eventopen));
-					$eventclose = date_i18n('l, F jS, Y', strtotime($eventclose));
+					$info = $info . '<tr><th>'.$thname.'</th><td>' . $eventname . '</td></tr>';
+				}
+			}
+			// 会場・場所
+			if( $venue = esc_html( get_post_meta($post->ID, 'venue', true) ) ) {
+				$thname = esc_html__('Venue/Location', 'SagasWhat');
+				if ( $venueurl = esc_html( get_post_meta($post->ID, 'venueurl', true) ) ) {
+					$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$venueurl.'" target="_blank">' . $venue . '</a></td></tr>';
+				} else {
+					$info = $info . '<tr><th>'.$thname.'</th><td>' . $venue . '</td></tr>';
+				}
+			}
+			// 開催期間
+			$eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) );
+			$eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) );
+			$thname = esc_html__('Dates', 'SagasWhat');
+			if($eventopen && $eventclose) {
+				if($eventopen == $eventclose) {
+					if ( get_bloginfo('language') == 'ja' ) {
+						$dates = date_i18n('Y年n月j日(D)', strtotime($eventclose));
+					} else {
+						$dates = date_i18n('l, F jS, Y', strtotime($eventclose));
+					}
+					$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
+				} else {
+					if ( get_bloginfo('language') == 'ja' ) {
+						$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
+						$eventclose = date_i18n('Y年n月j日(D)', strtotime($eventclose));
+					} else {
+						$eventopen = date_i18n('l, F jS', strtotime($eventopen));
+						$eventclose = date_i18n('l, F jS, Y', strtotime($eventclose));
+					}
+					$dates = $eventopen . ' ~ ' . $eventclose;
+					$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
+				}
+			} elseif($eventopen || $eventclose) {
+				if ($eventopen) {
+					if ( get_bloginfo('language') == 'ja' ) {
+						$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
+					} else {
+						$eventopen = date_i18n('l, F jS', strtotime($eventopen));
+					}
+				}
+				if ($eventclose) {
+					if ( get_bloginfo('language') == 'ja' ) {
+						$eventclose = date_i18n('Y年n月j日(D)', strtotime($eventclose));
+					} else {
+						$eventclose = date_i18n('l, F jS, Y', strtotime($eventclose));
+					}
 				}
 				$dates = $eventopen . ' ~ ' . $eventclose;
 				$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 			}
-		} elseif($eventopen || $eventclose) {
-			if ($eventopen) {
-				if ( get_bloginfo('language') == 'ja' ) {
-					$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
-				} else {
-					$eventopen = date_i18n('l, F jS', strtotime($eventopen));
+			// 注記
+			if( $note = esc_html( get_post_meta($post->ID, 'note', true) ) ) {
+				$thname = esc_html(__('Note', 'SagasWhat'));
+				if ( $noteurl = esc_html( get_post_meta($post->ID, 'noteurl', true) ) ) {
+					$note = $note.'<div><a href="'.$noteurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
 				}
+				$info = $info.'<tr><th>'.$thname.'</th><td>'.$note.'</td></tr>';
 			}
-			if ($eventclose) {
-				if ( get_bloginfo('language') == 'ja' ) {
-					$eventclose = date_i18n('Y年n月j日(D)', strtotime($eventclose));
-				} else {
-					$eventclose = date_i18n('l, F jS, Y', strtotime($eventclose));
+			// 営業時間
+			if( $bizhours = esc_html( get_post_meta($post->ID, 'bizhours', true) ) ) {
+				$thname = esc_html__('Open hours', 'SagasWhat');
+				if ( $bizhoursurl = esc_html( get_post_meta($post->ID, 'bizhoursurl', true) ) ) {
+					$bizhours = $bizhours.'<div><a href="'.$bizhoursurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
 				}
+				$info = $info.'<tr><th>'.$thname.'</th><td>'.$bizhours.'</td></tr>';
 			}
-			$dates = $eventopen . ' ~ ' . $eventclose;
-			$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
-		}
-		// 注記
-		$thname = esc_html(__('Note', 'SagasWhat'));
-		if( $note = esc_html( get_post_meta($post->ID, 'note', true) ) ) {
-			if ( $noteurl = esc_html( get_post_meta($post->ID, 'noteurl', true) ) ) {
-				$note = $note.'<div><a href="'.$noteurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+			// 入場料
+			$thname = esc_html__('Admission', 'SagasWhat');
+			if( $price = esc_html( get_post_meta($post->ID, 'price', true) ) ) {
+				if ( $priceurl = esc_html( get_post_meta($post->ID, 'priceurl', true) ) ) {
+					$price = $price.'<div><a href="'.$priceurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+				}
+				$info = $info.'<tr><th>'.$thname.'</th><td>'.$price.'</td></tr>';
 			}
-			$info = $info.'<tr><th>'.$thname.'</th><td>'.$note.'</td></tr>';
-		}
-		// 営業時間
-		$thname = esc_html__('Open hours', 'SagasWhat');
-		if( $bizhours = esc_html( get_post_meta($post->ID, 'bizhours', true) ) ) {
-			if ( $bizhoursurl = esc_html( get_post_meta($post->ID, 'bizhoursurl', true) ) ) {
-				$bizhours = $bizhours.'<div><a href="'.$bizhoursurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+			// 住所
+			$thname = esc_html__('Address', 'SagasWhat');
+			if( $showaddress = esc_html( get_post_meta($post->ID, 'showaddress', true) ) ) {
+				$info = $info.'<tr><th>'.$thname.'</th><td>'.$showaddress.'</td></tr>';
 			}
-			$info = $info.'<tr><th>'.$thname.'</th><td>'.$bizhours.'</td></tr>';
-		}
-		// 入場料
-		$thname = esc_html__('Admission', 'SagasWhat');
-		if( $price = esc_html( get_post_meta($post->ID, 'price', true) ) ) {
-			if ( $priceurl = esc_html( get_post_meta($post->ID, 'priceurl', true) ) ) {
-				$price = $price.'<div><a href="'.$priceurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+			// 問い合わせ
+			$thname = esc_html__('Contact', 'SagasWhat');
+			if( $telephone = esc_html( get_post_meta($post->ID, 'telephone', true) ) ) {
+				if ( $telephoneurl = esc_html( get_post_meta($post->ID, 'telephoneurl', true) ) ) {
+					$telephone = $telephone.'<div><a href="'.$telephoneurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+				}
+				$info = $info.'<tr><th>'.$thname.'</th><td>'.$telephone.'</td></tr>';
 			}
-			$info = $info.'<tr><th>'.$thname.'</th><td>'.$price.'</td></tr>';
-		}
-		// 住所
-		$thname = esc_html__('Address', 'SagasWhat');
-		if( $showaddress = esc_html( get_post_meta($post->ID, 'showaddress', true) ) ) {
-			$info = $info.'<tr><th>'.$thname.'</th><td>'.$showaddress.'</td></tr>';
-		}
-		// 問い合わせ
-		$thname = esc_html__('Contact', 'SagasWhat');
-		if( $telephone = esc_html( get_post_meta($post->ID, 'telephone', true) ) ) {
-			if ( $telephoneurl = esc_html( get_post_meta($post->ID, 'telephoneurl', true) ) ) {
-				$telephone = $telephone.'<div><a href="'.$telephoneurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
-			}
-			$info = $info.'<tr><th>'.$thname.'</th><td>'.$telephone.'</td></tr>';
-		}
+			$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
+			$adsense = '<aside class="mymenu-adsense">' . get_adsense(true) . '</aside>';
 
-		$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
-
-		return $content . $adsense . $table;
+			return $content.$adsense.$table;
+		}
 	} else {
 		return $content;
 	}
 }
 add_action( 'the_content', 'event_info_to_the_content', 1 );
-
-// 現在イベントが終了しているかどうかをチェック(ループのパラメータで指定できたので未使用)
-function is_event_close() {
-    global $post;
-
-	// カスタムフィールドから年月日を取得（Y/m/d、y-m-dなど）
-    if( $eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) ) ) {
-        $opendate = strtotime($eventopen);
-    } else {
-		$opendate = null;
-	}
-    if ($eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) ) ) {
-        $closedate = strtotime($eventclose);
-	} else {
-		$closedate = null;
-	}
-	// $opendate, $closedateの値をチェック
-    // 正しい年月日ならUnixのタイムスタンプに
-    $dates = array( "opendate" => $opendate, "closedate" => $closedate );
-    foreach ($dates as $key => $val) {
-            // 正しい日付かどうかチェック（違うときはnullで終了）
-			$dates_Y = idate('Y', $val);
-            $dates_M = idate('m', $val);
-            $dates_D = idate('d', $val);
-            if (!checkdate($dates_M, $dates_D, $dates_Y )) {
-                $dates[$key] = null;
-                continue;
-            }
-            // mktimeでUnixのタイムスタンプに
-			$dates[$key] = mktime(0, 0, 0, $dates_M, $dates_D, $dates_Y);
-    }
-    $nowdate = date_i18n('U'); // 現在の時間を取得しUnixのタイムスタンプに
-    if ( ($dates["opendate"] == null) && ($dates["closedate"] == null)) {
-        return true;
-    } elseif ($dates["closedate"] == null) {
-    	if ($nowdate >= $dates["opendate"]) {
-        	return true;
-    	} else {
-			return false;
-		}
-    } elseif ($dates["opendate"] == null) {
-        if ($nowdate <= $dates["closedate"]) {
-            return true;
-        } else {
-			return false;
-		}
-    } elseif ( ($nowdate >= $dates["opendate"]) && ($nowdate <= $dates["closedate"]) ) {
-        return true;
-    } else {
-		return false;
-	}
-}
 
 // タグリストを表示するショートコード
 function set_taglist($params = array()) {
@@ -610,26 +612,13 @@ function get_adsense($kiji=false) {
 
 // カテゴリ・タグ・検索の一覧表示のクエリー設定
 function QueryListFilter($query) {
+	$infocat = get_category_by_slug('tourist-info-center');//観光案内所をリストから除外
 	if (!is_admin() && $query->is_main_query() && $query->is_search()) {
 		$query->set('post_type', 'post');			// 投稿記事を対象
 		$query->set('posts_per_page', '10');		// 一覧表示数
-		$query->set('category__not_in', array(1));	// 未分類のカテゴリを非表示
+		$query->set('category__not_in', array(1, $infocat->cat_ID));// カテゴリが未分類と観光案内所の記事は非表示
 		$query->set('orderby', array('meta_recommend'=>'desc'));	// 推奨値の高い順
-		$query->set('meta_query', array(
-//						'relation'		=> 'AND',
-//						'meta_close'=>array(
-//							'relation'		=> 'OR',
-//							array(
-//								'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
-//								'compare'	=> 'NOT EXISTS',		//カスタムフィールドがない場合も表示
-//							),
-//							array(
-//								'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
-//								'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
-//								'compare'	=> '>=',				//今日以降なら表示
-//								'type'		=> 'date',				//タイプに日付を指定
-//							),
-//						),
+		$query->set('meta_query', array(							// 検索結果は対象のイベント全てを表示
 						'meta_recommend'=>array(
 							'key'		=> 'recommend',				//カスタムフィールドのおすすめ度
 							'value'		=> 0,						//
@@ -640,22 +629,67 @@ function QueryListFilter($query) {
 	} elseif ( !is_admin() && $query->is_main_query() && ($query->is_tag() || $query->is_category()) ) {
 		$query->set('post_type', 'post');			// 投稿記事を対象
 		$query->set('posts_per_page', '10');		// 一覧表示数
-		$query->set('category__not_in', array(1));	// 未分類のカテゴリを非表示
+		$query->set('category__not_in', array(1, $infocat->cat_ID));// カテゴリが未分類と観光案内所の記事は非表示
 		$query->set('orderby', array('meta_recommend'=>'desc', 'meta_open'=>'asc'));	// 推奨値の高い順
-		$query->set('meta_query', get_meta_query_args());
+		$query->set('meta_query', get_meta_query_args());			// 開催中のイベントを表示
 	}
 	return $query;
 }
 add_action('pre_get_posts','QueryListFilter');
 
-// カテゴリ一覧ウィジェットから特定のカテゴリを除外
-function my_theme_catexcept($cat_args){
-    $exclude_id = '1';					// 除外するカテゴリID(未分類)
-    $cat_args['exclude'] = $exclude_id;	// 除外
-    return $cat_args;
-}
-add_filter('widget_categories_args', 'my_theme_catexcept',10);
+//各イベント会場 or 観光案内所と現在地の距離をカスタムフィールドに保存
+function set_event_distance($lat, $lng, $target) {
+	global $post;
 
+	if ($target == 'tic') {
+		//観光案内所と現在地の距離
+		$infocat = get_category_by_slug('tourist-info-center');
+		$args = array(
+			'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
+			'posts_per_page' => '-1',		// 全件
+			'cat' => $infocat->cat_ID, 		// 観光案内所の記事を抽出
+		);
+	} else {
+		//各イベント会場と現在地の距離
+		$meta_query_args = get_meta_query_args();
+		$args = array(
+			'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
+			'posts_per_page' => '-1',		// 全件
+			'meta_query'	=> $meta_query_args,//全ての開催中のイベント抽出
+		);
+	}
+
+	$the_query = new WP_Query($args);
+
+	if($the_query->have_posts()) {
+		while($the_query->have_posts()) {
+			$the_query->the_post();
+			//現在地からイベント場所の距離を算出してデータに追加
+			//カスタムフィールドに緯度経度がなければ住所から算出し格納
+			$spotLat = esc_html( get_post_meta($post->ID, 'spot_lat', true) );
+			$spotLng = esc_html( get_post_meta($post->ID, 'spot_lng', true) );
+			if ((!$spotLat) || (!$spotLng)) {
+				$address = esc_html( get_post_meta($post->ID, 'address', true) );
+				$LatLng = strAddrToLatLng($address);
+				$spotLat = $LatLng['Lat'];
+				$spotLng = $LatLng['Lng'];
+				update_post_meta($post->ID, 'spot_lat', $spotLat);
+				update_post_meta($post->ID, 'spot_lng', $spotLng);
+			}
+			if (($spotLat) && ($spotLng)) {
+				$distanceLat = $spotLat - $lat;
+				$distanceLng = $spotLng - $lng;
+				// 距離の算出　pow = 乗算 / sqrt = 平方根
+				$distance = sqrt(pow( $distanceLat ,2) + pow( $distanceLng ,2));
+				// 並び替え用の数値として距離「distance」を追加
+				update_post_meta($post->ID, 'distance', $distance);
+			}
+		}
+	}
+	wp_reset_postdata();
+}
+
+//イベント抽出フィルターの条件を設定
 function get_meta_query_args( $recommend, $distance = NULL ) {
 	$args = array(
 		'relation'		=> 'AND',
@@ -695,7 +729,7 @@ function get_meta_query_args( $recommend, $distance = NULL ) {
 	if ($distance == 'exists') {
 		$args += array('meta_distance'=>array(
 					'key'		=> 'distance',		//カスタムフィールドの距離データ
-					'compare'	=> 'exists',		//距離データのあるイベントを表示
+					'compare'	=> 'exists',		//距離データのあるイベントをすべて表示
 				));
 	} elseif ($distance) {
 		$args += array('meta_distance'=>array(
@@ -708,6 +742,14 @@ function get_meta_query_args( $recommend, $distance = NULL ) {
 
 	return $args;
 }
+
+// カテゴリ一覧ウィジェットから特定のカテゴリを除外
+function my_theme_catexcept($cat_args){
+    $exclude_id = '1';					// 除外するカテゴリID(未分類)
+    $cat_args['exclude'] = $exclude_id;	// 除外
+    return $cat_args;
+}
+add_filter('widget_categories_args', 'my_theme_catexcept',10);
 
 //固定ページにも抜粋(excerpt)を使えるようにする
 add_post_type_support( 'page', 'excerpt' );

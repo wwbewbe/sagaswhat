@@ -50,7 +50,9 @@ if (!empty($closedate)) { //すでにイベントが終了しているときはc
 
 	<h1><?php the_title(); ?></h1>
 
-	<div class="favorite-link"><?php if (function_exists('wpfp_link')) { wpfp_link(); } //add/remove Favorite Events?></div>
+	<?php if (!in_category('tourist-info-center')) : //TIC記事でない場合?>
+		<div class="favorite-link"><?php if (function_exists('wpfp_link')) { wpfp_link(); } //add/remove Favorite Events?></div>
+	<?php endif; ?>
 
 	<div class="kiji-body">
 	<?php the_content(); ?>
@@ -64,9 +66,10 @@ if (!empty($closedate)) { //すでにイベントが終了しているときはc
 	) ); ?>
 
 	<?php get_template_part( 'nearby', 'events' ); //Nearby Events list function ?>
+	<?php get_template_part( 'nearby', 'tic' ); //Nearby TIC list function ?>
 
 	<aside class="mymenu-adsense">
-	<?php echo (get_adsense()); // Google Adsense?>
+	<?php echo get_adsense(); // Google Adsense?>
 	</aside>
 
 	<?php if (function_exists('wpfp_list_favorite_posts')) {

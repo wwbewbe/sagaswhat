@@ -145,6 +145,9 @@ header, footer, .container, .sub-header
 				height: 0}
 
 	.gaiyou .kiji-date		{margin-bottom: 0}
+
+	.gaiyou .tic-name h1	{font-size: 12px}
+	.gaiyou .tic-addr	{font-size: 11px}
 }
 
 /* -------------------- 人気記事ランキング -------------------- */

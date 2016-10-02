@@ -9,10 +9,11 @@
 <?php $closed_imgid = get_closed_img();//イベント終了画像IDをメディアライブラリから取得 ?>
 
 <?php
+$infocat = get_category_by_slug('tourist-info-center');//観光案内所をリストから除外
 $args=array(
 			'post_type'		=> 'post',
 			'posts_per_page'=> '-1',	// 全件チェック
-			'cat' 			=> '-1',	// カテゴリが未分類の記事は非表示
+			'category__not_in' => array(1, $infocat->cat_ID), // カテゴリが未分類と観光案内所の記事は非表示
 			'meta_query'	=> array(
 				array(
 					array(
@@ -51,7 +52,7 @@ the_post(); ?>
 <?php endwhile; endif; ?>
 
 <aside class="mymenu-adsense">
-<?php echo (get_adsense()); ?>
+<?php echo get_adsense(); ?>
 </aside>
 
 <?php if (function_exists('wpfp_list_favorite_posts')) {

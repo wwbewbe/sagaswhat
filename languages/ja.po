@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-09-20 14:24+0900\n"
-"PO-Revision-Date: 2016-09-20 14:24+0900\n"
+"POT-Creation-Date: 2016-10-01 20:49+0900\n"
+"PO-Revision-Date: 2016-10-01 21:01+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -36,69 +36,100 @@ msgstr "件"
 msgid "Favorite Events"
 msgstr "お気に入り"
 
-#: favorite-events.php:25 single.php:111
+#: favorite-events.php:25 single.php:114
 msgid "Prev"
 msgstr "戻る"
 
-#: favorite-events.php:26 single.php:112
+#: favorite-events.php:26 single.php:115
 msgid "Next"
 msgstr "次へ"
 
-#: functions.php:293
-msgid "Event name"
-msgstr "イベント名"
+#: functions.php:295
+msgid "Center Name"
+msgstr "観光案内所名"
 
-#: functions.php:302
-msgid "Venue/Location"
-msgstr "会場/場所"
+#: functions.php:304
+msgid "JP Name"
+msgstr "日本語名"
 
-#: functions.php:312
-msgid "Dates"
-msgstr "開催期間"
+#: functions.php:309
+msgid "TIC Category"
+msgstr "TICカテゴリー"
 
-#: functions.php:351
-msgid "Note"
-msgstr "備考"
-
-#: functions.php:354 functions.php:362 functions.php:370 functions.php:383
+#: functions.php:311 functions.php:334 functions.php:407 functions.php:415
+#: functions.php:423 functions.php:436
 msgid "Click here"
 msgstr "詳細はこちら"
 
-#: functions.php:359
-msgid "Open hours"
-msgstr "時間"
+#: functions.php:317
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
 
-#: functions.php:367
-msgid "Admission"
-msgstr "料金"
+#: functions.php:322
+msgid "PC"
+msgstr "PC"
 
-#: functions.php:375
+#: functions.php:327 functions.php:428
 msgid "Address"
 msgstr "住所"
 
-#: functions.php:380
+#: functions.php:332 functions.php:433
 msgid "Contact"
 msgstr "お問合わせ"
 
-#: functions.php:552
+#: functions.php:346
+msgid "Event name"
+msgstr "イベント名"
+
+#: functions.php:355
+msgid "Venue/Location"
+msgstr "会場/場所"
+
+#: functions.php:365
+msgid "Dates"
+msgstr "開催期間"
+
+#: functions.php:405
+msgid "Note"
+msgstr "備考"
+
+#: functions.php:413
+msgid "Open hours"
+msgstr "時間"
+
+#: functions.php:420
+msgid "Admission"
+msgstr "料金"
+
+#: functions.php:554
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: functions.php:724
+#: functions.php:766
 msgid "Open date"
 msgstr "開催日"
 
-#: functions.php:725
+#: functions.php:767
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:769
+#: functions.php:811
 msgid "None"
 msgstr "なし"
 
 #: gaiyou-medium.php:40
 msgid "now open"
 msgstr "開催中"
+
+#: geolocation-js.php:15
+msgid "The service could not get your location."
+msgstr "位置情報を取得できませんでした"
+
+#: geolocation-js.php:21
+msgid ""
+"You can not use this function, because this browser could not get your "
+"location."
+msgstr "ブラウザが対応していないため、位置情報を取得できませんでした"
 
 #: header.php:43 header.php:48
 msgid " Events List"
@@ -116,25 +147,41 @@ msgstr "更新："
 msgid "Search"
 msgstr "検索"
 
-#: page-nearby.php:41
+#: page-nearby-tic.php:20
+msgid "Nearby Centers"
+msgstr "周辺の観光案内所"
+
+#: page-nearby-tic.php:22
+msgid "Checking for TIC near you..."
+msgstr "周辺の観光案内所をさがしています　しばらくお待ちください"
+
+#: page-nearby-tic.php:52
+msgid "No nearby TICs found. Please try again later at a different location."
+msgstr "周辺で観光案内所は見つかりませんでした"
+
+#: page-nearby-tic.php:54 page-nearby.php:49
+msgid "Found &quot;"
+msgstr "&quot;"
+
+#: page-nearby-tic.php:56
+msgid "&quot; Nearby TICs"
+msgstr "&quot; 件の観光案内所が見つかりました"
+
+#: page-nearby.php:20
 msgid "Nearby Events"
 msgstr "周辺イベント"
 
-#: page-nearby.php:43
+#: page-nearby.php:22
 msgid "Checking for fun stuff near you..."
 msgstr "周辺のイベントを探しています　しばらくお待ちください"
 
-#: page-nearby.php:104
+#: page-nearby.php:47
 msgid "No nearby events found. Please try again later at a different location."
 msgstr "周辺で開催中のイベントは見つかりませんでした"
 
-#: page-nearby.php:106
-msgid "Found &quot;"
-msgstr "イベントが &quot;"
-
-#: page-nearby.php:108
+#: page-nearby.php:51
 msgid "&quot; Nearby Events"
-msgstr "&quot; 件見つかりました"
+msgstr "&quot; 件のイベントが見つかりました"
 
 #: page-recommend.php:10
 msgid "Recommended Events"
@@ -152,7 +199,7 @@ msgstr "近い順に並び替え"
 msgid "* Use this to see nearby events."
 msgstr "現在地から近い順に並び替えます"
 
-#: page-toppage.php:79
+#: page-toppage.php:81
 msgid "Upcoming Events"
 msgstr "開催予定のイベント"
 
@@ -168,7 +215,7 @@ msgstr "注目のイベント"
 msgid "This event has closed."
 msgstr "このイベントは終了しました"
 
-#: single.php:109
+#: single.php:112
 msgid "Related Events"
 msgstr "関連イベント"
 
@@ -182,8 +229,10 @@ msgstr "シェア "
 #~ msgid "Related events"
 #~ msgstr "関連イベント"
 
-#~ msgid "Please wait until get the location information & list Nearby Events..."
-#~ msgstr "位置情報を取得し周辺のイベントを探しています。しばらくお待ちください。"
+#~ msgid ""
+#~ "Please wait until get the location information & list Nearby Events..."
+#~ msgstr ""
+#~ "位置情報を取得し周辺のイベントを探しています。しばらくお待ちください。"
 
 #~ msgid "Nearby Events being held were not found..."
 #~ msgstr "周辺で開催中のイベントは見つかりませんでした。"
