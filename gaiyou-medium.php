@@ -47,7 +47,7 @@
 	}
 
 	//Favorite Events total number for each event
-	$favorite = esc_html( get_post_meta($post->ID, 'wpfp_favorites', true) );
+/*	$favorite = esc_html( get_post_meta($post->ID, 'wpfp_favorites', true) );
 	if (($favorite > '0') && (function_exists('wpfp_list_favorite_posts'))) {
 		switch ($favorite) {
 			case '1': // 1 Star
@@ -67,7 +67,7 @@
 				break;
 		}
 	}
-
+*/
 	?>
 
 	<div class="kiji-date">
