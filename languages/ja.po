@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-10-01 20:49+0900\n"
-"PO-Revision-Date: 2016-10-01 21:01+0900\n"
+"POT-Creation-Date: 2016-10-02 11:14+0900\n"
+"PO-Revision-Date: 2016-10-02 11:15+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -56,10 +56,9 @@ msgstr "日本語名"
 msgid "TIC Category"
 msgstr "TICカテゴリー"
 
-#: functions.php:311 functions.php:334 functions.php:407 functions.php:415
-#: functions.php:423 functions.php:436
-msgid "Click here"
-msgstr "詳細はこちら"
+#: functions.php:311
+msgid "Click here for category description"
+msgstr "TICカテゴリーの説明はこちら"
 
 #: functions.php:317
 msgid "Wi-Fi"
@@ -76,6 +75,11 @@ msgstr "住所"
 #: functions.php:332 functions.php:433
 msgid "Contact"
 msgstr "お問合わせ"
+
+#: functions.php:334 functions.php:407 functions.php:415 functions.php:423
+#: functions.php:436
+msgid "Click here"
+msgstr "詳細はこちら"
 
 #: functions.php:346
 msgid "Event name"

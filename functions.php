@@ -308,7 +308,7 @@ function event_info_to_the_content( $content ) {
 			if( $note = esc_html( get_post_meta($post->ID, 'note', true) ) ) {
 				$thname = esc_html(__('TIC Category', 'SagasWhat'));
 				if ( $noteurl = esc_html( get_post_meta($post->ID, 'noteurl', true) ) ) {
-					$note = $note.'<div><a href="'.$noteurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+					$note = $note.'<div><a href="'.$noteurl.'" target="_blank">'.esc_html__('Click here for category description', 'SagasWhat').'</div>';
 				}
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$note.'</td></tr>';
 			}

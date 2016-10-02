@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SagasWhat\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2016-10-01 20:49+0900\n"
+"POT-Creation-Date: 2016-10-02 11:14+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,9 +58,8 @@ msgstr ""
 msgid "TIC Category"
 msgstr ""
 
-#: functions.php:311 functions.php:334 functions.php:407 functions.php:415
-#: functions.php:423 functions.php:436
-msgid "Click here"
+#: functions.php:311
+msgid "Click here for category description"
 msgstr ""
 
 #: functions.php:317
@@ -77,6 +76,11 @@ msgstr ""
 
 #: functions.php:332 functions.php:433
 msgid "Contact"
+msgstr ""
+
+#: functions.php:334 functions.php:407 functions.php:415 functions.php:423
+#: functions.php:436
+msgid "Click here"
 msgstr ""
 
 #: functions.php:346
