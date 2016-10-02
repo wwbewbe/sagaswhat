@@ -74,6 +74,8 @@
 	<?php wp_reset_postdata(); ?>
 <?php endif; ?>
 
+<?php get_template_part( 'list', 'tic' ); //TIC list ?>
+
 <aside class="mymenu-adsense">
 <?php echo get_adsense(); ?>
 </aside>

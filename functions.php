@@ -164,6 +164,7 @@ register_nav_menu( 'newsnav', 'News' );					//
 register_nav_menu( 'upcomingnav', 'Upcoming Menu' );	//予定(Upcoming)のイベント表示用メニュー
 register_nav_menu( 'nearbynav', 'Nearby Menu' );		//周辺イベント検索用メニュー
 register_nav_menu( 'calendarnav', 'Calendar Menu' );	//カレンダーから探す用メニュー
+register_nav_menu( 'nearbyticnav', 'Nearby TIC Menu' );	//周辺TICのリスト表示用メニュー
 register_nav_menu( 'ticnav', 'TIC Menu' );				//TICのリスト表示用メニュー
 
 // トグルボタン
@@ -623,6 +624,16 @@ function QueryListFilter($query) {
 							'key'		=> 'recommend',				//カスタムフィールドのおすすめ度
 							'value'		=> 0,						//
 							'compare'	=> '>=',					//指定のおすすめ度以上を表示
+							'type'		=> 'numeric',				//タイプに数値を指定
+						),
+					));
+	} elseif ( !is_admin() && $query->is_main_query() && ($query->is_category('tourist-info-center')) ) {
+		$query->set('post_type', 'post');			// 投稿記事を対象
+		$query->set('posts_per_page', '10');		// 一覧表示数
+		$query->set('orderby', array('meta_tic'=>'asc'));			//TICリスト番号の昇順で表示
+		$query->set('meta_query', array(
+						'meta_tic'=>array(
+							'key'		=> 'location',				//カスタムフィールドのおすすめ度
 							'type'		=> 'numeric',				//タイプに数値を指定
 						),
 					));

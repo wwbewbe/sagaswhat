@@ -11,7 +11,11 @@
 	<?php if(have_posts()): while(have_posts()):
 	the_post(); ?>
 
-	<?php get_template_part( 'gaiyou', 'medium' ); ?>
+	<?php if (is_category('tourist-info-center')) {
+		get_template_part( 'gaiyou', 'medium-tic' );
+	} else {
+		get_template_part( 'gaiyou', 'medium' );
+	} ?>
 
 	<?php endwhile; endif; ?>
 

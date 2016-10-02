@@ -1,5 +1,5 @@
-<?php // Nearby TIC list on each Post
-$location_name = 'nearbyticnav';
+<?php // TIC list on each Post
+$location_name = 'ticnav';
 $locations = get_nav_menu_locations();
 $myposts = wp_get_nav_menu_items( $locations[ $location_name ] );
 if( $myposts ): ?>
