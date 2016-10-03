@@ -45,9 +45,9 @@
 	?>
 	<div id="show_date">
 	<?php if (get_bloginfo('language') == 'ja') : ?>
-		<h3><?php echo (date_i18n("[Y年Fj日]", strtotime($searchdate))); ?></h3>
+		<h3><i class="fa fa-calendar fa-fw"></i><?php echo (date_i18n("Y年Fj日", strtotime($searchdate))); ?></h3>
 	<?php else : ?>
-		<h3><?php echo (date_i18n("[F jS, Y]", strtotime($searchdate))); ?></h3>
+		<h3><i class="fa fa-calendar fa-fw"></i><?php echo (date_i18n("F jS, Y", strtotime($searchdate))); ?></h3>
 	<?php endif; ?>
 	</div>
 
