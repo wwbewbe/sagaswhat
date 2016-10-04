@@ -69,6 +69,8 @@
 	<?php wp_reset_postdata(); ?>
 <?php endif; ?>
 
+<?php get_template_part( 'nearby', 'tic' ); //Nearby TIC list function ?>
+
 <aside class="mymenu-adsense">
 <?php echo get_adsense(); ?>
 </aside>
