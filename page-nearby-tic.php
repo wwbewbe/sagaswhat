@@ -21,7 +21,6 @@
 <?php if((!$lat) || (!$lng)) : ?>
 	<p><?php echo esc_html(__('Checking for TIC near you...', 'SagasWhat')); ?></p>
 <?php endif; ?>
-</article>
 
 <?php if(($lat) && ($lng)) : ?>
 
@@ -73,6 +72,9 @@
 
 	<?php wp_reset_postdata(); ?>
 <?php endif; ?>
+
+<div class="tic-info"><?php echo esc_html(get_option('tic-info')); ?></div>
+</article>
 
 <?php get_template_part( 'list', 'tic' ); //TIC list ?>
 

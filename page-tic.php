@@ -40,6 +40,8 @@
 	</div>
 	<?php wp_reset_postdata(); ?>
 
+	<div class="tic-info"><?php echo esc_html(get_option('tic-info')); ?></div>
+
 	<aside class="mymenu-adsense">
 	<?php echo get_adsense(); ?>
 	</aside>

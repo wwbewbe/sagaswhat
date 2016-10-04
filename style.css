@@ -1232,3 +1232,6 @@ iframe			{max-width: 100%}
 #search_date span	{display: inline-block;
 					font-size: 18px;
 					text-indent: 5px}
+/* TIC information (update) Style */
+.tic-info {font-size: 12px;
+			margin-bottom: 1em;}

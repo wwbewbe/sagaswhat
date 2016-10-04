@@ -28,6 +28,10 @@
 	) ); ?>
 	</div>
 
+	<?php if (is_category('tourist-info-center')) : ?>
+		<div class="tic-info"><?php echo esc_html(get_option('tic-info')); ?></div>
+	<?php endif; ?>
+
 	<aside class="mymenu-adsense">
 	<?php echo get_adsense(); ?>
 	</aside>

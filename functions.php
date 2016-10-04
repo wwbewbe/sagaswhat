@@ -337,9 +337,10 @@ function event_info_to_the_content( $content ) {
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$telephone.'</td></tr>';
 			}
 			$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
+			$ticinfo = '<div class="tic-info">'. esc_html(get_option('tic-info')) .'</div>';
 			$adsense = '<aside class="mymenu-adsense">' . get_adsense(true) . '</aside>';
 
-			return $table.$content.$adsense;
+			return $table.$content.$ticinfo.$adsense;
 
 		} else {
 			// イベント名
@@ -835,4 +836,16 @@ function get_closed_img() {
 		}
 	}
 	return NULL;
+}
+
+//サイト設定用に管理画面にカスタムメニューページを追加
+// admin_menu にフック
+add_action('admin_menu', 'register_custom_menu_page');
+function register_custom_menu_page() {
+    // add_menu_page でカスタムメニューを追加
+    add_menu_page('Site settings', 'Site settings', 0, 'site_settings', 'create_custom_menu_page', '');
+}
+function create_custom_menu_page() {
+    // カスタムメニューページを読み込む
+    require TEMPLATEPATH.'/admin/site_settings.php';
 }
