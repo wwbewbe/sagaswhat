@@ -369,7 +369,7 @@ function event_info_to_the_content( $content ) {
 					if ( get_bloginfo('language') == 'ja' ) {
 						$dates = date_i18n('Y年n月j日(D)', strtotime($eventclose));
 					} else {
-						$dates = date_i18n('l, F jS, Y', strtotime($eventclose));
+						$dates = date_i18n('F jS, Y', strtotime($eventclose));
 					}
 					$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 				} else {
@@ -377,10 +377,10 @@ function event_info_to_the_content( $content ) {
 						$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
 						$eventclose = date_i18n('Y年n月j日(D)', strtotime($eventclose));
 					} else {
-						$eventopen = date_i18n('l, F jS', strtotime($eventopen));
-						$eventclose = date_i18n('l, F jS, Y', strtotime($eventclose));
+						$eventopen = date_i18n('F jS, Y', strtotime($eventopen));
+						$eventclose = date_i18n('F jS, Y', strtotime($eventclose));
 					}
-					$dates = $eventopen . ' ~ ' . $eventclose;
+					$dates = $eventopen . ' - ' . $eventclose;
 					$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 				}
 			} elseif($eventopen || $eventclose) {
@@ -388,17 +388,17 @@ function event_info_to_the_content( $content ) {
 					if ( get_bloginfo('language') == 'ja' ) {
 						$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
 					} else {
-						$eventopen = date_i18n('l, F jS', strtotime($eventopen));
+						$eventopen = date_i18n('F jS, Y', strtotime($eventopen));
 					}
 				}
 				if ($eventclose) {
 					if ( get_bloginfo('language') == 'ja' ) {
 						$eventclose = date_i18n('Y年n月j日(D)', strtotime($eventclose));
 					} else {
-						$eventclose = date_i18n('l, F jS, Y', strtotime($eventclose));
+						$eventclose = date_i18n('F jS, Y', strtotime($eventclose));
 					}
 				}
-				$dates = $eventopen . ' ~ ' . $eventclose;
+				$dates = $eventopen . ' - ' . $eventclose;
 				$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 			}
 			// 注記
