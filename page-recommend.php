@@ -7,20 +7,20 @@
 <div class="contents">
 
 <article <?php post_class( 'kiji' ); ?>>
-	<h1><?php echo esc_html(__('Recommended Events', 'SagasWhat')); ?></h1>
-<?php
-	//  URLのパラメター(緯度と経度の位置情報)を取得
-	$lat = (isset($_GET['lat'])) ? esc_html($_GET['lat']) : '';
-	$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
-?>
-<?php if(($lat) && ($lng)) : ?>
-	<span class="highlight"><strong><?php echo esc_html(__('* It has sorted events in close order.', 'SagasWhat')); ?></strong></span>
-<?php else : ?>
-	<button type="button" id="nearnav">
-		<i class="fa fa-bars"></i><span><?php echo esc_html(__('Sort by Distance', 'SagasWhat')); ?></span>
-	</button>
-	<p><?php echo esc_html(__('* Use this to see nearby events.', 'SagasWhat')); ?></p>
-<?php endif; ?>
+	<h1><?php the_title(); ?></h1>
+	<?php
+		//  URLのパラメター(緯度と経度の位置情報)を取得
+		$lat = (isset($_GET['lat'])) ? esc_html($_GET['lat']) : '';
+		$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
+	?>
+	<?php if(($lat) && ($lng)) : ?>
+		<span class="highlight"><strong><?php echo esc_html(__('* It has sorted events in close order.', 'SagasWhat')); ?></strong></span>
+	<?php else : ?>
+		<button type="button" id="nearnav">
+			<i class="fa fa-bars fa-fw"></i><?php echo esc_html(__('Sort by Distance', 'SagasWhat')); ?>
+		</button>
+		<p><?php echo esc_html(__('* Use this to see nearby events.', 'SagasWhat')); ?></p>
+	<?php endif; ?>
 </article>
 
 <?php
@@ -35,9 +35,9 @@
 		    'post_type'		=> 'post',		// 投稿
 		    'posts_per_page' => '10',		// 10件表示
 			'category__not_in' => array(1, $infocat->cat_ID), // カテゴリが未分類と観光案内所の記事は非表示
-			'orderby'		=> array('meta_distance'=>'asc', 'meta_recommend'=>'desc', 'meta_open'=>'asc'),//距離の近い順＆おすすめ度の高い順で表示
+			'orderby'		=> array('meta_distance'=>'asc', 'meta_recommend'=>'desc', 'meta_close'=>'asc'),//距離の近い順＆おすすめ度の高い順＆終了日が近い順に表示
 			'paged'			=> $paged,
-			'meta_query'	=> $meta_query_args,//開催中＆おすすめ度が4以上＆距離情報があるイベント
+			'meta_query'	=> $meta_query_args,//終了していない＆おすすめ度が4以上＆距離情報があるイベント
 		);
 	} else {
 		$meta_query_args = get_meta_query_args('4');
@@ -45,9 +45,9 @@
 		    'post_type'		=> 'post',		// 投稿
 		    'posts_per_page' => '10',		// 10件表示
 			'category__not_in' => array(1, $infocat->cat_ID), // カテゴリが未分類と観光案内所の記事は非表示
-			'orderby'		=> array('meta_recommend'=>'desc', 'meta_open'=>'asc'),//おすすめ度の高い順で表示
+			'orderby'		=> array('meta_recommend'=>'desc', 'meta_close'=>'asc'),//おすすめ度の高い順＆終了日が近い順に表示
 			'paged'			=> $paged,
-			'meta_query'	=> $meta_query_args,//開催中＆おすすめ度が4以上のイベント
+			'meta_query'	=> $meta_query_args,//終了していない＆おすすめ度が4以上のイベント
 		);
 	}
 ?>

@@ -17,7 +17,7 @@
 <div class="contents">
 
 <article <?php post_class( 'kiji' ); ?>>
-	<h1><?php echo esc_html(__('Nearby Events', 'SagasWhat')); ?></h1>
+	<h1><?php the_title(); ?></h1>
 <?php if((!$lat) || (!$lng)) : ?>
 	<p><?php echo esc_html(__('Checking for fun stuff near you...', 'SagasWhat')); ?></p>
 <?php endif; ?>
@@ -35,9 +35,9 @@
 	    'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
 	    'posts_per_page' => '10',		// 10件表示
 		'category__not_in' => array(1, $infocat->cat_ID), // カテゴリが未分類と観光案内所の記事は非表示
-		'orderby'		=> array('meta_distance'=>'asc', 'meta_recommend'=>'desc', 'meta_open'=>'asc'),//距離の近い順＆おすすめ度の高い順で表示
+		'orderby'		=> array('meta_distance'=>'asc', 'meta_recommend'=>'desc', 'meta_close'=>'asc'),//距離の近い順＆おすすめ度の高い順＆終了日が近い順に表示
 		'paged'			=> $paged,
-		'meta_query'	=> $meta_query_args,//開催中&約3Km範囲のイベント抽出
+		'meta_query'	=> $meta_query_args,//終了していない&約3Km範囲のイベント抽出
 	);
 	?>
 

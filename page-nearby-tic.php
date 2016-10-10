@@ -17,7 +17,7 @@
 <div class="contents">
 
 <article <?php post_class( 'kiji' ); ?>>
-	<h1><?php echo esc_html(__('Nearby Centers', 'SagasWhat')); ?></h1>
+	<h1><?php the_title(); ?></h1>
 <?php if((!$lat) || (!$lng)) : ?>
 	<p><?php echo esc_html(__('Checking for TIC near you...', 'SagasWhat')); ?></p>
 <?php endif; ?>

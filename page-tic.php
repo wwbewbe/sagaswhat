@@ -6,23 +6,56 @@
 <div class="container">
 <div class="contents">
 
+	<h1><?php the_title(); ?></h1>
+
 	<?php
+		//  URLのパラメター(緯度と経度の位置情報)を取得
+		$lat = (isset($_GET['lat'])) ? esc_html($_GET['lat']) : '';
+		$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
+	?>
+	<?php if(($lat) && ($lng)) : ?>
+		<span class="highlight"><strong><?php echo esc_html(__('* It has sorted TICs in close order.', 'SagasWhat')); ?></strong></span>
+	<?php else : ?>
+		<button type="button" id="nearnav">
+			<i class="fa fa-bars fa-fw"></i><?php echo esc_html(__('Sort by Distance', 'SagasWhat')); ?>
+		</button>
+		<p><?php echo esc_html(__('* Use this to see nearby TICs.', 'SagasWhat')); ?></p>
+	<?php endif; ?>
+
+	<?php
+	if (($lat) && ($lng)) {
+
+		set_event_distance($lat, $lng, 'tic');//観光案内所までの距離をカスタムフィールドに保存
+
+		$args = array(
+		    'post_type'		=> 'post',		// 投稿
+		    'posts_per_page' => '-1',		// 10件表示
+			'category_name'	=> 'tourist-info-center',
+			'orderby'		=> array('meta_distance'=>'asc'),//距離の近い順で表示
+			'meta_query'	=> array(
+				'meta_distance'=>array(
+					'key'		=> 'distance',				//観光案内所までの距離
+					'compare'	=> 'exists',
+				),
+			),
+			'paged'			=> $paged,
+		);
+	} else {
 	$args=array(
 			'post_type'		=> 'post',
-			'posts_per_page'=> '10',
+			'posts_per_page'=> '-1',
 			'category_name'	=> 'tourist-info-center',
 			'orderby'		=> array('meta_tic'=>'asc'),//TICリスト番号の昇順で表示
 			'meta_query'	=> array(
 				'meta_tic'=>array(
-					'key'		=> 'location',				//カスタムフィールドのおすすめ度
+					'key'		=> 'location',				//23区IDのカスタムフィールド
 					'type'		=> 'numeric',				//タイプに数値を指定
 				),
 			),
 			'paged'			=> $paged,
-		); ?>
+		);
+	} ?>
 	<?php $the_query = new WP_Query($args); ?>
-
-	<h1><?php the_title(); ?></h1>
 
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):
 	$the_query->the_post(); ?>
@@ -36,7 +69,7 @@
 							'prev_text' => '&laquo;',
 							'next_text' => '&raquo;',
 							'total'		=> $the_query->max_num_pages
-							 ) ); ?>
+						) ); ?>
 	</div>
 	<?php wp_reset_postdata(); ?>
 

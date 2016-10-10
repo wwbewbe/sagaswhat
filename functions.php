@@ -642,8 +642,8 @@ function QueryListFilter($query) {
 		$query->set('post_type', 'post');			// 投稿記事を対象
 		$query->set('posts_per_page', '10');		// 一覧表示数
 		$query->set('category__not_in', array(1, $infocat->cat_ID));// カテゴリが未分類と観光案内所の記事は非表示
-		$query->set('orderby', array('meta_recommend'=>'desc', 'meta_open'=>'asc'));	// 推奨値の高い順
-		$query->set('meta_query', get_meta_query_args());			// 開催中のイベントを表示
+		$query->set('orderby', array('meta_recommend'=>'desc', 'meta_close'=>'asc'));	// 推奨値の高い順
+		$query->set('meta_query', get_meta_query_args());			// 終了していないイベントを表示
 	}
 	return $query;
 }
@@ -667,7 +667,7 @@ function set_event_distance($lat, $lng, $target) {
 		$args = array(
 			'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
 			'posts_per_page' => '-1',		// 全件
-			'meta_query'	=> $meta_query_args,//全ての開催中のイベント抽出
+			'meta_query'	=> $meta_query_args,//全ての終了していないイベント抽出
 		);
 	}
 
@@ -702,7 +702,7 @@ function set_event_distance($lat, $lng, $target) {
 }
 
 //イベント抽出フィルターの条件を設定
-function get_meta_query_args( $recommend, $distance = NULL ) {
+function get_meta_query_args( $recommend, $distance ) {
 	$args = array(
 		'relation'		=> 'AND',
 		'meta_close'=>array(
@@ -717,19 +717,6 @@ function get_meta_query_args( $recommend, $distance = NULL ) {
 				'compare'	=> '>=',				//今日以降なら表示
 				'type'		=> 'date',				//タイプに日付を指定
 			),
-		),
-		'meta_open'=>array(
-//			'reration'		=> 'OR',
-//			array(
-//				'key'		=> 'eventopen',
-//				'compare'	=> 'NOT EXISTS',
-//			),
-//			array(
-				'key'		=> 'eventopen',			//カスタムフィールドのイベント開催日欄
-				'value'		=> date_i18n( "Y/m/d" ),//イベント開催日を今日と比較
-				'compare'	=> '<=',				//今日以前なら表示
-				'type'		=> 'date',				//タイプに日付を指定
-//			),
 		),
 		'meta_recommend'=>array(
 			'key'		=> 'recommend',				//カスタムフィールドのおすすめ度
@@ -757,7 +744,8 @@ function get_meta_query_args( $recommend, $distance = NULL ) {
 
 // カテゴリ一覧ウィジェットから特定のカテゴリを除外
 function my_theme_catexcept($cat_args){
-    $exclude_id = '1';					// 除外するカテゴリID(未分類)
+	$infocat = get_category_by_slug('tourist-info-center');
+    $exclude_id = "1,$infocat->cat_ID";					// 除外するカテゴリID(未分類)
     $cat_args['exclude'] = $exclude_id;	// 除外
     return $cat_args;
 }

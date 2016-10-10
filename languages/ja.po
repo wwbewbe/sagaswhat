@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-10-02 22:57+0900\n"
-"PO-Revision-Date: 2016-10-02 22:58+0900\n"
+"POT-Creation-Date: 2016-10-10 22:56+0900\n"
+"PO-Revision-Date: 2016-10-10 22:59+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -68,62 +68,70 @@ msgstr "Wi-Fi"
 msgid "PC"
 msgstr "PC"
 
-#: functions.php:328 functions.php:429
+#: functions.php:328 functions.php:430
 msgid "Address"
 msgstr "住所"
 
-#: functions.php:333 functions.php:434
+#: functions.php:333 functions.php:435
 msgid "Contact"
 msgstr "お問合わせ"
 
-#: functions.php:335 functions.php:408 functions.php:416 functions.php:424
-#: functions.php:437
+#: functions.php:335 functions.php:409 functions.php:417 functions.php:425
+#: functions.php:438
 msgid "Click here"
 msgstr "詳細はこちら"
 
-#: functions.php:347
+#: functions.php:348
 msgid "Event name"
 msgstr "イベント名"
 
-#: functions.php:356
+#: functions.php:357
 msgid "Venue/Location"
 msgstr "会場/場所"
 
-#: functions.php:366
+#: functions.php:367
 msgid "Dates"
 msgstr "開催期間"
 
-#: functions.php:406
+#: functions.php:407
 msgid "Note"
 msgstr "備考"
 
-#: functions.php:414
+#: functions.php:415
 msgid "Open hours"
 msgstr "時間"
 
-#: functions.php:421
+#: functions.php:422
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:555
+#: functions.php:556
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: functions.php:777
+#: functions.php:766
 msgid "Open date"
 msgstr "開催日"
 
-#: functions.php:778
+#: functions.php:767
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:822
+#: functions.php:811
 msgid "None"
 msgstr "なし"
 
 #: gaiyou-medium.php:40
-msgid "now open"
+msgid "&gt;&gt;&gt;"
+msgstr "&gt;&gt;&gt;"
+
+#: gaiyou-medium.php:51
+msgid "Now Open"
 msgstr "開催中"
+
+#: gaiyou-medium.php:53
+msgid "Coming Soon..."
+msgstr "まもなく開催…"
 
 #: geolocation-js.php:15
 msgid "The service could not get your location."
@@ -151,10 +159,6 @@ msgstr "更新："
 msgid "Search"
 msgstr "検索"
 
-#: page-nearby-tic.php:20
-msgid "Nearby Centers"
-msgstr "周辺の観光案内所"
-
 #: page-nearby-tic.php:22
 msgid "Checking for TIC near you..."
 msgstr "周辺の観光案内所をさがしています　しばらくお待ちください"
@@ -171,10 +175,6 @@ msgstr "&quot;"
 msgid "&quot; Nearby TICs"
 msgstr "&quot; 件の観光案内所が見つかりました"
 
-#: page-nearby.php:20
-msgid "Nearby Events"
-msgstr "周辺イベント"
-
 #: page-nearby.php:22
 msgid "Checking for fun stuff near you..."
 msgstr "周辺のイベントを探しています　しばらくお待ちください"
@@ -187,20 +187,24 @@ msgstr "周辺で開催中のイベントは見つかりませんでした"
 msgid "&quot; Nearby Events"
 msgstr "&quot; 件のイベントが見つかりました"
 
-#: page-recommend.php:10
-msgid "Recommended Events"
-msgstr "おすすめイベント"
-
 #: page-recommend.php:17
 msgid "* It has sorted events in close order."
 msgstr "＊近い順に並び替えました"
 
-#: page-recommend.php:20
+#: page-recommend.php:20 page-tic.php:20
 msgid "Sort by Distance"
 msgstr "近い順に並び替え"
 
 #: page-recommend.php:22
 msgid "* Use this to see nearby events."
+msgstr "現在地から近い順に並び替えます"
+
+#: page-tic.php:17
+msgid "* It has sorted TICs in close order."
+msgstr "＊近い順に並び替えました"
+
+#: page-tic.php:22
+msgid "* Use this to see nearby TICs."
 msgstr "現在地から近い順に並び替えます"
 
 #: page-toppage.php:81
@@ -226,6 +230,18 @@ msgstr "関連イベント"
 #: snsbtn.php:6 snsbtn.php:11 snsbtn.php:16
 msgid "Share on "
 msgstr "シェア "
+
+#~ msgid "now open"
+#~ msgstr "開催中"
+
+#~ msgid "Nearby Centers"
+#~ msgstr "周辺の観光案内所"
+
+#~ msgid "Nearby Events"
+#~ msgstr "周辺イベント"
+
+#~ msgid "Recommended Events"
+#~ msgstr "おすすめイベント"
 
 #~ msgid "Click here for category description"
 #~ msgstr "TICカテゴリーの説明はこちら"

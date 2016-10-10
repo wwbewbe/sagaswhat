@@ -11,7 +11,7 @@
 	$eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) );
 	$eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) );
 	if($eventopen && $eventclose) {
-		$datetime = date_i18n('Y-m-d', strtotime($eventopen));
+		$opendate = date_i18n('Y-m-d', strtotime($eventopen));
 		if($eventopen == $eventclose) {
 			if ( get_bloginfo('language') == 'ja' ) {
 				$dates = date_i18n('Y年n月j日(D)', strtotime($eventclose));
@@ -29,7 +29,7 @@
 			$dates = $eventopen . ' - ' . $eventclose;
 		}
 	} elseif ($eventopen) {
-		$datetime = date_i18n('Y-m-d', strtotime($eventopen));
+		$opendate = date_i18n('Y-m-d', strtotime($eventopen));
 		if ( get_bloginfo('language') == 'ja' ) {
 			$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
 		} elseif (!$eventclose) {
@@ -37,7 +37,7 @@
 		} else {
 			$eventopen = date_i18n('M j, Y', strtotime($eventopen));
 		}
-		$dates = $eventopen . ' - ' . esc_html__('now open', 'SagasWhat');
+		$dates = $eventopen . ' - ' . esc_html__('&gt;&gt;&gt;', 'SagasWhat');
 	} elseif ($eventclose) {
 		if ( get_bloginfo('language') == 'ja' ) {
 			$dates = date_i18n('Y年n月j日(D)', strtotime($eventclose));
@@ -46,6 +46,12 @@
 		}
 	}
 
+	$today = date_i18n('Y-m-d');
+	if ($opendate<=$today) {
+		$stat = '<div class="openstat"><i class="fa fa-check-circle fa-fw"></i>'.esc_html__('Now Open', 'SagasWhat').'</div>';
+	} else {
+		$stat = '<div class="soonstat"><i class="fa fa-minus-circle fa-fw"></i>'.esc_html__('Coming Soon...', 'SagasWhat').'</div>';
+	}
 	//Favorite Events total number for each event
 /*	$favorite = esc_html( get_post_meta($post->ID, 'wpfp_favorites', true) );
 	if (($favorite > '0') && (function_exists('wpfp_list_favorite_posts'))) {
@@ -73,9 +79,9 @@
 	<div class="kiji-date">
 	<i class="fa fa-calendar"></i>
 	<time
-	datetime="<?php echo $datetime; ?>">
+	datetime="<?php echo $opendate; ?>">
 	<?php echo $dates; ?>
-	<?php echo $stars; ?>
+	<?php echo $stat; ?>
 	</time>
 	</div>
 
