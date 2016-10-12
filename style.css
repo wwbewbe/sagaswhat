@@ -474,6 +474,7 @@ blockquote:after		{position: absolute;
 /* 開催状況 */
 .openstat	{color: #1ea362;}
 .soonstat	{color: #bcbcbd;}
+.closestat	{color: #dbb5b5;}
 
 /* タグ */
 .kiji-tag	{margin-bottom: 18px}

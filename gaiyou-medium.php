@@ -10,8 +10,8 @@
 	// 開催期間
 	$eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) );
 	$eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) );
-	if($eventopen && $eventclose) {
-		$opendate = date_i18n('Y-m-d', strtotime($eventopen));
+	if( (!empty($eventopen)) && (!empty($eventclose)) ) {
+		$datetime = date_i18n('Y-m-d', strtotime($eventopen));
 		if($eventopen == $eventclose) {
 			if ( get_bloginfo('language') == 'ja' ) {
 				$dates = date_i18n('Y年n月j日(D)', strtotime($eventclose));
@@ -20,25 +20,23 @@
 			}
 		} else {
 			if ( get_bloginfo('language') == 'ja' ) {
-				$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
-				$eventclose = date_i18n('Y年n月j日(D)', strtotime($eventclose));
+				$opendate = date_i18n('Y年n月j日(D)', strtotime($eventopen));
+				$closedate = date_i18n('Y年n月j日(D)', strtotime($eventclose));
 			} else {
-				$eventopen = date_i18n('M j, Y', strtotime($eventopen));
-				$eventclose = date_i18n('M j, Y', strtotime($eventclose));
+				$opendate = date_i18n('M j, Y', strtotime($eventopen));
+				$closedate = date_i18n('M j, Y', strtotime($eventclose));
 			}
-			$dates = $eventopen . ' - ' . $eventclose;
+			$dates = $opendate . ' - ' . $closedate;
 		}
-	} elseif ($eventopen) {
-		$opendate = date_i18n('Y-m-d', strtotime($eventopen));
+	} elseif (!empty($eventopen)) {
+		$datetime = date_i18n('Y-m-d', strtotime($eventopen));
 		if ( get_bloginfo('language') == 'ja' ) {
-			$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
-		} elseif (!$eventclose) {
-			$eventopen = date_i18n('M j, Y', strtotime($eventopen));
+			$opendate = date_i18n('Y年n月j日(D)', strtotime($eventopen));
 		} else {
-			$eventopen = date_i18n('M j, Y', strtotime($eventopen));
+			$opendate = date_i18n('M j, Y', strtotime($eventopen));
 		}
-		$dates = $eventopen . ' - ' . esc_html__('&gt;&gt;&gt;', 'SagasWhat');
-	} elseif ($eventclose) {
+		$dates = $opendate . ' - ' . esc_html__('&gt;&gt;&gt;', 'SagasWhat');
+	} else {
 		if ( get_bloginfo('language') == 'ja' ) {
 			$dates = date_i18n('Y年n月j日(D)', strtotime($eventclose));
 		} else {
@@ -46,11 +44,13 @@
 		}
 	}
 
-	$today = date_i18n('Y-m-d');
-	if ($opendate<=$today) {
+	$today = date_i18n('Y/m/d');
+	if ((strtotime($eventopen)<=strtotime($today)) && (strtotime($eventclose)>=strtotime($today)) || (empty($eventclose))) {
 		$stat = '<div class="openstat"><i class="fa fa-check-circle fa-fw"></i>'.esc_html__('Now Open', 'SagasWhat').'</div>';
-	} else {
+	} elseif (strtotime($eventopen)>strtotime($today)) {
 		$stat = '<div class="soonstat"><i class="fa fa-minus-circle fa-fw"></i>'.esc_html__('Coming Soon...', 'SagasWhat').'</div>';
+	} else {
+		$stat = '<div class="closestat"><i class="fa fa-times-circle fa-fw"></i>'.esc_html__('Closed', 'SagasWhat').'</div>';
 	}
 	//Favorite Events total number for each event
 /*	$favorite = esc_html( get_post_meta($post->ID, 'wpfp_favorites', true) );
@@ -79,7 +79,7 @@
 	<div class="kiji-date">
 	<i class="fa fa-calendar"></i>
 	<time
-	datetime="<?php echo $opendate; ?>">
+	datetime="<?php echo $datetime; ?>">
 	<?php echo $dates; ?>
 	<?php echo $stat; ?>
 	</time>
