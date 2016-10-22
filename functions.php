@@ -292,78 +292,78 @@ function event_info_to_the_content( $content ) {
 
 		if (in_category('tourist-info-center')) {//TIC記事の場合表示する項目
 			// TIC名
-			if( $eventname = esc_html( get_post_meta($post->ID, 'eventname', true) ) ) {
+			if( $eventname = get_post_meta($post->ID, 'eventname', true) ) {
 				$thname = esc_html__('Center Name', 'SagasWhat');
-				if( $url = esc_html( get_post_meta($post->ID, 'url', true) ) ) {
+				if( $url = esc_url(get_post_meta($post->ID, 'url', true)) ) {
 					$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$url.'" target="_blank">' . $eventname . '</a></td></tr>';
 				} else {
 					$info = $info . '<tr><th>'.$thname.'</th><td>' . $eventname . '</td></tr>';
 				}
 			}
 			// TIC名(日本語名)
-			if( $ticjpname = esc_html( get_post_meta($post->ID, 'ticjpname', true) ) ) {
+			if( $ticjpname = get_post_meta($post->ID, 'ticjpname', true) ) {
 				$thname = esc_html__('JP Name', 'SagasWhat');
 				$info = $info . '<tr><th>'.$thname.'</th><td>' . $ticjpname . '</td></tr>';
 			}
 			// 注記(Category:x)
-			if( $note = esc_html( get_post_meta($post->ID, 'note', true) ) ) {
+			if( $note = get_post_meta($post->ID, 'note', true) ) {
 				$thname = esc_html(__('TIC Category', 'SagasWhat'));
-				if ( $noteurl = esc_html( get_post_meta($post->ID, 'noteurl', true) ) ) {
+				if ( $noteurl = esc_url(get_post_meta($post->ID, 'noteurl', true)) ) {
 					$note = $note.'<div><a href="'.$noteurl.'" target="_blank">'.esc_html__('Category description (Japan National Tourism Organization)', 'SagasWhat').'</div>';
 				}
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$note.'</td></tr>';
 			}
 			// Wi-Fi
-			if( $wifi = esc_html( get_post_meta($post->ID, 'wifi', true) ) ) {
+			if( $wifi = get_post_meta($post->ID, 'wifi', true) ) {
 				$thname = esc_html__('Wi-Fi', 'SagasWhat');
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$wifi.'</td></tr>';
 			}
 			// PC
-			if( $pc = esc_html( get_post_meta($post->ID, 'pc', true) ) ) {
+			if( $pc = get_post_meta($post->ID, 'pc', true) ) {
 				$thname = esc_html__('PC', 'SagasWhat');
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$pc.'</td></tr>';
 			}
 			// 住所
-			if( $showaddress = esc_html( get_post_meta($post->ID, 'showaddress', true) ) ) {
+			if( $showaddress = get_post_meta($post->ID, 'showaddress', true) ) {
 				$thname = esc_html__('Address', 'SagasWhat');
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$showaddress.'</td></tr>';
 			}
 			// 問い合わせ
-			if( $telephone = esc_html( get_post_meta($post->ID, 'telephone', true) ) ) {
+			if( $telephone = get_post_meta($post->ID, 'telephone', true) ) {
 				$thname = esc_html__('Contact', 'SagasWhat');
-				if ( $telephoneurl = esc_html( get_post_meta($post->ID, 'telephoneurl', true) ) ) {
+				if ( $telephoneurl = esc_url(get_post_meta($post->ID, 'telephoneurl', true)) ) {
 					$telephone = $telephone.'<div><a href="'.$telephoneurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
 				}
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$telephone.'</td></tr>';
 			}
 			$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
-			$ticinfo = '<div class="tic-info">'. esc_html(get_option('tic-info')) .'</div>';
+			$ticinfo = '<div class="tic-info">'. get_option('tic-info') .'</div>';
 			$adsense = '<aside class="mymenu-adsense">' . get_adsense(true) . '</aside>';
 
 			return $table.$content.$ticinfo.$adsense;
 
 		} else {
 			// イベント名
-			if( $eventname = esc_html( get_post_meta($post->ID, 'eventname', true) ) ) {
+			if( $eventname = get_post_meta($post->ID, 'eventname', true) ) {
 				$thname = esc_html__('Event name', 'SagasWhat');
-				if( $url = esc_html( get_post_meta($post->ID, 'url', true) ) ) {
+				if( $url = esc_url(get_post_meta($post->ID, 'url', true)) ) {
 					$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$url.'" target="_blank">' . $eventname . '</a></td></tr>';
 				} else {
 					$info = $info . '<tr><th>'.$thname.'</th><td>' . $eventname . '</td></tr>';
 				}
 			}
 			// 会場・場所
-			if( $venue = esc_html( get_post_meta($post->ID, 'venue', true) ) ) {
+			if( $venue = get_post_meta($post->ID, 'venue', true) ) {
 				$thname = esc_html__('Venue/Location', 'SagasWhat');
-				if ( $venueurl = esc_html( get_post_meta($post->ID, 'venueurl', true) ) ) {
+				if ( $venueurl = esc_url(get_post_meta($post->ID, 'venueurl', true)) ) {
 					$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$venueurl.'" target="_blank">' . $venue . '</a></td></tr>';
 				} else {
 					$info = $info . '<tr><th>'.$thname.'</th><td>' . $venue . '</td></tr>';
 				}
 			}
 			// 開催期間
-			$eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) );
-			$eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) );
+			$eventopen = esc_html(get_post_meta($post->ID, 'eventopen', true));
+			$eventclose = esc_html(get_post_meta($post->ID, 'eventclose', true));
 			$thname = esc_html__('Dates', 'SagasWhat');
 			if($eventopen && $eventclose) {
 				if($eventopen == $eventclose) {
@@ -403,38 +403,38 @@ function event_info_to_the_content( $content ) {
 				$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 			}
 			// 注記
-			if( $note = esc_html( get_post_meta($post->ID, 'note', true) ) ) {
+			if( $note = get_post_meta($post->ID, 'note', true) ) {
 				$thname = esc_html(__('Note', 'SagasWhat'));
-				if ( $noteurl = esc_html( get_post_meta($post->ID, 'noteurl', true) ) ) {
+				if ( $noteurl = esc_url(get_post_meta($post->ID, 'noteurl', true)) ) {
 					$note = $note.'<div><a href="'.$noteurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
 				}
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$note.'</td></tr>';
 			}
 			// 営業時間
-			if( $bizhours = esc_html( get_post_meta($post->ID, 'bizhours', true) ) ) {
+			if( $bizhours = get_post_meta($post->ID, 'bizhours', true) ) {
 				$thname = esc_html__('Open hours', 'SagasWhat');
-				if ( $bizhoursurl = esc_html( get_post_meta($post->ID, 'bizhoursurl', true) ) ) {
+				if ( $bizhoursurl = esc_url(get_post_meta($post->ID, 'bizhoursurl', true)) ) {
 					$bizhours = $bizhours.'<div><a href="'.$bizhoursurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
 				}
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$bizhours.'</td></tr>';
 			}
 			// 入場料
 			$thname = esc_html__('Admission', 'SagasWhat');
-			if( $price = esc_html( get_post_meta($post->ID, 'price', true) ) ) {
-				if ( $priceurl = esc_html( get_post_meta($post->ID, 'priceurl', true) ) ) {
+			if( $price = get_post_meta($post->ID, 'price', true) ) {
+				if ( $priceurl = esc_url(get_post_meta($post->ID, 'priceurl', true)) ) {
 					$price = $price.'<div><a href="'.$priceurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
 				}
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$price.'</td></tr>';
 			}
 			// 住所
 			$thname = esc_html__('Address', 'SagasWhat');
-			if( $showaddress = esc_html( get_post_meta($post->ID, 'showaddress', true) ) ) {
+			if( $showaddress = get_post_meta($post->ID, 'showaddress', true) ) {
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$showaddress.'</td></tr>';
 			}
 			// 問い合わせ
 			$thname = esc_html__('Contact', 'SagasWhat');
-			if( $telephone = esc_html( get_post_meta($post->ID, 'telephone', true) ) ) {
-				if ( $telephoneurl = esc_html( get_post_meta($post->ID, 'telephoneurl', true) ) ) {
+			if( $telephone = get_post_meta($post->ID, 'telephone', true) ) {
+				if ( $telephoneurl = esc_url(get_post_meta($post->ID, 'telephoneurl', true)) ) {
 					$telephone = $telephone.'<div><a href="'.$telephoneurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
 				}
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$telephone.'</td></tr>';
