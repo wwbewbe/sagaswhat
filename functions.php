@@ -345,7 +345,7 @@ function event_info_to_the_content( $content ) {
 		} else {
 			// イベント名
 			if( $eventname = get_post_meta($post->ID, 'eventname', true) ) {
-				$thname = esc_html__('Event name', 'SagasWhat');
+				$thname = esc_html__('Event Name', 'SagasWhat');
 				if( $url = esc_url(get_post_meta($post->ID, 'url', true)) ) {
 					$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$url.'" target="_blank">' . $eventname . '</a></td></tr>';
 				} else {
@@ -354,7 +354,7 @@ function event_info_to_the_content( $content ) {
 			}
 			// 会場・場所
 			if( $venue = get_post_meta($post->ID, 'venue', true) ) {
-				$thname = esc_html__('Venue/Location', 'SagasWhat');
+				$thname = esc_html__('Venue', 'SagasWhat');
 				if ( $venueurl = esc_url(get_post_meta($post->ID, 'venueurl', true)) ) {
 					$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$venueurl.'" target="_blank">' . $venue . '</a></td></tr>';
 				} else {
@@ -419,7 +419,7 @@ function event_info_to_the_content( $content ) {
 			}
 			// 営業時間
 			if( $bizhours = get_post_meta($post->ID, 'bizhours', true) ) {
-				$thname = esc_html__('Open hours', 'SagasWhat');
+				$thname = esc_html__('Open Hours', 'SagasWhat');
 				if ( $bizhoursurl = esc_url(get_post_meta($post->ID, 'bizhoursurl', true)) ) {
 					$bizhours = $bizhours.'<div><a href="'.$bizhoursurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
 				}
