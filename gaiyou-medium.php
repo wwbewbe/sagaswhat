@@ -10,6 +10,8 @@
 	// 開催期間
 	$eventopen = esc_html( get_post_meta($post->ID, 'eventopen', true) );
 	$eventclose = esc_html( get_post_meta($post->ID, 'eventclose', true) );
+	$openseason = get_post_meta($post->ID, 'openseason', true);
+	$closeseason = get_post_meta($post->ID, 'closeseason', true);
 	if( (!empty($eventopen)) && (!empty($eventclose)) ) {
 		$datetime = date_i18n('Y-m-d', strtotime($eventopen));
 		if($eventopen == $eventclose) {
@@ -18,6 +20,7 @@
 			} else {
 				$dates = date_i18n('M j, Y', strtotime($eventclose));
 			}
+			if ($closeseason) $dates = $closeseason;
 		} else {
 			if ( get_bloginfo('language') == 'ja' ) {
 				$opendate = date_i18n('Y年n月j日(D)', strtotime($eventopen));
@@ -26,6 +29,8 @@
 				$opendate = date_i18n('M j, Y', strtotime($eventopen));
 				$closedate = date_i18n('M j, Y', strtotime($eventclose));
 			}
+			if ($openseason) $opendate = $openseason;
+			if ($closeseason) $closedate = $closeseason;
 			$dates = $opendate . ' - ' . $closedate;
 		}
 	} elseif (!empty($eventopen)) {
@@ -35,6 +40,7 @@
 		} else {
 			$opendate = date_i18n('M j, Y', strtotime($eventopen));
 		}
+		if ($openseason) $opendate = $openseason;
 		$dates = $opendate . ' - ' . esc_html__('&gt;&gt;&gt;', 'SagasWhat');
 	} else {
 		if ( get_bloginfo('language') == 'ja' ) {
@@ -42,6 +48,7 @@
 		} else {
 			$dates = date_i18n('M j, Y', strtotime($eventclose));
 		}
+		if ($closeseason) $dates = $closeseason;
 	}
 
 	$today = date_i18n('Y/m/d');
