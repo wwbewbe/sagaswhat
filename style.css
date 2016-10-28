@@ -1249,7 +1249,7 @@ iframe			{max-width: 100%}
     cursor:pointer;
     color: #ffffff;
     padding: 10px;
-    margin: 5px 0 0;
+    margin: 10px 0 0;
     text-align: center;
     display: block;
     border-radius: 10px;
@@ -1262,11 +1262,10 @@ iframe			{max-width: 100%}
 	#floating-menu {
 	    bottom: 0px;
 	    right: 0px;
-		margin: 0;
+		/*margin: 0;*/
 	}
 	#floating-menu a {
-	    font-size: 12px;
-		padding: 5px;
+	    font-size: 14px;
 	}
 }
 
