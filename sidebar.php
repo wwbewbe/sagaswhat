@@ -5,7 +5,7 @@ $location_name = 'pickupnav';
 $locations = get_nav_menu_locations();
 $myposts = wp_get_nav_menu_items( $locations[ $location_name ] );
 if( $myposts ): ?>
-<aside class="mymenu mymenu-large">
+<aside class="mymenu mymenu-feature">
 <h2><?php echo esc_html(__('Featured Events', 'SagasWhat')); ?></h2>
 <ul>
 

@@ -3,7 +3,7 @@ $location_name = 'nearbynav';
 $locations = get_nav_menu_locations();
 $myposts = wp_get_nav_menu_items( $locations[ $location_name ] );
 if( $myposts ): ?>
-<aside class="mymenu mymenu-largefix">
+<aside class="mymenu mymenu-large">
 <ul>
 
 	<?php foreach($myposts as $post):

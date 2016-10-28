@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-10-24 16:59+0900\n"
-"PO-Revision-Date: 2016-10-24 17:01+0900\n"
+"POT-Creation-Date: 2016-10-28 14:22+0900\n"
+"PO-Revision-Date: 2016-10-28 14:23+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -44,80 +44,92 @@ msgstr "戻る"
 msgid "Next"
 msgstr "次へ"
 
-#: functions.php:296
+#: footer.php:29
+msgid "Nearby Events"
+msgstr "周辺イベント"
+
+#: footer.php:32
+msgid "Nearby TICs"
+msgstr "周辺の観光案内所"
+
+#: footer.php:35
+msgid "Nearby Parks"
+msgstr "周辺の公園"
+
+#: functions.php:303
 msgid "Center Name"
 msgstr "観光案内所名"
 
-#: functions.php:305
+#: functions.php:312
 msgid "JP Name"
 msgstr "日本語名"
 
-#: functions.php:310
+#: functions.php:317
 msgid "TIC Category"
 msgstr "TICカテゴリー"
 
-#: functions.php:312
+#: functions.php:319
 msgid "Category description (Japan National Tourism Organization)"
 msgstr "カテゴリー説明 (日本政府観光局)"
 
-#: functions.php:318
+#: functions.php:325
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: functions.php:323
+#: functions.php:330
 msgid "PC"
 msgstr "PC"
 
-#: functions.php:328 functions.php:437
+#: functions.php:335 functions.php:444
 msgid "Address"
 msgstr "住所"
 
-#: functions.php:333 functions.php:442
+#: functions.php:340 functions.php:449
 msgid "Contact"
 msgstr "お問合わせ"
 
-#: functions.php:335 functions.php:416 functions.php:424 functions.php:432
-#: functions.php:445
+#: functions.php:342 functions.php:423 functions.php:431 functions.php:439
+#: functions.php:452
 msgid "Click here"
 msgstr "詳細はこちら"
 
-#: functions.php:348
+#: functions.php:355
 msgid "Event Name"
 msgstr "イベント名"
 
-#: functions.php:357
+#: functions.php:364
 msgid "Venue"
 msgstr "会場"
 
-#: functions.php:369
+#: functions.php:376
 msgid "Dates"
 msgstr "開催期間"
 
-#: functions.php:414
+#: functions.php:421
 msgid "Note"
 msgstr "備考"
 
-#: functions.php:422
+#: functions.php:429
 msgid "Open Hours"
 msgstr "時間"
 
-#: functions.php:429
+#: functions.php:436
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:563
+#: functions.php:570
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: functions.php:773
+#: functions.php:780
 msgid "Open date"
 msgstr "開催日"
 
-#: functions.php:774
+#: functions.php:781
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:818
+#: functions.php:825
 msgid "None"
 msgstr "なし"
 
@@ -211,7 +223,7 @@ msgstr "＊近い順に並び替えました"
 msgid "* Use this to see nearby TICs."
 msgstr "現在地から近い順に並び替えます"
 
-#: page-toppage.php:81
+#: page-toppage.php:82
 msgid "Upcoming Events"
 msgstr "開催予定のイベント"
 
@@ -249,9 +261,6 @@ msgstr "シェア "
 
 #~ msgid "Nearby Centers"
 #~ msgstr "周辺の観光案内所"
-
-#~ msgid "Nearby Events"
-#~ msgstr "周辺イベント"
 
 #~ msgid "Recommended Events"
 #~ msgstr "おすすめイベント"

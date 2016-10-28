@@ -166,6 +166,7 @@ register_nav_menu( 'nearbynav', 'Nearby Menu' );		//周辺イベント検索用�
 register_nav_menu( 'calendarnav', 'Calendar Menu' );	//カレンダーから探す用メニュー
 register_nav_menu( 'nearbyticnav', 'Nearby TIC Menu' );	//周辺TICのリスト表示用メニュー
 register_nav_menu( 'ticnav', 'TIC Menu' );				//TICのリスト表示用メニュー
+register_nav_menu( 'floatingmenu', 'Floating Menu' );	//フローティングメニュー
 
 // トグルボタン
 function navbtn_scripts() {
@@ -199,6 +200,12 @@ function geoloc_scripts() {
 	wp_enqueue_script( 'geoloc-script', get_template_directory_uri() .'/js/geoloc.js', array( 'jquery' ) );
 }
 add_action( 'wp_enqueue_scripts', 'geoloc_scripts' );
+
+// フローティングメニュー
+function floating_scripts() {
+	wp_enqueue_script( 'floating-script', get_template_directory_uri() .'/js/floating-menu.js', array( 'jquery' ) );
+}
+add_action( 'wp_enqueue_scripts', 'floating_scripts' );
 
 // jCarouselを使用
 function carousel_scripts() {

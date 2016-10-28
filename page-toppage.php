@@ -16,14 +16,12 @@
 
 <div class="contents">
 
-	<?php get_template_part( 'nearby', 'events' ); //Nearby Events list function ?>
-
 	<?php // Page Menu on Top Page
 	$location_name = 'pagenav';
 	$locations = get_nav_menu_locations();
 	$myposts = wp_get_nav_menu_items( $locations[ $location_name ] );
 	if( $myposts ): ?>
-	<aside class="mymenu mymenu-top">
+	<aside class="mymenu mymenu-yoko">
 	<ul>
 
 		<?php foreach($myposts as $post):
@@ -34,6 +32,7 @@
 		<div class="thumb" style="background-image: url(<?php echo mythumb( 'medium' ); ?>)"></div>
 		<div class="text">
 		<h2><?php the_title(); ?></h2>
+		<?php the_excerpt(); ?>
 		</div>
 		</a></li>
 		<?php endif;
@@ -44,14 +43,12 @@
 	<?php wp_reset_postdata();
 	endif; ?>
 
-	<?php get_template_part( 'nearby', 'tic' ); //Nearby TIC list function ?>
-
 	<?php // Calendar Menu on Top Page
 	$location_name = 'calendarnav';
 	$locations = get_nav_menu_locations();
 	$myposts = wp_get_nav_menu_items( $locations[ $location_name ] );
 	if( $myposts ): ?>
-	<aside class="mymenu mymenu-largefix">
+	<aside class="mymenu mymenu-large">
 	<ul>
 
 		<?php foreach($myposts as $post):
@@ -71,6 +68,10 @@
 	</aside>
 	<?php wp_reset_postdata();
 	endif; ?>
+
+	<?php get_template_part( 'nearby', 'events' ); //Nearby Events list function ?>
+
+	<?php get_template_part( 'nearby', 'tic' ); //Nearby TIC list function ?>
 
 	<?php // Upcoming Menu on Top Page
 	$location_name = 'upcomingnav';
