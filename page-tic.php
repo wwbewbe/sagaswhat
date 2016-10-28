@@ -14,7 +14,7 @@
 		$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
 	?>
 	<?php if(($lat) && ($lng)) : ?>
-		<span class="highlight"><strong><?php echo esc_html(__('* It has sorted TICs in close order.', 'SagasWhat')); ?></strong></span>
+		<p><?php echo esc_html(__('* TICs have been sorted in close order.', 'SagasWhat')); ?></p>
 	<?php else : ?>
 		<button type="button" id="nearnav">
 			<i class="fa fa-bars fa-fw"></i><?php echo esc_html(__('Sort by Distance', 'SagasWhat')); ?>
@@ -73,7 +73,7 @@
 	</div>
 	<?php wp_reset_postdata(); ?>
 
-	<div class="tic-info"><?php echo esc_html(get_option('tic-info')); ?></div>
+	<div class="tic-comment-end"><?php echo get_option('tic-comment-end'); ?></div>
 
 	<aside class="mymenu-adsense">
 	<?php echo get_adsense(); ?>

@@ -14,7 +14,7 @@
 		$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
 	?>
 	<?php if(($lat) && ($lng)) : ?>
-		<span class="highlight"><strong><?php echo esc_html(__('* It has sorted events in close order.', 'SagasWhat')); ?></strong></span>
+		<p><?php echo esc_html(__('* Events have been sorted in close order.', 'SagasWhat')); ?></p>
 	<?php else : ?>
 		<button type="button" id="nearnav">
 			<i class="fa fa-bars fa-fw"></i><?php echo esc_html(__('Sort by Distance', 'SagasWhat')); ?>

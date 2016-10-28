@@ -344,7 +344,7 @@ function event_info_to_the_content( $content ) {
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$telephone.'</td></tr>';
 			}
 			$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
-			$ticinfo = '<div class="tic-info">'. get_option('tic-info') .'</div>';
+			$ticinfo = '<div class="tic-comment-end">'. get_option('tic-comment-end') .'</div>';
 			$adsense = '<aside class="mymenu-adsense">' . get_adsense(true) . '</aside>';
 
 			return $table.$content.$ticinfo.$adsense;

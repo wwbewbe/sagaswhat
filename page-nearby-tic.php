@@ -26,7 +26,7 @@
 <?php if(($lat) && ($lng)) : ?>
 
 	<?php set_event_distance($lat, $lng, 'tic');//TICまでの距離をTIC記事のカスタムフィールドに保存 ?>
-
+	<?php if (empty($ticdistance = get_option('tic-distance'))) $ticdistance = '0.06'; ?>
 	<?php
 	//並び替え
 	$infocat = get_category_by_slug('tourist-info-center');
@@ -39,7 +39,7 @@
 		'meta_query'	=> array(
 				'meta_distance'=>array(
 					'key'		=> 'distance',		//カスタムフィールドの距離データ
-					'value'		=> '0.06',			//約3駅範囲の観光案内所を抽出
+					'value'		=> $ticdistance,	//約3駅範囲の観光案内所を抽出
 					'compare'	=> '<=',			//指定距離内のイベントを表示
 					'type'		=> 'char',			//タイプに数値を指定
 				)),
@@ -53,7 +53,9 @@
 	<?php else : ?>
 		<p><?php echo esc_html(__('Found &quot;', 'SagasWhat')); ?>
 		<?php echo ($the_query->found_posts); ?>
-		<?php echo esc_html(__('&quot; Nearby TICs', 'SagasWhat')); ?></p>
+		<?php echo esc_html(__('&quot; Nearby TICs', 'SagasWhat')); ?>
+		<?php if($the_query->found_posts >= 2) echo '<br />'.esc_html__('* TICs have been sorted in close order.', 'SagasWhat'); ?>
+		</p>
 	<?php endif; ?>
 
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):
@@ -74,7 +76,7 @@
 	<?php wp_reset_postdata(); ?>
 <?php endif; ?>
 
-<div class="tic-info"><?php echo esc_html(get_option('tic-info')); ?></div>
+<div class="tic-comment-end"><?php echo get_option('tic-comment-end'); ?></div>
 
 <?php get_template_part( 'list', 'tic' ); //TIC list ?>
 

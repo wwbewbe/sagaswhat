@@ -26,11 +26,11 @@
 <?php if(($lat) && ($lng)) : ?>
 
 	<?php set_event_distance($lat, $lng);//イベント会場までの距離をカスタムフィールドに保存 ?>
-
+	<?php if (empty($eventdistance = get_option('event-distance'))) $eventdistance = '0.06'; ?>
 	<?php
 	//並び替え
 	$infocat = get_category_by_slug('tourist-info-center');//観光案内所をリストから除外
-	$meta_query_args = get_meta_query_args('0', '0.05');//開催中&約3駅範囲のイベント抽出
+	$meta_query_args = get_meta_query_args('0', $eventdistance);//開催中&約3駅範囲のイベント抽出
 	$args = array(
 	    'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
 	    'posts_per_page' => '10',		// 10件表示
@@ -48,7 +48,9 @@
 	<?php else : ?>
 		<p><?php echo esc_html(__('Found &quot;', 'SagasWhat')); ?>
 		<?php echo ($the_query->found_posts); ?>
-		<?php echo esc_html(__('&quot; Nearby Events', 'SagasWhat')); ?></p>
+		<?php echo esc_html(__('&quot; Nearby Events', 'SagasWhat')); ?>
+		<?php if($the_query->found_posts >= 2) echo '<br />'.esc_html__('* Events have been sorted in close order.', 'SagasWhat'); ?>
+		</p>
 	<?php endif; ?>
 
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):

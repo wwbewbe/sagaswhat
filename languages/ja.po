@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-10-28 14:22+0900\n"
-"PO-Revision-Date: 2016-10-28 14:23+0900\n"
+"POT-Creation-Date: 2016-10-28 20:22+0900\n"
+"PO-Revision-Date: 2016-10-28 20:23+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -191,6 +191,10 @@ msgstr "&quot;"
 msgid "&quot; Nearby TICs"
 msgstr "&quot; 件の観光案内所が見つかりました"
 
+#: page-nearby-tic.php:57 page-tic.php:17
+msgid "* TICs have been sorted in close order."
+msgstr "＊近い順に並んでいます"
+
 #: page-nearby.php:22
 msgid "Checking for fun stuff near you..."
 msgstr "周辺のイベントを探しています　しばらくお待ちください"
@@ -203,9 +207,9 @@ msgstr "周辺で開催中のイベントは見つかりませんでした"
 msgid "&quot; Nearby Events"
 msgstr "&quot; 件のイベントが見つかりました"
 
-#: page-recommend.php:17
-msgid "* It has sorted events in close order."
-msgstr "＊近い順に並び替えました"
+#: page-nearby.php:52 page-recommend.php:17
+msgid "* Events have been sorted in close order."
+msgstr "＊近い順に並んでいます"
 
 #: page-recommend.php:20 page-tic.php:20
 msgid "Sort by Distance"
@@ -214,10 +218,6 @@ msgstr "近い順に並び替え"
 #: page-recommend.php:22
 msgid "* Use this to see nearby events."
 msgstr "現在地から近い順に並び替えます"
-
-#: page-tic.php:17
-msgid "* It has sorted TICs in close order."
-msgstr "＊近い順に並び替えました"
 
 #: page-tic.php:22
 msgid "* Use this to see nearby TICs."
@@ -246,6 +246,12 @@ msgstr "関連イベント"
 #: snsbtn.php:6 snsbtn.php:11 snsbtn.php:16
 msgid "Share on "
 msgstr "シェア "
+
+#~ msgid "* It has sorted events in close order."
+#~ msgstr "＊近い順に並び替えました"
+
+#~ msgid "* It has sorted TICs in close order."
+#~ msgstr "＊近い順に並び替えました"
 
 #~ msgid "Event name"
 #~ msgstr "イベント名"
