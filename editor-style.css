@@ -9,7 +9,7 @@
 /* -------------------- 記事 -------------------- */
 /* 記事 */
 p		{margin-top: 0;
-		margin-bottom: 20px}
+		margin-bottom: 10px}
 
 @media (max-width: 599px) {
 	p		{font-size: 14px}
@@ -21,7 +21,7 @@ h2			{position: relative;
 			padding-left: 32px;
 			padding-bottom: 5px;
 			border-bottom: solid 2px #e90000;
-			font-size: 24px;
+			font-size: 20px;
 			clear: both}
 
 h2:before		{position: absolute;
@@ -41,7 +41,7 @@ h3			{margin-top: 25px;
 
 @media (max-width: 599px) {
 	h2			{padding-left: 21px;
-				font-size: 18px}
+				font-size: 17px}
 
 	h2:before		{font-size: 20px}
 
