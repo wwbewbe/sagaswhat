@@ -775,10 +775,13 @@ function custom_columns($columns) {
 }
 add_filter( 'manage_posts_columns', 'custom_columns' );
 
-//管理画面の投稿一覧にイベント開催日と終了日の列を追加
+//管理画面の投稿一覧にイベント開催日、終了日、推奨度、会場、住所の列を追加
 function add_posts_columns_name($columns) {
-    $columns['eventopen'] = esc_html(__('Open date', 'SagasWhat'));
-	$columns['eventclose'] = esc_html(__('Close date', 'SagasWhat'));
+    $columns['eventopen'] = esc_html__('Open date', 'SagasWhat');
+	$columns['eventclose'] = esc_html__('Close date', 'SagasWhat');
+	$columns['recommend'] = esc_html__('Recommend', 'SagasWhat');
+	$columns['venue'] = esc_html__('Venue', 'SagasWhat');
+	$columns['address'] = esc_html__('Address', 'SagasWhat');
     return $columns;
 }
 add_filter( 'manage_posts_columns', 'add_posts_columns_name' );
@@ -787,6 +790,7 @@ add_filter( 'manage_posts_columns', 'add_posts_columns_name' );
 function custom_sortable_columns($sortable_column) {
     $sortable_column['eventopen'] = 'eventopen';
 	$sortable_column['eventclose'] = 'eventclose';
+	$sortable_column['recommend'] = 'recommend';
     return $sortable_column;
 }
 function custom_orderby_columns( $vars ) {
@@ -804,6 +808,13 @@ function custom_orderby_columns( $vars ) {
 			'meta_type' => 'date',
         ));
     }
+	if (isset($vars['orderby']) && 'recommend' == $vars['orderby']) {
+        $vars = array_merge($vars, array(
+            'meta_key' => 'recommend',
+            'orderby' => 'meta_value',
+			'meta_type' => 'numeric',
+        ));
+    }
     return $vars;
 }
 add_filter( 'manage_edit-post_sortable_columns', 'custom_sortable_columns');
@@ -817,10 +828,25 @@ function add_column($column_name, $post_id) {
 	if ($column_name == 'eventclose') {
         $closedate = get_post_meta($post_id, 'eventclose', true);
     }
+	if ($column_name == 'recommend') {
+        $recommend = get_post_meta($post_id, 'recommend', true);
+    }
+	if ($column_name == 'venue') {
+        $venue = get_post_meta($post_id, 'venue', true);
+    }
+	if ($column_name == 'address') {
+        $address = get_post_meta($post_id, 'address', true);
+    }
 	if (isset($opendate) && $opendate) {
         echo attribute_escape($opendate);
     } elseif (isset($closedate) && $closedate) {
         echo attribute_escape($closedate);
+	} elseif (isset($recommend) && $recommend) {
+        echo attribute_escape($recommend);
+	} elseif (isset($venue) && $venue) {
+        echo attribute_escape($venue);
+	} elseif (isset($address) && $address) {
+        echo attribute_escape($address);
 	} else {
 		echo esc_html(__('None', 'SagasWhat'));
     }

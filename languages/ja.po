@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-10-28 20:22+0900\n"
-"PO-Revision-Date: 2016-10-28 20:23+0900\n"
+"POT-Creation-Date: 2016-10-30 00:07+0900\n"
+"PO-Revision-Date: 2016-10-30 00:08+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -80,7 +80,7 @@ msgstr "Wi-Fi"
 msgid "PC"
 msgstr "PC"
 
-#: functions.php:335 functions.php:444
+#: functions.php:335 functions.php:444 functions.php:784
 msgid "Address"
 msgstr "住所"
 
@@ -97,7 +97,7 @@ msgstr "詳細はこちら"
 msgid "Event Name"
 msgstr "イベント名"
 
-#: functions.php:364
+#: functions.php:364 functions.php:783
 msgid "Venue"
 msgstr "会場"
 
@@ -129,7 +129,11 @@ msgstr "開催日"
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:825
+#: functions.php:782
+msgid "Recommend"
+msgstr "推奨度"
+
+#: functions.php:851
 msgid "None"
 msgstr "なし"
 

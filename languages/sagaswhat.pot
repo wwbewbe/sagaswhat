@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SagasWhat\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2016-10-28 20:22+0900\n"
+"POT-Creation-Date: 2016-10-30 00:07+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,7 +82,7 @@ msgstr ""
 msgid "PC"
 msgstr ""
 
-#: functions.php:335 functions.php:444
+#: functions.php:335 functions.php:444 functions.php:784
 msgid "Address"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Event Name"
 msgstr ""
 
-#: functions.php:364
+#: functions.php:364 functions.php:783
 msgid "Venue"
 msgstr ""
 
@@ -131,7 +131,11 @@ msgstr ""
 msgid "Close date"
 msgstr ""
 
-#: functions.php:825
+#: functions.php:782
+msgid "Recommend"
+msgstr ""
+
+#: functions.php:851
 msgid "None"
 msgstr ""
 
