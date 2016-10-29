@@ -263,7 +263,7 @@ header, footer, .container, .sub-header
 		font-size: 36px}
 
 .kiji p		{margin-top: 0;
-		margin-bottom: 20px}
+		margin-bottom: 10px}
 
 @media (max-width: 599px) {
 		.kiji h1	{font-size: 24px}
