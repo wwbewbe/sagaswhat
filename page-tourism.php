@@ -9,10 +9,6 @@
 	the_post(); ?>
 	<article <?php post_class( 'kiji' ); ?>>
 
-	<div class="kiji-tag">
-	<?php the_tags( '<ul><li>', '</li><li>', '</li></ul>' ); ?>
-	</div>
-
 	<h1><?php the_title(); ?></h1>
 
 	<div class="kiji-body">
