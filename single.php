@@ -37,9 +37,9 @@ if (!empty($closedate)) { //すでにイベントが終了しているときはc
 	}
 } ?>
 <?php if ((!empty($closedate)) && (strtotime($closedate) < strtotime($today))): ?>
-	<div class="closealert">
+	<span class="closealert">
 	<i class="fa fa-close"></i><?php echo esc_html__('This event has closed.', 'SagasWhat'); ?>
-	</div>
+	</span>
 <?php endif; ?>
 
 <article <?php post_class( 'kiji' ); ?>>

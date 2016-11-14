@@ -396,7 +396,7 @@ header, footer, .container, .sub-header
 			line-height: 1}
 
 /* ハイライト */
-.highlight		{background-color: #ffff00;
+.highlight		{background: linear-gradient(transparent 60%, #dafee2 60%);
 			padding: 0 3px}
 
 /* 番号なしリスト */
@@ -541,7 +541,7 @@ blockquote:after		{position: absolute;
 /* イベントが終了しているときのアラートメッセージ */
 .closealert {font-size: 20px;
 			margin-bottom: 10px;
-			background-color: #ffff00;}
+			background: linear-gradient(transparent 60%, #ffff00 60%);}
 
 /* シェアボタン コンテンツに表示するときはmargin-top: 40px*/
 .share		{margin-top: 0px;
