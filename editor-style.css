@@ -111,8 +111,8 @@ h3			{margin-top: 25px;
 			line-height: 1}
 
 /* ハイライト */
-.highlight		{background-color: #ffff00;
-						padding: 0 3px}
+.highlight		{background: linear-gradient(transparent 60%, #dafee2 60%);
+			padding: 0 3px}
 
 /* 番号なしリスト */
 .kiji-body ul	{list-style: none}
