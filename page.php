@@ -6,6 +6,38 @@
 <div class="container">
 <div class="contents">
 
+<?php if(preg_match( '/topics-(\w+)/s', $post->post_name)): ?>
+
+	<?php if(have_posts()): while(have_posts()):
+	the_post(); ?>
+	<article <?php post_class( 'kiji' ); ?>>
+
+		<h1><?php the_title(); ?></h1>
+
+		<div class="kiji-body">
+		<?php the_content(); ?>
+		</div>
+
+		<?php wp_link_pages( array(
+			'before' => '<div class="pagination"><ul><li>',
+			'separator' => '</li><li>',
+			'after' => '</li></ul></div>',
+			'pagelink' => '<span>%</span>'
+		) ); ?>
+
+		<aside class="mymenu-adsense">
+		<?php echo get_adsense(); ?>
+		</aside>
+
+		<?php if (function_exists('wpfp_list_favorite_posts')) {
+			get_template_part( 'favorite', 'events' );
+		} //Favorite Events list function?>
+
+	</article>
+	<?php endwhile; endif; ?>
+
+<?php else : ?>
+
 	<?php
 	$args=array(
 			'post_type'		=> 'post',
@@ -42,6 +74,8 @@
 	<?php if (function_exists('wpfp_list_favorite_posts')) {
 		get_template_part( 'favorite', 'events' );
 	} //Favorite Events list function?>
+
+<?php endif; ?>
 
 </div>
 

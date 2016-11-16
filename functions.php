@@ -158,15 +158,15 @@ function get_upcoming_image($count) {
 // カスタムメニュー
 register_nav_menu( 'sitenav', 'Site Navigation' );		//ヘッダーに表示するメニュー
 register_nav_menu( 'pickupnav', 'Pickup Posts' );		//注目のイベント
-register_nav_menu( 'pagenav', 'Page Navigation' );		//TOPページのメニュー１
+register_nav_menu( 'pagenav', 'Page Navigation' );		//TOPページのメニュー
 register_nav_menu( 'categorynav', 'Category Menu' );	//TOPにあるカテゴリーメニューから表示するメニュー
-register_nav_menu( 'newsnav', 'News' );					//
 register_nav_menu( 'upcomingnav', 'Upcoming Menu' );	//予定(Upcoming)のイベント表示用メニュー
 register_nav_menu( 'nearbynav', 'Nearby Menu' );		//周辺イベント検索用メニュー
 register_nav_menu( 'calendarnav', 'Calendar Menu' );	//カレンダーから探す用メニュー
 register_nav_menu( 'nearbyticnav', 'Nearby TIC Menu' );	//周辺TICのリスト表示用メニュー
 register_nav_menu( 'ticnav', 'TIC Menu' );				//TICのリスト表示用メニュー
 register_nav_menu( 'floatingmenu', 'Floating Menu' );	//フローティングメニュー
+register_nav_menu( 'topicsmenu', 'Topics Menu' );			//TOPページに表示する特集メニュー
 
 // トグルボタン
 function navbtn_scripts() {
@@ -470,6 +470,7 @@ function set_taglist($params = array()) {
         				'file' => 'taglist',
 						'tagname' => 0,
 						'list' => 5,
+						'sort' => false,
     					), $params));
     ob_start();
     include(get_theme_root() . '/' . get_template() . "/$file.php");

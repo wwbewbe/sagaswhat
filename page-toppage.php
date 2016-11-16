@@ -16,6 +16,8 @@
 
 <div class="contents">
 
+	<?php get_template_part( 'topics', 'menu' ); //Topics Menu ?>
+
 	<?php // Page Menu on Top Page
 	$location_name = 'pagenav';
 	$locations = get_nav_menu_locations();

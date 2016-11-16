@@ -1014,6 +1014,60 @@ blockquote:after		{position: absolute;
 @media (max-width: 599px) {
 }
 
+/* サムネイル画像に文字を重ねた特集メニュー */
+.mymenu-topics		{margin-bottom: 10px;}
+.mymenu-topics li a
+					{position: relative;
+					margin-bottom: 0px;
+					padding: 0}
+
+.mymenu-topics li a:hover
+					{opacity: 0.8}
+
+.mymenu-topics li .thumb
+					{width: 100%;
+					height: 80px;
+					background-size: cover;
+					background-position: 50% 50%;}
+
+.mymenu-topics li .text
+			{position: absolute;
+			top: 0;
+			left: 5%;
+			color: #ffffff;
+			font-family: 'Averia Serif Libre', 'Mplus 1p', sans-serif;
+			font-weight: 700;
+			text-shadow:4px 4px 3px rgba(0,0,0,0.8);
+			font-size: 26px;
+			-moz-box-siging: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box}
+
+.mymenu-topics p {margin: 0;}
+
+@media (min-width: 769px) {
+	.mymenu-topics ul:after	{content: "";
+		display: block;
+		clear: both}
+
+	.mymenu-topics li	{float: left;
+		width: 50%;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box}
+
+	.mymenu-topics li .thumb
+						{height: 150px;}
+
+	.mymenu-topics li .text
+						{font-size: 34px;}
+
+	.mymenu-topics li:nth-child(odd) {clear: both;
+		padding-right: 0px}
+
+	.mymenu-topics li:nth-child(even) {padding-left: 0px}
+}
+
 /* トップページのお知らせメニュー */
 .mymenu-news			{padding: 20px;
 					border: solid 1px #dddddd}
@@ -1035,7 +1089,7 @@ blockquote:after		{position: absolute;
 .hero				{position: relative}
 
 .hero-img		{width: 100%;
-				height: 100px;/*300px;*/
+				height: 100px;
 				margin: 20px 0 10px;
 				background-color: #dddddd;
 				background-size: cover;
@@ -1046,18 +1100,18 @@ blockquote:after		{position: absolute;
 				}
 
 .hero-text		{position: absolute;
-				top: 25px;/*120px;*/
-				right: 8px;/*30px;*/
+				top: 25px;
+				right: 8px;
 				color: #000000;
 				font-size: 30px;
 				font-family: 'Helvetica', sans-serif;
 				}
 
 @media (max-width: 599px) {
-.hero-img		{height: 50px/*200px*/}
+.hero-img		{height: 50px}
 
-.hero-text		{top: 10px;/*100px;*/
-				right: 5px;/*10px;*/
+.hero-text		{top: 10px;
+				right: 5px;
 				font-size: 18px}
 }
 
@@ -1146,6 +1200,10 @@ iframe			{max-width: 100%}
 .taglist .kiji-date	{margin-bottom: 1px;
 					color: #666666;
 					font-size: 12px}
+.taglist .sort-after {color: #ff0000;
+					font-size: 14px;}
+/*投稿ページで表示するソートボタンを押したあと*/
+.sort-after {color: #ff0000;}
 
 @media (max-width: 599px) {
 	.taglist .text	{margin-left: 110px}
@@ -1286,15 +1344,10 @@ iframe			{max-width: 100%}
 				-webkit-border-radius: 20px;
 }
 
-#nearnav:hover		{background-color: #dddddd;
-					}
+#nearnav:hover		{background-color: #dddddd;}
 
 #nearnav:active	{color: #ffffff;
-			    border: 1px solid #eeeeee;
-				text-shadow: 1px 1px 1px rgba(255,255,255,0.5),-1px -1px 1px rgba(0,0,0,0.5);
-			    -moz-box-shadow: -2px -2px 2px rgba(000,000,000,0.3),2px 2px 2px rgba(255,255,255,1);
-			    -webkit-box-shadow: -2px -2px 2px rgba(000,000,000,0.3),2px 2px 2px rgba(255,255,255,1);
-				}
+				text-shadow: 1px 1px 1px rgba(255,255,255,0.5),-1px -1px 1px rgba(0,0,0,0.5);}
 
 #nearnav:focus		{outline: none;}
 

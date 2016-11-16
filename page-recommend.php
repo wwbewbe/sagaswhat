@@ -14,12 +14,12 @@
 		$lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
 	?>
 	<?php if(($lat) && ($lng)) : ?>
-		<p><?php echo esc_html(__('* Events have been sorted in close order.', 'SagasWhat')); ?></p>
+		<p><span class="sort-after"><?php echo esc_html(__('* Events have been sorted in close order.', 'SagasWhat')); ?></span></p>
 	<?php else : ?>
-		<button type="button" id="nearnav">
+		<button type="button" id="nearnav" onclick="this.style.color='#dddddd', this.style.backgroundColor='#dddddd', this.style.textShadow='1px 1px 1px rgba(255,255,255,0.5),-1px -1px 1px rgba(0,0,0,0.5)'">
 			<i class="fa fa-bars fa-fw"></i><?php echo esc_html(__('Sort by Distance', 'SagasWhat')); ?>
 		</button>
-		<p><?php echo esc_html(__('* Use this to see nearby events.', 'SagasWhat')); ?></p>
+		<p><span class="sort-before"><?php echo esc_html(__('* Use this to see nearby events.', 'SagasWhat')); ?></span></p>
 	<?php endif; ?>
 </article>
 
