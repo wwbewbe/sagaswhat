@@ -103,7 +103,7 @@ header, footer, .container, .sub-header
 /* -------------------- 記事の概要 -------------------- */
 /* 概要 */
 .gaiyou a	{display: block;
-		padding: 20px 0;
+		padding: 12px 0;
 		border-bottom: dotted 2px #dddddd;
 		color: #000000;
 		text-decoration: none}
@@ -116,26 +116,28 @@ header, footer, .container, .sub-header
 
 .gaiyou img	{float: left;
 			width: 200px;
-			height: 100px;
+			height: 150px;
 			object-fit: contain;}
 
 .gaiyou .text	{float: none;
 			width: auto;
-			margin-left: 230px}
+			margin-left: 210px}
 
 .gaiyou h1	{margin-top: 0;
 		margin-bottom: 10px;
 		font-size: 20px}
 
 .gaiyou p	{margin: 0;
-		font-size: 14px}
+		font-size: 12px}
 
-.gaiyou .kiji-date		{margin-bottom: 8px}
+.gaiyou .kiji-date		{margin-bottom: 0;
+						font-size: 12px;}
 
 @media (max-width: 599px) {
-	.gaiyou a		{padding: 10px 0}
+	.gaiyou a		{padding: 5px 0}
 
-	.gaiyou img	{width: 100px}
+	.gaiyou img	{width: 100px;
+				height: 75px;}
 
 	.gaiyou .text	{margin-left: 110px}
 
@@ -144,7 +146,8 @@ header, footer, .container, .sub-header
 	.gaiyou p		{visibility: hidden;
 				height: 0}
 
-	.gaiyou .kiji-date		{margin-bottom: 0}
+	.gaiyou .kiji-date		{margin-bottom: 0;
+							font-size: 10px;}
 
 	.gaiyou .tic-name h1	{font-size: 12px}
 	.gaiyou .tic-addr	{font-size: 11px}
@@ -307,31 +310,32 @@ header, footer, .container, .sub-header
 /* 404ページ */
 .not-find h1		{margin-top: 0;
 				margin-bottom: 10px;
-				font-size: 36px}
-
-.not-find .msg h2		{position: relative;
+				font-size: 36px;
+				text-align: center;}
+.not-find h2 {font-size: 20px;}
+.not-find .msg	{position: relative;
 				margin: 40px 0 30px;
 				padding: 20px;
 				border-radius: 10px;
-				border: dotted 2px #ff0000;
-				background-color: #ffefef;
-				font-size: 24px;
+				border: dotted 2px #dadada;
+				background-color: #ffffff;
+				font-size: 16px;
+				text-align: center;
 				clear: both}
 
-.not-find .msg h2:before	{position: absolute;
+.not-find .msg :before	{position: absolute;
 				left: 20px;
 				top: -15px;
 				content: '\f06a';
 				background-color: #ffffff;
-				color: #ff0000;
+				color: #cc4848;
 				font-family: 'FontAwesome';
 				font-size: 26px;
 				line-height: 1}
 
 @media (max-width: 599px) {
-	.not-find h1		{font-size: 24px}
-	.not-find h2		{padding-left: 21px;
-					font-size: 18px}
+	.not-find h2 {font-size: 16px;}
+	.not-find .msg {font-size: 12px;}
 }
 
 /* 補足情報 */
@@ -472,9 +476,24 @@ blockquote:after		{position: absolute;
 }
 
 /* 開催状況 */
-.openstat	{color: #1ea362;}
-.soonstat	{color: #bcbcbd;}
-.closestat	{color: #dbb5b5;}
+.openstat	{color: #1ea362;
+			font-size: 12px;
+			margin-bottom: 4px;}
+.openstat span	{color: #cd0000;}
+.soonstat	{color: #bcbcbd;
+			font-size: 12px;
+			margin-bottom: 4px;}
+.closestat	{color: #dbb5b5;
+			font-size: 12px;
+			margin-bottom: 4px;}
+@media (max-width: 599px) {
+		.openstat	{margin-bottom: 0;
+					font-size: 10px;}
+		.soonstat	{margin-bottom: 0;
+					font-size: 10px;}
+		.closestat	{margin-bottom: 0;
+					font-size: 10px;}
+}
 
 /* タグ */
 .kiji-tag	{margin-bottom: 18px}
@@ -1190,16 +1209,9 @@ iframe			{max-width: 100%}
 .taglist h1	{margin-top: 0;
 		margin-bottom: 10px;
 		font-size: 20px}
-.taglist img {width: 100px}
-.taglist .text	{float: none;
-			width: auto;
-			margin-left: 130px}
-.taglist a	{padding: 5px 0}
-.taglist p	{font-size: 12px;
-			margin-bottom: 5px}
-.taglist .kiji-date	{margin-bottom: 1px;
-					color: #666666;
-					font-size: 12px}
+.taglist p	{margin-bottom: 0;}
+/*.taglist .kiji-date	{margin-bottom: 0;
+					color: #666666;}*/
 .taglist .sort-after {color: #ff0000;
 					font-size: 14px;}
 /*投稿ページで表示するソートボタンを押したあと*/
@@ -1208,10 +1220,7 @@ iframe			{max-width: 100%}
 @media (max-width: 599px) {
 	.taglist .text	{margin-left: 110px}
 
-	.gaiyou h1		{font-size: 16px}
-
-	.gaiyou p		{visibility: hidden;
-				height: 0}
+	.taglist h1		{font-size: 16px}
 }
 
 /* -------------------- カテゴリー／タグ -------------------- */

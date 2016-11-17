@@ -53,12 +53,20 @@
 
 	$today = date_i18n('Y/m/d');
 	if ((strtotime($eventopen)<=strtotime($today)) && (strtotime($eventclose)>=strtotime($today)) || (empty($eventclose))) {
-		$stat = '<div class="openstat"><i class="fa fa-check-circle fa-fw"></i>'.esc_html__('Now Open', 'SagasWhat').'</div>';
+		$stat = '<div class="openstat"><i class="fa fa-check-circle fa-fw"></i>'.esc_html__('Now Open', 'SagasWhat');
 	} elseif (strtotime($eventopen)>strtotime($today)) {
-		$stat = '<div class="soonstat"><i class="fa fa-minus-circle fa-fw"></i>'.esc_html__('Coming Soon...', 'SagasWhat').'</div>';
+		$stat = '<div class="soonstat"><i class="fa fa-minus-circle fa-fw"></i>'.esc_html__('Coming Soon...', 'SagasWhat');
 	} else {
-		$stat = '<div class="closestat"><i class="fa fa-times-circle fa-fw"></i>'.esc_html__('Closed', 'SagasWhat').'</div>';
+		$stat = '<div class="closestat"><i class="fa fa-times-circle fa-fw"></i>'.esc_html__('Closed', 'SagasWhat');
 	}
+	$posttags = get_the_tags();
+	foreach ( $posttags as $tag ) {
+		if ($tag->slug == 'free') {
+			$stat = $stat.'<span><i class="fa fa-jpy fa-fw"></i>'.esc_html__('Free', 'SagasWhat').'</span>';
+		}
+	}
+	$stat = $stat.'</div>';
+
 	//Favorite Events total number for each event
 /*	$favorite = esc_html( get_post_meta($post->ID, 'wpfp_favorites', true) );
 	if (($favorite > '0') && (function_exists('wpfp_list_favorite_posts'))) {
@@ -88,9 +96,9 @@
 	<time
 	datetime="<?php echo $datetime; ?>">
 	<?php echo $dates; ?>
-	<?php echo $stat; ?>
 	</time>
 	</div>
+	<?php echo $stat; ?>
 
 	<?php the_excerpt(); ?>
 </div>

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-10-30 00:07+0900\n"
-"PO-Revision-Date: 2016-10-30 00:08+0900\n"
+"POT-Creation-Date: 2016-11-17 13:24+0900\n"
+"PO-Revision-Date: 2016-11-17 13:31+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -16,13 +16,14 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;esc_html__\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: 404.php:9
-msgid "This is not the web page you are looking for."
-msgstr "４０４エラー：あなたが探している web ページはありません"
+#: 404.php:10
+msgid "Sorry, the page you are looking for cannot be found."
+msgstr "申し訳ございません。お探しのページが見つかりませんでした。"
 
-#: 404.php:9
-msgid "Please use below search form to find the page."
-msgstr "ページを見つけるための以下の検索フォームを使用してください"
+#: 404.php:11
+msgid "Please visit homepage or try searching."
+msgstr ""
+"ホームへ戻るかページ下の「検索ボックス」で該当のページをお探しください。"
 
 #: favorite-events.php:19
 msgid "Your Favorite Lists "
@@ -80,7 +81,7 @@ msgstr "Wi-Fi"
 msgid "PC"
 msgstr "PC"
 
-#: functions.php:335 functions.php:444 functions.php:784
+#: functions.php:335 functions.php:444 functions.php:785
 msgid "Address"
 msgstr "住所"
 
@@ -97,7 +98,7 @@ msgstr "詳細はこちら"
 msgid "Event Name"
 msgstr "イベント名"
 
-#: functions.php:364 functions.php:783
+#: functions.php:364 functions.php:784
 msgid "Venue"
 msgstr "会場"
 
@@ -117,23 +118,23 @@ msgstr "時間"
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:570
+#: functions.php:571
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: functions.php:780
+#: functions.php:781
 msgid "Open date"
 msgstr "開催日"
 
-#: functions.php:781
+#: functions.php:782
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:782
+#: functions.php:783
 msgid "Recommend"
 msgstr "推奨度"
 
-#: functions.php:851
+#: functions.php:852
 msgid "None"
 msgstr "なし"
 
@@ -153,6 +154,10 @@ msgstr "まもなく開催…"
 msgid "Closed"
 msgstr "終了"
 
+#: gaiyou-medium.php:65
+msgid "Free"
+msgstr "無料"
+
 #: geolocation-js.php:15
 msgid "The service could not get your location."
 msgstr "位置情報を取得できませんでした"
@@ -163,7 +168,7 @@ msgid ""
 "location."
 msgstr "ブラウザが対応していないため、位置情報を取得できませんでした"
 
-#: header.php:43 header.php:48
+#: header.php:45 header.php:50
 msgid " Events List"
 msgstr " イベント一覧"
 
@@ -211,15 +216,15 @@ msgstr "周辺で開催中のイベントは見つかりませんでした"
 msgid "&quot; Nearby Events"
 msgstr "&quot; 件のイベントが見つかりました"
 
-#: page-nearby.php:52 page-recommend.php:17
+#: page-nearby.php:52 page-recommend.php:17 topiclist.php:11
 msgid "* Events have been sorted in close order."
 msgstr "＊近い順に並んでいます"
 
-#: page-recommend.php:20 page-tic.php:20
+#: page-recommend.php:20 page-tic.php:20 topiclist.php:14
 msgid "Sort by Distance"
 msgstr "近い順に並び替え"
 
-#: page-recommend.php:22
+#: page-recommend.php:22 topiclist.php:16
 msgid "* Use this to see nearby events."
 msgstr "現在地から近い順に並び替えます"
 
@@ -227,7 +232,7 @@ msgstr "現在地から近い順に並び替えます"
 msgid "* Use this to see nearby TICs."
 msgstr "現在地から近い順に並び替えます"
 
-#: page-toppage.php:82
+#: page-toppage.php:84
 msgid "Upcoming Events"
 msgstr "開催予定のイベント"
 
@@ -250,6 +255,12 @@ msgstr "関連イベント"
 #: snsbtn.php:6 snsbtn.php:11 snsbtn.php:16
 msgid "Share on "
 msgstr "シェア "
+
+#~ msgid "This is not the web page you are looking for."
+#~ msgstr "４０４エラー：あなたが探している web ページはありません"
+
+#~ msgid "Please use below search form to find the page."
+#~ msgstr "ページを見つけるための以下の検索フォームを使用してください"
 
 #~ msgid "* It has sorted events in close order."
 #~ msgstr "＊近い順に並び替えました"
