@@ -404,6 +404,8 @@ function event_info_to_the_content( $content ) {
 						$eventopen = date_i18n('F jS, Y', strtotime($eventopen));
 					}
 					if ($openseason) $eventopen = $openseason;
+					$dates = $eventopen . ' - ' . '&gt;&gt;&gt;';
+					$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 				}
 				if ($eventclose) {
 					if ( get_bloginfo('language') == 'ja' ) {
@@ -412,9 +414,9 @@ function event_info_to_the_content( $content ) {
 						$eventclose = date_i18n('F jS, Y', strtotime($eventclose));
 					}
 					if ($closeseason) $eventclose = $closeseason;
+					$dates = '&gt;&gt;&gt;' . ' - ' . $eventclose;
+					$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 				}
-				$dates = $eventopen . ' - ' . $eventclose;
-				$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 			}
 			// 注記
 			if( $note = get_post_meta($post->ID, 'note', true) ) {
