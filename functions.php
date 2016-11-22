@@ -442,6 +442,11 @@ function event_info_to_the_content( $content ) {
 				}
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$price.'</td></tr>';
 			}
+			// Free Wi-Fi
+			$thname = esc_html__('Free Wi-Fi', 'SagasWhat').'<i class="fa fa-wifi fa-fw"></i>';
+			if( $freewifi = get_post_meta($post->ID, 'freewifi', true) ) {
+				$info = $info.'<tr><th>'.$thname.'</th><td>'.$freewifi.'</td></tr>';
+			}
 			// 住所
 			$thname = esc_html__('Address', 'SagasWhat');
 			if( $showaddress = get_post_meta($post->ID, 'showaddress', true) ) {

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-11-17 13:24+0900\n"
-"PO-Revision-Date: 2016-11-17 13:31+0900\n"
+"POT-Creation-Date: 2016-11-22 11:58+0900\n"
+"PO-Revision-Date: 2016-11-22 11:58+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -81,16 +81,16 @@ msgstr "Wi-Fi"
 msgid "PC"
 msgstr "PC"
 
-#: functions.php:335 functions.php:444 functions.php:785
+#: functions.php:335 functions.php:451 functions.php:792
 msgid "Address"
 msgstr "住所"
 
-#: functions.php:340 functions.php:449
+#: functions.php:340 functions.php:456
 msgid "Contact"
 msgstr "お問合わせ"
 
-#: functions.php:342 functions.php:423 functions.php:431 functions.php:439
-#: functions.php:452
+#: functions.php:342 functions.php:425 functions.php:433 functions.php:441
+#: functions.php:459
 msgid "Click here"
 msgstr "詳細はこちら"
 
@@ -98,7 +98,7 @@ msgstr "詳細はこちら"
 msgid "Event Name"
 msgstr "イベント名"
 
-#: functions.php:364 functions.php:784
+#: functions.php:364 functions.php:791
 msgid "Venue"
 msgstr "会場"
 
@@ -106,35 +106,39 @@ msgstr "会場"
 msgid "Dates"
 msgstr "開催期間"
 
-#: functions.php:421
+#: functions.php:423
 msgid "Note"
 msgstr "備考"
 
-#: functions.php:429
+#: functions.php:431
 msgid "Open Hours"
 msgstr "時間"
 
-#: functions.php:436
+#: functions.php:438
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:571
+#: functions.php:446
+msgid "Free Wi-Fi"
+msgstr "Free Wi-Fi"
+
+#: functions.php:578
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: functions.php:781
+#: functions.php:788
 msgid "Open date"
 msgstr "開催日"
 
-#: functions.php:782
+#: functions.php:789
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:783
+#: functions.php:790
 msgid "Recommend"
 msgstr "推奨度"
 
-#: functions.php:852
+#: functions.php:859
 msgid "None"
 msgstr "なし"
 
