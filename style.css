@@ -479,7 +479,8 @@ blockquote:after		{position: absolute;
 .openstat	{color: #1ea362;
 			font-size: 12px;
 			margin-bottom: 4px;}
-.openstat span	{color: #cd0000;}
+.openstat .price	{color: #cd0000;}
+.openstat .freewifi	{color: #3b5998;}
 .soonstat	{color: #bcbcbd;
 			font-size: 12px;
 			margin-bottom: 4px;}

@@ -62,8 +62,11 @@
 	$posttags = get_the_tags();
 	foreach ( $posttags as $tag ) {
 		if ($tag->slug == 'free') {
-			$stat = $stat.'<span><i class="fa fa-jpy fa-fw"></i>'.esc_html__('Free', 'SagasWhat').'</span>';
+			$stat = $stat.'&nbsp;&nbsp;<span class="price"><i class="fa fa-jpy fa-fw"></i>'.esc_html__('Free', 'SagasWhat').'</span>';
 		}
+	}
+	if (!empty(get_post_meta($post->ID, 'freewifi', true))) {
+		$stat = $stat.'&nbsp;&nbsp;<span class="freewifi"><i class="fa fa-wifi fa-fw"></i>';
 	}
 	$stat = $stat.'</div>';
 
