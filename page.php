@@ -6,7 +6,7 @@
 <div class="container">
 <div class="contents">
 
-<?php if(preg_match( '/topics-(\w+)/s', $post->post_name)): ?>
+<?php if((preg_match('/topics-(\w+)/s', $post->post_name)) || (preg_match('/tourism/s', $post->post_name))): ?>
 
 	<?php if(have_posts()): while(have_posts()):
 	the_post(); ?>

@@ -11,7 +11,8 @@ if( $myposts ): ?>
 
 	<?php $closed_imgid = get_closed_img();//イベント終了画像IDをメディアライブラリから取得 ?>
 	<?php foreach($myposts as $post):
-	if( $post->object == 'post' ):
+	if( ($post->object == 'post') || ($post->object == 'page') ):
+	$title = $post->title;//ナビゲーションラベル名
 	$post = get_post( $post->object_id );
 	setup_postdata($post); ?>
 
@@ -27,7 +28,7 @@ if( $myposts ): ?>
 	<li><a href="<?php the_permalink(); ?>">
 	<div class="thumb" style="background-image: url(<?php echo mythumb( 'medium' ); ?>)"></div>
 	<div class="text">
-	<?php the_title(); ?>
+	<?php echo $title;//ナビゲーションラベル名を表示 the_title(); ?>
 	</div>
 	</a></li>
 	<?php endif;
