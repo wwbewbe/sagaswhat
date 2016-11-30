@@ -270,7 +270,7 @@ header, footer, .container, .sub-header
 
 @media (max-width: 599px) {
 		.kiji h1	{font-size: 24px}
-		.kiji p		{font-size: 14px}
+		.kiji p		{font-size: 16px}
 }
 
 /* 小見出し */
@@ -304,7 +304,7 @@ header, footer, .container, .sub-header
 	.kiji h2:before	{font-size: 20px}
 
 	.kiji h3		{padding-left: 6px;
-				font-size: 15px}
+				font-size: 16px}
 }
 
 /* 404ページ */
@@ -435,6 +435,7 @@ header, footer, .container, .sub-header
 @media (max-width: 599px) {
 		.event-info th	{font-size: 10px}
 		.event-info td	{font-size: 14px}
+		.event-info p	{font-size: 14px}
 }
 
 /* 引用 */
