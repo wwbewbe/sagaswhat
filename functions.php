@@ -885,3 +885,130 @@ function create_custom_menu_page() {
     // カスタムメニューページを読み込む
     require TEMPLATEPATH.'/admin/site_settings.php';
 }
+
+/**
+ * 投稿の編集画面にカスタムフィールドを追加する
+ */
+function add_posttype_customfields() {
+
+    // 投稿編集画面にメタボックス追加
+    add_meta_box(
+        'CustomDiv',		// メタボックスのHTML-ID
+        'Other Option',		// メタボックスのラベル
+        'html_my_custom',	// HTML出力コールバック
+        'post',				// 追加する投稿タイプ名(カスタム投稿も可)
+        'normal',			// 配置場所(normal, advanced, side)
+        'high'				// 順序(high, core, default, low)
+    );
+}
+add_action('admin_menu', 'add_posttype_customfields');
+
+/**
+ * HTML出力コールバック
+ */
+function html_my_custom($post) {
+
+    // nonce設定
+    wp_nonce_field(wp_create_nonce(__FILE__), 'custom_fields_nonce');
+	// HTML出力(checkbox単数)
+    $value = get_post_meta(
+        $post->ID,	// 投稿ID
+        'stop-closealert',	// カスタムフィールドキー
+        true		// true:単一文字列, false:複数配列
+    );
+    echo '<dl>';
+    echo   '<dt>';
+    echo     'Close Alert Setting:';
+    echo   '</dt>';
+    echo   '<dd>';
+    echo     '<input name="stop-closealert" value="0" type="hidden">';
+    echo     '<label>';
+    if ($value === '1') {
+        echo   '<input name="stop-closealert" value="1" checked="checked" type="checkbox">';
+    } else {
+        echo   '<input name="stop-closealert" value="1" type="checkbox">';
+    }
+    echo       'Stop indicate close alert';
+    echo     '</label>';
+    echo   '</dd>';
+    echo '</dl>';
+}
+/**
+ * カスタムフィールドの保存処理
+ */
+function save_posttype_customfields($post_id) {
+
+    // nonceが一致しない場合は終了
+    if (!wp_verify_nonce(
+        @$_POST['custom_fields_nonce'],
+        wp_create_nonce(__FILE__)
+    )) {
+        return $post_id;
+    }
+
+    // 自動保存の場合は終了
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return $post_id;
+    }
+
+    // 投稿権限がない場合は終了
+    if (!current_user_can('edit_post', $post_id)) {
+        return $post_id;
+    }
+
+    // 保存処理
+    switch (get_post_type($post_id)) {
+    case 'post':
+        // クイック編集の場合
+        if (@$_POST['quick_edit']) {
+            $post_keys = array(		// true:単一文字列, false:複数配列
+                'stop-closealert' => true,
+            );
+        // 普通の編集の場合
+        } else {
+            $post_keys = array(		// true:単一文字列, false:複数配列
+                'stop-closealert' => true,
+            );
+        }
+        foreach (@$post_keys as $post_key => $unique) {
+            // 単数
+            if ($unique) {
+                update_post_meta(
+                    $post_id,			// 投稿ID
+                    $post_key,			// カスタムフィールドキー
+                    @$_POST[$post_key]	// 値
+                );
+            // 複数
+            } else {
+                $input_vals = (array)@$_POST[$post_key];
+                $save_vals = get_post_meta(
+                    $post_id,	// 投稿ID
+                    $post_key,	// カスタムフィールドキー
+                    false		// true:単一文字列, false:複数配列
+                );
+                foreach (@$input_vals as $input_val) {
+                    if (!in_array($input_val, $save_vals)) {
+                        add_post_meta(
+                            $post_id,	// 投稿ID
+                            $post_key,	// カスタムフィールドキー
+                            $input_val,	// 値
+                            false		// true:単一文字列, false:複数配列
+                        );
+                    }
+                }
+                foreach ($save_vals as $save_val) {
+                    if (!in_array($save_val, $input_vals)) {
+                        delete_post_meta(
+                            $post_id,	// 投稿ID
+                            $post_key,	// カスタムフィールドキー
+                            $save_val	// 値
+                        );
+                    }
+                }
+            }
+        }
+        break;
+    default:
+    }
+}
+add_action('save_post', 'save_posttype_customfields');

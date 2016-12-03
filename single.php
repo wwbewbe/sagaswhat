@@ -36,7 +36,7 @@ if (!empty($closedate)) { //すでにイベントが終了しているときはc
 		update_post_meta( $post_id, $meta_key = '_thumbnail_id', $meta_value = $closed_imgid );
 	}
 } ?>
-<?php if ((!empty($closedate)) && (strtotime($closedate) < strtotime($today))): ?>
+<?php if ((!empty($closedate)) && (strtotime($closedate) < strtotime($today)) && (!get_post_meta($post_id, 'stop-closealert', true))): ?>
 	<span class="closealert">
 	<i class="fa fa-close"></i><?php echo esc_html__('This event has closed.', 'SagasWhat'); ?>
 	</span>
