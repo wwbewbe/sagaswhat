@@ -340,10 +340,11 @@ header, footer, .container, .sub-header
 
 /* 補足情報 */
 .point	{position: relative;
-		margin: 40px 0 30px;
+		margin: 2em 0 1em;
 		padding: 25px 20px 20px;
 		border-radius: 10px;
 		background-color: #e6f4ff;
+		box-shadow: 5px 5px 5px #aaaaaa;
 		font-size: 14px;
 		clear: both}
 
@@ -381,11 +382,12 @@ header, footer, .container, .sub-header
 
 /* 注意書き */
 .attention		{position: relative;
-			margin: 40px 0 30px;
+			margin: 2em 0 1em;
 			padding: 20px;
 			border-radius: 10px;
 			border: dotted 2px #ffbe00;
 			background-color: #fef6dd;
+			box-shadow: 5px 5px 5px #aaaaaa;
 			font-size: 14px;
 			clear: both}
 
@@ -563,6 +565,11 @@ blockquote:after		{position: absolute;
 .closealert {font-size: 20px;
 			margin-bottom: 10px;
 			background: linear-gradient(transparent 60%, #ffff00 60%);}
+
+/* 記事内の Google Adsense タイトル */
+.adsense-title {
+	font-size: 8px;
+}
 
 /* シェアボタン コンテンツに表示するときはmargin-top: 40px*/
 .share		{margin-top: 0px;

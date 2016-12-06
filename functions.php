@@ -452,7 +452,7 @@ function event_info_to_the_content( $content ) {
 		return $content;
 	}
 }
-add_action( 'the_content', 'event_info_to_the_content', 1 );
+add_filter( 'the_content', 'event_info_to_the_content', 1 );
 
 // タグリストを表示するショートコード
 function set_taglist($params = array()) {
@@ -557,13 +557,8 @@ function showads($params = array()) {
 }
 add_shortcode('adsense', 'showads');
 
-function get_adsense($kiji=false) {
-	$title = esc_html(__('Sponsored Links', 'SagasWhat'));
-	if ($kiji) {
-		$title = '<h4>'.$title.'</h4>';
-	} else {
-		$title = '<h2>'.$title.'</h2>';
-	}
+function get_adsense($kiji) {
+	$title = '<div class="adsense-title">'.esc_html(__('Sponsored Links', 'SagasWhat')).'</div>';
 	//レスポンシブ広告の英語版もしくは日本語版の挿入
 	if ( get_bloginfo('language') == 'ja' ) {
 		if ($kiji) {
@@ -614,7 +609,7 @@ function get_adsense($kiji=false) {
 </script>';
 		}
 	}
-	return $title.$adsense;
+	return $title.'<div class="adsense-code">'.$adsense.'</div>';
 }
 
 // カテゴリ・タグ・検索の一覧表示のクエリー設定
