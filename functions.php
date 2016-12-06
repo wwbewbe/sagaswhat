@@ -168,11 +168,18 @@ register_nav_menu( 'ticnav', 'TIC Menu' );				//TICのリスト表示用メニ�
 register_nav_menu( 'floatingmenu', 'Floating Menu' );	//フローティングメニュー
 register_nav_menu( 'topicsmenu', 'Topics Menu' );			//TOPページに表示する特集メニュー
 
-// トグルボタン
-function navbtn_scripts() {
+// JavaScript各機能enqueue
+function theme_enqueue_scripts() {
+	// トグルボタン
 	wp_enqueue_script( 'navbtn-script', get_template_directory_uri() .'/js/navbtn.js', array( 'jquery' ) );
+	// Geolocationを使用
+	wp_enqueue_script( 'geoloc-script', get_template_directory_uri() .'/js/geoloc.js', array( 'jquery' ) );
+	// フローティングメニュー
+	wp_enqueue_script( 'floating-script', get_template_directory_uri() .'/js/floating-menu.js', array( 'jquery' ) );
+	// jCarouselを使用
+	wp_enqueue_script( 'carousel-script', get_template_directory_uri() .'/js/jquery.jcarousellite.min.js', array( 'jquery' ) );
 }
-add_action( 'wp_enqueue_scripts', 'navbtn_scripts' );
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
 
 // Calendar(JQuery datepicker使用)
 function calendar_scripts(){
@@ -188,30 +195,6 @@ function calendar_scripts(){
 	}
 }
 add_action( 'wp_enqueue_scripts', 'calendar_scripts' );
-
-// Infinite-scrollを使用
-function scroll_scripts() {
-	wp_enqueue_script( 'scroll-script', get_template_directory_uri() .'/js/jquery.infinitescroll.min.js', array( 'jquery' ) );
-}
-add_action( 'wp_enqueue_scripts', 'scroll_scripts' );
-
-// Geolocationを使用
-function geoloc_scripts() {
-	wp_enqueue_script( 'geoloc-script', get_template_directory_uri() .'/js/geoloc.js', array( 'jquery' ) );
-}
-add_action( 'wp_enqueue_scripts', 'geoloc_scripts' );
-
-// フローティングメニュー
-function floating_scripts() {
-	wp_enqueue_script( 'floating-script', get_template_directory_uri() .'/js/floating-menu.js', array( 'jquery' ) );
-}
-add_action( 'wp_enqueue_scripts', 'floating_scripts' );
-
-// jCarouselを使用
-function carousel_scripts() {
-	wp_enqueue_script( 'carousel-script', get_template_directory_uri() .'/js/jquery.jcarousellite.min.js', array( 'jquery' ) );
-}
-add_action( 'wp_enqueue_scripts', 'carousel_scripts' );
 
 // 住所 → 緯度/経度変換
 function strAddrToLatLng( $strAddr ) {
