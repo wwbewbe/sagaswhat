@@ -134,6 +134,9 @@ header, footer, .container, .sub-header
 .gaiyou .kiji-date		{margin-bottom: 0;
 						font-size: 12px;}
 
+.gaiyou .kiji-tax		{margin: 5px 0;
+						font-size: 12px;}
+
 @media (max-width: 599px) {
 	.gaiyou a		{padding: 5px 0}
 
@@ -148,6 +151,9 @@ header, footer, .container, .sub-header
 				height: 0}
 
 	.gaiyou .kiji-date		{margin-bottom: 0;
+							font-size: 10px;}
+
+	.gaiyou .kiji-tax		{margin: 3px 0;
 							font-size: 10px;}
 
 	.gaiyou .tic-name h1	{font-size: 12px}
@@ -477,6 +483,45 @@ blockquote:after		{position: absolute;
 
 @media (max-width: 599px) {
 		.kiji-date	{font-size: 11px}
+}
+
+/* カスタムタクソノミー(keyword, etc.) */
+.kiji-tax	{margin-bottom: 18px}
+
+.kiji-tax ul	{margin: 0;
+		padding: 0;
+		list-style: none}
+
+.kiji-tax li a	{display: block;
+		margin-right: 5px;
+		margin-bottom: 2px;
+		padding: 3px 5px;
+		border-radius: 2px;
+		background-color: #55acee;
+		color: #ffffff;
+		font-size: 12px;
+		text-decoration: none}
+
+.kiji-tax li a:hover	{background-color: #007ede}
+
+.kiji-tax ul:after	{content: "";
+			display: block;
+			clear: both}
+
+.kiji-tax li	{float: left;
+		width: auto}
+
+.kiji-tax span	{font-size: 12px;
+				margin-right: 5px;
+				margin-bottom: 2px;
+				padding: 3px 5px;
+				border-radius: 2px;
+				background-color: #55acee;
+				color: #ffffff;
+}
+
+@media (max-width: 599px) {
+		.kiji-tax span	{font-size: 11px}
 }
 
 /* 開催状況 */
@@ -897,6 +942,10 @@ blockquote:after		{position: absolute;
 			font-family: 'FontAwesome';
 			padding-right: 5px;}
 
+/* -------------------- Google Adsense -------------------- */
+.mymenu-adsense {
+	margin-bottom: 10px;
+}
 /* Google Adsense Title(Sponsored Link) */
 .adsense-title {
 	font-size: 8px;

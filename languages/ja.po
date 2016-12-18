@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-11-22 11:58+0900\n"
-"PO-Revision-Date: 2016-11-22 11:58+0900\n"
+"POT-Creation-Date: 2016-12-17 15:49+0900\n"
+"PO-Revision-Date: 2016-12-17 15:55+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;esc_html__\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;_x;esc_attr__\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:10
@@ -57,90 +57,178 @@ msgstr "周辺の観光案内所"
 msgid "Nearby Parks"
 msgstr "周辺の公園"
 
-#: functions.php:303
+#: functions.php:286
 msgid "Center Name"
 msgstr "観光案内所名"
 
-#: functions.php:312
+#: functions.php:295
 msgid "JP Name"
 msgstr "日本語名"
 
-#: functions.php:317
+#: functions.php:300
 msgid "TIC Category"
 msgstr "TICカテゴリー"
 
-#: functions.php:319
+#: functions.php:302
 msgid "Category description (Japan National Tourism Organization)"
 msgstr "カテゴリー説明 (日本政府観光局)"
 
-#: functions.php:325
+#: functions.php:308
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: functions.php:330
+#: functions.php:313
 msgid "PC"
 msgstr "PC"
 
-#: functions.php:335 functions.php:451 functions.php:792
+#: functions.php:318 functions.php:434 functions.php:770
 msgid "Address"
 msgstr "住所"
 
-#: functions.php:340 functions.php:456
+#: functions.php:323 functions.php:439
 msgid "Contact"
 msgstr "お問合わせ"
 
-#: functions.php:342 functions.php:425 functions.php:433 functions.php:441
-#: functions.php:459
+#: functions.php:325 functions.php:408 functions.php:416 functions.php:424
+#: functions.php:442
 msgid "Click here"
 msgstr "詳細はこちら"
 
-#: functions.php:355
+#: functions.php:338
 msgid "Event Name"
 msgstr "イベント名"
 
-#: functions.php:364 functions.php:791
+#: functions.php:347 functions.php:769
 msgid "Venue"
 msgstr "会場"
 
-#: functions.php:376
+#: functions.php:359
 msgid "Dates"
 msgstr "開催期間"
 
-#: functions.php:423
+#: functions.php:406
 msgid "Note"
 msgstr "備考"
 
-#: functions.php:431
+#: functions.php:414
 msgid "Open Hours"
 msgstr "時間"
 
-#: functions.php:438
+#: functions.php:421
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:446
+#: functions.php:429
 msgid "Free Wi-Fi"
 msgstr "Free Wi-Fi"
 
-#: functions.php:578
+#: functions.php:561
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: functions.php:788
+#: functions.php:766
 msgid "Open date"
 msgstr "開催日"
 
-#: functions.php:789
+#: functions.php:767
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:790
+#: functions.php:768
 msgid "Recommend"
 msgstr "推奨度"
 
-#: functions.php:859
+#: functions.php:837
 msgid "None"
 msgstr "なし"
+
+#: functions.php:997 functions.php:999
+msgid "Trends"
+msgstr "トレンド"
+
+#: functions.php:998 functions.php:1000
+msgid "Trend"
+msgstr "トレンド"
+
+#: functions.php:1001
+msgid "Add New"
+msgstr "新規追加"
+
+#: functions.php:1002
+msgid "Add New Trend"
+msgstr "新規トレンド追加"
+
+#: functions.php:1003
+msgid "New Trend"
+msgstr "新規トレンド"
+
+#: functions.php:1004
+msgid "Edit Trend"
+msgstr "トレンド編集"
+
+#: functions.php:1005
+msgid "View Trend"
+msgstr "トレンド表示"
+
+#: functions.php:1006
+msgid "All Trends"
+msgstr "すべてのトレンド"
+
+#: functions.php:1007
+msgid "Search Trends"
+msgstr "トレンド検索"
+
+#: functions.php:1008
+msgid "Parent Trends:"
+msgstr "親トレンド:"
+
+#: functions.php:1009
+msgid "No trends found."
+msgstr "トレンドは見つかりませんでした。"
+
+#: functions.php:1010
+msgid "No trends found in Trash."
+msgstr "ゴミ箱にトレンドは見つかりませんでした。"
+
+#: functions.php:1024
+msgid "Keywords"
+msgstr "キーワード"
+
+#: functions.php:1025 functions.php:1034
+msgid "Keyword"
+msgstr "キーワード"
+
+#: functions.php:1026
+msgid "Search Keywords"
+msgstr "キーワード検索"
+
+#: functions.php:1027
+msgid "All Keywords"
+msgstr "全てのキーワード"
+
+#: functions.php:1028
+msgid "Parent Keyword"
+msgstr "親キーワード"
+
+#: functions.php:1029
+msgid "Parent Keyword:"
+msgstr "親キーワード:"
+
+#: functions.php:1030
+msgid "Edit Keyword"
+msgstr "キーワード編集"
+
+#: functions.php:1031
+msgid "Update Keyword"
+msgstr "キーワード更新"
+
+#: functions.php:1032
+msgid "Add New Keyword"
+msgstr "新規キーワード追加"
+
+#: functions.php:1033
+msgid "New Keyword Name"
+msgstr "新規キーワード名"
 
 #: gaiyou-medium.php:44
 msgid "&gt;&gt;&gt;"

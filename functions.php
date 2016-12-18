@@ -457,10 +457,14 @@ add_filter( 'the_content', 'event_info_to_the_content', 1 );
 // タグリストを表示するショートコード
 function set_taglist($params = array()) {
     extract(shortcode_atts(array(
-        				'file' => 'taglist',
-						'tagname' => 0,
-						'list' => 5,
-						'sort' => false,
+        				'file'		=>	'taglist',	//表示に使用するPHPファイル
+						'tagname'	=>	0,			//表示するタグ名
+						'catname'	=>	0,			//表示するカテゴリー名
+						'list'		=>	5,			//表示するリスト数
+						'sort'		=>	false,		//近くのイベント順に並び替えるボタンの表示(true)/非表示(false)
+						'posttype'	=>	'post',		//表示する投稿タイプ(post, page, trend)
+						'tax'		=>	'keyword',	//表示するカスタムタクソノミー(keyword, etc.)＊カスタム投稿のみ使用
+						'terms'		=>	0,			//表示するカスタムタクソノミーの項目名(matsuri, etc.)＊カスタム投稿のみ使用
     					), $params));
     ob_start();
     include(get_theme_root() . '/' . get_template() . "/$file.php");
@@ -616,34 +620,32 @@ function get_adsense($kiji) {
 function QueryListFilter($query) {
 	$infocat = get_category_by_slug('tourist-info-center');//観光案内所をリストから除外
 	if (!is_admin() && $query->is_main_query() && $query->is_search()) {
-		$query->set('post_type', 'post');			// 投稿記事を対象
-		$query->set('posts_per_page', '10');		// 一覧表示数
+
+		$query->set('post_type', array('post', 'trend'));			// 投稿記事とカスタム投稿を対象
+		$query->set('posts_per_page', '20');		// 一覧表示数
 		$query->set('category__not_in', array(1, $infocat->cat_ID));// カテゴリが未分類と観光案内所の記事は非表示
 		$query->set('orderby', array('meta_recommend'=>'desc'));	// 推奨値の高い順
-		$query->set('meta_query', array(							// 検索結果は対象のイベント全てを表示
-						'meta_recommend'=>array(
-							'key'		=> 'recommend',				//カスタムフィールドのおすすめ度
-							'value'		=> 0,						//
-							'compare'	=> '>=',					//指定のおすすめ度以上を表示
-							'type'		=> 'numeric',				//タイプに数値を指定
-						),
-					));
+
 	} elseif ( !is_admin() && $query->is_main_query() && ($query->is_category('tourist-info-center')) ) {
+
 		$query->set('post_type', 'post');			// 投稿記事を対象
 		$query->set('posts_per_page', '10');		// 一覧表示数
 		$query->set('orderby', array('meta_tic'=>'asc'));			//TICリスト番号の昇順で表示
 		$query->set('meta_query', array(
 						'meta_tic'=>array(
-							'key'		=> 'location',				//カスタムフィールドのおすすめ度
+							'key'		=> 'location',				//TICリスト番号
 							'type'		=> 'numeric',				//タイプに数値を指定
 						),
 					));
+
 	} elseif ( !is_admin() && $query->is_main_query() && ($query->is_tag() || $query->is_category()) ) {
+
 		$query->set('post_type', 'post');			// 投稿記事を対象
 		$query->set('posts_per_page', '10');		// 一覧表示数
 		$query->set('category__not_in', array(1, $infocat->cat_ID));// カテゴリが未分類と観光案内所の記事は非表示
 		$query->set('orderby', array('meta_recommend'=>'desc', 'meta_close'=>'asc'));	// 推奨値の高い順
 		$query->set('meta_query', get_meta_query_args());			// 終了していないイベントを表示
+
 	}
 	return $query;
 }
@@ -990,3 +992,57 @@ function save_posttype_customfields($post_id) {
     }
 }
 add_action('save_post', 'save_posttype_customfields');
+
+// カスタム投稿タイプ作成
+function create_post_type() {
+	$labels = array(
+		'name'				=> _x( 'Trends', 'post type general name', 'SagasWhat' ),
+		'singular_name'		=> _x( 'Trend', 'post type singular name', 'SagasWhat' ),
+		'menu_name'			=> _x( 'Trends', 'admin menu', 'SagasWhat' ),
+		'name_admin_bar'	=> _x( 'Trend', 'add new on admin bar', 'SagasWhat' ),
+		'add_new'			=> _x( 'Add New', 'trend', 'SagasWhat' ),
+		'add_new_item'		=> __( 'Add New Trend', 'SagasWhat' ),
+		'new_item'			=> __( 'New Trend', 'SagasWhat' ),
+		'edit_item'			=> __( 'Edit Trend', 'SagasWhat' ),
+		'view_item'			=> __( 'View Trend', 'SagasWhat' ),
+		'all_items'			=> __( 'All Trends', 'SagasWhat' ),
+		'search_items'		=> __( 'Search Trends', 'SagasWhat' ),
+		'parent_item_colon'	=> __( 'Parent Trends:', 'SagasWhat' ),
+		'not_found'			=> __( 'No trends found.', 'SagasWhat' ),
+		'not_found_in_trash'=> __( 'No trends found in Trash.', 'SagasWhat' )
+	);
+	$args = array(
+		'labels'			=> $labels,
+		'public'			=> true,
+		'has_archive'		=> true,
+		'menu_position'		=> 5,
+		'rewrite'			=> array('slug' => 'trend'),
+		'supports'			=> array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'revisions' )
+	);
+
+	register_post_type( 'trend', $args );
+
+	// （カテゴリーのような）階層化したカスタム分類を新たに追加
+	$labels = array(
+		'name'				=> _x( 'Keywords', 'taxonomy general name', 'SagasWhat' ),
+		'singular_name'		=> _x( 'Keyword', 'taxonomy singular name', 'SagasWhat' ),
+		'search_items'		=> __( 'Search Keywords', 'SagasWhat' ),
+		'all_items'			=> __( 'All Keywords', 'SagasWhat' ),
+		'parent_item'		=> __( 'Parent Keyword', 'SagasWhat' ),
+		'parent_item_colon'	=> __( 'Parent Keyword:', 'SagasWhat' ),
+		'edit_item'			=> __( 'Edit Keyword', 'SagasWhat' ),
+		'update_item'		=> __( 'Update Keyword', 'SagasWhat' ),
+		'add_new_item'		=> __( 'Add New Keyword', 'SagasWhat' ),
+		'new_item_name'		=> __( 'New Keyword Name', 'SagasWhat' ),
+		'menu_name'			=> __( 'Keyword', 'SagasWhat' ),
+	);
+
+	$args = array(
+		'hierarchical'		=> true,
+		'labels'			=> $labels,
+	);
+
+	register_taxonomy( 'keyword', array( 'trend' ), $args );
+
+}
+add_action( 'init', 'create_post_type' );
