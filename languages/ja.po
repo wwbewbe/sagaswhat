@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-12-18 19:13+0900\n"
-"PO-Revision-Date: 2016-12-18 19:13+0900\n"
+"POT-Creation-Date: 2016-12-19 00:26+0900\n"
+"PO-Revision-Date: 2016-12-19 00:26+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -81,7 +81,7 @@ msgstr "Wi-Fi"
 msgid "PC"
 msgstr "PC"
 
-#: functions.php:318 functions.php:434 functions.php:772
+#: functions.php:318 functions.php:434 functions.php:769
 msgid "Address"
 msgstr "住所"
 
@@ -98,7 +98,7 @@ msgstr "詳細はこちら"
 msgid "Event Name"
 msgstr "イベント名"
 
-#: functions.php:347 functions.php:771
+#: functions.php:347 functions.php:768
 msgid "Venue"
 msgstr "会場"
 
@@ -126,107 +126,107 @@ msgstr "Free Wi-Fi"
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: functions.php:768
+#: functions.php:765
 msgid "Open date"
 msgstr "開催日"
 
-#: functions.php:769
+#: functions.php:766
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:770
+#: functions.php:767
 msgid "Recommend"
 msgstr "推奨度"
 
-#: functions.php:839
-msgid "None"
-msgstr "なし"
-
-#: functions.php:999 functions.php:1001
-msgid "Trends"
-msgstr "トレンド"
-
-#: functions.php:1000 functions.php:1002
-msgid "Trend"
-msgstr "トレンド"
-
-#: functions.php:1003
-msgid "Add New"
-msgstr "新規追加"
-
-#: functions.php:1004
-msgid "Add New Trend"
-msgstr "新規トレンド追加"
-
-#: functions.php:1005
-msgid "New Trend"
-msgstr "新規トレンド"
-
-#: functions.php:1006
-msgid "Edit Trend"
-msgstr "トレンド編集"
-
-#: functions.php:1007
-msgid "View Trend"
-msgstr "トレンド表示"
-
-#: functions.php:1008
-msgid "All Trends"
-msgstr "すべてのトレンド"
-
-#: functions.php:1009
-msgid "Search Trends"
-msgstr "トレンド検索"
-
-#: functions.php:1010
-msgid "Parent Trends:"
-msgstr "親トレンド:"
-
-#: functions.php:1011
-msgid "No trends found."
-msgstr "トレンドは見つかりませんでした。"
-
-#: functions.php:1012
-msgid "No trends found in Trash."
-msgstr "ゴミ箱にトレンドは見つかりませんでした。"
-
-#: functions.php:1027
-msgid "Keywords"
-msgstr "キーワード"
-
-#: functions.php:1028 functions.php:1037
+#: functions.php:777 functions.php:1050 functions.php:1059
 msgid "Keyword"
 msgstr "キーワード"
 
+#: functions.php:812 functions.php:825
+msgid "None"
+msgstr "なし"
+
+#: functions.php:1021 functions.php:1023
+msgid "Trends"
+msgstr "トレンド"
+
+#: functions.php:1022 functions.php:1024
+msgid "Trend"
+msgstr "トレンド"
+
+#: functions.php:1025
+msgid "Add New"
+msgstr "新規追加"
+
+#: functions.php:1026
+msgid "Add New Trend"
+msgstr "新規トレンド追加"
+
+#: functions.php:1027
+msgid "New Trend"
+msgstr "新規トレンド"
+
+#: functions.php:1028
+msgid "Edit Trend"
+msgstr "トレンド編集"
+
 #: functions.php:1029
+msgid "View Trend"
+msgstr "トレンド表示"
+
+#: functions.php:1030
+msgid "All Trends"
+msgstr "すべてのトレンド"
+
+#: functions.php:1031
+msgid "Search Trends"
+msgstr "トレンド検索"
+
+#: functions.php:1032
+msgid "Parent Trends:"
+msgstr "親トレンド:"
+
+#: functions.php:1033
+msgid "No trends found."
+msgstr "トレンドは見つかりませんでした。"
+
+#: functions.php:1034
+msgid "No trends found in Trash."
+msgstr "ゴミ箱にトレンドは見つかりませんでした。"
+
+#: functions.php:1049
+msgid "Keywords"
+msgstr "キーワード"
+
+#: functions.php:1051
 msgid "Search Keywords"
 msgstr "キーワード検索"
 
-#: functions.php:1030
+#: functions.php:1052
 msgid "All Keywords"
 msgstr "全てのキーワード"
 
-#: functions.php:1031
+#: functions.php:1053
 msgid "Parent Keyword"
 msgstr "親キーワード"
 
-#: functions.php:1032
+#: functions.php:1054
 msgid "Parent Keyword:"
 msgstr "親キーワード:"
 
-#: functions.php:1033
+#: functions.php:1055
 msgid "Edit Keyword"
 msgstr "キーワード編集"
 
-#: functions.php:1034
+#: functions.php:1056
 msgid "Update Keyword"
 msgstr "キーワード更新"
 
-#: functions.php:1035
+#: functions.php:1057
 msgid "Add New Keyword"
 msgstr "新規キーワード追加"
 
-#: functions.php:1036
+#: functions.php:1058
 msgid "New Keyword Name"
 msgstr "新規キーワード名"
 

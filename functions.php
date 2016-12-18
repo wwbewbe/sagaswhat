@@ -756,23 +756,78 @@ add_filter('widget_categories_args', 'my_theme_catexcept',10);
 //固定ページにも抜粋(excerpt)を使えるようにする
 add_post_type_support( 'page', 'excerpt' );
 
-//管理画面の投稿一覧から作成者列を削除
-function custom_columns($columns) {
-        unset($columns['author']);
-        return $columns;
-}
-add_filter( 'manage_posts_columns', 'custom_columns' );
-
 //管理画面の投稿一覧にイベント開催日、終了日、推奨度、会場、住所の列を追加
 function add_posts_columns_name($columns) {
-    $columns['eventopen'] = esc_html__('Open date', 'SagasWhat');
-	$columns['eventclose'] = esc_html__('Close date', 'SagasWhat');
-	$columns['recommend'] = esc_html__('Recommend', 'SagasWhat');
-	$columns['venue'] = esc_html__('Venue', 'SagasWhat');
-	$columns['address'] = esc_html__('Address', 'SagasWhat');
+	global $post;
+	unset($columns['author']);		//管理画面の投稿一覧から作成者列を削除
+	unset($columns['comments']);	//管理画面の投稿一覧からコメント列を削除
+	if ($post->post_type == 'post') {
+	    $columns['eventopen'] = esc_html__('Open date', 'SagasWhat');
+		$columns['eventclose'] = esc_html__('Close date', 'SagasWhat');
+		$columns['recommend'] = esc_html__('Recommend', 'SagasWhat');
+		$columns['venue'] = esc_html__('Venue', 'SagasWhat');
+		$columns['address'] = esc_html__('Address', 'SagasWhat');
+	}
     return $columns;
 }
 add_filter( 'manage_posts_columns', 'add_posts_columns_name' );
+
+//管理画面のカスタム投稿(Trends)一覧にキーワードの列を追加
+function add_trends_columns_name($columns) {
+    $columns['keyword'] = esc_html__('Keyword', 'SagasWhat');
+    return $columns;
+}
+add_filter( 'manage_edit-trend_columns', 'add_trends_columns_name' );
+
+//管理画面の投稿一覧にイベント開催日と終了日を表示
+function add_column($column_name, $post_id) {
+	global $post;
+	if ($post->post_type == 'post') {
+	    if ($column_name == 'eventopen') {
+	        $opendate = get_post_meta($post_id, 'eventopen', true);
+	    }
+		if ($column_name == 'eventclose') {
+	        $closedate = get_post_meta($post_id, 'eventclose', true);
+	    }
+		if ($column_name == 'recommend') {
+	        $recommend = get_post_meta($post_id, 'recommend', true);
+	    }
+		if ($column_name == 'venue') {
+	        $venue = get_post_meta($post_id, 'venue', true);
+	    }
+		if ($column_name == 'address') {
+	        $address = get_post_meta($post_id, 'address', true);
+	    }
+		if (!empty($opendate)) {
+	        echo esc_html($opendate);
+	    } elseif (!empty($closedate)) {
+	        echo esc_html($closedate);
+		} elseif (!empty($recommend)) {
+	        echo esc_html($recommend);
+		} elseif (!empty($venue)) {
+	        echo esc_html($venue);
+		} elseif (!empty($address)) {
+	        echo esc_html($address);
+		} else {
+			echo esc_html(__('None', 'SagasWhat'));
+	    }
+	}
+	if ($post->post_type == 'trend') {
+		if ($column_name == 'keyword') {
+			$kwds = get_the_terms($post->ID, 'keyword');
+			if ( !empty($kwds) ) {
+				$out = array();
+				foreach ( $kwds as $kwd ) {
+					$out[] = '<a href="edit.php?keyword=' . $kwd->slug . '&post_type=trend' . '">' . esc_html(sanitize_term_field('name', $kwd->name, $kwd->term_id, 'keyword', 'display')) . '</a>';
+				}
+				echo join( ', ', $out );
+			} else {
+				echo esc_html(__('None', 'SagasWhat'));
+			}
+		}
+	}
+}
+add_action( 'manage_posts_custom_column', 'add_column', 10, 2 );
 
 //追加した列を並び替えれるようにする
 function custom_sortable_columns($sortable_column) {
@@ -807,39 +862,6 @@ function custom_orderby_columns( $vars ) {
 }
 add_filter( 'manage_edit-post_sortable_columns', 'custom_sortable_columns');
 add_filter( 'request', 'custom_orderby_columns' );
-
-//管理画面の投稿一覧にイベント開催日と終了日を表示
-function add_column($column_name, $post_id) {
-    if ($column_name == 'eventopen') {
-        $opendate = get_post_meta($post_id, 'eventopen', true);
-    }
-	if ($column_name == 'eventclose') {
-        $closedate = get_post_meta($post_id, 'eventclose', true);
-    }
-	if ($column_name == 'recommend') {
-        $recommend = get_post_meta($post_id, 'recommend', true);
-    }
-	if ($column_name == 'venue') {
-        $venue = get_post_meta($post_id, 'venue', true);
-    }
-	if ($column_name == 'address') {
-        $address = get_post_meta($post_id, 'address', true);
-    }
-	if (isset($opendate) && $opendate) {
-        echo attribute_escape($opendate);
-    } elseif (isset($closedate) && $closedate) {
-        echo attribute_escape($closedate);
-	} elseif (isset($recommend) && $recommend) {
-        echo attribute_escape($recommend);
-	} elseif (isset($venue) && $venue) {
-        echo attribute_escape($venue);
-	} elseif (isset($address) && $address) {
-        echo attribute_escape($address);
-	} else {
-		echo esc_html(__('None', 'SagasWhat'));
-    }
-}
-add_action( 'manage_posts_custom_column', 'add_column', 10, 2 );
 
 //イベント終了画像IDをメディアライブラリから取得
 function get_closed_img() {
