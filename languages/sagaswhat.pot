@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SagasWhat\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2016-12-17 15:48+0900\n"
+"POT-Creation-Date: 2016-12-18 19:12+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,7 +82,7 @@ msgstr ""
 msgid "PC"
 msgstr ""
 
-#: functions.php:318 functions.php:434 functions.php:770
+#: functions.php:318 functions.php:434 functions.php:772
 msgid "Address"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Event Name"
 msgstr ""
 
-#: functions.php:347 functions.php:769
+#: functions.php:347 functions.php:771
 msgid "Venue"
 msgstr ""
 
@@ -123,112 +123,120 @@ msgstr ""
 msgid "Free Wi-Fi"
 msgstr ""
 
-#: functions.php:561
+#: functions.php:565
 msgid "Sponsored Links"
 msgstr ""
 
-#: functions.php:766
+#: functions.php:768
 msgid "Open date"
 msgstr ""
 
-#: functions.php:767
+#: functions.php:769
 msgid "Close date"
 msgstr ""
 
-#: functions.php:768
+#: functions.php:770
 msgid "Recommend"
 msgstr ""
 
-#: functions.php:837
+#: functions.php:839
 msgid "None"
 msgstr ""
 
-#: functions.php:997 functions.php:999
+#: functions.php:999 functions.php:1001
 msgid "Trends"
 msgstr ""
 
-#: functions.php:998 functions.php:1000
+#: functions.php:1000 functions.php:1002
 msgid "Trend"
 msgstr ""
 
-#: functions.php:1001
+#: functions.php:1003
 msgid "Add New"
 msgstr ""
 
-#: functions.php:1002
+#: functions.php:1004
 msgid "Add New Trend"
 msgstr ""
 
-#: functions.php:1003
+#: functions.php:1005
 msgid "New Trend"
 msgstr ""
 
-#: functions.php:1004
+#: functions.php:1006
 msgid "Edit Trend"
 msgstr ""
 
-#: functions.php:1005
+#: functions.php:1007
 msgid "View Trend"
 msgstr ""
 
-#: functions.php:1006
+#: functions.php:1008
 msgid "All Trends"
 msgstr ""
 
-#: functions.php:1007
+#: functions.php:1009
 msgid "Search Trends"
 msgstr ""
 
-#: functions.php:1008
+#: functions.php:1010
 msgid "Parent Trends:"
 msgstr ""
 
-#: functions.php:1009
+#: functions.php:1011
 msgid "No trends found."
 msgstr ""
 
-#: functions.php:1010
+#: functions.php:1012
 msgid "No trends found in Trash."
 msgstr ""
 
-#: functions.php:1024
+#: functions.php:1027
 msgid "Keywords"
 msgstr ""
 
-#: functions.php:1025 functions.php:1034
+#: functions.php:1028 functions.php:1037
 msgid "Keyword"
 msgstr ""
 
-#: functions.php:1026
+#: functions.php:1029
 msgid "Search Keywords"
 msgstr ""
 
-#: functions.php:1027
+#: functions.php:1030
 msgid "All Keywords"
 msgstr ""
 
-#: functions.php:1028
+#: functions.php:1031
 msgid "Parent Keyword"
 msgstr ""
 
-#: functions.php:1029
+#: functions.php:1032
 msgid "Parent Keyword:"
 msgstr ""
 
-#: functions.php:1030
+#: functions.php:1033
 msgid "Edit Keyword"
 msgstr ""
 
-#: functions.php:1031
+#: functions.php:1034
 msgid "Update Keyword"
 msgstr ""
 
-#: functions.php:1032
+#: functions.php:1035
 msgid "Add New Keyword"
 msgstr ""
 
-#: functions.php:1033
+#: functions.php:1036
 msgid "New Keyword Name"
+msgstr ""
+
+#: gaiyou-custom.php:13 single-trend.php:24
+msgid "Posted: "
+msgstr ""
+
+#: gaiyou-custom.php:20 single-trend.php:31
+msgid "Updated: "
 msgstr ""
 
 #: gaiyou-medium.php:44

@@ -22,7 +22,12 @@
 		}
 	} ?>
 
-	<?php get_template_part( 'gaiyou', 'medium' ); ?>
+	<?php if (has_term('', 'keyword', $post_id)) {
+		get_template_part( 'gaiyou', 'custom' );
+	} else {
+		get_template_part( 'gaiyou', 'medium' );
+
+	} ?>
 
 	<?php endwhile; endif; ?>
 

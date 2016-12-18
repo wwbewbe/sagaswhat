@@ -13,6 +13,14 @@
 		<?php echo esc_html__( 'Posted: ', 'SagasWhat' ); ?>
 		<?php echo get_the_date( 'Y/m/d' ); ?>
 	</time>
+
+	<?php if( get_the_modified_date( 'Ymd' ) > get_the_date( 'Ymd' ) ): ?>
+	 ｜
+	<time datetime="<?php echo get_the_modified_date( 'Y-m-d' ); ?>">
+		<?php echo esc_html__( 'Updated: ', 'SagasWhat' ); ?>
+		<?php echo get_the_modified_date( 'Y/m/d' ); ?>
+	</time>
+	<?php endif; ?>
 	</div>
 
 	<div class="kiji-tax">
