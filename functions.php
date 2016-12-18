@@ -624,7 +624,7 @@ function QueryListFilter($query) {
 		$query->set('post_type', array('post', 'trend'));			// 投稿記事とカスタム投稿を対象
 		$query->set('posts_per_page', '20');		// 一覧表示数
 		$query->set('category__not_in', array(1, $infocat->cat_ID));// カテゴリが未分類と観光案内所の記事は非表示
-		$query->set('orderby', array('meta_recommend'=>'desc'));	// 推奨値の高い順
+//		$query->set('orderby', array('meta_recommend'=>'desc'));	// 推奨値の高い順
 
 	} elseif ( !is_admin() && $query->is_main_query() && ($query->is_category('tourist-info-center')) ) {
 
