@@ -357,46 +357,29 @@ function event_info_to_the_content( $content ) {
 			$openseason = get_post_meta($post->ID, 'openseason', true);
 			$closeseason = get_post_meta($post->ID, 'closeseason', true);
 			$thname = esc_html__('Dates', 'SagasWhat');
-			if($eventopen && $eventclose) {
+			if($eventopen && $eventclose) {	//開催日も終了日も入力されている場合
 				if($eventopen == $eventclose) {
-					if ( get_bloginfo('language') == 'ja' ) {
-						$dates = date_i18n('Y年n月j日(D)', strtotime($eventclose));
-					} else {
-						$dates = date_i18n('F jS, Y', strtotime($eventclose));
-					}
-					if ($closeseason) $dates = $closeseason;
+					$dates = date_i18n(__('F j, Y', 'SagasWhat'), strtotime($eventclose));
+					if ($closeseason) $dates = $closeseason;	//シーズンが設定されている場合はシーズンを表示
 					$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 				} else {
-					if ( get_bloginfo('language') == 'ja' ) {
-						$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
-						$eventclose = date_i18n('Y年n月j日(D)', strtotime($eventclose));
-					} else {
-						$eventopen = date_i18n('F jS, Y', strtotime($eventopen));
-						$eventclose = date_i18n('F jS, Y', strtotime($eventclose));
-					}
-					if ($openseason) $eventopen = $openseason;
-					if ($closeseason) $eventclose = $closeseason;
+					$eventopen = date_i18n(__('F j, Y', 'SagasWhat'), strtotime($eventopen));
+					$eventclose = date_i18n(__('F j, Y', 'SagasWhat'), strtotime($eventclose));
+					if ($openseason) $eventopen = $openseason;		//シーズンが設定されている場合はシーズンを表示
+					if ($closeseason) $eventclose = $closeseason;	//シーズンが設定されている場合はシーズンを表示
 					$dates = $eventopen . ' - ' . $eventclose;
 					$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 				}
 			} elseif($eventopen || $eventclose) {
-				if ($eventopen) {
-					if ( get_bloginfo('language') == 'ja' ) {
-						$eventopen = date_i18n('Y年n月j日(D)', strtotime($eventopen));
-					} else {
-						$eventopen = date_i18n('F jS, Y', strtotime($eventopen));
-					}
-					if ($openseason) $eventopen = $openseason;
+				if ($eventopen) {	//開催日のみ入力されている場合（終了日未定の場合）
+					$eventopen = date_i18n(__('F j, Y', 'SagasWhat'), strtotime($eventopen));
+					if ($openseason) $eventopen = $openseason;	//シーズンが設定されている場合はシーズンを表示
 					$dates = $eventopen . ' - ' . '&gt;&gt;&gt;';
 					$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 				}
 				if ($eventclose) {
-					if ( get_bloginfo('language') == 'ja' ) {
-						$eventclose = date_i18n('Y年n月j日(D)', strtotime($eventclose));
-					} else {
-						$eventclose = date_i18n('F jS, Y', strtotime($eventclose));
-					}
-					if ($closeseason) $eventclose = $closeseason;
+					$eventclose = date_i18n(__('F j, Y', 'SagasWhat'), strtotime($eventclose));
+					if ($closeseason) $eventclose = $closeseason;	//シーズンが設定されている場合はシーズンを表示
 					$dates = '&gt;&gt;&gt;' . ' - ' . $eventclose;
 					$info = $info . '<tr><th>'.$thname.'</th><td>' . $dates . '</td></tr>';
 				}

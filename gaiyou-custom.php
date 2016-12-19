@@ -7,18 +7,16 @@
 	<h1><?php the_title(); ?></h1>
 
 	<div class="kiji-date">
-	<i class="fa fa-pencil"></i>
-
+	<i class="fa fa-pencil fa-fw"></i>
 	<time datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
-		<?php echo esc_html__( 'Posted: ', 'SagasWhat' ); ?>
-		<?php echo get_the_date( 'Y/m/d' ); ?>
+		<?php echo get_the_date( __('M j, Y', 'SagasWhat') ); ?>
 	</time>
 
 	<?php if( get_the_modified_date( 'Ymd' ) > get_the_date( 'Ymd' ) ): ?>
 	 ｜
+	 <i class="fa fa-edit fa-fw"></i>
 	<time datetime="<?php echo get_the_modified_date( 'Y-m-d' ); ?>">
-		<?php echo esc_html__( 'Updated: ', 'SagasWhat' ); ?>
-		<?php echo get_the_modified_date( 'Y/m/d' ); ?>
+		<?php echo get_the_modified_date( __('M j, Y', 'SagasWhat') ); ?>
 	</time>
 	<?php endif; ?>
 	</div>

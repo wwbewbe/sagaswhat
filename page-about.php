@@ -17,17 +17,17 @@
 
 	<div class="kiji-date">
 	<i class="fa fa-pencil"></i>
-
 	<time
 	datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
-	<?php echo esc_html(__('Posted:', 'SagasWhat')); echo get_the_date(); ?>
+	<?php echo get_the_date( __('M j, Y', 'SagasWhat') ); ?>
 	</time>
 
 	<?php if( get_the_modified_date( 'Ymd' ) > get_the_date( 'Ymd' ) ): ?>
 	｜
+	<i class="fa fa-edit fa-fw"></i>
 	<time
 	datetime="<?php echo get_the_modified_date( 'Y-m-d' ); ?>">
-	<?php echo esc_html(__('Updated:', 'SagasWhat')); echo get_the_modified_date(); ?>
+	<?php echo get_the_modified_date( __('M j, Y', 'SagasWhat') ); ?>
 	</time>
 	<?php endif; ?>
 	</div>
