@@ -445,7 +445,7 @@ function set_taglist($params = array()) {
 						'catname'	=>	0,			//表示するカテゴリー名
 						'list'		=>	5,			//表示するリスト数
 						'sort'		=>	false,		//近くのイベント順に並び替えるボタンの表示(true)/非表示(false)
-						'posttype'	=>	'post',		//表示する投稿タイプ(post, page, trend)
+						'posttype'	=>	'post',		//表示する投稿タイプ(post, page, sw_trend)
 						'tax'		=>	'keyword',	//表示するカスタムタクソノミー(keyword, etc.)＊カスタム投稿のみ使用
 						'terms'		=>	0,			//表示するカスタムタクソノミーの項目名(matsuri, etc.)＊カスタム投稿のみ使用
     					), $params));
@@ -604,7 +604,7 @@ function QueryListFilter($query) {
 	$infocat = get_category_by_slug('tourist-info-center');//観光案内所をリストから除外
 	if (!is_admin() && $query->is_main_query() && $query->is_search()) {
 
-		$query->set('post_type', array('post', 'trend'));			// 投稿記事とカスタム投稿を対象
+		$query->set('post_type', array('post', 'sw_trend'));			// 投稿記事とカスタム投稿を対象
 		$query->set('posts_per_page', '20');		// 一覧表示数
 		$query->set('category__not_in', array(1, $infocat->cat_ID));// カテゴリが未分類と観光案内所の記事は非表示
 		$query->set('orderby', 'modified');	// 更新日の新しい記事順
@@ -760,7 +760,7 @@ function add_trends_columns_name($columns) {
     $columns['keyword'] = esc_html__('Keyword', 'SagasWhat');
     return $columns;
 }
-add_filter( 'manage_edit-trend_columns', 'add_trends_columns_name' );
+add_filter( 'manage_edit-sw_trend_columns', 'add_trends_columns_name' );
 
 //管理画面の投稿一覧にイベント開催日と終了日を表示
 function add_column($column_name, $post_id) {
@@ -795,13 +795,13 @@ function add_column($column_name, $post_id) {
 			echo esc_html(__('None', 'SagasWhat'));
 	    }
 	}
-	if ($post->post_type == 'trend') {
+	if ($post->post_type == 'sw_trend') {
 		if ($column_name == 'keyword') {
 			$kwds = get_the_terms($post->ID, 'keyword');
 			if ( !empty($kwds) ) {
 				$out = array();
 				foreach ( $kwds as $kwd ) {
-					$out[] = '<a href="edit.php?keyword=' . $kwd->slug . '&post_type=trend' . '">' . esc_html(sanitize_term_field('name', $kwd->name, $kwd->term_id, 'keyword', 'display')) . '</a>';
+					$out[] = '<a href="edit.php?keyword=' . $kwd->slug . '&post_type=sw_trend' . '">' . esc_html(sanitize_term_field('name', $kwd->name, $kwd->term_id, 'keyword', 'display')) . '</a>';
 				}
 				echo join( ', ', $out );
 			} else {
@@ -1025,7 +1025,7 @@ function create_post_type() {
 		'supports'			=> array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'revisions' )
 	);
 
-	register_post_type( 'trend', $args );
+	register_post_type( 'sw_trend', $args );
 
 	// （カテゴリーのような）階層化したカスタム分類を新たに追加
 	$labels = array(
@@ -1047,7 +1047,7 @@ function create_post_type() {
 		'labels'			=> $labels,
 	);
 
-	register_taxonomy( 'keyword', array( 'trend' ), $args );
+	register_taxonomy( 'keyword', array( 'sw_trend' ), $args );
 
 }
 add_action( 'init', 'create_post_type' );

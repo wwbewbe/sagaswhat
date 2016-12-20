@@ -3,7 +3,7 @@
 if (($posttype == 'post') || ($posttype == 'page')) {
 	$infocat = get_category_by_slug('tourist-info-center');//観光案内所をリストから除外
 	$args=array(
-	            'post_type'		=> $posttype,	//表示する投稿タイプ(post, page, trend)
+	            'post_type'		=> $posttype,	//表示する投稿タイプ(post, page, sw_trend)
 	            'posts_per_page'=> $list,       //リスト数を指定
 				'category__not_in' => array(1, $infocat->cat_ID), //カテゴリが未分類と観光案内所の記事は非表示
 	            'tag'           => $tagname,    //タグを指定(slug)
@@ -16,7 +16,7 @@ if (($posttype == 'post') || ($posttype == 'page')) {
 		$terms = explode(',', $terms);	//カスタムタクソノミーの項目を配列にする
 	}
 	$args=array(
-	            'post_type'		=> $posttype,	//表示するカスタム投稿タイプ(trend, etc.)
+	            'post_type'		=> $posttype,	//表示するカスタム投稿タイプ(sw_trend, etc.)
 	            'posts_per_page'=> $list,       //リスト数を指定
 				'tax_query'		=> array(
 					array(
