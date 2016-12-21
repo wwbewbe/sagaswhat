@@ -30,7 +30,7 @@ footer	{border-top: solid 1px #dddddd}
 .sub-header	{padding-top: 5px;
 			margin-top: 55px;} /*ヘッダーを固定するためのmargin指定*/
 
-.contents		{padding-top: 20px;
+.contents		{padding-top: 10px;
 			padding-bottom: 20px}
 
 .sub			{padding-top: 20px;
@@ -1244,8 +1244,8 @@ img, .wp-caption		{max-width: 100%;
 				height: auto}
 
 /* アイキャッチ画像 */
-.catch			{margin-top: 30px;
-				margin-bottom: 30px}
+.catch			{margin-top: 10px;
+				margin-bottom: 10px}
 
 /* -------------------- 外部コンテンツ -------------------- */
 iframe			{max-width: 100%}

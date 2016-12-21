@@ -50,6 +50,14 @@ if (!empty($closedate)) { //すでにイベントが終了しているときはc
 
 	<h1><?php the_title(); ?></h1>
 
+	<?php if (in_category('tourist-info-center')) : //TIC記事の場合アイキャッチ画像を表示 ?>
+		<?php if (has_post_thumbnail()) : ?>
+			<div class="catch">
+			<?php the_post_thumbnail(); ?>
+			</div>
+		<?php endif; ?>
+	<?php endif; ?>
+
 	<?php if (!in_category('tourist-info-center')) : //TIC記事でない場合?>
 		<div class="favorite-link"><?php if (function_exists('wpfp_link')) { wpfp_link(); } //add/remove Favorite Events?></div>
 	<?php endif; ?>

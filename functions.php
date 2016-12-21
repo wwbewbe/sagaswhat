@@ -303,6 +303,14 @@ function event_info_to_the_content( $content ) {
 				}
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$note.'</td></tr>';
 			}
+			// 営業時間
+			if( $bizhours = get_post_meta($post->ID, 'bizhours', true) ) {
+				$thname = esc_html__('Open Hours', 'SagasWhat');
+				if ( $bizhoursurl = esc_url(get_post_meta($post->ID, 'bizhoursurl', true)) ) {
+					$bizhours = $bizhours.'<div><a href="'.$bizhoursurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+				}
+				$info = $info.'<tr><th>'.$thname.'</th><td>'.$bizhours.'</td></tr>';
+			}
 			// Wi-Fi
 			if( $wifi = get_post_meta($post->ID, 'wifi', true) ) {
 				$thname = esc_html__('Wi-Fi', 'SagasWhat');
