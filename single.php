@@ -52,8 +52,9 @@ if (!empty($closedate)) { //すでにイベントが終了しているときはc
 
 	<?php if (in_category('tourist-info-center')) : //TIC記事の場合アイキャッチ画像を表示 ?>
 		<?php if (has_post_thumbnail()) : ?>
-			<div class="catch">
-			<?php the_post_thumbnail(); ?>
+			<div class="catch wp-caption">
+			<?php the_post_thumbnail();
+			echo '<p class="wp-caption-text">' . get_post( get_post_thumbnail_id() )->post_excerpt . '</p>'; ?>
 			</div>
 		<?php endif; ?>
 	<?php endif; ?>

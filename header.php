@@ -26,6 +26,7 @@
 <?php //endif; // トップページ用のメタデータ【ここまで】 ?>
 
 <?php elseif( is_single() || is_page() ): //記事の個別ページ用のメタデータ ?>
+<meta name="description" content="<?php echo wp_trim_words( $post->post_content, 100, '…' ); ?>">
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="<?php the_title(); ?>">
