@@ -14,7 +14,15 @@
 	<h1><?php the_title(); ?></h1>
 
 	<div class="kiji-tax">
-	<?php the_terms( $post->ID, 'keyword', '<ul><li>', '</li><li>', '</li></ul>' ); ?>
+		<ul>
+			<li>
+				<?php the_terms( $post->ID, 'category', '', '</li><li>', '' ); ?>
+					<?php if( has_category() ): ?>
+					</li><li>
+					<?php endif; ?>
+				<?php the_terms( $post->ID, 'keyword', '', '</li><li>', '' ); ?>
+			</li>
+		</ul>
 	</div>
 
 	<div class="kiji-date">
@@ -31,6 +39,13 @@
 	</time>
 	<?php endif; ?>
 	</div>
+
+	<?php if (has_post_thumbnail()) : ?>
+		<div class="wp-caption">
+		<?php the_post_thumbnail('full');
+		echo '<p class="wp-caption-text">' . get_post( get_post_thumbnail_id() )->post_excerpt . '</p>'; ?>
+		</div>
+	<?php endif; ?>
 
 	<?php the_content(); ?>
 

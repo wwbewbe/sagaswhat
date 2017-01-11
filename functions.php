@@ -552,7 +552,7 @@ function showads($params = array()) {
 }
 add_shortcode('adsense', 'showads');
 
-function get_adsense($kiji) {
+function get_adsense($kiji = false) {
 	$title = '<div class="adsense-title">'.esc_html(__('Sponsored Links', 'SagasWhat')).'</div>';
 	//レスポンシブ広告の英語版もしくは日本語版の挿入
 	if ( get_bloginfo('language') == 'ja' ) {
@@ -631,7 +631,7 @@ function QueryListFilter($query) {
 
 	} elseif ( !is_admin() && $query->is_main_query() && ($query->is_tag() || $query->is_category()) ) {
 
-		$query->set('post_type', 'post');			// 投稿記事を対象
+		$query->set('post_type', array('post', 'sw_trend'));			// 投稿記事とカスタム投稿を対象
 		$query->set('posts_per_page', '10');		// 一覧表示数
 		$query->set('category__not_in', array(1, $infocat->cat_ID));// カテゴリが未分類と観光案内所の記事は非表示
 		$query->set('orderby', array('meta_recommend'=>'desc', 'meta_close'=>'asc'));	// 推奨値の高い順
@@ -643,7 +643,7 @@ function QueryListFilter($query) {
 add_action('pre_get_posts','QueryListFilter');
 
 //各イベント会場 or 観光案内所と現在地の距離をカスタムフィールドに保存
-function set_event_distance($lat, $lng, $target) {
+function set_event_distance($lat, $lng, $target = 0) {
 	global $post;
 
 	if ($target == 'tic') {
@@ -695,7 +695,7 @@ function set_event_distance($lat, $lng, $target) {
 }
 
 //イベント抽出フィルターの条件を設定
-function get_meta_query_args( $recommend, $distance ) {
+function get_meta_query_args( $recommend = 0, $distance = 0) {
 	$args = array(
 		'relation'		=> 'AND',
 		'meta_close'=>array(
@@ -1035,14 +1035,14 @@ function create_post_type() {
 
 	register_post_type( 'sw_trend', $args );
 
-	// （カテゴリーのような）階層化したカスタム分類を新たに追加
+	// カスタム分類を新たに追加(Keyword)
 	$labels = array(
 		'name'				=> _x( 'Keywords', 'taxonomy general name', 'SagasWhat' ),
 		'singular_name'		=> _x( 'Keyword', 'taxonomy singular name', 'SagasWhat' ),
 		'search_items'		=> __( 'Search Keywords', 'SagasWhat' ),
 		'all_items'			=> __( 'All Keywords', 'SagasWhat' ),
-		'parent_item'		=> __( 'Parent Keyword', 'SagasWhat' ),
-		'parent_item_colon'	=> __( 'Parent Keyword:', 'SagasWhat' ),
+//		'parent_item'		=> __( 'Parent Keyword', 'SagasWhat' ),
+//  	'parent_item_colon'	=> __( 'Parent Keyword:', 'SagasWhat' ),
 		'edit_item'			=> __( 'Edit Keyword', 'SagasWhat' ),
 		'update_item'		=> __( 'Update Keyword', 'SagasWhat' ),
 		'add_new_item'		=> __( 'Add New Keyword', 'SagasWhat' ),
@@ -1051,11 +1051,13 @@ function create_post_type() {
 	);
 
 	$args = array(
-		'hierarchical'		=> true,
+		'hierarchical'		=> false,
 		'labels'			=> $labels,
 	);
 
 	register_taxonomy( 'keyword', array( 'sw_trend' ), $args );
+	register_taxonomy_for_object_type( 'category', 'sw_trend' );
+//	register_taxonomy_for_object_type( 'post_tag', 'sw_trend' );
 
 }
 add_action( 'init', 'create_post_type' );
