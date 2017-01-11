@@ -11,6 +11,7 @@
 	<article <?php post_class( 'kiji' ); ?>>
 
 		<h1><?php the_title(); ?></h1>
+		<?php the_excerpt(); ?>
 
 		<div class="kiji-tax">
 		<ul>

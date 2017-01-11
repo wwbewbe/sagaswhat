@@ -12,20 +12,30 @@ if (($posttype == 'post') || ($posttype == 'page')) {
 	            'meta_query'	=> get_meta_query_args(),
 	        );
 } else { //カスタム投稿タイプのときのクエリー
-	if (isset($terms)) {
-		$terms = explode(',', $terms);	//カスタムタクソノミーの項目を配列にする
-	}
-	$args=array(
-	            'post_type'		=> $posttype,	//表示するカスタム投稿タイプ(sw_trend, etc.)
-	            'posts_per_page'=> $list,       //リスト数を指定
-				'tax_query'		=> array(
-					array(
-						'taxonomy'	=> $tax,	//表示するカスタムタクソノミー(keyword, etc.)＊カスタム投稿のみ使用
-						'field'		=> 'slug',
-						'terms'		=> $terms,	//表示するカスタムタクソノミーの項目名(matsuri, etc.)＊カスタム投稿のみ使用
+	if (!empty($terms)) {
+		if ($terms == '-1') {
+			$field = 'term_id';
+		} else {
+			$terms = explode(',', $terms);	//カスタムタクソノミーの項目を配列にする
+			$field = 'slug';
+		}
+		$args=array(
+		            'post_type'		=> $posttype,	//表示するカスタム投稿タイプ(sw_trend, etc.)
+		            'posts_per_page'=> $list,       //リスト数を指定
+					'tax_query'		=> array(
+						array(
+							'taxonomy'	=> $tax,	//表示するカスタムタクソノミー(keyword, etc.)＊カスタム投稿のみ使用
+							'field'		=> $field,
+							'terms'		=> $terms,	//表示するカスタムタクソノミーの項目名(matsuri, etc.)＊カスタム投稿のみ使用
+						),
 					),
-				),
-	        );
+		        );
+	} else {
+		$args=array(
+		            'post_type'		=> $posttype,	//表示するカスタム投稿タイプ(sw_trend, etc.)
+		            'posts_per_page'=> $list,       //リスト数を指定
+		        );
+	}
 }
 ?>
 <?php $the_query = new WP_Query($args); ?>
