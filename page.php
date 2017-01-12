@@ -40,7 +40,7 @@
 
 	<?php
 	$args=array(
-			'post_type'		=> 'post',
+			'post_type'		=> array('post', 'sw_trend'),
 			'posts_per_page'=> '10',
 			'category_name'	=> esc_attr($post->post_name),  // 'カテゴリースラッグ' => 'ページスラッグ'
 			'orderby'		=> array('meta_recommend'=>'desc', 'meta_close'=>'asc'),//おすすめ度の高い順＆終了日が近い順に表示
@@ -54,7 +54,11 @@
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):
 	$the_query->the_post(); ?>
 
-	<?php get_template_part( 'gaiyou', 'medium' ); ?>
+	<?php if (get_post_type() == 'post') : ?>
+		<?php get_template_part( 'gaiyou', 'medium' ); ?>
+	<?php else : ?>
+		<?php get_template_part( 'gaiyou', 'custom' ); ?>
+	<?php endif; ?>
 
 	<?php endwhile; endif; ?>
 
