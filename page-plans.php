@@ -42,13 +42,13 @@
 			'paged'			=> $paged,
 			'meta_query'	=> array(
 				'relation'		=> 'AND',
-				'meta_close'=>array(
+				array(
 					'relation'		=> 'OR',
 					array(
 						'key'		=> 'eventclose',	//カスタムフィールドのイベント終了日欄
 						'compare'	=> 'NOT EXISTS',	//カスタムフィールドがない場合も表示
 					),
-					array(
+					'meta_close'=>array(
 						'key'		=> 'eventclose',	//カスタムフィールドのイベント終了日欄
 						'value'		=> $closedates,		//イベント終了月を比較
 						'compare'	=> '>=',			//対象月以降なら表示

@@ -695,27 +695,34 @@ function set_event_distance($lat, $lng, $target = 0) {
 }
 
 //イベント抽出フィルターの条件を設定
-function get_meta_query_args( $recommend = 0, $distance = 0) {
+function get_meta_query_args( $recommend = 0, $distance ) {
 	$args = array(
 		'relation'		=> 'AND',
-		'meta_close'=>array(
+		array(
 			'relation'		=> 'OR',
 			array(
 				'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
 				'compare'	=> 'NOT EXISTS',		//カスタムフィールドがない場合も表示
 			),
-			array(
+			'meta_close'=>array(
 				'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
 				'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
 				'compare'	=> '>=',				//今日以降なら表示
 				'type'		=> 'date',				//タイプに日付を指定
 			),
 		),
-		'meta_recommend'=>array(
-			'key'		=> 'recommend',				//カスタムフィールドのおすすめ度
-			'value'		=> $recommend,				//
-			'compare'	=> '>=',					//指定のおすすめ度以上を表示
-			'type'		=> 'numeric',				//タイプに数値を指定
+		array(
+			'relation'		=> 'OR',
+			array(
+				'key'		=> 'recommend',			//カスタムフィールドのおすすめ度
+				'compare'	=> 'NOT EXISTS',		//カスタムフィールドがない場合も表示
+			),
+			'meta_recommend'=>array(
+				'key'		=> 'recommend',				//カスタムフィールドのおすすめ度
+				'value'		=> $recommend,				//
+				'compare'	=> '>=',					//指定のおすすめ度以上を表示
+				'type'		=> 'numeric',				//タイプに数値を指定
+			),
 		),
 	);
 	if ($distance == 'exists') {
@@ -723,7 +730,7 @@ function get_meta_query_args( $recommend = 0, $distance = 0) {
 					'key'		=> 'distance',		//カスタムフィールドの距離データ
 					'compare'	=> 'exists',		//距離データのあるイベントをすべて表示
 				));
-	} elseif ($distance) {
+	} elseif (!empty($distance)) {
 		$args += array('meta_distance'=>array(
 					'key'		=> 'distance',		//カスタムフィールドの距離データ
 					'value'		=> $distance,		//

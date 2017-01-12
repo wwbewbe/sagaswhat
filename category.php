@@ -11,11 +11,15 @@
 	<?php if(have_posts()): while(have_posts()):
 	the_post(); ?>
 
-	<?php if (is_category('tourist-info-center')) {
-		get_template_part( 'gaiyou', 'medium-tic' );
-	} else {
-		get_template_part( 'gaiyou', 'medium' );
-	} ?>
+	<?php if (get_post_type() == 'post') : ?>
+		<?php if (is_category('tourist-info-center')) {
+			get_template_part( 'gaiyou', 'medium-tic' );
+		} else {
+			get_template_part( 'gaiyou', 'medium' );
+		} ?>
+	<?php else : ?>
+		<?php get_template_part( 'gaiyou', 'custom' ); ?>
+	<?php endif; ?>
 
 	<?php endwhile; endif; ?>
 
