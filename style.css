@@ -1452,3 +1452,26 @@ iframe			{max-width: 100%}
 /* TIC information (update) Style */
 .tic-comment-end {font-size: 12px;
 				margin-bottom: 1em;}
+
+/* tagcloud デザイン */
+.tagcloud a {
+	display: inline-block;
+	height: 28px;
+	line-height: 28px;
+	padding: 0 1em;
+	background-color: #fff;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	white-space: nowrap;
+	color: #333;
+	font-size: 13px !important;
+	text-decoration: none;
+	-webkit-transition: .2s;
+	transition: .2s;
+	margin-bottom: 8px;
+}
+.tagcloud a:hover {
+	background-color: #3498db;
+	border: 1px solid #3498db;
+	color: #fff;
+}

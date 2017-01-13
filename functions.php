@@ -650,7 +650,7 @@ function set_event_distance($lat, $lng, $target = 0) {
 		//観光案内所と現在地の距離
 		$infocat = get_category_by_slug('tourist-info-center');
 		$args = array(
-			'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
+			'post_type'		=> 'post',		// イベント記事
 			'posts_per_page' => '-1',		// 全件
 			'cat' => $infocat->cat_ID, 		// 観光案内所の記事を抽出
 		);
@@ -658,7 +658,7 @@ function set_event_distance($lat, $lng, $target = 0) {
 		//各イベント会場と現在地の距離
 		$meta_query_args = get_meta_query_args();
 		$args = array(
-			'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
+			'post_type'		=> 'post',		// イベント記事
 			'posts_per_page' => '-1',		// 全件
 			'meta_query'	=> $meta_query_args,//全ての終了していないイベント抽出
 		);
@@ -1068,3 +1068,43 @@ function create_post_type() {
 
 }
 add_action( 'init', 'create_post_type' );
+
+/**
+ * タグクラウドのカスタマイズ
+ */
+function my_widget_tag_cloud_args($args) {
+	global $post;
+	$include_array = array();
+
+	$meta_query_args = get_meta_query_args();
+	$eventargs = array(
+		'post_type'		=> 'post',		// イベント記事
+		'posts_per_page' => '-1',		// 全件
+		'meta_query'	=> $meta_query_args,//全ての終了していないイベント抽出
+	);
+	$the_query = new WP_Query($eventargs);
+
+	if($the_query->have_posts()) {
+		while($the_query->have_posts()) {
+			$the_query->the_post();
+			$posttags = get_the_tags($post->ID);	// 開催中のイベント記事のタグを抽出
+			if ( $posttags ) {
+			  foreach ( $posttags as $tag ) {
+				if (array_search($tag->term_id, $include_array) === false) {
+					array_push($include_array, $tag->term_id);	// タグIDが配列に無ければ追加
+				}
+			  }
+			}
+		}
+	}
+	wp_reset_postdata();
+
+	$include = implode(",", $include_array);	// 表示するタグのIDをカンマ区切りで列挙
+
+	$myargs = array(
+		'include'	=>	$include,	// 表示するタグのIDをカンマ区切りで列挙
+	);
+	$args = wp_parse_args($args, $myargs);
+	return $args;
+}
+add_filter( 'widget_tag_cloud_args', 'my_widget_tag_cloud_args');
