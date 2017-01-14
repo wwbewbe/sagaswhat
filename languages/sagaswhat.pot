@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SagasWhat\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2016-12-19 11:01+0900\n"
+"POT-Creation-Date: 2017-01-14 13:44+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Language-Team: \n"
 "X-Generator: Poedit 1.8.11\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;esc_html__;_x;esc_attr__\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;_x:1,2c;esc_attr__\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -38,11 +38,11 @@ msgstr ""
 msgid "Favorite Events"
 msgstr ""
 
-#: favorite-events.php:25 single.php:114
+#: favorite-events.php:25 single.php:123
 msgid "Prev"
 msgstr ""
 
-#: favorite-events.php:26 single.php:115
+#: favorite-events.php:26 single.php:124
 msgid "Next"
 msgstr ""
 
@@ -74,172 +74,183 @@ msgstr ""
 msgid "Category description (Japan National Tourism Organization)"
 msgstr ""
 
-#: functions.php:308
-msgid "Wi-Fi"
-msgstr ""
-
-#: functions.php:313
-msgid "PC"
-msgstr ""
-
-#: functions.php:318 functions.php:417 functions.php:752
-msgid "Address"
-msgstr ""
-
-#: functions.php:323 functions.php:422
-msgid "Contact"
-msgstr ""
-
-#: functions.php:325 functions.php:391 functions.php:399 functions.php:407
-#: functions.php:425
-msgid "Click here"
-msgstr ""
-
-#: functions.php:338
-msgid "Event Name"
-msgstr ""
-
-#: functions.php:347 functions.php:751
-msgid "Venue"
-msgstr ""
-
-#: functions.php:359
-msgid "Dates"
-msgstr ""
-
-#: functions.php:362 functions.php:366 functions.php:367 functions.php:375
-#: functions.php:381 page-calendar.php:47
-msgid "F j, Y"
-msgstr ""
-
-#: functions.php:389
-msgid "Note"
-msgstr ""
-
-#: functions.php:397
+#: functions.php:308 functions.php:405
 msgid "Open Hours"
 msgstr ""
 
-#: functions.php:404
-msgid "Admission"
+#: functions.php:310 functions.php:333 functions.php:399 functions.php:407
+#: functions.php:415 functions.php:433
+msgid "Click here"
+msgstr ""
+
+#: functions.php:316
+msgid "Wi-Fi"
+msgstr ""
+
+#: functions.php:321
+msgid "PC"
+msgstr ""
+
+#: functions.php:326 functions.php:425 functions.php:767
+msgid "Address"
+msgstr ""
+
+#: functions.php:331 functions.php:430
+msgid "Contact"
+msgstr ""
+
+#: functions.php:346
+msgid "Event Name"
+msgstr ""
+
+#: functions.php:355 functions.php:766
+msgid "Venue"
+msgstr ""
+
+#: functions.php:367
+msgid "Dates"
+msgstr ""
+
+#: functions.php:370 functions.php:374 functions.php:375 functions.php:383
+#: functions.php:389 page-calendar.php:47
+msgid "F j, Y"
+msgstr ""
+
+#: functions.php:397
+msgid "Note"
 msgstr ""
 
 #: functions.php:412
+msgid "Admission"
+msgstr ""
+
+#: functions.php:420
 msgid "Free Wi-Fi"
 msgstr ""
 
-#: functions.php:548
+#: functions.php:556
 msgid "Sponsored Links"
 msgstr ""
 
-#: functions.php:748
+#: functions.php:763
 msgid "Open date"
 msgstr ""
 
-#: functions.php:749
+#: functions.php:764
 msgid "Close date"
 msgstr ""
 
-#: functions.php:750
+#: functions.php:765
 msgid "Recommend"
 msgstr ""
 
-#: functions.php:760 functions.php:1033 functions.php:1042
+#: functions.php:775 functions.php:1057
 msgid "Keyword"
 msgstr ""
 
-#: functions.php:795 functions.php:808
+#: functions.php:810 functions.php:823
 msgid "None"
 msgstr ""
 
-#: functions.php:1004 functions.php:1006
+#: functions.php:1019
+msgctxt "post type general name"
 msgid "Trends"
 msgstr ""
 
-#: functions.php:1005 functions.php:1007
+#: functions.php:1020
+msgctxt "post type singular name"
 msgid "Trend"
 msgstr ""
 
-#: functions.php:1008
+#: functions.php:1021
+msgctxt "admin menu"
+msgid "Trends"
+msgstr ""
+
+#: functions.php:1022
+msgctxt "add new on admin bar"
+msgid "Trend"
+msgstr ""
+
+#: functions.php:1023
+msgctxt "trend"
 msgid "Add New"
 msgstr ""
 
-#: functions.php:1009
+#: functions.php:1024
 msgid "Add New Trend"
 msgstr ""
 
-#: functions.php:1010
+#: functions.php:1025
 msgid "New Trend"
 msgstr ""
 
-#: functions.php:1011
+#: functions.php:1026
 msgid "Edit Trend"
 msgstr ""
 
-#: functions.php:1012
+#: functions.php:1027
 msgid "View Trend"
 msgstr ""
 
-#: functions.php:1013
+#: functions.php:1028
 msgid "All Trends"
 msgstr ""
 
-#: functions.php:1014
+#: functions.php:1029
 msgid "Search Trends"
 msgstr ""
 
-#: functions.php:1015
+#: functions.php:1030
 msgid "Parent Trends:"
 msgstr ""
 
-#: functions.php:1016
+#: functions.php:1031
 msgid "No trends found."
 msgstr ""
 
-#: functions.php:1017
+#: functions.php:1032
 msgid "No trends found in Trash."
 msgstr ""
 
-#: functions.php:1032
+#: functions.php:1047
+msgctxt "taxonomy general name"
 msgid "Keywords"
 msgstr ""
 
-#: functions.php:1034
+#: functions.php:1048
+msgctxt "taxonomy singular name"
+msgid "Keyword"
+msgstr ""
+
+#: functions.php:1049
 msgid "Search Keywords"
 msgstr ""
 
-#: functions.php:1035
+#: functions.php:1050
 msgid "All Keywords"
 msgstr ""
 
-#: functions.php:1036
-msgid "Parent Keyword"
-msgstr ""
-
-#: functions.php:1037
-msgid "Parent Keyword:"
-msgstr ""
-
-#: functions.php:1038
+#: functions.php:1053
 msgid "Edit Keyword"
 msgstr ""
 
-#: functions.php:1039
+#: functions.php:1054
 msgid "Update Keyword"
 msgstr ""
 
-#: functions.php:1040
+#: functions.php:1055
 msgid "Add New Keyword"
 msgstr ""
 
-#: functions.php:1041
+#: functions.php:1056
 msgid "New Keyword Name"
 msgstr ""
 
 #: gaiyou-custom.php:12 gaiyou-custom.php:19 gaiyou-medium.php:20
 #: gaiyou-medium.php:23 gaiyou-medium.php:24 gaiyou-medium.php:31
-#: gaiyou-medium.php:35 page-about.php:22 page-about.php:30 single-trend.php:23
-#: single-trend.php:30
+#: gaiyou-medium.php:35 page-about.php:22 page-about.php:30
+#: single-sw_trend.php:31 single-sw_trend.php:38
 msgid "M j, Y"
 msgstr ""
 
@@ -271,7 +282,7 @@ msgstr ""
 msgid "You can not use this function, because this browser could not get your location."
 msgstr ""
 
-#: header.php:45 header.php:50
+#: header.php:46 header.php:51
 msgid " Events List"
 msgstr ""
 
@@ -315,7 +326,7 @@ msgstr ""
 msgid "* Events have been sorted in close order."
 msgstr ""
 
-#: page-plans.php:19 page-plans.php:28 page-plans.php:37 page-plans.php:46
+#: page-plans.php:16 page-plans.php:21 page-plans.php:26 page-plans.php:31
 msgid "[F, Y]"
 msgstr ""
 
@@ -347,7 +358,7 @@ msgstr ""
 msgid "This event has closed."
 msgstr ""
 
-#: single.php:112
+#: single.php:121
 msgid "Related Events"
 msgstr ""
 
