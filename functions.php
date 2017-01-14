@@ -1063,6 +1063,7 @@ function create_post_type() {
 	);
 
 	register_taxonomy( 'keyword', array( 'sw_trend' ), $args );
+	register_taxonomy_for_object_type( 'keyword', 'sw_trend' );
 	register_taxonomy_for_object_type( 'category', 'sw_trend' );
 //	register_taxonomy_for_object_type( 'post_tag', 'sw_trend' );
 
