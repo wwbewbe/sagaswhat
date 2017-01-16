@@ -25,6 +25,11 @@ header	{border-bottom: solid 1px #dddddd;
 		width: 100%;}
 footer	{border-top: solid 1px #dddddd}
 
+ins {
+	background: none;
+	text-decoration: none;
+}
+
 /* ボックスの上下の間隔 */
 
 .sub-header	{padding-top: 5px;

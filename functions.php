@@ -338,7 +338,8 @@ function event_info_to_the_content( $content ) {
 			$ticinfo = '<div class="tic-comment-end">'. get_option('tic-comment-end') .'</div>';
 			$adsense = '<aside class="mymenu-adsense">' . get_adsense(true) . '</aside>';
 
-			return $table.$content.$ticinfo.$adsense;
+//			return $table.$content.$ticinfo.$adsense;
+			return $table.$content.$ticinfo;
 
 		} else {
 			// イベント名
@@ -437,7 +438,8 @@ function event_info_to_the_content( $content ) {
 			$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
 			$adsense = '<aside class="mymenu-adsense">' . get_adsense(true) . '</aside>';
 
-			return $content.$adsense.$table;
+//			return $content.$adsense.$table;
+			return $content.$table;
 		}
 	} else {
 		return $content;

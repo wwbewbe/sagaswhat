@@ -10,9 +10,6 @@
 	<?php get_template_part( 'geolocation', 'js' );//現在地を取得 ?>
 <?php endif; ?>
 
-<div class="sub-header">
-</div>
-
 <div class="container">
 <div class="contents">
 

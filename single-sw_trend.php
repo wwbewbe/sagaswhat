@@ -1,8 +1,9 @@
 <?php get_header(); ?>
 
 <div class="sub-header">
-	<div class="bread">
-	</div>
+	<aside class="mymenu-adsense">
+	<?php echo get_adsense(true); ?>
+	</aside>
 </div>
 
 <div class="container">
@@ -58,6 +59,10 @@
 
 	<?php get_template_part( 'nearby', 'events' ); //Nearby Events list function ?>
 	<?php get_template_part( 'nearby', 'tic' ); //Nearby TIC list function ?>
+
+	<aside class="mymenu-adsense">
+	<?php echo get_adsense(); // Google Adsense?>
+	</aside>
 
 	</article>
 	<?php endwhile; endif; ?>

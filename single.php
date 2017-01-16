@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
 <div class="sub-header">
+	<aside class="mymenu-adsense">
+	<?php echo get_adsense(true); ?>
+	</aside>
 	<div class="bread">
 	<?php if( has_category() ): ?>
 	<?php $postcats=get_the_category(); ?>

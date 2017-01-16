@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <div class="sub-header">
 </div>
 
@@ -13,6 +12,10 @@
 	</div>
 </div>
 <?php endif; ?>
+
+<aside class="mymenu-adsense">
+<?php echo get_adsense(true); ?>
+</aside>
 
 <div class="contents">
 

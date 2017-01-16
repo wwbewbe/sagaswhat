@@ -89,3 +89,10 @@
 	</div>
 </div>
 </header>
+<?php if ( !is_home() && !is_front_page() && !is_single() ) : ?>
+	<div class="sub-header">
+		<aside class="mymenu-adsense">
+		<?php echo get_adsense(true); ?>
+		</aside>
+	</div>
+<?php endif; ?>
