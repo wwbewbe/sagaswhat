@@ -749,6 +749,7 @@ blockquote:after		{position: absolute;
 					font-size: 12px}
 
 /* サムネイル画像に文字を重ねたメニュー */
+.mymenu-large-sep li	{margin-bottom: 10px;}
 .mymenu-large		{margin-bottom: 10px;}
 .mymenu-large li a
 					{position: relative;
