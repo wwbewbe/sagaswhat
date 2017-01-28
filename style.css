@@ -1481,3 +1481,22 @@ iframe			{max-width: 100%}
 	border: 1px solid #3498db;
 	color: #fff;
 }
+
+.wifi_list{
+	font-size: 12px;
+	width: 100%;
+	border-collapse: collapse;
+}
+.wifi_list th{
+	width: 20%;
+	padding: 3px;
+	text-align: center;
+	color: #ffffff;
+	background-color: #32743b;
+	border: 1px solid #b9b9b9;
+}
+.wifi_list td{
+	padding: 3px;
+	background-color: #ffffff;
+	border: 1px solid #b9b9b9;
+}
