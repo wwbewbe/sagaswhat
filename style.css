@@ -1482,13 +1482,17 @@ iframe			{max-width: 100%}
 	color: #fff;
 }
 
+.wifi_icon {
+	text-align: center;
+	width: 10%;
+}
 .wifi_list{
 	font-size: 12px;
 	width: 100%;
 	border-collapse: collapse;
 }
 .wifi_list th{
-	width: 20%;
+	width: 15%;
 	padding: 3px;
 	text-align: center;
 	color: #ffffff;
@@ -1499,4 +1503,9 @@ iframe			{max-width: 100%}
 	padding: 3px;
 	background-color: #ffffff;
 	border: 1px solid #b9b9b9;
+}
+@media (max-width: 599px) {
+	.wifi_list th{
+		width: 25%;
+	}
 }
