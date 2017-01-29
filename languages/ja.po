@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-01-14 13:45+0900\n"
-"PO-Revision-Date: 2017-01-14 13:47+0900\n"
+"POT-Creation-Date: 2017-01-30 00:36+0900\n"
+"PO-Revision-Date: 2017-01-30 00:37+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -16,11 +16,11 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;esc_html__;_x:1,2c;esc_attr__\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: 404.php:10
+#: 404.php:8
 msgid "Sorry, the page you are looking for cannot be found."
 msgstr "申し訳ございません。お探しのページが見つかりませんでした。"
 
-#: 404.php:11
+#: 404.php:9
 msgid "Please visit homepage or try searching."
 msgstr ""
 "ホームへ戻るかページ下の「検索ボックス」で該当のページをお探しください。"
@@ -37,11 +37,11 @@ msgstr "件"
 msgid "Favorite Events"
 msgstr "お気に入り"
 
-#: favorite-events.php:25 single.php:123
+#: favorite-events.php:25 single.php:126
 msgid "Prev"
 msgstr "戻る"
 
-#: favorite-events.php:26 single.php:124
+#: favorite-events.php:26 single.php:127
 msgid "Next"
 msgstr "次へ"
 
@@ -73,12 +73,12 @@ msgstr "TICカテゴリー"
 msgid "Category description (Japan National Tourism Organization)"
 msgstr "カテゴリー説明 (日本政府観光局)"
 
-#: functions.php:308 functions.php:405
+#: functions.php:308 functions.php:406
 msgid "Open Hours"
 msgstr "時間"
 
-#: functions.php:310 functions.php:333 functions.php:399 functions.php:407
-#: functions.php:415 functions.php:433
+#: functions.php:310 functions.php:333 functions.php:400 functions.php:408
+#: functions.php:416 functions.php:434
 msgid "Click here"
 msgstr "詳細はこちら"
 
@@ -90,166 +90,166 @@ msgstr "Wi-Fi"
 msgid "PC"
 msgstr "PC"
 
-#: functions.php:326 functions.php:425 functions.php:767
+#: functions.php:326 functions.php:426 functions.php:769
 msgid "Address"
 msgstr "住所"
 
-#: functions.php:331 functions.php:430
+#: functions.php:331 functions.php:431
 msgid "Contact"
 msgstr "お問合わせ"
 
-#: functions.php:346
+#: functions.php:347
 msgid "Event Name"
 msgstr "イベント名"
 
-#: functions.php:355 functions.php:766
+#: functions.php:356 functions.php:768
 msgid "Venue"
 msgstr "会場"
 
-#: functions.php:367
+#: functions.php:368
 msgid "Dates"
 msgstr "開催期間"
 
-#: functions.php:370 functions.php:374 functions.php:375 functions.php:383
-#: functions.php:389 page-calendar.php:47
+#: functions.php:371 functions.php:375 functions.php:376 functions.php:384
+#: functions.php:390 page-calendar.php:44
 msgid "F j, Y"
 msgstr "Y年n月j日(D)"
 
-#: functions.php:397
+#: functions.php:398
 msgid "Note"
 msgstr "備考"
 
-#: functions.php:412
+#: functions.php:413
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:420
+#: functions.php:421
 msgid "Free Wi-Fi"
 msgstr "Free Wi-Fi"
 
-#: functions.php:556
+#: functions.php:558
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: functions.php:763
+#: functions.php:765
 msgid "Open date"
 msgstr "開催日"
 
-#: functions.php:764
+#: functions.php:766
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:765
+#: functions.php:767
 msgid "Recommend"
 msgstr "推奨度"
 
-#: functions.php:775 functions.php:1057
+#: functions.php:777 functions.php:1059
 msgid "Keyword"
 msgstr "キーワード"
 
-#: functions.php:810 functions.php:823
+#: functions.php:812 functions.php:825
 msgid "None"
 msgstr "なし"
 
-#: functions.php:1019
+#: functions.php:1021
 msgctxt "post type general name"
 msgid "Trends"
 msgstr "トレンド"
 
-#: functions.php:1020
+#: functions.php:1022
 msgctxt "post type singular name"
 msgid "Trend"
 msgstr "トレンド記事"
 
-#: functions.php:1021
+#: functions.php:1023
 msgctxt "admin menu"
 msgid "Trends"
 msgstr "トレンド"
 
-#: functions.php:1022
+#: functions.php:1024
 msgctxt "add new on admin bar"
 msgid "Trend"
 msgstr "トレンド記事"
 
-#: functions.php:1023
+#: functions.php:1025
 msgctxt "trend"
 msgid "Add New"
 msgstr "新規追加"
 
-#: functions.php:1024
+#: functions.php:1026
 msgid "Add New Trend"
 msgstr "新規トレンド追加"
 
-#: functions.php:1025
+#: functions.php:1027
 msgid "New Trend"
 msgstr "新規トレンド"
 
-#: functions.php:1026
+#: functions.php:1028
 msgid "Edit Trend"
 msgstr "トレンド編集"
 
-#: functions.php:1027
+#: functions.php:1029
 msgid "View Trend"
 msgstr "トレンド表示"
 
-#: functions.php:1028
+#: functions.php:1030
 msgid "All Trends"
 msgstr "すべてのトレンド"
 
-#: functions.php:1029
+#: functions.php:1031
 msgid "Search Trends"
 msgstr "トレンド検索"
 
-#: functions.php:1030
+#: functions.php:1032
 msgid "Parent Trends:"
 msgstr "親トレンド:"
 
-#: functions.php:1031
+#: functions.php:1033
 msgid "No trends found."
 msgstr "トレンドは見つかりませんでした。"
 
-#: functions.php:1032
+#: functions.php:1034
 msgid "No trends found in Trash."
 msgstr "ゴミ箱にトレンドは見つかりませんでした。"
 
-#: functions.php:1047
+#: functions.php:1049
 msgctxt "taxonomy general name"
 msgid "Keywords"
 msgstr "キーワード"
 
-#: functions.php:1048
+#: functions.php:1050
 msgctxt "taxonomy singular name"
 msgid "Keyword"
 msgstr "キーワード"
 
-#: functions.php:1049
+#: functions.php:1051
 msgid "Search Keywords"
 msgstr "キーワード検索"
 
-#: functions.php:1050
+#: functions.php:1052
 msgid "All Keywords"
 msgstr "全てのキーワード"
 
-#: functions.php:1053
+#: functions.php:1055
 msgid "Edit Keyword"
 msgstr "キーワード編集"
 
-#: functions.php:1054
+#: functions.php:1056
 msgid "Update Keyword"
 msgstr "キーワード更新"
 
-#: functions.php:1055
+#: functions.php:1057
 msgid "Add New Keyword"
 msgstr "新規キーワード追加"
 
-#: functions.php:1056
+#: functions.php:1058
 msgid "New Keyword Name"
 msgstr "新規キーワード名"
 
 #: gaiyou-custom.php:12 gaiyou-custom.php:19 gaiyou-medium.php:20
 #: gaiyou-medium.php:23 gaiyou-medium.php:24 gaiyou-medium.php:31
-#: gaiyou-medium.php:35 page-about.php:22 page-about.php:30
-#: single-sw_trend.php:31 single-sw_trend.php:38
+#: gaiyou-medium.php:35 page-about.php:19 page-about.php:27 sidebar.php:62
+#: single-sw_trend.php:32 single-sw_trend.php:39
 msgid "M j, Y"
 msgstr "Y年n月j日"
 
@@ -287,67 +287,67 @@ msgstr "ブラウザが対応していないため、位置情報を取得でき
 msgid " Events List"
 msgstr " イベント一覧"
 
-#: page-calendar.php:34
+#: page-calendar.php:31
 msgid "Search"
 msgstr "検索"
 
-#: page-nearby-tic.php:22
+#: page-nearby-tic.php:19
 msgid "Checking for TIC near you..."
 msgstr "周辺の観光案内所をさがしています　しばらくお待ちください"
 
-#: page-nearby-tic.php:52
+#: page-nearby-tic.php:49
 msgid "No nearby TICs found. Please try again later at a different location."
 msgstr "周辺で観光案内所は見つかりませんでした"
 
-#: page-nearby-tic.php:54 page-nearby.php:49
+#: page-nearby-tic.php:51 page-nearby.php:46
 msgid "Found &quot;"
 msgstr "&quot;"
 
-#: page-nearby-tic.php:56
+#: page-nearby-tic.php:53
 msgid "&quot; Nearby TICs"
 msgstr "&quot; 件の観光案内所が見つかりました"
 
-#: page-nearby-tic.php:57 page-tic.php:17
+#: page-nearby-tic.php:54 page-tic.php:14
 msgid "* TICs have been sorted in close order."
 msgstr "＊近い順に並んでいます"
 
-#: page-nearby.php:22
+#: page-nearby.php:19
 msgid "Checking for fun stuff near you..."
 msgstr "周辺のイベントを探しています　しばらくお待ちください"
 
-#: page-nearby.php:47
+#: page-nearby.php:44
 msgid "No nearby events found. Please try again later at a different location."
 msgstr "周辺で開催中のイベントは見つかりませんでした"
 
-#: page-nearby.php:51
+#: page-nearby.php:48
 msgid "&quot; Nearby Events"
 msgstr "&quot; 件のイベントが見つかりました"
 
-#: page-nearby.php:52 page-recommend.php:17 topiclist.php:11
+#: page-nearby.php:49 page-recommend.php:14 topiclist.php:11
 msgid "* Events have been sorted in close order."
 msgstr "＊近い順に並んでいます"
 
-#: page-plans.php:16 page-plans.php:21 page-plans.php:26 page-plans.php:31
+#: page-plans.php:13 page-plans.php:18 page-plans.php:23 page-plans.php:28
 msgid "[F, Y]"
 msgstr "[Y年F]"
 
-#: page-recommend.php:20 page-tic.php:20 topiclist.php:14
+#: page-recommend.php:17 page-tic.php:17 topiclist.php:14
 msgid "Sort by Distance"
 msgstr "近い順に並び替え"
 
-#: page-recommend.php:22 topiclist.php:16
+#: page-recommend.php:19 topiclist.php:16
 msgid "* Use this to see nearby events."
 msgstr "現在地から近い順に並び替えます"
 
-#: page-tic.php:22
+#: page-tic.php:19
 msgid "* Use this to see nearby TICs."
 msgstr "現在地から近い順に並び替えます"
 
-#: page-toppage.php:84
+#: page-toppage.php:87
 msgid "Upcoming Events"
 msgstr "開催予定のイベント"
 
-#: search.php:9
+#: search.php:6
 msgid "search results"
 msgstr "検索結果"
 
@@ -355,11 +355,15 @@ msgstr "検索結果"
 msgid "Featured Events"
 msgstr "注目のイベント"
 
-#: single.php:41
+#: sidebar.php:43
+msgid "Trend Topics"
+msgstr "トレンド記事"
+
+#: single.php:44
 msgid "This event has closed."
 msgstr "このイベントは終了しました"
 
-#: single.php:121
+#: single.php:124
 msgid "Related Events"
 msgstr "関連イベント"
 
