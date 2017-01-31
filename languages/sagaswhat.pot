@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SagasWhat\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2017-01-30 00:36+0900\n"
+"POT-Creation-Date: 2017-01-31 21:08+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,11 +38,11 @@ msgstr ""
 msgid "Favorite Events"
 msgstr ""
 
-#: favorite-events.php:25 single.php:126
+#: favorite-events.php:25 single-sw_trend.php:95 single.php:126
 msgid "Prev"
 msgstr ""
 
-#: favorite-events.php:26 single.php:127
+#: favorite-events.php:26 single-sw_trend.php:96 single.php:127
 msgid "Next"
 msgstr ""
 
@@ -250,7 +250,7 @@ msgstr ""
 #: gaiyou-custom.php:12 gaiyou-custom.php:19 gaiyou-medium.php:20
 #: gaiyou-medium.php:23 gaiyou-medium.php:24 gaiyou-medium.php:31
 #: gaiyou-medium.php:35 page-about.php:19 page-about.php:27 sidebar.php:62
-#: single-sw_trend.php:32 single-sw_trend.php:39
+#: single-sw_trend.php:46 single-sw_trend.php:53
 msgid "M j, Y"
 msgstr ""
 
@@ -354,8 +354,12 @@ msgstr ""
 msgid "Featured Events"
 msgstr ""
 
-#: sidebar.php:43
+#: sidebar.php:43 single-sw_trend.php:14
 msgid "Trend Topics"
+msgstr ""
+
+#: single-sw_trend.php:93
+msgid "Other Topics"
 msgstr ""
 
 #: single.php:44

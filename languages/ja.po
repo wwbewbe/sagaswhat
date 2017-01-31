@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-01-30 00:36+0900\n"
-"PO-Revision-Date: 2017-01-30 00:37+0900\n"
+"POT-Creation-Date: 2017-01-31 21:09+0900\n"
+"PO-Revision-Date: 2017-01-31 21:09+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -37,11 +37,11 @@ msgstr "件"
 msgid "Favorite Events"
 msgstr "お気に入り"
 
-#: favorite-events.php:25 single.php:126
+#: favorite-events.php:25 single-sw_trend.php:95 single.php:126
 msgid "Prev"
 msgstr "戻る"
 
-#: favorite-events.php:26 single.php:127
+#: favorite-events.php:26 single-sw_trend.php:96 single.php:127
 msgid "Next"
 msgstr "次へ"
 
@@ -249,7 +249,7 @@ msgstr "新規キーワード名"
 #: gaiyou-custom.php:12 gaiyou-custom.php:19 gaiyou-medium.php:20
 #: gaiyou-medium.php:23 gaiyou-medium.php:24 gaiyou-medium.php:31
 #: gaiyou-medium.php:35 page-about.php:19 page-about.php:27 sidebar.php:62
-#: single-sw_trend.php:32 single-sw_trend.php:39
+#: single-sw_trend.php:46 single-sw_trend.php:53
 msgid "M j, Y"
 msgstr "Y年n月j日"
 
@@ -355,9 +355,13 @@ msgstr "検索結果"
 msgid "Featured Events"
 msgstr "注目のイベント"
 
-#: sidebar.php:43
+#: sidebar.php:43 single-sw_trend.php:14
 msgid "Trend Topics"
 msgstr "トレンド記事"
+
+#: single-sw_trend.php:93
+msgid "Other Topics"
+msgstr "その他トレンド記事"
 
 #: single.php:44
 msgid "This event has closed."
