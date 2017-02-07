@@ -278,6 +278,67 @@ add_theme_support( 'custom-header', array(
 function event_info_to_the_content( $content ) {
 	global $post;
 
+	// トレンド記事の場合
+	if ( !is_admin() && is_main_query() && is_singular('sw_trend') ) {
+		return $content;
+	}
+	// 休憩スポットの場合
+	if ( !is_admin() && is_main_query() && is_singular('sw_rest') ) {
+		// 休憩スポット名
+		if( $eventname = get_post_meta($post->ID, 'eventname', true) ) {
+			$thname = esc_html__('Spot Name', 'SagasWhat');
+			if( $url = esc_url(get_post_meta($post->ID, 'url', true)) ) {
+				$info = $info . '<tr><th>'.$thname.'</th><td><a href="'.$url.'" target="_blank">' . $eventname . '</a></td></tr>';
+			} else {
+				$info = $info . '<tr><th>'.$thname.'</th><td>' . $eventname . '</td></tr>';
+			}
+		}
+		// 最寄り駅
+		if( $venue = get_post_meta($post->ID, 'venue', true) ) {
+			$thname = esc_html__('Nearest Station', 'SagasWhat');
+			$info = $info . '<tr><th>'.$thname.'</th><td>' . $venue . '</td></tr>';
+		}
+		// 開園時間
+		if( $bizhours = get_post_meta($post->ID, 'bizhours', true) ) {
+			$thname = esc_html__('Open Hours', 'SagasWhat');
+			$info = $info.'<tr><th>'.$thname.'</th><td>'.$bizhours.'</td></tr>';
+		}
+		// 注記
+		if( $note = get_post_meta($post->ID, 'note', true) ) {
+			$thname = esc_html(__('Note', 'SagasWhat'));
+			if ( $noteurl = esc_url(get_post_meta($post->ID, 'noteurl', true)) ) {
+				$note = $note.'<div><a href="'.$noteurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+			}
+			$info = $info.'<tr><th>'.$thname.'</th><td>'.$note.'</td></tr>';
+		}
+		// 住所
+		if( $showaddress = get_post_meta($post->ID, 'showaddress', true) ) {
+			$thname = esc_html__('Address', 'SagasWhat');
+			$info = $info.'<tr><th>'.$thname.'</th><td>'.$showaddress.'</td></tr>';
+		}
+		// 施設
+		if( $showaddress = get_post_meta($post->ID, 'facility', false) ) {
+			$thname = esc_html__('Facility', 'SagasWhat');
+			foreach ($showaddress as $add) {
+				switch ($add) {
+					case '1':
+						$data .= '<i class="fa fa-wifi fa-fw"></i>'.'<span style="margin-right:10px;">'.esc_html__('Wi-Fi', 'SagasWhat').'</span>';
+						break;
+					case '2':
+						$data .= '<i class="fa fa-coffee fa-fw"></i>'.'<span style="margin-right:10px;">'.esc_html__('Shop/Cafe/Vending Machine', 'SagasWhat').'</span>';
+						break;
+					case '3':
+						$data .= '<i class="fa fa-child fa-fw"></i>'.'<span style="margin-right:10px;">'.esc_html__('Grass Field', 'SagasWhat').'</span>';
+						break;
+					default:
+				}
+			}
+			$info = $info.'<tr><th>'.$thname.'</th><td>'.$data.'</td></tr>';
+		}
+		$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
+		return $content.$table;
+	}
+
 	if ( !is_admin() && is_main_query() && is_single() ) {
 
 		if (in_category('tourist-info-center')) {//TIC記事の場合表示する項目
@@ -410,26 +471,26 @@ function event_info_to_the_content( $content ) {
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$bizhours.'</td></tr>';
 			}
 			// 入場料
-			$thname = esc_html__('Admission', 'SagasWhat');
 			if( $price = get_post_meta($post->ID, 'price', true) ) {
+				$thname = esc_html__('Admission', 'SagasWhat');
 				if ( $priceurl = esc_url(get_post_meta($post->ID, 'priceurl', true)) ) {
 					$price = $price.'<div><a href="'.$priceurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
 				}
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$price.'</td></tr>';
 			}
 			// Free Wi-Fi
-			$thname = esc_html__('Free Wi-Fi', 'SagasWhat').'<i class="fa fa-wifi fa-fw"></i>';
 			if( $freewifi = get_post_meta($post->ID, 'freewifi', true) ) {
+				$thname = esc_html__('Free Wi-Fi', 'SagasWhat').'<i class="fa fa-wifi fa-fw"></i>';
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$freewifi.'</td></tr>';
 			}
 			// 住所
-			$thname = esc_html__('Address', 'SagasWhat');
 			if( $showaddress = get_post_meta($post->ID, 'showaddress', true) ) {
+				$thname = esc_html__('Address', 'SagasWhat');
 				$info = $info.'<tr><th>'.$thname.'</th><td>'.$showaddress.'</td></tr>';
 			}
 			// 問い合わせ
-			$thname = esc_html__('Contact', 'SagasWhat');
 			if( $telephone = get_post_meta($post->ID, 'telephone', true) ) {
+				$thname = esc_html__('Contact', 'SagasWhat');
 				if ( $telephoneurl = esc_url(get_post_meta($post->ID, 'telephoneurl', true)) ) {
 					$telephone = $telephone.'<div><a href="'.$telephoneurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
 				}
@@ -455,7 +516,7 @@ function set_taglist($params = array()) {
 						'catname'	=>	0,			//表示するカテゴリー名
 						'list'		=>	5,			//表示するリスト数
 						'sort'		=>	false,		//近くのイベント順に並び替えるボタンの表示(true)/非表示(false)
-						'posttype'	=>	'post',		//表示する投稿タイプ(post, page, sw_trend)
+						'posttype'	=>	'post',		//表示する投稿タイプ(post, page, sw_trend, sw_rest)
 						'tax'		=>	'keyword',	//表示するカスタムタクソノミー(keyword, etc.)＊カスタム投稿のみ使用
 						'terms'		=>	0,			//表示するカスタムタクソノミーの項目名(matsuri, etc.)＊カスタム投稿のみ使用
     					), $params));
@@ -614,7 +675,7 @@ function QueryListFilter($query) {
 	$infocat = get_category_by_slug('tourist-info-center');//観光案内所をリストから除外
 	if (!is_admin() && $query->is_main_query() && $query->is_search()) {
 
-		$query->set('post_type', array('post', 'sw_trend'));			// 投稿記事とカスタム投稿を対象
+		$query->set('post_type', array('post', 'sw_trend', 'sw_rest'));		// 投稿記事とカスタム投稿を対象
 		$query->set('posts_per_page', '20');		// 一覧表示数
 		$query->set('category__not_in', array(1, $infocat->cat_ID));// カテゴリが未分類と観光案内所の記事は非表示
 		$query->set('orderby', 'modified');	// 更新日の新しい記事順
@@ -633,7 +694,7 @@ function QueryListFilter($query) {
 
 	} elseif ( !is_admin() && $query->is_main_query() && ($query->is_tag() || $query->is_category()) ) {
 
-		$query->set('post_type', array('post', 'sw_trend'));			// 投稿記事とカスタム投稿を対象
+		$query->set('post_type', array('post', 'sw_trend', 'sw_rest'));		// 投稿記事とカスタム投稿を対象
 		$query->set('posts_per_page', '10');		// 一覧表示数
 		$query->set('category__not_in', array(1, $infocat->cat_ID));// カテゴリが未分類と観光案内所の記事は非表示
 		$query->set('orderby', array('meta_recommend'=>'desc', 'meta_close'=>'asc'));	// 推奨値の高い順
@@ -645,24 +706,31 @@ function QueryListFilter($query) {
 add_action('pre_get_posts','QueryListFilter');
 
 //各イベント会場 or 観光案内所と現在地の距離をカスタムフィールドに保存
-function set_event_distance($lat, $lng, $target = 0) {
+function set_event_distance($lat, $lng, $target = 0, $posttype = 'post') {
 	global $post;
 
-	if ($target == 'tic') {
-		//観光案内所と現在地の距離
-		$infocat = get_category_by_slug('tourist-info-center');
-		$args = array(
-			'post_type'		=> 'post',		// イベント記事
-			'posts_per_page' => '-1',		// 全件
-			'cat' => $infocat->cat_ID, 		// 観光案内所の記事を抽出
-		);
+	if ($posttype == 'post') {
+		if ($target == 'tic') {
+			//観光案内所と現在地の距離
+			$infocat = get_category_by_slug('tourist-info-center');
+			$args = array(
+				'post_type'		=> 'post',		// イベント記事
+				'posts_per_page' => '-1',		// 全件
+				'cat' => $infocat->cat_ID, 		// 観光案内所の記事を抽出
+			);
+		} else {
+			//各イベント会場と現在地の距離
+			$meta_query_args = get_meta_query_args();
+			$args = array(
+				'post_type'		=> 'post',		// イベント記事
+				'posts_per_page' => '-1',		// 全件
+				'meta_query'	=> $meta_query_args,//全ての終了していないイベント抽出
+			);
+		}
 	} else {
-		//各イベント会場と現在地の距離
-		$meta_query_args = get_meta_query_args();
 		$args = array(
-			'post_type'		=> 'post',		// イベント記事
+			'post_type'		=> $posttype,	// カスタム投稿
 			'posts_per_page' => '-1',		// 全件
-			'meta_query'	=> $meta_query_args,//全ての終了していないイベント抽出
 		);
 	}
 
@@ -779,6 +847,14 @@ function add_trends_columns_name($columns) {
 }
 add_filter( 'manage_edit-sw_trend_columns', 'add_trends_columns_name' );
 
+//管理画面のカスタム投稿(Resting Spots)一覧にキーワードの列を追加
+function add_rests_columns_name($columns) {
+	$columns['address'] = esc_html__('Address', 'SagasWhat');
+    $columns['kind'] = esc_html__('Kind', 'SagasWhat');
+    return $columns;
+}
+add_filter( 'manage_edit-sw_rest_columns', 'add_rests_columns_name' );
+
 //管理画面の投稿一覧にイベント開催日と終了日を表示
 function add_column($column_name, $post_id) {
 	global $post;
@@ -825,6 +901,28 @@ function add_column($column_name, $post_id) {
 				echo esc_html(__('None', 'SagasWhat'));
 			}
 		}
+	}
+	if ($post->post_type == 'sw_rest') {
+		if ($column_name == 'kind') {
+			$kwds = get_the_terms($post->ID, 'kind');
+			if ( !empty($kwds) ) {
+				$out = array();
+				foreach ( $kwds as $kwd ) {
+					$out[] = '<a href="edit.php?kind=' . $kwd->slug . '&post_type=sw_rest' . '">' . esc_html(sanitize_term_field('name', $kwd->name, $kwd->term_id, 'kind', 'display')) . '</a>';
+				}
+				echo join( ', ', $out );
+			} else {
+				echo esc_html(__('None', 'SagasWhat'));
+			}
+		}
+		if ($column_name == 'address') {
+	        $address = get_post_meta($post_id, 'address', true);
+			if (!empty($address)) {
+				echo esc_html($address);
+			} else {
+				echo esc_html(__('None', 'SagasWhat'));
+			}
+	    }
 	}
 }
 add_action( 'manage_posts_custom_column', 'add_column', 10, 2 );
@@ -891,27 +989,37 @@ function create_custom_menu_page() {
 /**
  * 投稿の編集画面にカスタムフィールドを追加する
  */
-function add_posttype_customfields() {
+function add_custom_fields() {
 
     // 投稿編集画面にメタボックス追加
     add_meta_box(
         'CustomDiv',		// メタボックスのHTML-ID
         'Other Option',		// メタボックスのラベル
-        'html_my_custom',	// HTML出力コールバック
+        'event_setting',	// HTML出力コールバック
         'post',				// 追加する投稿タイプ名(カスタム投稿も可)
         'normal',			// 配置場所(normal, advanced, side)
         'high'				// 順序(high, core, default, low)
     );
+
+	add_meta_box(
+        'restID',			// メタボックスのHTML-ID
+        'List Setting',		// メタボックスのラベル
+        'rest_setting',		// HTML出力コールバック
+        'sw_rest',			// 追加する投稿タイプ名(カスタム投稿も可)
+        'normal',			// 配置場所(normal, advanced, side)
+        'high'				// 順序(high, core, default, low)
+    );
 }
-add_action('admin_menu', 'add_posttype_customfields');
+add_action( 'add_meta_boxes', 'add_custom_fields' );
 
 /**
- * HTML出力コールバック
+ * HTML出力コールバック for イベント記事設定
  */
-function html_my_custom($post) {
+function event_setting($post) {
 
-    // nonce設定
-    wp_nonce_field(wp_create_nonce(__FILE__), 'custom_fields_nonce');
+	// Add a nonce field so we can check for it later.
+//	wp_nonce_field( 'save_event_setting', 'custom_fields_nonce' );
+	wp_nonce_field( 'save_custom_fields_data', 'custom_fields_nonce' );
 	// HTML出力(checkbox単数)
     $value = get_post_meta(
         $post->ID,	// 投稿ID
@@ -936,87 +1044,196 @@ function html_my_custom($post) {
     echo '</dl>';
 }
 /**
+ * HTML出力コールバック for 休憩スポット設定
+ */
+function rest_setting( $post ) {
+
+	// Add a nonce field so we can check for it later.
+	wp_nonce_field( 'save_custom_fields_data', 'custom_fields_nonce' );
+
+	/*
+	 * Use get_post_meta() to retrieve an existing value
+	 * from the database and use the value for the form.
+	 */
+    //checkbox for Facility
+    $value = get_post_meta(
+        $post->ID,	//post ID
+        'facility',	//Custom Field Key
+        false		//true:単一文字列, false:複数配列
+    );
+    $list = array(
+        1 => 'Wi-Fi',
+        2 => '売店・カフェ・自販機',
+        3 => '草地広場',
+    );
+    echo '<dl>';
+    echo   '<dt>';
+    echo   '設備';
+    echo   '</dt>';
+    echo   '<dd>';
+    echo     '<ul>';
+    foreach ($list as $_id => $_name) {
+        echo   '<li style="float:left; margin-right:10px">';
+        echo     '<label>';
+        if (in_array($_id, $value)) {
+            echo   '<input name="facility[]" value="'.$_id.'" checked="checked" type="checkbox">';
+        } else {
+            echo   '<input name="facility[]" value="'.$_id.'" type="checkbox">';
+        }
+        echo       $_name;
+        echo     '</label>';
+        echo   '</li>';
+    }
+    echo     '</ul>';
+    echo   '</dd>';
+    echo '</dl>';
+	echo '<p style="clear:left;"></p>';
+
+    //radio button for How big
+    $value = get_post_meta(
+        $post->ID,	//post ID
+        'howbig',	//Custom Field Key
+        true		//true:単一文字列, false:複数配列
+    );
+    $list = array(
+        1 => '大',
+        2 => '中',
+        3 => '小',
+    );
+    echo '<dl>';
+    echo   '<dt>';
+    echo   '広さ';
+    echo   '</dt>';
+    echo   '<dd>';
+    echo     '<input name="howbig" value="0" type="hidden">';
+    echo     '<ul>';
+    foreach ($list as $_id => $_name) {
+        echo   '<li style="float:left; margin-right:10px">';
+        echo     '<label>';
+        if ($_id == $value) {
+            echo   '<input name="howbig" value="'.$_id.'" checked="checked" type="radio">';
+        } else {
+            echo   '<input name="howbig" value="'.$_id.'" type="radio">';
+        }
+        echo       $_name;
+        echo     '</label>';
+        echo   '</li>';
+    }
+    echo     '</ul>';
+    echo   '</dd>';
+    echo '</dl>';
+	echo '<p style="clear:left;"></p>';
+
+	//radio button for City
+    $value = get_post_meta(
+        $post->ID,	//post ID
+        'city',	//Custom Field Key
+        true		//true:単一文字列, false:複数配列
+    );
+    $list = array(
+        1 => '千代田区', 2 => '中央区', 3 => '港区', 4 => '新宿区', 5 => '文京区', 6 => '台東区', 7 => '隅田区', 8 => '江東区', 9 => '品川区', 10 => '目黒区', 11 => '大田区', 12 => '世田谷区', 13 => '渋谷区', 14 => '中野区', 15 => '杉並区', 16 => '豊島区', 17 => '北区', 18 => '荒川区', 19 => '板橋区', 20 => '練馬区', 21 => '足立区', 22 => '葛飾区', 23 => '江戸川区', 24 => '武蔵野市', 25 => '府中市', 26 => '調布市', 27 => '小金井市',
+    );
+    echo '<dl>';
+    echo   '<dt>';
+    echo   '市区町村';
+    echo   '</dt>';
+    echo   '<dd>';
+    echo     '<input name="city" value="0" type="hidden">';
+    echo     '<ul>';
+    foreach ($list as $_id => $_name) {
+        echo   '<li style="float:left; margin-right:10px">';
+        echo     '<label>';
+        if ($_id == $value) {
+            echo   '<input name="city" value="'.$_id.'" checked="checked" type="radio">';
+        } else {
+            echo   '<input name="city" value="'.$_id.'" type="radio">';
+        }
+        echo       $_name;
+        echo     '</label>';
+        echo   '</li>';
+    }
+    echo     '</ul>';
+    echo   '</dd>';
+    echo '</dl>';
+	echo '<p style="clear:left;"></p>';
+
+}
+/**
  * カスタムフィールドの保存処理
  */
-function save_posttype_customfields($post_id) {
+function save_custom_fields_data( $post_id ) {
 
-    // nonceが一致しない場合は終了
-    if (!wp_verify_nonce(
-        @$_POST['custom_fields_nonce'],
-        wp_create_nonce(__FILE__)
-    )) {
-        return $post_id;
-    }
+	/*
+	 * We need to verify this came from our screen and with proper authorization,
+	 * because the save_post action can be triggered at other times.
+	 */
 
-    // 自動保存の場合は終了
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-        return $post_id;
-    }
+	// Check if our nonce is set.
+	if ( ! isset( $_POST['custom_fields_nonce'] ) ) {
+		return;
+	}
 
-    // 投稿権限がない場合は終了
-    if (!current_user_can('edit_post', $post_id)) {
-        return $post_id;
-    }
+	// Verify that the nonce is valid.
+	if ( ! wp_verify_nonce( $_POST['custom_fields_nonce'], 'save_custom_fields_data' ) ) {
+		return;
+	}
 
-    // 保存処理
-    switch (get_post_type($post_id)) {
-    case 'post':
-        // クイック編集の場合
-        if (@$_POST['quick_edit']) {
-            $post_keys = array(		// true:単一文字列, false:複数配列
-                'stop-closealert' => true,
-            );
-        // 普通の編集の場合
-        } else {
-            $post_keys = array(		// true:単一文字列, false:複数配列
-                'stop-closealert' => true,
-            );
-        }
-        foreach (@$post_keys as $post_key => $unique) {
-            // 単数
-            if ($unique) {
-                update_post_meta(
-                    $post_id,			// 投稿ID
-                    $post_key,			// カスタムフィールドキー
-                    @$_POST[$post_key]	// 値
-                );
-            // 複数
-            } else {
-                $input_vals = (array)@$_POST[$post_key];
-                $save_vals = get_post_meta(
-                    $post_id,	// 投稿ID
-                    $post_key,	// カスタムフィールドキー
-                    false		// true:単一文字列, false:複数配列
-                );
-                foreach (@$input_vals as $input_val) {
-                    if (!in_array($input_val, $save_vals)) {
-                        add_post_meta(
-                            $post_id,	// 投稿ID
-                            $post_key,	// カスタムフィールドキー
-                            $input_val,	// 値
-                            false		// true:単一文字列, false:複数配列
-                        );
-                    }
-                }
-                foreach ($save_vals as $save_val) {
-                    if (!in_array($save_val, $input_vals)) {
-                        delete_post_meta(
-                            $post_id,	// 投稿ID
-                            $post_key,	// カスタムフィールドキー
-                            $save_val	// 値
-                        );
-                    }
-                }
-            }
-        }
-        break;
-    default:
-    }
+	// If this is an autosave, our form has not been submitted, so we don't want to do anything.
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	// Check the user's permissions.
+	if ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ) {
+		if ( ! current_user_can( 'edit_page', $post_id ) ) {
+			return;
+		}
+	} else {
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		}
+	}
+
+	/* OK, it's safe for us to save the data now. */
+	$post_keys = array( // true:単一文字列, false:複数配列
+		'stop-closealert' => true,
+		'facility' => false,
+		'howbig' => true,
+		'city' => true,
+	);
+
+	foreach ($post_keys as $post_key => $unique) {
+		// single(単一文字列)
+		if ($unique && isset($_POST[$post_key])) {
+			// Update the meta field in the database.
+			update_post_meta(
+				$post_id,			// post ID
+				$post_key,			// Custom Field Key
+				$_POST[$post_key]	// Value
+			);
+		// multiple(複数配列)
+		} elseif (isset($_POST[$post_key])) {
+			$input_vals = (array)$_POST[$post_key];
+			delete_post_meta(
+				$post_id,	// post ID
+				$post_key	// Custom Field Key
+			);
+			foreach ($input_vals as $input_val) {
+				add_post_meta(
+					$post_id,	// post ID
+					$post_key,	// Custom Field Key
+					$input_val,	// Value
+					false		// true:同じキーがあれば追加しない, false:同じキーがあっても追加する
+				);
+			}
+		}
+	}
 }
-add_action('save_post', 'save_posttype_customfields');
+add_action( 'save_post', 'save_custom_fields_data' );
 
 // カスタム投稿タイプ作成
 function create_post_type() {
+	// トレンド記事用カスタム投稿タイプ
 	$labels = array(
 		'name'				=> _x( 'Trends', 'post type general name', 'SagasWhat' ),
 		'singular_name'		=> _x( 'Trend', 'post type singular name', 'SagasWhat' ),
@@ -1044,7 +1261,7 @@ function create_post_type() {
 
 	register_post_type( 'sw_trend', $args );
 
-	// カスタム分類を新たに追加(Keyword)
+	// トレンド記事用カスタム分類(Keyword)
 	$labels = array(
 		'name'				=> _x( 'Keywords', 'taxonomy general name', 'SagasWhat' ),
 		'singular_name'		=> _x( 'Keyword', 'taxonomy singular name', 'SagasWhat' ),
@@ -1068,6 +1285,56 @@ function create_post_type() {
 	register_taxonomy_for_object_type( 'keyword', 'sw_trend' );
 	register_taxonomy_for_object_type( 'category', 'sw_trend' );
 //	register_taxonomy_for_object_type( 'post_tag', 'sw_trend' );
+
+	// 休憩スポット用カスタム投稿タイプ
+	$labels = array(
+		'name'				=> _x( 'Resting Spots', 'post type general name', 'SagasWhat' ),
+		'singular_name'		=> _x( 'Resting Spot', 'post type singular name', 'SagasWhat' ),
+		'menu_name'			=> _x( 'Resting Spots', 'admin menu', 'SagasWhat' ),
+		'name_admin_bar'	=> _x( 'Resting Spot', 'add new on admin bar', 'SagasWhat' ),
+		'add_new'			=> _x( 'Add New', 'rest', 'SagasWhat' ),
+		'add_new_item'		=> __( 'Add New Resting Spot', 'SagasWhat' ),
+		'new_item'			=> __( 'New Resting Spot', 'SagasWhat' ),
+		'edit_item'			=> __( 'Edit Resting Spot', 'SagasWhat' ),
+		'view_item'			=> __( 'View Resting Spot', 'SagasWhat' ),
+		'all_items'			=> __( 'Resting Spots', 'SagasWhat' ),
+		'search_items'		=> __( 'Search Resting Spots', 'SagasWhat' ),
+		'parent_item_colon'	=> __( 'Parent Resting Spots:', 'SagasWhat' ),
+		'not_found'			=> __( 'No rests found.', 'SagasWhat' ),
+		'not_found_in_trash'=> __( 'No rests found in Trash.', 'SagasWhat' )
+	);
+	$args = array(
+		'labels'			=> $labels,
+		'public'			=> true,
+		'has_archive'		=> true,
+		'menu_position'		=> 5,
+		'rewrite'			=> array('slug' => 'rest'),
+		'supports'			=> array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'revisions' )
+	);
+
+	register_post_type( 'sw_rest', $args );
+
+	// 休憩スポット用カスタム分類(Kind)
+	$labels = array(
+		'name'				=> _x( 'Kinds', 'taxonomy general name', 'SagasWhat' ),
+		'singular_name'		=> _x( 'Kind', 'taxonomy singular name', 'SagasWhat' ),
+		'search_items'		=> __( 'Search Kinds', 'SagasWhat' ),
+		'all_items'			=> __( 'All Kinds', 'SagasWhat' ),
+		'edit_item'			=> __( 'Edit Kind', 'SagasWhat' ),
+		'update_item'		=> __( 'Update Kind', 'SagasWhat' ),
+		'add_new_item'		=> __( 'Add New Kind', 'SagasWhat' ),
+		'new_item_name'		=> __( 'New Kind Name', 'SagasWhat' ),
+		'menu_name'			=> __( 'Kind', 'SagasWhat' ),
+	);
+
+	$args = array(
+		'hierarchical'		=> false,
+		'labels'			=> $labels,
+	);
+
+	register_taxonomy( 'kind', array( 'sw_rest' ), $args );
+	register_taxonomy_for_object_type( 'kind', 'sw_rest' );
+	register_taxonomy_for_object_type( 'category', 'sw_rest' );
 
 }
 add_action( 'init', 'create_post_type' );

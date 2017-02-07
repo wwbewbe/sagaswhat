@@ -435,13 +435,13 @@ header, footer, .container, .sub-header
 			border-collapse: collapse;
 			margin: 10px 0px}
 
-.event-info th	{width: 20%;
+.event-info th	{width: 35%;
 			padding: 6px;
 			text-align: left;
 			background-color: #eeeeee;
 			border: 1px solid #b9b9b9}
 
-.event-info td	{width: 80%;
+.event-info td	{width: 65%;
 			padding: 6px;
 			background-color: #ffffff;
 			border: 1px solid #b9b9b9}

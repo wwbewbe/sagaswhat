@@ -3,7 +3,7 @@
 <div class="container">
 <div class="contents">
 
-<?php if((preg_match('/topics-(\w+)/s', $post->post_name)) || (preg_match('/tourism/s', $post->post_name)) || (preg_match('/free-wifi/s', $post->post_name))): ?>
+<?php if((preg_match('/topics-(\w+)/s', $post->post_name)) || (preg_match('/tourism/s', $post->post_name)) || (preg_match('/free-wifi/s', $post->post_name)) || (preg_match('/rests/s', $post->post_name))): ?>
 
 	<?php if(have_posts()): while(have_posts()):
 	the_post(); ?>
@@ -11,9 +11,7 @@
 
 		<h1><?php the_title(); ?></h1>
 
-		<div class="kiji-body">
 		<?php the_content(); ?>
-		</div>
 
 		<?php wp_link_pages( array(
 			'before' => '<div class="pagination"><ul><li>',
@@ -36,6 +34,7 @@
 <?php else : ?>
 
 	<?php
+	$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 	$args=array(
 			'post_type'		=> array('post', 'sw_trend'),
 			'posts_per_page'=> '10',

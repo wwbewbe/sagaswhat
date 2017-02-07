@@ -27,6 +27,7 @@
 	<?php
 	//並び替え
 	$infocat = get_category_by_slug('tourist-info-center');
+	$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 	$args = array(
 	    'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
 	    'posts_per_page' => '10',		// 10件表示

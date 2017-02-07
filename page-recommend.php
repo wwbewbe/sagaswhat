@@ -23,6 +23,7 @@
 <?php
 	//並び替え
 	$infocat = get_category_by_slug('tourist-info-center');//観光案内所をリストから除外
+	$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 	if (($lat) && ($lng)) {
 
 		set_event_distance($lat, $lng);//イベント会場までの距離をカスタムフィールドに保存

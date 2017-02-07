@@ -28,6 +28,7 @@
 	//並び替え
 	$infocat = get_category_by_slug('tourist-info-center');//観光案内所をリストから除外
 	$meta_query_args = get_meta_query_args('0', $eventdistance);//開催中&約3駅範囲のイベント抽出
+	$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 	$args = array(
 	    'post_type'		=> 'post',		// カスタム投稿タイプチェックイン
 	    'posts_per_page' => '10',		// 10件表示
