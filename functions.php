@@ -300,7 +300,7 @@ function event_info_to_the_content( $content ) {
 		}
 		// 開園時間
 		if( $bizhours = get_post_meta($post->ID, 'bizhours', true) ) {
-			$thname = esc_html__('Open Hours', 'SagasWhat');
+			$thname = esc_html_x('Open Hours', 'Resting Spots', 'SagasWhat');
 			$info = $info.'<tr><th>'.$thname.'</th><td>'.$bizhours.'</td></tr>';
 		}
 		// 注記

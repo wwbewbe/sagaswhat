@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SagasWhat\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2017-01-31 21:08+0900\n"
+"POT-Creation-Date: 2017-02-08 00:57+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Language-Team: \n"
 "X-Generator: Poedit 1.8.11\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;esc_html__;_x:1,2c;esc_attr__\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;_x:1,2c;esc_attr__;esc_html_x:1,2c;esc_attr_x:1,2c\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -38,11 +38,13 @@ msgstr ""
 msgid "Favorite Events"
 msgstr ""
 
-#: favorite-events.php:25 single-sw_trend.php:95 single.php:126
+#: favorite-events.php:25 single-sw_rest.php:73 single-sw_trend.php:95
+#: single.php:126
 msgid "Prev"
 msgstr ""
 
-#: favorite-events.php:26 single-sw_trend.php:96 single.php:127
+#: favorite-events.php:26 single-sw_rest.php:74 single-sw_trend.php:96
+#: single.php:127
 msgid "Next"
 msgstr ""
 
@@ -58,193 +60,318 @@ msgstr ""
 msgid "Nearby Parks"
 msgstr ""
 
-#: functions.php:286
-msgid "Center Name"
+#: functions.php:289
+msgid "Spot Name"
 msgstr ""
 
-#: functions.php:295
-msgid "JP Name"
+#: functions.php:298
+msgid "Nearest Station"
 msgstr ""
 
-#: functions.php:300
-msgid "TIC Category"
-msgstr ""
-
-#: functions.php:302
-msgid "Category description (Japan National Tourism Organization)"
-msgstr ""
-
-#: functions.php:308 functions.php:406
+#: functions.php:303
+msgctxt "Resting Spots"
 msgid "Open Hours"
 msgstr ""
 
-#: functions.php:310 functions.php:333 functions.php:400 functions.php:408
-#: functions.php:416 functions.php:434
-msgid "Click here"
-msgstr ""
-
-#: functions.php:316
-msgid "Wi-Fi"
-msgstr ""
-
-#: functions.php:321
-msgid "PC"
-msgstr ""
-
-#: functions.php:326 functions.php:426 functions.php:769
-msgid "Address"
-msgstr ""
-
-#: functions.php:331 functions.php:431
-msgid "Contact"
-msgstr ""
-
-#: functions.php:347
-msgid "Event Name"
-msgstr ""
-
-#: functions.php:356 functions.php:768
-msgid "Venue"
-msgstr ""
-
-#: functions.php:368
-msgid "Dates"
-msgstr ""
-
-#: functions.php:371 functions.php:375 functions.php:376 functions.php:384
-#: functions.php:390 page-calendar.php:44
-msgid "F j, Y"
-msgstr ""
-
-#: functions.php:398
+#: functions.php:308 functions.php:459
 msgid "Note"
 msgstr ""
 
-#: functions.php:413
+#: functions.php:310 functions.php:371 functions.php:394 functions.php:461
+#: functions.php:469 functions.php:477 functions.php:495
+msgid "Click here"
+msgstr ""
+
+#: functions.php:316 functions.php:387 functions.php:488 functions.php:837
+#: functions.php:852
+msgid "Address"
+msgstr ""
+
+#: functions.php:321
+msgid "Facility"
+msgstr ""
+
+#: functions.php:325 functions.php:377
+msgid "Wi-Fi"
+msgstr ""
+
+#: functions.php:328
+msgid "Shop/Cafe/Vending Machine"
+msgstr ""
+
+#: functions.php:331
+msgid "Grass Field"
+msgstr ""
+
+#: functions.php:347
+msgid "Center Name"
+msgstr ""
+
+#: functions.php:356
+msgid "JP Name"
+msgstr ""
+
+#: functions.php:361
+msgid "TIC Category"
+msgstr ""
+
+#: functions.php:363
+msgid "Category description (Japan National Tourism Organization)"
+msgstr ""
+
+#: functions.php:369 functions.php:467
+msgid "Open Hours"
+msgstr ""
+
+#: functions.php:382
+msgid "PC"
+msgstr ""
+
+#: functions.php:392 functions.php:493
+msgid "Contact"
+msgstr ""
+
+#: functions.php:408
+msgid "Event Name"
+msgstr ""
+
+#: functions.php:417 functions.php:836
+msgid "Venue"
+msgstr ""
+
+#: functions.php:429
+msgid "Dates"
+msgstr ""
+
+#: functions.php:432 functions.php:436 functions.php:437 functions.php:445
+#: functions.php:451 page-calendar.php:44
+msgid "F j, Y"
+msgstr ""
+
+#: functions.php:475
 msgid "Admission"
 msgstr ""
 
-#: functions.php:421
+#: functions.php:483
 msgid "Free Wi-Fi"
 msgstr ""
 
-#: functions.php:558
+#: functions.php:619
 msgid "Sponsored Links"
 msgstr ""
 
-#: functions.php:765
+#: functions.php:833
 msgid "Open date"
 msgstr ""
 
-#: functions.php:766
+#: functions.php:834
 msgid "Close date"
 msgstr ""
 
-#: functions.php:767
+#: functions.php:835
 msgid "Recommend"
 msgstr ""
 
-#: functions.php:777 functions.php:1059
+#: functions.php:845 functions.php:1276
 msgid "Keyword"
 msgstr ""
 
-#: functions.php:812 functions.php:825
+#: functions.php:853 functions.php:1327
+msgid "Kind"
+msgstr ""
+
+#: functions.php:888 functions.php:901 functions.php:915 functions.php:923
 msgid "None"
 msgstr ""
 
-#: functions.php:1021
+#: functions.php:1238
 msgctxt "post type general name"
 msgid "Trends"
 msgstr ""
 
-#: functions.php:1022
+#: functions.php:1239
 msgctxt "post type singular name"
 msgid "Trend"
 msgstr ""
 
-#: functions.php:1023
+#: functions.php:1240
 msgctxt "admin menu"
 msgid "Trends"
 msgstr ""
 
-#: functions.php:1024
+#: functions.php:1241
 msgctxt "add new on admin bar"
 msgid "Trend"
 msgstr ""
 
-#: functions.php:1025
+#: functions.php:1242
 msgctxt "trend"
 msgid "Add New"
 msgstr ""
 
-#: functions.php:1026
+#: functions.php:1243
 msgid "Add New Trend"
 msgstr ""
 
-#: functions.php:1027
+#: functions.php:1244
 msgid "New Trend"
 msgstr ""
 
-#: functions.php:1028
+#: functions.php:1245
 msgid "Edit Trend"
 msgstr ""
 
-#: functions.php:1029
+#: functions.php:1246
 msgid "View Trend"
 msgstr ""
 
-#: functions.php:1030
+#: functions.php:1247
 msgid "All Trends"
 msgstr ""
 
-#: functions.php:1031
+#: functions.php:1248
 msgid "Search Trends"
 msgstr ""
 
-#: functions.php:1032
+#: functions.php:1249
 msgid "Parent Trends:"
 msgstr ""
 
-#: functions.php:1033
+#: functions.php:1250
 msgid "No trends found."
 msgstr ""
 
-#: functions.php:1034
+#: functions.php:1251
 msgid "No trends found in Trash."
 msgstr ""
 
-#: functions.php:1049
+#: functions.php:1266
 msgctxt "taxonomy general name"
 msgid "Keywords"
 msgstr ""
 
-#: functions.php:1050
+#: functions.php:1267
 msgctxt "taxonomy singular name"
 msgid "Keyword"
 msgstr ""
 
-#: functions.php:1051
+#: functions.php:1268
 msgid "Search Keywords"
 msgstr ""
 
-#: functions.php:1052
+#: functions.php:1269
 msgid "All Keywords"
 msgstr ""
 
-#: functions.php:1055
+#: functions.php:1272
 msgid "Edit Keyword"
 msgstr ""
 
-#: functions.php:1056
+#: functions.php:1273
 msgid "Update Keyword"
 msgstr ""
 
-#: functions.php:1057
+#: functions.php:1274
 msgid "Add New Keyword"
 msgstr ""
 
-#: functions.php:1058
+#: functions.php:1275
 msgid "New Keyword Name"
+msgstr ""
+
+#: functions.php:1291
+msgctxt "post type general name"
+msgid "Resting Spots"
+msgstr ""
+
+#: functions.php:1292
+msgctxt "post type singular name"
+msgid "Resting Spot"
+msgstr ""
+
+#: functions.php:1293
+msgctxt "admin menu"
+msgid "Resting Spots"
+msgstr ""
+
+#: functions.php:1294
+msgctxt "add new on admin bar"
+msgid "Resting Spot"
+msgstr ""
+
+#: functions.php:1295
+msgctxt "rest"
+msgid "Add New"
+msgstr ""
+
+#: functions.php:1296
+msgid "Add New Resting Spot"
+msgstr ""
+
+#: functions.php:1297
+msgid "New Resting Spot"
+msgstr ""
+
+#: functions.php:1298
+msgid "Edit Resting Spot"
+msgstr ""
+
+#: functions.php:1299
+msgid "View Resting Spot"
+msgstr ""
+
+#: functions.php:1300 single-sw_rest.php:14
+msgid "Resting Spots"
+msgstr ""
+
+#: functions.php:1301
+msgid "Search Resting Spots"
+msgstr ""
+
+#: functions.php:1302
+msgid "Parent Resting Spots:"
+msgstr ""
+
+#: functions.php:1303
+msgid "No rests found."
+msgstr ""
+
+#: functions.php:1304
+msgid "No rests found in Trash."
+msgstr ""
+
+#: functions.php:1319
+msgctxt "taxonomy general name"
+msgid "Kinds"
+msgstr ""
+
+#: functions.php:1320
+msgctxt "taxonomy singular name"
+msgid "Kind"
+msgstr ""
+
+#: functions.php:1321
+msgid "Search Kinds"
+msgstr ""
+
+#: functions.php:1322
+msgid "All Kinds"
+msgstr ""
+
+#: functions.php:1323
+msgid "Edit Kind"
+msgstr ""
+
+#: functions.php:1324
+msgid "Update Kind"
+msgstr ""
+
+#: functions.php:1325
+msgid "Add New Kind"
+msgstr ""
+
+#: functions.php:1326
+msgid "New Kind Name"
 msgstr ""
 
 #: gaiyou-custom.php:12 gaiyou-custom.php:19 gaiyou-medium.php:20
@@ -274,6 +401,14 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
+#: gaiyou-resting.php:14
+msgid "Check open and close dates/hours in this."
+msgstr ""
+
+#: gaiyou-resting.php:40
+msgid "Nearest Station :"
+msgstr ""
+
 #: geolocation-js.php:15
 msgid "The service could not get your location."
 msgstr ""
@@ -294,19 +429,19 @@ msgstr ""
 msgid "Checking for TIC near you..."
 msgstr ""
 
-#: page-nearby-tic.php:49
+#: page-nearby-tic.php:50
 msgid "No nearby TICs found. Please try again later at a different location."
 msgstr ""
 
-#: page-nearby-tic.php:51 page-nearby.php:46
+#: page-nearby-tic.php:52 page-nearby.php:47
 msgid "Found &quot;"
 msgstr ""
 
-#: page-nearby-tic.php:53
+#: page-nearby-tic.php:54
 msgid "&quot; Nearby TICs"
 msgstr ""
 
-#: page-nearby-tic.php:54 page-tic.php:14
+#: page-nearby-tic.php:55 page-tic.php:14
 msgid "* TICs have been sorted in close order."
 msgstr ""
 
@@ -314,15 +449,15 @@ msgstr ""
 msgid "Checking for fun stuff near you..."
 msgstr ""
 
-#: page-nearby.php:44
+#: page-nearby.php:45
 msgid "No nearby events found. Please try again later at a different location."
 msgstr ""
 
-#: page-nearby.php:48
+#: page-nearby.php:49
 msgid "&quot; Nearby Events"
 msgstr ""
 
-#: page-nearby.php:49 page-recommend.php:14 topiclist.php:11
+#: page-nearby.php:50 page-recommend.php:14 topiclist.php:11
 msgid "* Events have been sorted in close order."
 msgstr ""
 
@@ -330,7 +465,7 @@ msgstr ""
 msgid "[F, Y]"
 msgstr ""
 
-#: page-recommend.php:17 page-tic.php:17 topiclist.php:14
+#: page-recommend.php:17 page-tic.php:17 restlist.php:14 topiclist.php:14
 msgid "Sort by Distance"
 msgstr ""
 
@@ -346,6 +481,14 @@ msgstr ""
 msgid "Upcoming Events"
 msgstr ""
 
+#: restlist.php:11
+msgid "* Resting Spots have been sorted in close order."
+msgstr ""
+
+#: restlist.php:16
+msgid "* Use this to see resting spots."
+msgstr ""
+
 #: search.php:6
 msgid "search results"
 msgstr ""
@@ -356,6 +499,10 @@ msgstr ""
 
 #: sidebar.php:43 single-sw_trend.php:14
 msgid "Trend Topics"
+msgstr ""
+
+#: single-sw_rest.php:71
+msgid "Other Spots"
 msgstr ""
 
 #: single-sw_trend.php:93

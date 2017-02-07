@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-01-31 21:09+0900\n"
-"PO-Revision-Date: 2017-01-31 21:09+0900\n"
+"POT-Creation-Date: 2017-02-08 00:57+0900\n"
+"PO-Revision-Date: 2017-02-08 00:58+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -13,7 +13,8 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;esc_html__;_x:1,2c;esc_attr__\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;_x:1,2c;esc_attr__;esc_html_x:1,2c;"
+"esc_attr_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:8
@@ -37,11 +38,13 @@ msgstr "件"
 msgid "Favorite Events"
 msgstr "お気に入り"
 
-#: favorite-events.php:25 single-sw_trend.php:95 single.php:126
+#: favorite-events.php:25 single-sw_rest.php:73 single-sw_trend.php:95
+#: single.php:126
 msgid "Prev"
 msgstr "戻る"
 
-#: favorite-events.php:26 single-sw_trend.php:96 single.php:127
+#: favorite-events.php:26 single-sw_rest.php:74 single-sw_trend.php:96
+#: single.php:127
 msgid "Next"
 msgstr "次へ"
 
@@ -57,194 +60,319 @@ msgstr "周辺の観光案内所"
 msgid "Nearby Parks"
 msgstr "周辺の公園"
 
-#: functions.php:286
-msgid "Center Name"
-msgstr "観光案内所名"
+#: functions.php:289
+msgid "Spot Name"
+msgstr "休憩スポット名"
 
-#: functions.php:295
-msgid "JP Name"
-msgstr "日本語名"
+#: functions.php:298
+msgid "Nearest Station"
+msgstr "最寄り駅"
 
-#: functions.php:300
-msgid "TIC Category"
-msgstr "TICカテゴリー"
-
-#: functions.php:302
-msgid "Category description (Japan National Tourism Organization)"
-msgstr "カテゴリー説明 (日本政府観光局)"
-
-#: functions.php:308 functions.php:406
+#: functions.php:303
+msgctxt "Resting Spots"
 msgid "Open Hours"
-msgstr "時間"
+msgstr "開園時間"
 
-#: functions.php:310 functions.php:333 functions.php:400 functions.php:408
-#: functions.php:416 functions.php:434
-msgid "Click here"
-msgstr "詳細はこちら"
-
-#: functions.php:316
-msgid "Wi-Fi"
-msgstr "Wi-Fi"
-
-#: functions.php:321
-msgid "PC"
-msgstr "PC"
-
-#: functions.php:326 functions.php:426 functions.php:769
-msgid "Address"
-msgstr "住所"
-
-#: functions.php:331 functions.php:431
-msgid "Contact"
-msgstr "お問合わせ"
-
-#: functions.php:347
-msgid "Event Name"
-msgstr "イベント名"
-
-#: functions.php:356 functions.php:768
-msgid "Venue"
-msgstr "会場"
-
-#: functions.php:368
-msgid "Dates"
-msgstr "開催期間"
-
-#: functions.php:371 functions.php:375 functions.php:376 functions.php:384
-#: functions.php:390 page-calendar.php:44
-msgid "F j, Y"
-msgstr "Y年n月j日(D)"
-
-#: functions.php:398
+#: functions.php:308 functions.php:459
 msgid "Note"
 msgstr "備考"
 
-#: functions.php:413
+#: functions.php:310 functions.php:371 functions.php:394 functions.php:461
+#: functions.php:469 functions.php:477 functions.php:495
+msgid "Click here"
+msgstr "詳細はこちら"
+
+#: functions.php:316 functions.php:387 functions.php:488 functions.php:837
+#: functions.php:852
+msgid "Address"
+msgstr "住所"
+
+#: functions.php:321
+msgid "Facility"
+msgstr "設備"
+
+#: functions.php:325 functions.php:377
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: functions.php:328
+msgid "Shop/Cafe/Vending Machine"
+msgstr "売店・カフェ・自販機"
+
+#: functions.php:331
+msgid "Grass Field"
+msgstr "草地広場"
+
+#: functions.php:347
+msgid "Center Name"
+msgstr "観光案内所名"
+
+#: functions.php:356
+msgid "JP Name"
+msgstr "日本語名"
+
+#: functions.php:361
+msgid "TIC Category"
+msgstr "TICカテゴリー"
+
+#: functions.php:363
+msgid "Category description (Japan National Tourism Organization)"
+msgstr "カテゴリー説明 (日本政府観光局)"
+
+#: functions.php:369 functions.php:467
+msgid "Open Hours"
+msgstr "時間"
+
+#: functions.php:382
+msgid "PC"
+msgstr "PC"
+
+#: functions.php:392 functions.php:493
+msgid "Contact"
+msgstr "お問合わせ"
+
+#: functions.php:408
+msgid "Event Name"
+msgstr "イベント名"
+
+#: functions.php:417 functions.php:836
+msgid "Venue"
+msgstr "会場"
+
+#: functions.php:429
+msgid "Dates"
+msgstr "開催期間"
+
+#: functions.php:432 functions.php:436 functions.php:437 functions.php:445
+#: functions.php:451 page-calendar.php:44
+msgid "F j, Y"
+msgstr "Y年n月j日(D)"
+
+#: functions.php:475
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:421
+#: functions.php:483
 msgid "Free Wi-Fi"
 msgstr "Free Wi-Fi"
 
-#: functions.php:558
+#: functions.php:619
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: functions.php:765
+#: functions.php:833
 msgid "Open date"
 msgstr "開催日"
 
-#: functions.php:766
+#: functions.php:834
 msgid "Close date"
 msgstr "終了日"
 
-#: functions.php:767
+#: functions.php:835
 msgid "Recommend"
 msgstr "推奨度"
 
-#: functions.php:777 functions.php:1059
+#: functions.php:845 functions.php:1276
 msgid "Keyword"
 msgstr "キーワード"
 
-#: functions.php:812 functions.php:825
+#: functions.php:853 functions.php:1327
+msgid "Kind"
+msgstr "種別"
+
+#: functions.php:888 functions.php:901 functions.php:915 functions.php:923
 msgid "None"
 msgstr "なし"
 
-#: functions.php:1021
+#: functions.php:1238
 msgctxt "post type general name"
 msgid "Trends"
 msgstr "トレンド"
 
-#: functions.php:1022
+#: functions.php:1239
 msgctxt "post type singular name"
 msgid "Trend"
 msgstr "トレンド記事"
 
-#: functions.php:1023
+#: functions.php:1240
 msgctxt "admin menu"
 msgid "Trends"
 msgstr "トレンド"
 
-#: functions.php:1024
+#: functions.php:1241
 msgctxt "add new on admin bar"
 msgid "Trend"
 msgstr "トレンド記事"
 
-#: functions.php:1025
+#: functions.php:1242
 msgctxt "trend"
 msgid "Add New"
 msgstr "新規追加"
 
-#: functions.php:1026
+#: functions.php:1243
 msgid "Add New Trend"
 msgstr "新規トレンド追加"
 
-#: functions.php:1027
+#: functions.php:1244
 msgid "New Trend"
 msgstr "新規トレンド"
 
-#: functions.php:1028
+#: functions.php:1245
 msgid "Edit Trend"
 msgstr "トレンド編集"
 
-#: functions.php:1029
+#: functions.php:1246
 msgid "View Trend"
 msgstr "トレンド表示"
 
-#: functions.php:1030
+#: functions.php:1247
 msgid "All Trends"
 msgstr "すべてのトレンド"
 
-#: functions.php:1031
+#: functions.php:1248
 msgid "Search Trends"
 msgstr "トレンド検索"
 
-#: functions.php:1032
+#: functions.php:1249
 msgid "Parent Trends:"
 msgstr "親トレンド:"
 
-#: functions.php:1033
+#: functions.php:1250
 msgid "No trends found."
 msgstr "トレンドは見つかりませんでした。"
 
-#: functions.php:1034
+#: functions.php:1251
 msgid "No trends found in Trash."
 msgstr "ゴミ箱にトレンドは見つかりませんでした。"
 
-#: functions.php:1049
+#: functions.php:1266
 msgctxt "taxonomy general name"
 msgid "Keywords"
 msgstr "キーワード"
 
-#: functions.php:1050
+#: functions.php:1267
 msgctxt "taxonomy singular name"
 msgid "Keyword"
 msgstr "キーワード"
 
-#: functions.php:1051
+#: functions.php:1268
 msgid "Search Keywords"
 msgstr "キーワード検索"
 
-#: functions.php:1052
+#: functions.php:1269
 msgid "All Keywords"
 msgstr "全てのキーワード"
 
-#: functions.php:1055
+#: functions.php:1272
 msgid "Edit Keyword"
 msgstr "キーワード編集"
 
-#: functions.php:1056
+#: functions.php:1273
 msgid "Update Keyword"
 msgstr "キーワード更新"
 
-#: functions.php:1057
+#: functions.php:1274
 msgid "Add New Keyword"
 msgstr "新規キーワード追加"
 
-#: functions.php:1058
+#: functions.php:1275
 msgid "New Keyword Name"
 msgstr "新規キーワード名"
+
+#: functions.php:1291
+msgctxt "post type general name"
+msgid "Resting Spots"
+msgstr "休憩スポット"
+
+#: functions.php:1292
+msgctxt "post type singular name"
+msgid "Resting Spot"
+msgstr "休憩スポット"
+
+#: functions.php:1293
+msgctxt "admin menu"
+msgid "Resting Spots"
+msgstr "休憩スポット"
+
+#: functions.php:1294
+msgctxt "add new on admin bar"
+msgid "Resting Spot"
+msgstr "休憩スポット"
+
+#: functions.php:1295
+msgctxt "rest"
+msgid "Add New"
+msgstr "新規追加"
+
+#: functions.php:1296
+msgid "Add New Resting Spot"
+msgstr "新規休憩スポット追加"
+
+#: functions.php:1297
+msgid "New Resting Spot"
+msgstr "新規休憩スポット"
+
+#: functions.php:1298
+msgid "Edit Resting Spot"
+msgstr "休憩スポット編集"
+
+#: functions.php:1299
+msgid "View Resting Spot"
+msgstr "休憩スポット表示"
+
+#: functions.php:1300 single-sw_rest.php:14
+msgid "Resting Spots"
+msgstr "すべての休憩スポット"
+
+#: functions.php:1301
+msgid "Search Resting Spots"
+msgstr "休憩スポット検索"
+
+#: functions.php:1302
+msgid "Parent Resting Spots:"
+msgstr "親休憩スポット"
+
+#: functions.php:1303
+msgid "No rests found."
+msgstr "休憩スポットは見つかりませんでした。"
+
+#: functions.php:1304
+msgid "No rests found in Trash."
+msgstr "ゴミ箱に休憩スポットは見つかりませんでした。"
+
+#: functions.php:1319
+msgctxt "taxonomy general name"
+msgid "Kinds"
+msgstr "種別"
+
+#: functions.php:1320
+msgctxt "taxonomy singular name"
+msgid "Kind"
+msgstr "種別"
+
+#: functions.php:1321
+msgid "Search Kinds"
+msgstr "種別検索"
+
+#: functions.php:1322
+msgid "All Kinds"
+msgstr "全ての種別"
+
+#: functions.php:1323
+msgid "Edit Kind"
+msgstr "種別編集"
+
+#: functions.php:1324
+msgid "Update Kind"
+msgstr "種別更新"
+
+#: functions.php:1325
+msgid "Add New Kind"
+msgstr "新規種別追加"
+
+#: functions.php:1326
+msgid "New Kind Name"
+msgstr "新規種別"
 
 #: gaiyou-custom.php:12 gaiyou-custom.php:19 gaiyou-medium.php:20
 #: gaiyou-medium.php:23 gaiyou-medium.php:24 gaiyou-medium.php:31
@@ -273,6 +401,14 @@ msgstr "終了"
 msgid "Free"
 msgstr "無料"
 
+#: gaiyou-resting.php:14
+msgid "Check open and close dates/hours in this."
+msgstr "開園・閉園時間あり"
+
+#: gaiyou-resting.php:40
+msgid "Nearest Station :"
+msgstr "最寄り駅："
+
 #: geolocation-js.php:15
 msgid "The service could not get your location."
 msgstr "位置情報を取得できませんでした"
@@ -295,19 +431,19 @@ msgstr "検索"
 msgid "Checking for TIC near you..."
 msgstr "周辺の観光案内所をさがしています　しばらくお待ちください"
 
-#: page-nearby-tic.php:49
+#: page-nearby-tic.php:50
 msgid "No nearby TICs found. Please try again later at a different location."
 msgstr "周辺で観光案内所は見つかりませんでした"
 
-#: page-nearby-tic.php:51 page-nearby.php:46
+#: page-nearby-tic.php:52 page-nearby.php:47
 msgid "Found &quot;"
 msgstr "&quot;"
 
-#: page-nearby-tic.php:53
+#: page-nearby-tic.php:54
 msgid "&quot; Nearby TICs"
 msgstr "&quot; 件の観光案内所が見つかりました"
 
-#: page-nearby-tic.php:54 page-tic.php:14
+#: page-nearby-tic.php:55 page-tic.php:14
 msgid "* TICs have been sorted in close order."
 msgstr "＊近い順に並んでいます"
 
@@ -315,15 +451,15 @@ msgstr "＊近い順に並んでいます"
 msgid "Checking for fun stuff near you..."
 msgstr "周辺のイベントを探しています　しばらくお待ちください"
 
-#: page-nearby.php:44
+#: page-nearby.php:45
 msgid "No nearby events found. Please try again later at a different location."
 msgstr "周辺で開催中のイベントは見つかりませんでした"
 
-#: page-nearby.php:48
+#: page-nearby.php:49
 msgid "&quot; Nearby Events"
 msgstr "&quot; 件のイベントが見つかりました"
 
-#: page-nearby.php:49 page-recommend.php:14 topiclist.php:11
+#: page-nearby.php:50 page-recommend.php:14 topiclist.php:11
 msgid "* Events have been sorted in close order."
 msgstr "＊近い順に並んでいます"
 
@@ -331,7 +467,7 @@ msgstr "＊近い順に並んでいます"
 msgid "[F, Y]"
 msgstr "[Y年F]"
 
-#: page-recommend.php:17 page-tic.php:17 topiclist.php:14
+#: page-recommend.php:17 page-tic.php:17 restlist.php:14 topiclist.php:14
 msgid "Sort by Distance"
 msgstr "近い順に並び替え"
 
@@ -347,6 +483,14 @@ msgstr "現在地から近い順に並び替えます"
 msgid "Upcoming Events"
 msgstr "開催予定のイベント"
 
+#: restlist.php:11
+msgid "* Resting Spots have been sorted in close order."
+msgstr "＊近い順に並んでいます"
+
+#: restlist.php:16
+msgid "* Use this to see resting spots."
+msgstr "現在地から近い順に並び替えます"
+
 #: search.php:6
 msgid "search results"
 msgstr "検索結果"
@@ -358,6 +502,10 @@ msgstr "注目のイベント"
 #: sidebar.php:43 single-sw_trend.php:14
 msgid "Trend Topics"
 msgstr "トレンド記事"
+
+#: single-sw_rest.php:71
+msgid "Other Spots"
+msgstr "その他の休憩スポット"
 
 #: single-sw_trend.php:93
 msgid "Other Topics"
