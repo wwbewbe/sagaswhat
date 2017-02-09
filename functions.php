@@ -335,6 +335,27 @@ function event_info_to_the_content( $content ) {
 			}
 			$info = $info.'<tr><th>'.$thname.'</th><td>'.$data.'</td></tr>';
 		}
+		// 広さ
+		if( $howbig = get_post_meta($post->ID, 'howbig', false) ) {
+			$thname = esc_html__('Size of the place', 'SagasWhat');
+			if ($howbig > '0') {
+				switch ($howbig) {
+					case '1': // 1 Star
+						$stars = '<div class="stars"><i class="fa fa-star"></i></div>';
+						break;
+					case '2': // 2 Stars
+						$stars = '<div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i></div>';
+						break;
+					case '3': // 3 Stars
+						$stars = '<div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>';
+						break;
+					default: // as 3 Stars
+						$stars = '<div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>';
+						break;
+				}
+			}
+			$info = $info.'<tr><th>'.$thname.'</th><td>'.$stars.'</td></tr>';
+		}
 		$table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
 		return $content.$table;
 	}
@@ -1096,9 +1117,9 @@ function rest_setting( $post ) {
         true		//true:単一文字列, false:複数配列
     );
     $list = array(
-        1 => '大',
+        1 => '小',
         2 => '中',
-        3 => '小',
+        3 => '大',
     );
     echo '<dl>';
     echo   '<dt>';

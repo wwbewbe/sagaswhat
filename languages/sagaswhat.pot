@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SagasWhat\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2017-02-08 00:57+0900\n"
+"POT-Creation-Date: 2017-02-09 16:22+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -73,17 +73,17 @@ msgctxt "Resting Spots"
 msgid "Open Hours"
 msgstr ""
 
-#: functions.php:308 functions.php:459
+#: functions.php:308 functions.php:480
 msgid "Note"
 msgstr ""
 
-#: functions.php:310 functions.php:371 functions.php:394 functions.php:461
-#: functions.php:469 functions.php:477 functions.php:495
+#: functions.php:310 functions.php:392 functions.php:415 functions.php:482
+#: functions.php:490 functions.php:498 functions.php:516
 msgid "Click here"
 msgstr ""
 
-#: functions.php:316 functions.php:387 functions.php:488 functions.php:837
-#: functions.php:852
+#: functions.php:316 functions.php:408 functions.php:509 functions.php:858
+#: functions.php:873
 msgid "Address"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "Facility"
 msgstr ""
 
-#: functions.php:325 functions.php:377
+#: functions.php:325 functions.php:398
 msgid "Wi-Fi"
 msgstr ""
 
@@ -103,274 +103,278 @@ msgstr ""
 msgid "Grass Field"
 msgstr ""
 
-#: functions.php:347
+#: functions.php:340
+msgid "Size of the place"
+msgstr ""
+
+#: functions.php:368
 msgid "Center Name"
 msgstr ""
 
-#: functions.php:356
+#: functions.php:377
 msgid "JP Name"
 msgstr ""
 
-#: functions.php:361
+#: functions.php:382
 msgid "TIC Category"
 msgstr ""
 
-#: functions.php:363
+#: functions.php:384
 msgid "Category description (Japan National Tourism Organization)"
 msgstr ""
 
-#: functions.php:369 functions.php:467
+#: functions.php:390 functions.php:488
 msgid "Open Hours"
 msgstr ""
 
-#: functions.php:382
+#: functions.php:403
 msgid "PC"
 msgstr ""
 
-#: functions.php:392 functions.php:493
+#: functions.php:413 functions.php:514
 msgid "Contact"
 msgstr ""
 
-#: functions.php:408
+#: functions.php:429
 msgid "Event Name"
 msgstr ""
 
-#: functions.php:417 functions.php:836
+#: functions.php:438 functions.php:857
 msgid "Venue"
 msgstr ""
 
-#: functions.php:429
+#: functions.php:450
 msgid "Dates"
 msgstr ""
 
-#: functions.php:432 functions.php:436 functions.php:437 functions.php:445
-#: functions.php:451 page-calendar.php:44
+#: functions.php:453 functions.php:457 functions.php:458 functions.php:466
+#: functions.php:472 page-calendar.php:44
 msgid "F j, Y"
 msgstr ""
 
-#: functions.php:475
+#: functions.php:496
 msgid "Admission"
 msgstr ""
 
-#: functions.php:483
+#: functions.php:504
 msgid "Free Wi-Fi"
 msgstr ""
 
-#: functions.php:619
+#: functions.php:640
 msgid "Sponsored Links"
 msgstr ""
 
-#: functions.php:833
+#: functions.php:854
 msgid "Open date"
 msgstr ""
 
-#: functions.php:834
+#: functions.php:855
 msgid "Close date"
 msgstr ""
 
-#: functions.php:835
+#: functions.php:856
 msgid "Recommend"
 msgstr ""
 
-#: functions.php:845 functions.php:1276
+#: functions.php:866 functions.php:1297
 msgid "Keyword"
 msgstr ""
 
-#: functions.php:853 functions.php:1327
+#: functions.php:874 functions.php:1348
 msgid "Kind"
 msgstr ""
 
-#: functions.php:888 functions.php:901 functions.php:915 functions.php:923
+#: functions.php:909 functions.php:922 functions.php:936 functions.php:944
 msgid "None"
 msgstr ""
 
-#: functions.php:1238
+#: functions.php:1259
 msgctxt "post type general name"
 msgid "Trends"
 msgstr ""
 
-#: functions.php:1239
+#: functions.php:1260
 msgctxt "post type singular name"
 msgid "Trend"
 msgstr ""
 
-#: functions.php:1240
+#: functions.php:1261
 msgctxt "admin menu"
 msgid "Trends"
 msgstr ""
 
-#: functions.php:1241
+#: functions.php:1262
 msgctxt "add new on admin bar"
 msgid "Trend"
 msgstr ""
 
-#: functions.php:1242
+#: functions.php:1263
 msgctxt "trend"
 msgid "Add New"
 msgstr ""
 
-#: functions.php:1243
+#: functions.php:1264
 msgid "Add New Trend"
 msgstr ""
 
-#: functions.php:1244
+#: functions.php:1265
 msgid "New Trend"
 msgstr ""
 
-#: functions.php:1245
+#: functions.php:1266
 msgid "Edit Trend"
 msgstr ""
 
-#: functions.php:1246
+#: functions.php:1267
 msgid "View Trend"
 msgstr ""
 
-#: functions.php:1247
+#: functions.php:1268
 msgid "All Trends"
 msgstr ""
 
-#: functions.php:1248
+#: functions.php:1269
 msgid "Search Trends"
 msgstr ""
 
-#: functions.php:1249
+#: functions.php:1270
 msgid "Parent Trends:"
 msgstr ""
 
-#: functions.php:1250
+#: functions.php:1271
 msgid "No trends found."
 msgstr ""
 
-#: functions.php:1251
+#: functions.php:1272
 msgid "No trends found in Trash."
 msgstr ""
 
-#: functions.php:1266
+#: functions.php:1287
 msgctxt "taxonomy general name"
 msgid "Keywords"
 msgstr ""
 
-#: functions.php:1267
+#: functions.php:1288
 msgctxt "taxonomy singular name"
 msgid "Keyword"
 msgstr ""
 
-#: functions.php:1268
+#: functions.php:1289
 msgid "Search Keywords"
 msgstr ""
 
-#: functions.php:1269
+#: functions.php:1290
 msgid "All Keywords"
 msgstr ""
 
-#: functions.php:1272
+#: functions.php:1293
 msgid "Edit Keyword"
 msgstr ""
 
-#: functions.php:1273
+#: functions.php:1294
 msgid "Update Keyword"
 msgstr ""
 
-#: functions.php:1274
+#: functions.php:1295
 msgid "Add New Keyword"
 msgstr ""
 
-#: functions.php:1275
+#: functions.php:1296
 msgid "New Keyword Name"
 msgstr ""
 
-#: functions.php:1291
+#: functions.php:1312
 msgctxt "post type general name"
 msgid "Resting Spots"
 msgstr ""
 
-#: functions.php:1292
+#: functions.php:1313
 msgctxt "post type singular name"
 msgid "Resting Spot"
 msgstr ""
 
-#: functions.php:1293
+#: functions.php:1314
 msgctxt "admin menu"
 msgid "Resting Spots"
 msgstr ""
 
-#: functions.php:1294
+#: functions.php:1315
 msgctxt "add new on admin bar"
 msgid "Resting Spot"
 msgstr ""
 
-#: functions.php:1295
+#: functions.php:1316
 msgctxt "rest"
 msgid "Add New"
 msgstr ""
 
-#: functions.php:1296
+#: functions.php:1317
 msgid "Add New Resting Spot"
 msgstr ""
 
-#: functions.php:1297
+#: functions.php:1318
 msgid "New Resting Spot"
 msgstr ""
 
-#: functions.php:1298
+#: functions.php:1319
 msgid "Edit Resting Spot"
 msgstr ""
 
-#: functions.php:1299
+#: functions.php:1320
 msgid "View Resting Spot"
 msgstr ""
 
-#: functions.php:1300 single-sw_rest.php:14
+#: functions.php:1321 single-sw_rest.php:14
 msgid "Resting Spots"
 msgstr ""
 
-#: functions.php:1301
+#: functions.php:1322
 msgid "Search Resting Spots"
 msgstr ""
 
-#: functions.php:1302
+#: functions.php:1323
 msgid "Parent Resting Spots:"
 msgstr ""
 
-#: functions.php:1303
+#: functions.php:1324
 msgid "No rests found."
 msgstr ""
 
-#: functions.php:1304
+#: functions.php:1325
 msgid "No rests found in Trash."
 msgstr ""
 
-#: functions.php:1319
+#: functions.php:1340
 msgctxt "taxonomy general name"
 msgid "Kinds"
 msgstr ""
 
-#: functions.php:1320
+#: functions.php:1341
 msgctxt "taxonomy singular name"
 msgid "Kind"
 msgstr ""
 
-#: functions.php:1321
+#: functions.php:1342
 msgid "Search Kinds"
 msgstr ""
 
-#: functions.php:1322
+#: functions.php:1343
 msgid "All Kinds"
 msgstr ""
 
-#: functions.php:1323
+#: functions.php:1344
 msgid "Edit Kind"
 msgstr ""
 
-#: functions.php:1324
+#: functions.php:1345
 msgid "Update Kind"
 msgstr ""
 
-#: functions.php:1325
+#: functions.php:1346
 msgid "Add New Kind"
 msgstr ""
 
-#: functions.php:1326
+#: functions.php:1347
 msgid "New Kind Name"
 msgstr ""
 
