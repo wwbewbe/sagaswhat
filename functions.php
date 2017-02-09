@@ -706,7 +706,7 @@ function QueryListFilter($query) {
 add_action('pre_get_posts','QueryListFilter');
 
 //各イベント会場 or 観光案内所と現在地の距離をカスタムフィールドに保存
-function set_event_distance($lat, $lng, $target = 0, $posttype = 'post') {
+function set_event_distance($lat, $lng, $target, $posttype = 'post') {
 	global $post;
 
 	if ($posttype == 'post') {
@@ -743,7 +743,7 @@ function set_event_distance($lat, $lng, $target = 0, $posttype = 'post') {
 			//カスタムフィールドに緯度経度がなければ住所から算出し格納
 			$spotLat = esc_html( get_post_meta($post->ID, 'spot_lat', true) );
 			$spotLng = esc_html( get_post_meta($post->ID, 'spot_lng', true) );
-			if ((!$spotLat) || (!$spotLng)) {
+			if ((empty($spotLat)) || (empty($spotLng))) {
 				$address = esc_html( get_post_meta($post->ID, 'address', true) );
 				$LatLng = strAddrToLatLng($address);
 				$spotLat = $LatLng['Lat'];
@@ -751,7 +751,7 @@ function set_event_distance($lat, $lng, $target = 0, $posttype = 'post') {
 				update_post_meta($post->ID, 'spot_lat', $spotLat);
 				update_post_meta($post->ID, 'spot_lng', $spotLng);
 			}
-			if (($spotLat) && ($spotLng)) {
+			if ((isset($spotLat)) && (isset($spotLng))) {
 				$distanceLat = $spotLat - $lat;
 				$distanceLng = $spotLng - $lng;
 				// 距離の算出　pow = 乗算 / sqrt = 平方根
@@ -765,7 +765,7 @@ function set_event_distance($lat, $lng, $target = 0, $posttype = 'post') {
 }
 
 //イベント抽出フィルターの条件を設定
-function get_meta_query_args( $recommend = 0, $distance ) {
+function get_meta_query_args( $recommend = '0', $distance ) {
 	$args = array(
 		'relation'		=> 'AND',
 		array(
