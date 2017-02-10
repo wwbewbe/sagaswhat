@@ -435,20 +435,23 @@ header, footer, .container, .sub-header
 			border-collapse: collapse;
 			margin: 10px 0px}
 
-.event-info th	{width: 35%;
+.event-info th	{width: 25%;
 			padding: 6px;
 			text-align: left;
 			background-color: #eeeeee;
 			border: 1px solid #b9b9b9}
 
-.event-info td	{width: 65%;
+.event-info td	{width: 75%;
 			padding: 6px;
 			background-color: #ffffff;
 			border: 1px solid #b9b9b9}
 
 @media (max-width: 599px) {
-		.event-info th	{font-size: 14px}
-		.event-info td	{font-size: 14px}
+		.event-info th	{
+				width: 35%;
+				font-size: 14px}
+		.event-info td	{width: 65%;
+				font-size: 14px}
 		.event-info p	{font-size: 14px}
 }
 
