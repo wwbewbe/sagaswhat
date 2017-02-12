@@ -31,8 +31,8 @@
 			<?php if ($post->post_name == 'nearby-tic'): ?>
 				<a href="<?php the_permalink(); ?>"><i class="fa fa-info-circle fa-fw"></i><?php echo esc_html__('Nearby TICs', 'SagasWhat'); ?></a>
 			<?php endif; ?>
-			<?php if ($post->post_name == 'nearby-park'): ?>
-				<a href="<?php the_permalink(); ?>"><i class="fa fa-tree fa-fw"></i><?php echo esc_html__('Nearby Parks', 'SagasWhat'); ?></a>
+			<?php if ($post->post_name == 'rests'): ?>
+				<a href="<?php the_permalink(); ?>"><i class="fa fa-tree fa-fw"></i><?php echo esc_html__('Resting Spots', 'SagasWhat'); ?></a>
 			<?php endif; ?>
 
 		<?php endif;

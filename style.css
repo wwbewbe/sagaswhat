@@ -1512,3 +1512,13 @@ iframe			{max-width: 100%}
 		width: 25%;
 	}
 }
+
+/* 休憩スポット　一覧の開閉 */
+.restbtn {
+	background: #dddddd;
+	padding: 10px;
+	cursor: pointer;
+}
+.restbtn span {
+	color: #e90000;
+}

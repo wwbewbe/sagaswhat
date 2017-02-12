@@ -35,22 +35,48 @@ if (($lat) && ($lng)) {
 				)),
 	);
 } else {
-	$args=array(
-	            'post_type'		=> 'sw_rest',
-	            'posts_per_page'=> $list,       // リスト数を指定
-				'orderby'		=> 'meta_value_num',//市区町村の名前順に表示
-				'meta_key'		=> 'city',		// 市区町村
-				'paged'			=> $paged,
-	);
+	if ($city) {
+		$args=array(
+		            'post_type'		=> 'sw_rest',
+		            'posts_per_page'=> $list,       // リスト数を指定
+					'meta_key'		=> 'city',		// 市区町村
+					'meta_value'	=> $city,
+		);
+	} else {
+		$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+		$args=array(
+		            'post_type'		=> 'sw_rest',
+		            'posts_per_page'=> $list,       // リスト数を指定
+					'orderby'		=> 'meta_value_num',//市区町村の名前順に表示
+					'order'			=> 'ASC',
+					'meta_key'		=> 'city',		// 市区町村
+					'paged'			=> $paged,
+		);
+	}
 }
 ?>
+
+<?php if ($city): ?>
+<script type="text/javascript">
+jQuery(function(){
+	jQuery("#rest-slide").slideToggle(false);
+	jQuery(".restbtn").on("click",function(){
+		jQuery("#rest-slide").slideToggle();
+		jQuery(".restbtn").toggle();
+	});
+});
+</script>
+<div class="restbtn"><span><i class="fa fa-angle-double-right fa-fw"></i></span><?php echo $slidetitle; ?></div>
+<div class="restbtn" style="display:none;"><span><i class="fa fa-angle-double-down fa-fw"></i></span><?php echo $slidetitle; ?></div>
+<?php endif; ?>
+<div id="rest-slide">
 
 <?php $the_query = new WP_Query($args); ?>
 
 <?php if($the_query->have_posts()): while($the_query->have_posts()):
 $the_query->the_post(); ?>
 
-  <?php get_template_part( 'gaiyou', 'resting' ); ?>
+	<?php get_template_part( 'gaiyou', 'resting' ); ?>
 
 <?php endwhile; endif; ?>
 
@@ -62,5 +88,7 @@ $the_query->the_post(); ?>
 						 ) ); ?>
 </div>
 
-  <?php wp_reset_postdata(); ?>
+	<?php wp_reset_postdata(); ?>
+
+</div>
 </div>
