@@ -43,10 +43,10 @@ if (($posttype == 'post') || ($posttype == 'page')) {
 <?php if($the_query->have_posts()): while($the_query->have_posts()):
 $the_query->the_post(); ?>
 
-  <?php if (($posttype == 'post') || ($posttype == 'page')) {
-	  get_template_part( 'gaiyou', 'medium' );
+  <?php if ($posttype == 'sw_trend') {
+	  get_template_part( 'gaiyou', 'trends' );
   } else {
-	  get_template_part( 'gaiyou', 'custom' );
+	  get_template_part( 'gaiyou', 'medium' );
   } ?>
 
 <?php endwhile; endif; ?>

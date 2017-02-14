@@ -644,8 +644,52 @@ function create_post_type() {
 	register_taxonomy_for_object_type( 'kind', 'sw_rest' );
 	register_taxonomy_for_object_type( 'category', 'sw_rest' );
 
+	// お得情報ティッカー用投稿タイプ
+	$labels = array(
+		'name'				=> __( 'Valuable Events', 'SagasWhat' ),
+		'singular_name'		=> __( 'Valuable Event', 'SagasWhat' ),
+		'add_new'			=> __( 'Add New' , 'SagasWhat' ),
+		'add_new_item'		=> __( 'Add New Valuable Event' , 'SagasWhat' ),
+		'edit_item'			=> __( 'Edit Valuable Event' , 'SagasWhat' ),
+		'new_item'			=> __( 'New Valuable Event' , 'SagasWhat' ),
+		'view_item'			=> __('View Valuable Event', 'SagasWhat'),
+		'search_items'		=> __('Search Valuable Events', 'SagasWhat'),
+		'not_found'			=> __('No Valuable Events found', 'SagasWhat'),
+		'not_found_in_trash'	=> __('No Valuable Events found in Trash', 'SagasWhat'),
+	);
+
+	register_post_type('sw_val', array(
+		'labels'	=> $labels,
+		'public'	=> false,
+		'show_ui'	=> true,
+		'_builtin'	=>  false,
+		'capability_type'	=> 'page',
+		'rewrite'	=> false,
+		'query_var'	=> false,
+		'supports'	=> array(
+			'title',
+			'thumbnail',
+			'custom-fields',
+		),
+		'menu_position'	=> 5,
+	));
+
 }
 add_action( 'init', 'create_post_type' );
+
+// お得イベント情報からスラッグ設定を削除
+function remove_sw_val_slug() {
+	remove_meta_box( 'slugdiv' , 'sw_val' , 'normal' );
+}
+add_action( 'admin_menu' , 'remove_sw_val_slug' );
+// お得イベント管理画面一覧からクイック編集を削除
+function hide_quickedit($actions){
+	if (get_post_type() === 'sw_val') {
+		unset($actions['inline hide-if-no-js']);
+	}
+	return $actions;
+}
+add_filter( 'post_row_actions', 'hide_quickedit' );
 
 /**
  * タグクラウドのカスタマイズ

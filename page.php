@@ -50,10 +50,10 @@
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):
 	$the_query->the_post(); ?>
 
-	<?php if (get_post_type() == 'post') : ?>
-		<?php get_template_part( 'gaiyou', 'medium' ); ?>
+	<?php if (get_post_type() == 'sw_trend') : ?>
+		<?php get_template_part( 'gaiyou', 'trends' ); ?>
 	<?php else : ?>
-		<?php get_template_part( 'gaiyou', 'custom' ); ?>
+		<?php get_template_part( 'gaiyou', 'medium' ); ?>
 	<?php endif; ?>
 
 	<?php endwhile; endif; ?>

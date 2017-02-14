@@ -135,6 +135,8 @@ header, footer, .container, .sub-header
 
 .gaiyou p	{margin: 0;
 		font-size: 12px}
+.gaiyou .valuable	{margin: 0;
+		font-size: 14px}
 
 .gaiyou .kiji-date		{margin-bottom: 0;
 						font-size: 12px;}
@@ -154,6 +156,7 @@ header, footer, .container, .sub-header
 
 	.gaiyou p		{visibility: hidden;
 				height: 0}
+	.gaiyou .valuable	{font-size: 12px;}
 
 	.gaiyou .kiji-date		{margin-bottom: 0;
 							font-size: 10px;}
@@ -1521,4 +1524,46 @@ iframe			{max-width: 100%}
 }
 .restbtn span {
 	color: #e90000;
+}
+
+/* Ticker Design */
+#wrapper > div {
+	background-color: #0d3621;
+/*	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;*/
+	width: 100%;
+	height: 30px;
+	padding: 5px 0;
+	overflow: hidden;
+}
+#wrapper dl {
+	display: block;
+	margin: 0;
+}
+#wrapper dt, #wrapper dd {
+	display: block;
+	float: left;
+	margin: 0 10px;
+	padding: 5px 10px;
+}
+#wrapper dt {
+	background-color: #e95b5b;
+	color: #ffffff;
+	-webkit-animation-name: blink;/* keyframe名 */
+	-webkit-animation-duration: 1s;/* アニメーションにかける時間 */
+	-webkit-animation-iteration-count:infinite;/*infiniteで無限ループ */
+	-webkit-animation-timing-function:ease-in-out;/* イーズインアウト */
+	-webkit-animation-direction: alternate;/* alternateにするとアニメーションが反復 */
+	-webkit-animation-delay: 0s; /* 実行までの待ち時間 */
+}
+#wrapper dd {
+	color: #ffffff;
+	margin-right: 50px;
+}
+#wrapper a {
+	color: #ffffff;
+}
+@-webkit-keyframes blink {
+	from {opacity: 1;}
+	to {opacity: 0;}
 }

@@ -20,10 +20,11 @@
 	} ?>
 
 	<?php if (has_term('', 'keyword', $post_id)) {
-		get_template_part( 'gaiyou', 'custom' );
+		get_template_part( 'gaiyou', 'trends' );
+	} elseif (has_term('', 'kind', $post_id)) {
+		get_template_part( 'gaiyou', 'resting' );
 	} else {
 		get_template_part( 'gaiyou', 'medium' );
-
 	} ?>
 
 	<?php endwhile; endif; ?>

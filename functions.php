@@ -180,6 +180,9 @@ function theme_enqueue_scripts() {
 	wp_enqueue_script( 'floating-script', get_template_directory_uri() .'/js/floating-menu.js', array( 'jquery' ) );
 	// jCarouselを使用
 	wp_enqueue_script( 'carousel-script', get_template_directory_uri() .'/js/jquery.jcarousellite.min.js', array( 'jquery' ) );
+	// お得イベントのTicker表示用
+	wp_enqueue_script( 'carouFredSel-script', get_template_directory_uri() .'/js/jquery.carouFredSel-6.2.1.js', array( 'jquery' ) );
+	wp_enqueue_script( 'ticker-script', get_template_directory_uri() .'/js/ticker.js', array( 'jquery' ) );
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
 
@@ -845,3 +848,53 @@ function my_theme_catexcept($cat_args){
     return $cat_args;
 }
 add_filter('widget_categories_args', 'my_theme_catexcept',10);
+
+function the_ticker_event() {
+	global $post;
+
+	$args = array(
+		'post_type'		=> 'sw_val',
+		'posts_per_page'=> '-1',
+		'meta_query'	=> array(
+			'relation'		=> 'AND',
+			'meta_close'=>array(
+				'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄
+				'value'		=> date_i18n( "Y/m/d" ),//イベント終了日を今日と比較
+				'compare'	=> '>=',				//今日以降なら表示
+				'type'		=> 'date',				//タイプに日付を指定
+			),
+			'meta_open'=>array(
+				'key'		=> 'eventopen',			//カスタムフィールドのおすすめ度
+				'value'		=> date_i18n( "Y/m/d", strtotime("+3 day") ),//イベント開催日を今日と比較
+				'compare'	=> '<=',				//指定のおすすめ度以上を表示
+				'type'		=> 'date',				//タイプに日付を指定
+			),
+		),
+	);
+
+	$the_query = new WP_Query($args);
+
+	printf('<div id="wrapper">');
+	printf('<div class="first">');
+	printf('<dl id="ticker">');
+	printf('<dt>%1$s</dt><dd><a href="%3$s/topics-valuable">%2$s</a></dd>', esc_html__('Information', 'SagasWhat'), esc_html__('Find the free/discount information.', 'SagasWhat'), get_bloginfo('url'));
+
+	if($the_query->have_posts()) {
+		while($the_query->have_posts()) {
+			$the_query->the_post();
+			if ($openseason = get_post_meta($post->ID, 'openseason', true)) {
+				printf('<dd><a href="%4$s/topics-valuable">%1$s : %2$s : %3$s</a></dd>', $openseason, get_the_title(), get_post_meta($post->ID, 'ticker', true), get_bloginfo('url'));
+			} else {
+				printf('<dd><a href="%4$s/topics-valuable">%1$s : %2$s : %3$s</a></dd>', get_post_meta($post->ID, 'eventopen', true), get_the_title(), get_post_meta($post->ID, 'ticker', true), get_bloginfo('url'));
+			}
+		}
+	} else {
+		printf('<dt>%1$s</dt><dd><a href="%3$s/topics-valuable">%2$s</a></dd>', esc_html__('Information', 'SagasWhat'), esc_html__('Find the free/discount information.', 'SagasWhat'), get_bloginfo('url'));
+	}
+	wp_reset_postdata();
+
+	printf('</dl>');
+	printf('</div>');
+	printf('</div>');
+
+}

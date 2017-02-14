@@ -17,6 +17,8 @@
 <?php echo get_adsense(true); ?>
 </aside>
 
+<?php the_ticker_event(); ?>
+
 <div class="contents">
 
 	<?php get_template_part( 'topics', 'menu' ); //Topics Menu ?>
