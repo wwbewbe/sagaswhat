@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-02-13 01:15+0900\n"
-"PO-Revision-Date: 2017-02-13 01:33+0900\n"
+"POT-Creation-Date: 2017-02-14 23:43+0900\n"
+"PO-Revision-Date: 2017-02-14 23:48+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -39,12 +39,12 @@ msgid "Favorite Events"
 msgstr "お気に入り"
 
 #: favorite-events.php:25 single-sw_rest.php:73 single-sw_trend.php:95
-#: single.php:126
+#: single.php:127
 msgid "Prev"
 msgstr "戻る"
 
 #: favorite-events.php:26 single-sw_rest.php:74 single-sw_trend.php:96
-#: single.php:127
+#: single.php:128
 msgid "Next"
 msgstr "次へ"
 
@@ -56,122 +56,132 @@ msgstr "周辺イベント"
 msgid "Nearby TICs"
 msgstr "周辺の観光案内所"
 
-#: footer.php:35 inc/custom-edit.php:608 single-sw_rest.php:14
+#: footer.php:35 inc/custom-edit.php:633 single-sw_rest.php:14
 msgid "Resting Spots"
 msgstr "休憩スポット"
 
-#: functions.php:291
+#: functions.php:294
 msgid "Spot Name"
 msgstr "休憩スポット名"
 
-#: functions.php:300
+#: functions.php:303
 msgid "Nearest Station"
 msgstr "最寄り駅"
 
-#: functions.php:305
+#: functions.php:308
 msgctxt "Resting Spots"
 msgid "Open Hours"
 msgstr "開園時間"
 
-#: functions.php:310 functions.php:482
+#: functions.php:313 functions.php:485
 msgid "Note"
 msgstr "備考"
 
-#: functions.php:312 functions.php:394 functions.php:417 functions.php:484
-#: functions.php:492 functions.php:500 functions.php:518
+#: functions.php:315 functions.php:397 functions.php:420 functions.php:487
+#: functions.php:495 functions.php:503 functions.php:521
 msgid "Click here"
 msgstr "詳細はこちら"
 
-#: functions.php:318 functions.php:410 functions.php:511 inc/custom-edit.php:16
-#: inc/custom-edit.php:31
+#: functions.php:321 functions.php:413 functions.php:514 inc/custom-edit.php:16
+#: inc/custom-edit.php:35
 msgid "Address"
 msgstr "住所"
 
-#: functions.php:323
+#: functions.php:326
 msgid "Facility"
 msgstr "設備"
 
-#: functions.php:327 functions.php:400
+#: functions.php:330 functions.php:403
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: functions.php:330
+#: functions.php:333
 msgid "Shop/Cafe/Vending Machine"
 msgstr "売店・カフェ・自販機"
 
-#: functions.php:333
+#: functions.php:336
 msgid "Grass Field"
 msgstr "草地広場"
 
-#: functions.php:342
+#: functions.php:345
 msgid "Size of the place"
 msgstr "場所の広さ"
 
-#: functions.php:370
+#: functions.php:373
 msgid "Center Name"
 msgstr "観光案内所名"
 
-#: functions.php:379
+#: functions.php:382
 msgid "JP Name"
 msgstr "日本語名"
 
-#: functions.php:384
+#: functions.php:387
 msgid "TIC Category"
 msgstr "TICカテゴリー"
 
-#: functions.php:386
+#: functions.php:389
 msgid "Category description (Japan National Tourism Organization)"
 msgstr "カテゴリー説明 (日本政府観光局)"
 
-#: functions.php:392 functions.php:490
+#: functions.php:395 functions.php:493
 msgid "Open Hours"
 msgstr "時間"
 
-#: functions.php:405
+#: functions.php:408
 msgid "PC"
 msgstr "PC"
 
-#: functions.php:415 functions.php:516
+#: functions.php:418 functions.php:519
 msgid "Contact"
 msgstr "お問合わせ"
 
-#: functions.php:431
+#: functions.php:434
 msgid "Event Name"
 msgstr "イベント名"
 
-#: functions.php:440 inc/custom-edit.php:15
+#: functions.php:443 inc/custom-edit.php:15
 msgid "Venue"
 msgstr "会場"
 
-#: functions.php:452
+#: functions.php:455
 msgid "Dates"
 msgstr "開催期間"
 
-#: functions.php:455 functions.php:459 functions.php:460 functions.php:468
-#: functions.php:474 page-calendar.php:44
+#: functions.php:458 functions.php:462 functions.php:463 functions.php:471
+#: functions.php:477 page-calendar.php:44
 msgid "F j, Y"
 msgstr "Y年n月j日(D)"
 
-#: functions.php:498
+#: functions.php:501
 msgid "Admission"
 msgstr "料金"
 
-#: functions.php:506
+#: functions.php:509
 msgid "Free Wi-Fi"
 msgstr "Free Wi-Fi"
 
-#: functions.php:644
+#: functions.php:647
 msgid "Sponsored Links"
 msgstr "スポンサーリンク"
 
-#: gaiyou-custom.php:12 gaiyou-custom.php:19 gaiyou-medium.php:20
-#: gaiyou-medium.php:23 gaiyou-medium.php:24 gaiyou-medium.php:31
-#: gaiyou-medium.php:35 page-about.php:19 page-about.php:27 sidebar.php:62
-#: single-sw_trend.php:46 single-sw_trend.php:53
+#: functions.php:880 functions.php:892
+msgid "Information"
+msgstr "お得情報"
+
+#: functions.php:880 functions.php:892
+msgid "Find the free/discount information."
+msgstr "無料・割引情報"
+
+#: gaiyou-medium.php:20 gaiyou-medium.php:23 gaiyou-medium.php:24
+#: gaiyou-medium.php:31 gaiyou-medium.php:35 gaiyou-trends.php:12
+#: gaiyou-trends.php:19 gaiyou-valuable.php:20 gaiyou-valuable.php:23
+#: gaiyou-valuable.php:24 gaiyou-valuable.php:31 gaiyou-valuable.php:35
+#: page-about.php:19 page-about.php:27 sidebar.php:62 single-sw_trend.php:46
+#: single-sw_trend.php:53
 msgid "M j, Y"
 msgstr "Y年n月j日"
 
-#: gaiyou-medium.php:33
+#: gaiyou-medium.php:33 gaiyou-valuable.php:33
 msgid "&gt;&gt;&gt;"
 msgstr "&gt;&gt;&gt;"
 
@@ -213,11 +223,11 @@ msgstr "ブラウザが対応していないため、位置情報を取得でき
 msgid " Events List"
 msgstr " イベント一覧"
 
-#: inc/custom-edit.php:12
+#: inc/custom-edit.php:12 inc/custom-edit.php:19
 msgid "Open date"
 msgstr "開催日"
 
-#: inc/custom-edit.php:13
+#: inc/custom-edit.php:13 inc/custom-edit.php:20
 msgid "Close date"
 msgstr "終了日"
 
@@ -225,204 +235,244 @@ msgstr "終了日"
 msgid "Recommend"
 msgstr "推奨度"
 
-#: inc/custom-edit.php:24 inc/custom-edit.php:584
+#: inc/custom-edit.php:28 inc/custom-edit.php:609
 msgid "Keyword"
 msgstr "キーワード"
 
-#: inc/custom-edit.php:32 inc/custom-edit.php:635
+#: inc/custom-edit.php:36 inc/custom-edit.php:660
 msgid "Kind"
 msgstr "種別"
 
-#: inc/custom-edit.php:67 inc/custom-edit.php:80 inc/custom-edit.php:94
-#: inc/custom-edit.php:102
+#: inc/custom-edit.php:71 inc/custom-edit.php:86 inc/custom-edit.php:99
+#: inc/custom-edit.php:113 inc/custom-edit.php:121
 msgid "None"
 msgstr "なし"
 
-#: inc/custom-edit.php:546
+#: inc/custom-edit.php:571
 msgctxt "post type general name"
 msgid "Trends"
 msgstr "トレンド"
 
-#: inc/custom-edit.php:547
+#: inc/custom-edit.php:572
 msgctxt "post type singular name"
 msgid "Trend"
 msgstr "トレンド記事"
 
-#: inc/custom-edit.php:548
+#: inc/custom-edit.php:573
 msgctxt "admin menu"
 msgid "Trends"
 msgstr "トレンド"
 
-#: inc/custom-edit.php:549
+#: inc/custom-edit.php:574
 msgctxt "add new on admin bar"
 msgid "Trend"
 msgstr "トレンド記事"
 
-#: inc/custom-edit.php:550
+#: inc/custom-edit.php:575
 msgctxt "trend"
 msgid "Add New"
 msgstr "新規追加"
 
-#: inc/custom-edit.php:551
+#: inc/custom-edit.php:576
 msgid "Add New Trend"
 msgstr "新規トレンド追加"
 
-#: inc/custom-edit.php:552
+#: inc/custom-edit.php:577
 msgid "New Trend"
 msgstr "新規トレンド"
 
-#: inc/custom-edit.php:553
+#: inc/custom-edit.php:578
 msgid "Edit Trend"
 msgstr "トレンド編集"
 
-#: inc/custom-edit.php:554
+#: inc/custom-edit.php:579
 msgid "View Trend"
 msgstr "トレンド表示"
 
-#: inc/custom-edit.php:555
+#: inc/custom-edit.php:580
 msgid "All Trends"
 msgstr "すべてのトレンド"
 
-#: inc/custom-edit.php:556
+#: inc/custom-edit.php:581
 msgid "Search Trends"
 msgstr "トレンド検索"
 
-#: inc/custom-edit.php:557
+#: inc/custom-edit.php:582
 msgid "Parent Trends:"
 msgstr "親トレンド:"
 
-#: inc/custom-edit.php:558
+#: inc/custom-edit.php:583
 msgid "No trends found."
 msgstr "トレンドは見つかりませんでした。"
 
-#: inc/custom-edit.php:559
+#: inc/custom-edit.php:584
 msgid "No trends found in Trash."
 msgstr "ゴミ箱にトレンドは見つかりませんでした。"
 
-#: inc/custom-edit.php:574
+#: inc/custom-edit.php:599
 msgctxt "taxonomy general name"
 msgid "Keywords"
 msgstr "キーワード"
 
-#: inc/custom-edit.php:575
+#: inc/custom-edit.php:600
 msgctxt "taxonomy singular name"
 msgid "Keyword"
 msgstr "キーワード"
 
-#: inc/custom-edit.php:576
+#: inc/custom-edit.php:601
 msgid "Search Keywords"
 msgstr "キーワード検索"
 
-#: inc/custom-edit.php:577
+#: inc/custom-edit.php:602
 msgid "All Keywords"
 msgstr "全てのキーワード"
 
-#: inc/custom-edit.php:580
+#: inc/custom-edit.php:605
 msgid "Edit Keyword"
 msgstr "キーワード編集"
 
-#: inc/custom-edit.php:581
+#: inc/custom-edit.php:606
 msgid "Update Keyword"
 msgstr "キーワード更新"
 
-#: inc/custom-edit.php:582
+#: inc/custom-edit.php:607
 msgid "Add New Keyword"
 msgstr "新規キーワード追加"
 
-#: inc/custom-edit.php:583
+#: inc/custom-edit.php:608
 msgid "New Keyword Name"
 msgstr "新規キーワード名"
 
-#: inc/custom-edit.php:599
+#: inc/custom-edit.php:624
 msgctxt "post type general name"
 msgid "Resting Spots"
 msgstr "休憩スポット"
 
-#: inc/custom-edit.php:600
+#: inc/custom-edit.php:625
 msgctxt "post type singular name"
 msgid "Resting Spot"
 msgstr "休憩スポット"
 
-#: inc/custom-edit.php:601
+#: inc/custom-edit.php:626
 msgctxt "admin menu"
 msgid "Resting Spots"
 msgstr "休憩スポット"
 
-#: inc/custom-edit.php:602
+#: inc/custom-edit.php:627
 msgctxt "add new on admin bar"
 msgid "Resting Spot"
 msgstr "休憩スポット"
 
-#: inc/custom-edit.php:603
+#: inc/custom-edit.php:628
 msgctxt "rest"
 msgid "Add New"
 msgstr "新規追加"
 
-#: inc/custom-edit.php:604
+#: inc/custom-edit.php:629
 msgid "Add New Resting Spot"
 msgstr "新規休憩スポット追加"
 
-#: inc/custom-edit.php:605
+#: inc/custom-edit.php:630
 msgid "New Resting Spot"
 msgstr "新規休憩スポット"
 
-#: inc/custom-edit.php:606
+#: inc/custom-edit.php:631
 msgid "Edit Resting Spot"
 msgstr "休憩スポット編集"
 
-#: inc/custom-edit.php:607
+#: inc/custom-edit.php:632
 msgid "View Resting Spot"
 msgstr "休憩スポット表示"
 
-#: inc/custom-edit.php:609
+#: inc/custom-edit.php:634
 msgid "Search Resting Spots"
 msgstr "休憩スポット検索"
 
-#: inc/custom-edit.php:610
+#: inc/custom-edit.php:635
 msgid "Parent Resting Spots:"
 msgstr "親休憩スポット"
 
-#: inc/custom-edit.php:611
+#: inc/custom-edit.php:636
 msgid "No rests found."
 msgstr "休憩スポットは見つかりませんでした。"
 
-#: inc/custom-edit.php:612
+#: inc/custom-edit.php:637
 msgid "No rests found in Trash."
 msgstr "ゴミ箱に休憩スポットは見つかりませんでした。"
 
-#: inc/custom-edit.php:627
+#: inc/custom-edit.php:652
 msgctxt "taxonomy general name"
 msgid "Kinds"
 msgstr "種別"
 
-#: inc/custom-edit.php:628
+#: inc/custom-edit.php:653
 msgctxt "taxonomy singular name"
 msgid "Kind"
 msgstr "種別"
 
-#: inc/custom-edit.php:629
+#: inc/custom-edit.php:654
 msgid "Search Kinds"
 msgstr "種別検索"
 
-#: inc/custom-edit.php:630
+#: inc/custom-edit.php:655
 msgid "All Kinds"
 msgstr "全ての種別"
 
-#: inc/custom-edit.php:631
+#: inc/custom-edit.php:656
 msgid "Edit Kind"
 msgstr "種別編集"
 
-#: inc/custom-edit.php:632
+#: inc/custom-edit.php:657
 msgid "Update Kind"
 msgstr "種別更新"
 
-#: inc/custom-edit.php:633
+#: inc/custom-edit.php:658
 msgid "Add New Kind"
 msgstr "新規種別追加"
 
-#: inc/custom-edit.php:634
+#: inc/custom-edit.php:659
 msgid "New Kind Name"
 msgstr "新規種別"
+
+#: inc/custom-edit.php:674
+msgid "Valuable Events"
+msgstr "お得イベント"
+
+#: inc/custom-edit.php:675
+msgid "Valuable Event"
+msgstr "お得イベント"
+
+#: inc/custom-edit.php:676
+msgid "Add New"
+msgstr "新規追加"
+
+#: inc/custom-edit.php:677
+msgid "Add New Valuable Event"
+msgstr "お得イベント追加"
+
+#: inc/custom-edit.php:678
+msgid "Edit Valuable Event"
+msgstr "お得イベント編集"
+
+#: inc/custom-edit.php:679
+msgid "New Valuable Event"
+msgstr "新規お得イベント"
+
+#: inc/custom-edit.php:680
+msgid "View Valuable Event"
+msgstr "お得イベント表示"
+
+#: inc/custom-edit.php:681
+msgid "Search Valuable Events"
+msgstr "お得イベント検索"
+
+#: inc/custom-edit.php:682
+msgid "No Valuable Events found"
+msgstr "お得イベントは見つかりませんでした。"
+
+#: inc/custom-edit.php:683
+msgid "No Valuable Events found in Trash"
+msgstr "ゴミ箱にお得イベントは見つかりませんでした。"
 
 #: page-calendar.php:31
 msgid "Search"
@@ -480,7 +530,7 @@ msgstr "現在地から近い順に並び替えます"
 msgid "* Use this to see nearby TICs."
 msgstr "現在地から近い順に並び替えます"
 
-#: page-toppage.php:87
+#: page-toppage.php:89
 msgid "Upcoming Events"
 msgstr "開催予定のイベント"
 
@@ -512,11 +562,11 @@ msgstr "その他の休憩スポット"
 msgid "Other Topics"
 msgstr "その他トレンド記事"
 
-#: single.php:44
+#: single.php:45
 msgid "This event has closed."
 msgstr "このイベントは終了しました"
 
-#: single.php:124
+#: single.php:125
 msgid "Related Events"
 msgstr "関連イベント"
 
@@ -541,9 +591,6 @@ msgstr "シェア "
 
 #~ msgid "Trend"
 #~ msgstr "トレンド"
-
-#~ msgid "Add New"
-#~ msgstr "新規追加"
 
 #~ msgid "Keywords"
 #~ msgstr "キーワード"

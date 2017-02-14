@@ -15,6 +15,10 @@ function add_posts_columns_name($columns) {
 		$columns['venue'] = esc_html__('Venue', 'SagasWhat');
 		$columns['address'] = esc_html__('Address', 'SagasWhat');
 	}
+	if ($post->post_type == 'sw_val') {
+	    $columns['eventopen'] = esc_html__('Open date', 'SagasWhat');
+		$columns['eventclose'] = esc_html__('Close date', 'SagasWhat');
+	}
     return $columns;
 }
 add_filter( 'manage_posts_columns', 'add_posts_columns_name' );
@@ -63,6 +67,21 @@ function add_column($column_name, $post_id) {
 	        echo esc_html($venue);
 		} elseif (!empty($address)) {
 	        echo esc_html($address);
+		} else {
+			echo esc_html(__('None', 'SagasWhat'));
+	    }
+	}
+	if ($post->post_type == 'sw_val') {
+	    if ($column_name == 'eventopen') {
+	        $opendate = get_post_meta($post_id, 'eventopen', true);
+	    }
+		if ($column_name == 'eventclose') {
+	        $closedate = get_post_meta($post_id, 'eventclose', true);
+	    }
+		if (!empty($opendate)) {
+	        echo esc_html($opendate);
+	    } elseif (!empty($closedate)) {
+	        echo esc_html($closedate);
 		} else {
 			echo esc_html(__('None', 'SagasWhat'));
 	    }
@@ -139,6 +158,12 @@ function custom_orderby_columns( $vars ) {
 }
 add_filter( 'manage_edit-post_sortable_columns', 'custom_sortable_columns');
 add_filter( 'request', 'custom_orderby_columns' );
+function val_sortable_columns($sortable_column) {
+    $sortable_column['eventopen'] = 'eventopen';
+	$sortable_column['eventclose'] = 'eventclose';
+    return $sortable_column;
+}
+add_filter( 'manage_edit-sw_val_sortable_columns', 'val_sortable_columns');
 
 //イベント終了画像IDをメディアライブラリから取得
 function get_closed_img() {
