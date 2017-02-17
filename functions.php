@@ -341,7 +341,7 @@ function event_info_to_the_content( $content ) {
 			$info = $info.'<tr><th>'.$thname.'</th><td>'.$data.'</td></tr>';
 		}
 		// 広さ
-		if( $howbig = get_post_meta($post->ID, 'howbig', false) ) {
+		if( $howbig = get_post_meta($post->ID, 'howbig', true) ) {
 			$thname = esc_html__('Size of the place', 'SagasWhat');
 			if ($howbig > '0') {
 				switch ($howbig) {
