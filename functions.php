@@ -877,7 +877,7 @@ function the_ticker_event() {
 	printf('<div id="wrapper">');
 	printf('<div class="first">');
 	printf('<dl id="ticker">');
-	printf('<dt>%1$s</dt><dd><a href="%3$s/topics-valuable">%2$s</a></dd>', esc_html__('Information', 'SagasWhat'), esc_html__('Find the free/discount information.', 'SagasWhat'), get_bloginfo('url'));
+	printf('<dt>%1$s</dt><dd><a href="%3$s/topics-valuable">%2$s</a></dd>', esc_html__('Information', 'SagasWhat'), esc_html__('Find the free & discount information for Museum, Zoo, etc.', 'SagasWhat'), get_bloginfo('url'));
 
 	if($the_query->have_posts()) {
 		while($the_query->have_posts()) {
@@ -889,7 +889,7 @@ function the_ticker_event() {
 			}
 		}
 	} else {
-		printf('<dt>%1$s</dt><dd><a href="%3$s/topics-valuable">%2$s</a></dd>', esc_html__('Information', 'SagasWhat'), esc_html__('Find the free/discount information.', 'SagasWhat'), get_bloginfo('url'));
+		printf('<dt>%1$s</dt><dd><a href="%3$s/topics-valuable">%2$s</a></dd>', esc_html__('Information', 'SagasWhat'), esc_html__('Find the free & discount information for Museum, Zoo, etc.', 'SagasWhat'), get_bloginfo('url'));
 	}
 	wp_reset_postdata();
 

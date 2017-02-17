@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-02-14 23:43+0900\n"
-"PO-Revision-Date: 2017-02-14 23:48+0900\n"
+"POT-Creation-Date: 2017-02-18 00:47+0900\n"
+"PO-Revision-Date: 2017-02-18 00:47+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -166,11 +166,11 @@ msgstr "スポンサーリンク"
 
 #: functions.php:880 functions.php:892
 msgid "Information"
-msgstr "お得情報"
+msgstr "Information"
 
 #: functions.php:880 functions.php:892
-msgid "Find the free/discount information."
-msgstr "無料・割引情報"
+msgid "Find the free & discount information for Museum, Zoo, etc."
+msgstr "美術館や動物園などの無料＆割引情報"
 
 #: gaiyou-medium.php:20 gaiyou-medium.php:23 gaiyou-medium.php:24
 #: gaiyou-medium.php:31 gaiyou-medium.php:35 gaiyou-trends.php:12
@@ -573,6 +573,9 @@ msgstr "関連イベント"
 #: snsbtn.php:6 snsbtn.php:11 snsbtn.php:16
 msgid "Share on "
 msgstr "シェア "
+
+#~ msgid "Find the free/discount information."
+#~ msgstr "美術館や動物園などの無料＆割引情報"
 
 #~ msgid "Nearby Parks"
 #~ msgstr "周辺の公園"
