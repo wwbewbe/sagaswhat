@@ -37,25 +37,30 @@
 	}
 	?>
 
-	<div class="kiji-date">
+	<div class="valuable">
+	<?php echo get_post_meta($post->ID, 'ticker', true); ?>
+	</div>
+	<div class="valuable">
+	<?php echo get_post_meta($post->ID, 'note', true); ?>
+	</div>
+	<div class="valuable-date">
 	<i class="fa fa-calendar fa-fw"></i>
 	<time
 	datetime="<?php echo $datetime; ?>">
 	<?php echo $dates; ?>
 	</time>
 	</div>
-	<div class="kiji-date">
+	<div class="valuable-time">
 		<i class="fa fa-clock-o fa-fw"></i>
 		<?php echo get_post_meta($post->ID, 'bizhours', true); ?>
 	</div>
 	<div class="valuable">
+		<i class="fa fa-map-marker fa-fw"></i>
 	<?php echo get_post_meta($post->ID, 'showaddress', true); ?>
 	</div>
 	<div class="valuable">
+		<i class="fa fa-phone fa-fw"></i>
 	<?php echo get_post_meta($post->ID, 'telephone', true); ?>
-	</div>
-	<div class="valuable">
-	<?php echo get_post_meta($post->ID, 'note', true); ?>
 	</div>
 
 </div>
