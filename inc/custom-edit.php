@@ -671,16 +671,16 @@ function create_post_type() {
 
 	// お得情報ティッカー用投稿タイプ
 	$labels = array(
-		'name'				=> __( 'Valuable Events', 'SagasWhat' ),
-		'singular_name'		=> __( 'Valuable Event', 'SagasWhat' ),
+		'name'				=> __( 'Valuable Infos', 'SagasWhat' ),
+		'singular_name'		=> __( 'Valuable Info', 'SagasWhat' ),
 		'add_new'			=> __( 'Add New' , 'SagasWhat' ),
-		'add_new_item'		=> __( 'Add New Valuable Event' , 'SagasWhat' ),
-		'edit_item'			=> __( 'Edit Valuable Event' , 'SagasWhat' ),
-		'new_item'			=> __( 'New Valuable Event' , 'SagasWhat' ),
-		'view_item'			=> __('View Valuable Event', 'SagasWhat'),
-		'search_items'		=> __('Search Valuable Events', 'SagasWhat'),
-		'not_found'			=> __('No Valuable Events found', 'SagasWhat'),
-		'not_found_in_trash'	=> __('No Valuable Events found in Trash', 'SagasWhat'),
+		'add_new_item'		=> __( 'Add New Valuable Info' , 'SagasWhat' ),
+		'edit_item'			=> __( 'Edit Valuable Info' , 'SagasWhat' ),
+		'new_item'			=> __( 'New Valuable Info' , 'SagasWhat' ),
+		'view_item'			=> __('View Valuable Info', 'SagasWhat'),
+		'search_items'		=> __('Search Valuable Infos', 'SagasWhat'),
+		'not_found'			=> __('No Valuable Infos found', 'SagasWhat'),
+		'not_found_in_trash'	=> __('No Valuable Infos found in Trash', 'SagasWhat'),
 	);
 
 	register_post_type('sw_val', array(
