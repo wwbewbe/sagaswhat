@@ -43,7 +43,7 @@
 		    'post_type'		=> 'post',		// 投稿
 		    'posts_per_page' => '10',		// 10件表示
 			'category__not_in' => array(1, $infocat->cat_ID), // カテゴリが未分類と観光案内所の記事は非表示
-			'orderby'		=> array('meta_recommend'=>'desc', 'meta_close'=>'asc'),//おすすめ度の高い順＆終了日が近い順に表示
+			'orderby'		=> array('meta_recommend'=>'DESC', 'meta_close'=>'ASC', 'title'=>'ASC'),//おすすめ度の高い順＆終了日が近い順に表示
 			'paged'			=> $paged,
 			'meta_query'	=> $meta_query_args,//終了していない＆おすすめ度が4以上のイベント
 		);

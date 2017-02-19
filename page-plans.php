@@ -36,7 +36,7 @@
 			'post_type'		=> 'post',
 			'posts_per_page'=> '10',
 			'category__not_in' => array(1, $infocat->cat_ID), // カテゴリが未分類と観光案内所の記事は非表示
-			'orderby'		=> array('meta_recommend'=>'desc', 'meta_open'=>'asc'),//おすすめ度の高い順で表示
+			'orderby'		=> array('meta_recommend'=>'DESC', 'meta_close'=>'ASC', 'title'=>'ASC'),//おすすめ度の高い順で表示
 			'paged'			=> $paged,
 			'meta_query'	=> array(
 				'relation'		=> 'AND',

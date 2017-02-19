@@ -5,7 +5,7 @@
 		'post_type'		=> 'sw_val',
 		'posts_per_page'=> $list,
 		'paged'			=> $paged,
-		'orderby'		=> array('meta_close'=>'asc'),//おすすめ度の高い順＆終了日が近い順に表示
+		'orderby'		=> array('meta_close'=>'ASC', 'title'=>'ASC'),//おすすめ度の高い順＆終了日が近い順に表示
 		'meta_query'	=> array(
 			'meta_close'=>array(
 				'key'		=> 'eventclose',		//カスタムフィールドのイベント終了日欄

@@ -39,7 +39,7 @@
 			'post_type'		=> array('post', 'sw_trend'),
 			'posts_per_page'=> '10',
 			'category_name'	=> esc_attr($post->post_name),  // 'カテゴリースラッグ' => 'ページスラッグ'
-			'orderby'		=> array('meta_recommend'=>'desc', 'meta_close'=>'asc'),//おすすめ度の高い順＆終了日が近い順に表示
+			'orderby'		=> array('meta_recommend'=>'DESC', 'meta_close'=>'ASC', 'title'=>'ASC'),//おすすめ度の高い順＆終了日が近い順に表示
 			'meta_query'	=> get_meta_query_args(),
 			'paged'			=> $paged,
 		); ?>

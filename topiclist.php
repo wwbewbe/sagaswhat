@@ -37,7 +37,7 @@ if (($lat) && ($lng)) {
 	            'posts_per_page'=> $list,       // リスト数を指定
 				'category__not_in' => array(1, $infocat->cat_ID), // カテゴリが未分類と観光案内所の記事は非表示
 	            'tag'           => $tagname,    // タグを指定
-				'orderby'		=> array('meta_recommend'=>'desc', 'meta_close'=>'asc'),//おすすめ度の高い順＆終了日が近い順に表示
+				'orderby'		=> array('meta_recommend'=>'DESC', 'meta_close'=>'ASC', 'title'=>'ASC'),//おすすめ度の高い順＆終了日が近い順に表示
 	            'meta_query'	=> get_meta_query_args(),//終了していないイベント
 	);
 }
