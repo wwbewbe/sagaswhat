@@ -1,5 +1,8 @@
 <?php
 
+// SagasWhat Site Settings
+require_once locate_template('inc/sw-settings.php', true);
+
 //固定ページにも抜粋(excerpt)を使えるようにする
 add_post_type_support( 'page', 'excerpt' );
 
@@ -177,9 +180,6 @@ function get_closed_img() {
 	}
 	return NULL;
 }
-
-// SagasWhat Site Settings
-require_once locate_template('sw-settings.php', true);
 
 /**
  * 投稿の編集画面にカスタムフィールドを追加する
