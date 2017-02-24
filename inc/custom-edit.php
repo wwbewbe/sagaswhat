@@ -178,17 +178,8 @@ function get_closed_img() {
 	return NULL;
 }
 
-//サイト設定用に管理画面にカスタムメニューページを追加
-// admin_menu にフック
-add_action('admin_menu', 'register_custom_menu_page');
-function register_custom_menu_page() {
-    // add_menu_page でカスタムメニューを追加
-    add_menu_page('Site settings', 'Site settings', 0, 'site_settings', 'create_custom_menu_page', '');
-}
-function create_custom_menu_page() {
-    // カスタムメニューページを読み込む
-    require TEMPLATEPATH.'/admin/site_settings.php';
-}
+// SagasWhat Site Settings
+require_once locate_template('sw-settings.php', true);
 
 /**
  * 投稿の編集画面にカスタムフィールドを追加する
