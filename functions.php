@@ -86,7 +86,8 @@ add_filter( 'mce_buttons_2', 'add_stylemenu' );
 
 // エディタスタイルシート
 add_editor_style( get_template_directory_uri() . '/editor-style.css?ver=' . date( 'U' ) );
-add_editor_style( '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' );
+add_editor_style( '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+wp_enqueue_style( 'font-awesone', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 
 // サムネイル画像
 function mythumb( $size ) {
@@ -181,7 +182,7 @@ function theme_enqueue_scripts() {
 	// jCarouselを使用
 	wp_enqueue_script( 'carousel-script', get_template_directory_uri() .'/js/jquery.jcarousellite.min.js', array( 'jquery' ) );
 	// お得イベントのTicker表示用
-	wp_enqueue_script( 'carouFredSel-script', get_template_directory_uri() .'/js/jquery.carouFredSel-6.2.1.js', array( 'jquery' ) );
+	wp_enqueue_script( 'carouFredSel-script', get_template_directory_uri() .'/js/jquery.carouFredSel-6.2.1-packed.js', array( 'jquery' ) );
 	wp_enqueue_script( 'ticker-script', get_template_directory_uri() .'/js/ticker.js', array( 'jquery' ) );
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
