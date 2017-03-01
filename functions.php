@@ -309,14 +309,6 @@ function event_info_to_the_content( $content ) {
 			$thname = esc_html_x('Open Hours', 'Resting Spots', 'SagasWhat');
 			$info = $info.'<tr><th>'.$thname.'</th><td>'.$bizhours.'</td></tr>';
 		}
-		// 注記
-		if( $note = get_post_meta($post->ID, 'note', true) ) {
-			$thname = esc_html(__('Note', 'SagasWhat'));
-			if ( $noteurl = esc_url(get_post_meta($post->ID, 'noteurl', true)) ) {
-				$note = $note.'<div><a href="'.$noteurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
-			}
-			$info = $info.'<tr><th>'.$thname.'</th><td>'.$note.'</td></tr>';
-		}
 		// 住所
 		if( $showaddress = get_post_meta($post->ID, 'showaddress', true) ) {
 			$thname = esc_html__('Address', 'SagasWhat');
@@ -340,6 +332,14 @@ function event_info_to_the_content( $content ) {
 				}
 			}
 			$info = $info.'<tr><th>'.$thname.'</th><td>'.$data.'</td></tr>';
+		}
+		// 注記
+		if( $note = get_post_meta($post->ID, 'note', true) ) {
+			$thname = esc_html(__('Note', 'SagasWhat'));
+			if ( $noteurl = esc_url(get_post_meta($post->ID, 'noteurl', true)) ) {
+				$note = $note.'<div><a href="'.$noteurl.'" target="_blank">'.esc_html__('Click here', 'SagasWhat').'</div>';
+			}
+			$info = $info.'<tr><th>'.$thname.'</th><td>'.$note.'</td></tr>';
 		}
 		// 広さ
 		if( $howbig = get_post_meta($post->ID, 'howbig', true) ) {

@@ -337,7 +337,7 @@ function rest_setting( $post ) {
 	echo   '</td>';
 	echo '</tr>';
 
-	//textarea for Open Hours
+	//textarea for URL
 	$value = get_post_meta(
 		$post->ID,	//post ID
 		'url',		//Custom Field Key
@@ -354,7 +354,7 @@ function rest_setting( $post ) {
 	echo   '</td>';
 	echo '</tr>';
 
-	//textarea for Open Hours
+	//textarea for Recommend
 	$value = get_post_meta(
 		$post->ID,	//post ID
 		'recommend',		//Custom Field Key
@@ -438,7 +438,24 @@ function rest_setting( $post ) {
     echo '</tr>';
 	echo '<p style="clear:left;"></p>';
 
-    //radio button for How big
+	//textarea for Note
+	$value = get_post_meta(
+		$post->ID,	//post ID
+		'note',		//Custom Field Key
+		true		//true:単一文字列, false:複数配列
+	);
+	echo '<tr>';
+	echo   '<th>';
+	echo     '<label for="Note">';
+	echo     '備考';
+	echo     '</label>';
+	echo   '</th>';
+	echo   '<td>';
+	echo     '<textarea id="Note" name="note" style="width:100%">'.$value.'</textarea>';
+	echo   '</td>';
+	echo '</tr>';
+
+    //radio button for Size of the place
     $value = get_post_meta(
         $post->ID,	//post ID
         'howbig',	//Custom Field Key
@@ -522,6 +539,7 @@ function save_custom_fields_data( $post_id ) {
 		'url' => true,
 		'recommend' => true,
 		'facility' => false,
+		'note' => true,
 		'howbig' => true,
 		'city' => true,
 	);
