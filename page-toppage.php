@@ -36,7 +36,7 @@
 		$post = get_post( $post->object_id );
 		setup_postdata($post); ?>
 		<li><a href="<?php the_permalink(); ?>">
-		<div class="thumb" style="background-image: url(<?php echo mythumb( 'medium' ); ?>)"></div>
+		<div class="thumb" style="background-image: url(<?php echo mythumb( 'full' ); ?>)"></div>
 		<div class="text">
 		<h2><?php the_title(); ?></h2>
 		<?php the_excerpt(); ?>
