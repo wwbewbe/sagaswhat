@@ -8,8 +8,9 @@ class SW_SettingsPage
      * Holds the values to be used in the fields callbacks
      */
     private $TIC_comment;
-	private $TIC_distance;
-	private $Event_distance;
+    private $TIC_distance;
+    private $Event_distance;
+    private $Park_comment;
 
     /**
      * Start up
@@ -26,7 +27,7 @@ class SW_SettingsPage
     public function add_setting_page()
     {
         // This page will be under "Settings"
-        	add_options_page(
+            add_options_page(
             'SagasWhat Site Settings Page',
             'SagasWhat Site Settings',
             'manage_options',
@@ -41,9 +42,10 @@ class SW_SettingsPage
     public function create_admin_page()
     {
         // Set class property
-        $this->TIC_comment		= get_option( 'tic-comment-end' );
-		$this->TIC_distance		= get_option( 'tic-distance' );
-		$this->Event_distance	= get_option( 'event-distance' );
+        $this->TIC_comment       = get_option( 'tic-comment-end' );
+        $this->TIC_distance      = get_option( 'tic-distance' );
+        $this->Event_distance    = get_option( 'event-distance' );
+        $this->Park_comment      = get_option( 'park-comment' );
         ?>
         <div class="wrap">
             <?php screen_icon(); ?>
@@ -67,19 +69,19 @@ class SW_SettingsPage
     {
         add_settings_section(
             'sw_section_id', // ID
-            'TIC & Event post Settings', // Title
+            'SagasWhat site Settings', // Title
             array( $this, 'print_section_info' ), // Callback
             'sw-setting-admin' // Page
         );
 
-		/**
-	     * Option set for TIC Comment
-	     */
-		register_setting(
-            'sw_option_group',	// Option group
-            'tic-comment-end'	// Option name
+        /**
+         * Option set for TIC Comment
+         */
+        register_setting(
+            'sw_option_group', // Option group
+            'tic-comment-end' // Option name
         );
-		add_settings_field(
+        add_settings_field(
             'tic-comment-end',
             'TIC Comment in end of post',
             array( $this, 'TICComment_callback' ),
@@ -87,14 +89,14 @@ class SW_SettingsPage
             'sw_section_id'
         );
 
-		/**
-	     * Option set for TIC Distance
-	     */
-		register_setting(
-            'sw_option_group',	// Option group
-            'tic-distance'	// Option name
+        /**
+         * Option set for TIC Distance
+         */
+        register_setting(
+            'sw_option_group', // Option group
+            'tic-distance' // Option name
         );
-		add_settings_field(
+        add_settings_field(
             'tic-distance',
             'TIC Distance',
             array( $this, 'TICDistance_callback' ),
@@ -102,56 +104,82 @@ class SW_SettingsPage
             'sw_section_id'
         );
 
-		/**
-	     * Option set for Event Distance
-	     */
-		register_setting(
-            'sw_option_group',	// Option group
-            'event-distance'	// Option name
+        /**
+         * Option set for Event Distance
+         */
+        register_setting(
+            'sw_option_group', // Option group
+            'event-distance' // Option name
         );
-		add_settings_field(
+        add_settings_field(
             'event-distance',
             'Event Distance',
             array( $this, 'EventDistance_callback' ),
             'sw-setting-admin',
             'sw_section_id'
         );
-	}
-	/**
+
+        /**
+         * Option set for Park Comment
+         */
+        register_setting(
+            'sw_option_group', // Option group
+            'park-comment' // Option name
+        );
+        add_settings_field(
+            'park-comment',
+            'Park Comment in the list',
+            array( $this, 'ParkComment_callback' ),
+            'sw-setting-admin',
+            'sw_section_id'
+        );
+
+    }
+    /**
      * Print the Section text
      */
     public function print_section_info()
     {
-        print 'Enter TIC & Event settings below:';
+        print 'SagasWhat site settings below:';
     }
-	/**
+    /**
      * Get the setting option and print its value (TIC Comment)
      */
-	public function TICComment_callback()
+    public function TICComment_callback()
     {
         printf(
             '<input type="text" id="tic-comment-end" name="tic-comment-end" value="%s" class="regular-text" />',
             isset( $this->TIC_comment ) ? esc_attr( $this->TIC_comment ) : ''
         );
     }
-	/**
+    /**
      * Get the setting option and print its value (TIC Distance)
      */
-	public function TICDistance_callback()
+    public function TICDistance_callback()
     {
         printf(
             '<input type="text" id="tic-distance" name="tic-distance" value="%s" class="regular-text" />',
             isset( $this->TIC_distance ) ? esc_attr( $this->TIC_distance ) : ''
         );
     }
-	/**
+    /**
      * Get the setting option and print its value (Event Distance)
      */
-	public function EventDistance_callback()
+    public function EventDistance_callback()
     {
         printf(
             '<input type="text" id="event-distance" name="event-distance" value="%s" class="regular-text" />',
             isset( $this->Event_distance ) ? esc_attr( $this->Event_distance ) : ''
+        );
+    }
+    /**
+     * Get the setting option and print its value (Park Comment)
+     */
+    public function ParkComment_callback()
+    {
+        printf(
+            '<input type="text" id="park-comment" name="park-comment" value="%s" class="regular-text" />',
+            isset( $this->Park_comment ) ? esc_attr( $this->Park_comment ) : ''
         );
     }
 }
