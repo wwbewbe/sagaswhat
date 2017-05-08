@@ -63,7 +63,7 @@
 
   <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?> oncontextmenu="return false;">
+<body <?php body_class(); ?> oncontextmenu="return false;" onmousedown="return false;">
 
   <header>
     <div class="header-inner">
