@@ -62,8 +62,15 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <?php wp_head(); ?>
+  <script>
+  	jQuery(function(){
+  		jQuery('img').attr('onmousedown', 'return false');
+  		jQuery('img').attr('onselectstart', 'return false');
+  		jQuery('img').attr('oncontextmenu', 'return false');
+  	});
+  </script>
 </head>
-<body <?php body_class(); ?> oncontextmenu="return false;">
+<body <?php body_class(); ?>>
 
   <header>
     <div class="header-inner">

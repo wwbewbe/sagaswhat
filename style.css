@@ -30,6 +30,15 @@ ins {
 	text-decoration: none;
 }
 
+img{
+  touch-callout:none;
+  user-select:none;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -moz-touch-callout:none;
+  -moz-user-select:none;
+}
+
 /* ボックスの上下の間隔 */
 
 .sub-header	{padding-top: 5px;
