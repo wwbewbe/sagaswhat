@@ -22,7 +22,7 @@
 	<?php
 	if (($lat) && ($lng)) {
 
-		set_event_distance($lat, $lng, 'tic');//観光案内所までの距離をカスタムフィールドに保存
+		set_event_distance($lat, $lng, 'tic', 'post');//観光案内所までの距離をカスタムフィールドに保存
 
 		$args = array(
 		    'post_type'		=> 'post',		// 投稿

@@ -21,7 +21,7 @@ $lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
 $infocat = get_category_by_slug('tourist-info-center');//観光案内所をリストから除外
 if (($lat) && ($lng)) {
 
-	set_event_distance($lat, $lng);//イベント会場までの距離をカスタムフィールドに保存
+	set_event_distance($lat, $lng, 'event', 'post');//イベント会場までの距離をカスタムフィールドに保存
 
 	$args = array(
 		'post_type'		=> 'post',

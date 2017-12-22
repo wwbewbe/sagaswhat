@@ -22,7 +22,7 @@
 
 <?php if(($lat) && ($lng)) : ?>
 
-	<?php set_event_distance($lat, $lng);//イベント会場までの距離をカスタムフィールドに保存 ?>
+	<?php set_event_distance($lat, $lng, 'event', 'post');//イベント会場までの距離をカスタムフィールドに保存 ?>
 	<?php if (empty($eventdistance = get_option('event-distance'))) $eventdistance = '0.06'; ?>
 	<?php
 	//並び替え

@@ -20,7 +20,7 @@ $lng = (isset($_GET['lng'])) ? esc_html($_GET['lng']) : '';
 <?php
 if (($lat) && ($lng)) {
 
-	set_event_distance($lat, $lng, 0, 'sw_rest');//イベント会場までの距離をカスタムフィールドに保存
+	set_event_distance($lat, $lng, 'event', 'sw_rest');//イベント会場までの距離をカスタムフィールドに保存
 
 	$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 	$args = array(

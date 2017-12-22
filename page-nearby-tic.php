@@ -22,7 +22,7 @@
 
 <?php if(($lat) && ($lng)) : ?>
 
-	<?php set_event_distance($lat, $lng, 'tic');//TICまでの距離をTIC記事のカスタムフィールドに保存 ?>
+	<?php set_event_distance($lat, $lng, 'tic', 'post');//TICまでの距離をTIC記事のカスタムフィールドに保存 ?>
 	<?php if (empty($ticdistance = get_option('tic-distance'))) $ticdistance = '0.06'; ?>
 	<?php
 	//並び替え

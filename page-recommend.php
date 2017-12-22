@@ -26,7 +26,7 @@
 	$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 	if (($lat) && ($lng)) {
 
-		set_event_distance($lat, $lng);//イベント会場までの距離をカスタムフィールドに保存
+		set_event_distance($lat, $lng, 'event', 'post');//イベント会場までの距離をカスタムフィールドに保存
 
 		$meta_query_args = get_meta_query_args('4', 'exists');
 		$args = array(
