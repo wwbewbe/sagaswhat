@@ -40,7 +40,7 @@
 			'posts_per_page'=> '10',
 			'category_name'	=> esc_attr($post->post_name),  // 'カテゴリースラッグ' => 'ページスラッグ'
 			'orderby'		=> array('meta_recommend'=>'DESC', 'meta_close'=>'ASC', 'title'=>'ASC'),//おすすめ度の高い順＆終了日が近い順に表示
-			'meta_query'	=> get_meta_query_args(),
+			'meta_query'	=> get_meta_query_args('0','0'),
 			'paged'			=> $paged,
 		); ?>
 	<?php $the_query = new WP_Query($args); ?>

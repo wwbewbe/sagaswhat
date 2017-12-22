@@ -9,7 +9,7 @@ if (($posttype == 'post') || ($posttype == 'page')) {
 	            'tag'           => $tagname,    //タグを指定(slug)
 				'category_name'	=> $catname,	//カテゴリーを指定(slug)
 				'orderby'		=> array('meta_recommend'=>'DESC', 'meta_close'=>'ASC', 'title'=>'ASC'),//おすすめ度の高い順＆終了日が近い順に表示
-	            'meta_query'	=> get_meta_query_args(),
+	            'meta_query'	=> get_meta_query_args('0','0'),
 	        );
 } else { //カスタム投稿タイプのときのクエリー
 	if (!empty($terms)) {

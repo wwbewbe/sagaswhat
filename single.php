@@ -117,7 +117,7 @@ if (!empty($closedate)) { //すでにイベントが終了しているときはc
 			'post__not_in'	=> array( $post->ID),
 			'category__in'	=> $catkwds,
 			'orderby'		=> 'rand',
-			'meta_query'	=> get_meta_query_args(),
+			'meta_query'	=> get_meta_query_args('0','0'),
 		) );
 	} else { $myposts = null; }
 	if( $myposts ): ?>

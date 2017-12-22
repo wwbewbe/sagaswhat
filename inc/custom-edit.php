@@ -732,7 +732,7 @@ function my_widget_tag_cloud_args($args) {
 	global $post;
 	$include_array = array();
 
-	$meta_query_args = get_meta_query_args();
+	$meta_query_args = get_meta_query_args('0','0');
 	$eventargs = array(
 		'post_type'		=> 'post',		// イベント記事
 		'posts_per_page' => '-1',		// 全件

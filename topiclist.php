@@ -38,7 +38,7 @@ if (($lat) && ($lng)) {
 				'category__not_in' => array(1, $infocat->cat_ID), // カテゴリが未分類と観光案内所の記事は非表示
 	            'tag'           => $tagname,    // タグを指定
 				'orderby'		=> array('meta_recommend'=>'DESC', 'meta_close'=>'ASC', 'title'=>'ASC'),//おすすめ度の高い順＆終了日が近い順に表示
-	            'meta_query'	=> get_meta_query_args(),//終了していないイベント
+	            'meta_query'	=> get_meta_query_args('0','0'),//終了していないイベント
 	);
 }
 ?>

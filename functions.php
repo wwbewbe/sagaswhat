@@ -728,7 +728,7 @@ function QueryListFilter($query) {
         $query->set('posts_per_page', '10');        // 一覧表示数
         $query->set('category__not_in', array(1, $infocat->cat_ID));// カテゴリが未分類と観光案内所の記事は非表示
         $query->set('orderby', array('meta_recommend'=>'DESC', 'meta_close'=>'ASC', 'title'=>'ASC'));    // 推奨値の高い順
-        $query->set('meta_query', get_meta_query_args());            // 終了していないイベントを表示
+        $query->set('meta_query', get_meta_query_args('0','0'));            // 終了していないイベントを表示
 
     }
     return $query;
@@ -750,7 +750,7 @@ function set_event_distance($lat, $lng, $target, $posttype = 'post') {
             );
         } else {
             //各イベント会場と現在地の距離
-            $meta_query_args = get_meta_query_args();
+            $meta_query_args = get_meta_query_args('0','0');
             $args = array(
                 'post_type'        => 'post',        // イベント記事
                 'posts_per_page' => '-1',        // 全件
@@ -795,7 +795,7 @@ function set_event_distance($lat, $lng, $target, $posttype = 'post') {
 }
 
 //イベント抽出フィルターの条件を設定
-function get_meta_query_args( $recommend = '0', $distance ) {
+function get_meta_query_args( $recommend = '0', $distance = '0' ) {
     $args = array(
         'relation'        => 'AND',
         array(

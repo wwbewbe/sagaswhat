@@ -38,7 +38,7 @@
 			'meta_query'	=> $meta_query_args,//終了していない＆おすすめ度が4以上＆距離情報があるイベント
 		);
 	} else {
-		$meta_query_args = get_meta_query_args('4');
+		$meta_query_args = get_meta_query_args('4','0');
 		$args = array(
 		    'post_type'		=> 'post',		// 投稿
 		    'posts_per_page' => '10',		// 10件表示
