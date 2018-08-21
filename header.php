@@ -62,6 +62,7 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <?php wp_head(); ?>
+
   <script>
   	jQuery(function(){
   		jQuery('img').attr('onmousedown', 'return false');
@@ -69,6 +70,15 @@
   		jQuery('img').attr('oncontextmenu', 'return false');
   	});
   </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6212569927869845",
+            enable_page_level_ads: true
+       });
+  </script>
+
 </head>
 <body <?php body_class(); ?>>
 
