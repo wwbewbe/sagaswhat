@@ -204,10 +204,20 @@ add_action( 'wp_enqueue_scripts', 'calendar_scripts' );
 
 // 住所 → 緯度/経度変換
 function strAddrToLatLng( $strAddr ) {
+/*  $address = str_replace(" ", "+", $address);
+  $region = "Japan";
+
+  $json = file_get_contents("https://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&region=$region");
+  $json = json_decode($json);
+
+  $strLat = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
+  $strLng = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
+*/
     $strRes = file_get_contents(
-         'http://maps.google.com/maps/api/geocode/json'
+         'https://maps.google.com/maps/api/geocode/json'
         . '?address=' . urlencode( mb_convert_encoding( $strAddr, 'UTF-8' ) )
         . '&sensor=false'
+        . '&key=AIzaSyDZoNhf_AezznymDla4gnHeh3bzjMRVmSo'
     );
     $aryGeo = json_decode( $strRes, TRUE );
     if ( !isset( $aryGeo['results'][0] ) )
@@ -215,6 +225,7 @@ function strAddrToLatLng( $strAddr ) {
 
     $strLat = (string)$aryGeo['results'][0]['geometry']['location']['lat'];
     $strLng = (string)$aryGeo['results'][0]['geometry']['location']['lng'];
+
     $LatLng = array('Lat'=>$strLat, 'Lng'=>$strLng);
     return $LatLng;
 }
@@ -776,8 +787,14 @@ function set_event_distance($lat, $lng, $target, $posttype = 'post') {
             if ((empty($spotLat)) || (empty($spotLng))) {
                 $address = esc_html( get_post_meta($post->ID, 'address', true) );
                 $LatLng = strAddrToLatLng($address);
-                $spotLat = $LatLng['Lat'];
-                $spotLng = $LatLng['Lng'];
+                if (is_array($LatLng) && isset($LatLng['Lat'])) {
+                  $spotLat = $LatLng['Lat'];
+                }
+                if (is_array($LatLng) && isset($LatLng['Lng'])) {
+                  $spotLng = $LatLng['Lng'];
+                }
+//                $spotLat = $LatLng['Lat'];
+//                $spotLng = $LatLng['Lng'];
                 update_post_meta($post->ID, 'spot_lat', $spotLat);
                 update_post_meta($post->ID, 'spot_lng', $spotLng);
             }
