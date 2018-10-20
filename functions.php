@@ -217,7 +217,7 @@ function strAddrToLatLng( $strAddr ) {
          'https://maps.google.com/maps/api/geocode/json'
         . '?address=' . urlencode( mb_convert_encoding( $strAddr, 'UTF-8' ) )
         . '&sensor=false'
-        . '&key=AIzaSyDZoNhf_AezznymDla4gnHeh3bzjMRVmSo'
+        . '&key='
     );
 
     $aryGeo = json_decode( $strRes, TRUE );
