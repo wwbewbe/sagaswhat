@@ -219,6 +219,7 @@ function strAddrToLatLng( $strAddr ) {
         . '&sensor=false'
         . '&key=AIzaSyDZoNhf_AezznymDla4gnHeh3bzjMRVmSo'
     );
+
     $aryGeo = json_decode( $strRes, TRUE );
     if ( !isset( $aryGeo['results'][0] ) )
         return '';
@@ -784,8 +785,8 @@ function set_event_distance($lat, $lng, $target, $posttype = 'post') {
             //カスタムフィールドに緯度経度がなければ住所から算出し格納
             $spotLat = esc_html( get_post_meta($post->ID, 'spot_lat', true) );
             $spotLng = esc_html( get_post_meta($post->ID, 'spot_lng', true) );
-            if ((empty($spotLat)) || (empty($spotLng))) {
-                $address = esc_html( get_post_meta($post->ID, 'address', true) );
+            $address = esc_html( get_post_meta($post->ID, 'address', true) );
+            if ($address && ((empty($spotLat)) || (empty($spotLng)))) {
                 $LatLng = strAddrToLatLng($address);
                 if (is_array($LatLng) && isset($LatLng['Lat'])) {
                   $spotLat = $LatLng['Lat'];
@@ -798,7 +799,7 @@ function set_event_distance($lat, $lng, $target, $posttype = 'post') {
                 update_post_meta($post->ID, 'spot_lat', $spotLat);
                 update_post_meta($post->ID, 'spot_lng', $spotLng);
             }
-            if ((isset($spotLat)) && (isset($spotLng))) {
+            if ($spotLat && $spotLng) {
                 $distanceLat = $spotLat - $lat;
                 $distanceLng = $spotLng - $lng;
                 // 距離の算出　pow = 乗算 / sqrt = 平方根
