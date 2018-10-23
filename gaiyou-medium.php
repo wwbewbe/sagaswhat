@@ -47,7 +47,7 @@
 		$stat = '<div class="closestat"><i class="fa fa-times-circle fa-fw"></i>'.esc_html__('Closed', 'SagasWhat');
 	}
 	$posttags = get_the_tags();
-	foreach ( $posttags as $tag ) {
+	foreach ( (array)$posttags as $tag ) {
 		if ($tag->slug == 'free') {
 			$stat = $stat.'&nbsp;&nbsp;<span class="price"><i class="fa fa-jpy fa-fw"></i>'.esc_html__('Free', 'SagasWhat').'</span>';
 		}
