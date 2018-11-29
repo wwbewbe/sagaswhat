@@ -25,10 +25,6 @@
 	<?php echo get_adsense(); ?>
 	</aside>
 
-	<?php if (function_exists('wpfp_list_favorite_posts')) {
-		get_template_part( 'favorite', 'events' );
-	} //Favorite Events list function?>
-
 </div>
 
 <div class="sub">

@@ -4,7 +4,6 @@
 	<aside class="mymenu-adsense">
 	<?php echo get_adsense(true); ?>
 	</aside>
-	<?php the_ticker_event(); ?>
 	<div class="bread">
 	<?php if( has_category() ): ?>
 	<?php $postcats=get_the_category(); ?>
@@ -63,10 +62,6 @@ if (!empty($closedate)) { //すでにイベントが終了しているときはc
 		<?php endif; ?>
 	<?php endif; ?>
 
-	<?php if (!in_category('tourist-info-center')) : //TIC記事でない場合?>
-		<div class="favorite-link"><?php if (function_exists('wpfp_link')) { wpfp_link(); } //add/remove Favorite Events?></div>
-	<?php endif; ?>
-
 	<div class="kiji-body">
 	<?php the_content(); ?>
 	</div>
@@ -84,10 +79,6 @@ if (!empty($closedate)) { //すでにイベントが終了しているときはc
 	<aside class="mymenu-adsense">
 	<?php echo get_adsense(); // Google Adsense?>
 	</aside>
-
-	<?php if (function_exists('wpfp_list_favorite_posts')) {
-		get_template_part( 'favorite', 'events' );
-	} //Favorite Events list function?>
 
 	<script type="text/javascript">
 	jQuery(function() {

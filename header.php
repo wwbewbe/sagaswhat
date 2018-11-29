@@ -109,6 +109,5 @@
       <aside class="mymenu-adsense">
       <?php echo get_adsense(true); ?>
       </aside>
-      <?php the_ticker_event(); ?>
     </div>
   <?php endif; ?>

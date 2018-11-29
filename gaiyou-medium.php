@@ -57,28 +57,6 @@
 	}
 	$stat = $stat.'</div>';
 
-	//Favorite Events total number for each event
-/*	$favorite = esc_html( get_post_meta($post->ID, 'wpfp_favorites', true) );
-	if (($favorite > '0') && (function_exists('wpfp_list_favorite_posts'))) {
-		switch ($favorite) {
-			case '1': // 1 Star
-				$stars = '<div class="stars"><i class="fa fa-star"></i></div>';
-				break;
-			case '2': // 2 Stars
-				$stars = '<div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i></div>';
-				break;
-			case '3': // 3 Stars
-				$stars = '<div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>';
-				break;
-			case '4': // 4 Stars
-				$stars = '<div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>';
-				break;
-			default: // more than 5 Stars
-				$stars = '<div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>';
-				break;
-		}
-	}
-*/
 	?>
 
 	<div class="kiji-date">
