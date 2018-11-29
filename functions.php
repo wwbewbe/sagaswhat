@@ -662,7 +662,17 @@ function get_adsense($kiji = false) {
     //レスポンシブ広告の英語版もしくは日本語版の挿入
     if ( get_bloginfo('language') == 'ja' ) {
         if ($kiji) {
-            $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6212569927869845"
+     data-ad-slot="8766620032"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>';
+/*            $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- sagaswhat-responsive-jp-2 -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -671,7 +681,7 @@ function get_adsense($kiji = false) {
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script>';
+</script>';*/
         } else {
             $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- sagaswhat-responsive-jp-3 -->
@@ -686,7 +696,17 @@ function get_adsense($kiji = false) {
         }
     } else {
         if ($kiji) {
-            $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6212569927869845"
+     data-ad-slot="8766620032"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>';
+/*            $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- sagaswhat-responsive-2 -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -695,7 +715,7 @@ function get_adsense($kiji = false) {
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script>';
+</script>';*/
         } else {
             $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- sagaswhat-responsive-3 -->
