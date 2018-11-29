@@ -5,24 +5,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SagasWhat\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2017-02-18 18:35+0900\n"
+"POT-Creation-Date: 2018-11-29 11:16+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;_x:1,2c;esc_attr__;esc_html_x:1,2c;esc_attr_x:1,2c\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: 404.php:8
+#: 404.php:9
 msgid "Sorry, the page you are looking for cannot be found."
 msgstr ""
 
-#: 404.php:9
+#: 404.php:11
 msgid "Please visit homepage or try searching."
 msgstr ""
 
@@ -39,12 +39,12 @@ msgid "Favorite Events"
 msgstr ""
 
 #: favorite-events.php:25 single-sw_rest.php:73 single-sw_trend.php:95
-#: single.php:127
+#: single.php:118
 msgid "Prev"
 msgstr ""
 
 #: favorite-events.php:26 single-sw_rest.php:74 single-sw_trend.php:96
-#: single.php:128
+#: single.php:119
 msgid "Next"
 msgstr ""
 
@@ -56,119 +56,119 @@ msgstr ""
 msgid "Nearby TICs"
 msgstr ""
 
-#: footer.php:35 inc/custom-edit.php:633 single-sw_rest.php:14
+#: footer.php:35 inc/custom-edit.php:642 single-sw_rest.php:14
 msgid "Resting Spots"
 msgstr ""
 
-#: functions.php:294
+#: functions.php:307
 msgid "Spot Name"
 msgstr ""
 
-#: functions.php:303
+#: functions.php:316
 msgid "Nearest Station"
 msgstr ""
 
-#: functions.php:308
+#: functions.php:321
 msgctxt "Resting Spots"
 msgid "Open Hours"
 msgstr ""
 
-#: functions.php:313 functions.php:485
-msgid "Note"
-msgstr ""
-
-#: functions.php:315 functions.php:397 functions.php:420 functions.php:487
-#: functions.php:495 functions.php:503 functions.php:521
-msgid "Click here"
-msgstr ""
-
-#: functions.php:321 functions.php:413 functions.php:514 inc/custom-edit.php:16
-#: inc/custom-edit.php:35
+#: functions.php:326 functions.php:427 functions.php:528 inc/custom-edit.php:19
+#: inc/custom-edit.php:38
 msgid "Address"
 msgstr ""
 
-#: functions.php:326
+#: functions.php:331
 msgid "Facility"
 msgstr ""
 
-#: functions.php:330 functions.php:403
+#: functions.php:335 functions.php:417
 msgid "Wi-Fi"
 msgstr ""
 
-#: functions.php:333
+#: functions.php:338
 msgid "Shop/Cafe/Vending Machine"
 msgstr ""
 
-#: functions.php:336
+#: functions.php:341
 msgid "Grass Field"
 msgstr ""
 
-#: functions.php:345
+#: functions.php:350 functions.php:499
+msgid "Note"
+msgstr ""
+
+#: functions.php:352 functions.php:411 functions.php:434 functions.php:501
+#: functions.php:509 functions.php:517 functions.php:535
+msgid "Click here"
+msgstr ""
+
+#: functions.php:358
 msgid "Size of the place"
 msgstr ""
 
-#: functions.php:373
+#: functions.php:387
 msgid "Center Name"
 msgstr ""
 
-#: functions.php:382
+#: functions.php:396
 msgid "JP Name"
 msgstr ""
 
-#: functions.php:387
+#: functions.php:401
 msgid "TIC Category"
 msgstr ""
 
-#: functions.php:389
+#: functions.php:403
 msgid "Category description (Japan National Tourism Organization)"
 msgstr ""
 
-#: functions.php:395 functions.php:493
+#: functions.php:409 functions.php:507
 msgid "Open Hours"
 msgstr ""
 
-#: functions.php:408
+#: functions.php:422
 msgid "PC"
 msgstr ""
 
-#: functions.php:418 functions.php:519
+#: functions.php:432 functions.php:533
 msgid "Contact"
 msgstr ""
 
-#: functions.php:434
+#: functions.php:448
 msgid "Event Name"
 msgstr ""
 
-#: functions.php:443 inc/custom-edit.php:15
+#: functions.php:457 inc/custom-edit.php:18
 msgid "Venue"
 msgstr ""
 
-#: functions.php:455
+#: functions.php:469
 msgid "Dates"
 msgstr ""
 
-#: functions.php:458 functions.php:462 functions.php:463 functions.php:471
-#: functions.php:477 page-calendar.php:44
+#: functions.php:472 functions.php:476 functions.php:477 functions.php:485
+#: functions.php:491 page-calendar.php:44
 msgid "F j, Y"
 msgstr ""
 
-#: functions.php:501
+#: functions.php:515
 msgid "Admission"
 msgstr ""
 
-#: functions.php:509
+#: functions.php:523
 msgid "Free Wi-Fi"
 msgstr ""
 
-#: functions.php:647
+#: functions.php:661
 msgid "Sponsored Links"
 msgstr ""
 
-#: functions.php:880 functions.php:892
+#: functions.php:900 functions.php:912
 msgid "Information"
 msgstr ""
 
-#: functions.php:880 functions.php:892
+#: functions.php:900 functions.php:912
 msgid "Find the free & discount information for Museum, Zoo, etc."
 msgstr ""
 
@@ -217,258 +217,258 @@ msgstr ""
 msgid "You can not use this function, because this browser could not get your location."
 msgstr ""
 
-#: header.php:46 header.php:51
+#: header.php:44 header.php:49
 msgid " Events List"
 msgstr ""
 
-#: inc/custom-edit.php:12 inc/custom-edit.php:19
+#: inc/custom-edit.php:15 inc/custom-edit.php:22
 msgid "Open date"
 msgstr ""
 
-#: inc/custom-edit.php:13 inc/custom-edit.php:20
+#: inc/custom-edit.php:16 inc/custom-edit.php:23
 msgid "Close date"
 msgstr ""
 
-#: inc/custom-edit.php:14
+#: inc/custom-edit.php:17
 msgid "Recommend"
 msgstr ""
 
-#: inc/custom-edit.php:28 inc/custom-edit.php:609
+#: inc/custom-edit.php:31 inc/custom-edit.php:618
 msgid "Keyword"
 msgstr ""
 
-#: inc/custom-edit.php:36 inc/custom-edit.php:660
+#: inc/custom-edit.php:39 inc/custom-edit.php:669
 msgid "Kind"
 msgstr ""
 
-#: inc/custom-edit.php:71 inc/custom-edit.php:86 inc/custom-edit.php:99
-#: inc/custom-edit.php:113 inc/custom-edit.php:121
+#: inc/custom-edit.php:74 inc/custom-edit.php:89 inc/custom-edit.php:102
+#: inc/custom-edit.php:116 inc/custom-edit.php:124
 msgid "None"
 msgstr ""
 
-#: inc/custom-edit.php:571
+#: inc/custom-edit.php:580
 msgctxt "post type general name"
 msgid "Trends"
 msgstr ""
 
-#: inc/custom-edit.php:572
+#: inc/custom-edit.php:581
 msgctxt "post type singular name"
 msgid "Trend"
 msgstr ""
 
-#: inc/custom-edit.php:573
+#: inc/custom-edit.php:582
 msgctxt "admin menu"
 msgid "Trends"
 msgstr ""
 
-#: inc/custom-edit.php:574
+#: inc/custom-edit.php:583
 msgctxt "add new on admin bar"
 msgid "Trend"
 msgstr ""
 
-#: inc/custom-edit.php:575
+#: inc/custom-edit.php:584
 msgctxt "trend"
 msgid "Add New"
 msgstr ""
 
-#: inc/custom-edit.php:576
+#: inc/custom-edit.php:585
 msgid "Add New Trend"
 msgstr ""
 
-#: inc/custom-edit.php:577
+#: inc/custom-edit.php:586
 msgid "New Trend"
 msgstr ""
 
-#: inc/custom-edit.php:578
+#: inc/custom-edit.php:587
 msgid "Edit Trend"
 msgstr ""
 
-#: inc/custom-edit.php:579
+#: inc/custom-edit.php:588
 msgid "View Trend"
 msgstr ""
 
-#: inc/custom-edit.php:580
+#: inc/custom-edit.php:589
 msgid "All Trends"
 msgstr ""
 
-#: inc/custom-edit.php:581
+#: inc/custom-edit.php:590
 msgid "Search Trends"
 msgstr ""
 
-#: inc/custom-edit.php:582
+#: inc/custom-edit.php:591
 msgid "Parent Trends:"
 msgstr ""
 
-#: inc/custom-edit.php:583
+#: inc/custom-edit.php:592
 msgid "No trends found."
 msgstr ""
 
-#: inc/custom-edit.php:584
+#: inc/custom-edit.php:593
 msgid "No trends found in Trash."
 msgstr ""
 
-#: inc/custom-edit.php:599
+#: inc/custom-edit.php:608
 msgctxt "taxonomy general name"
 msgid "Keywords"
 msgstr ""
 
-#: inc/custom-edit.php:600
+#: inc/custom-edit.php:609
 msgctxt "taxonomy singular name"
 msgid "Keyword"
 msgstr ""
 
-#: inc/custom-edit.php:601
+#: inc/custom-edit.php:610
 msgid "Search Keywords"
 msgstr ""
 
-#: inc/custom-edit.php:602
+#: inc/custom-edit.php:611
 msgid "All Keywords"
 msgstr ""
 
-#: inc/custom-edit.php:605
+#: inc/custom-edit.php:614
 msgid "Edit Keyword"
 msgstr ""
 
-#: inc/custom-edit.php:606
+#: inc/custom-edit.php:615
 msgid "Update Keyword"
 msgstr ""
 
-#: inc/custom-edit.php:607
+#: inc/custom-edit.php:616
 msgid "Add New Keyword"
 msgstr ""
 
-#: inc/custom-edit.php:608
+#: inc/custom-edit.php:617
 msgid "New Keyword Name"
 msgstr ""
 
-#: inc/custom-edit.php:624
+#: inc/custom-edit.php:633
 msgctxt "post type general name"
 msgid "Resting Spots"
 msgstr ""
 
-#: inc/custom-edit.php:625
+#: inc/custom-edit.php:634
 msgctxt "post type singular name"
 msgid "Resting Spot"
 msgstr ""
 
-#: inc/custom-edit.php:626
+#: inc/custom-edit.php:635
 msgctxt "admin menu"
 msgid "Resting Spots"
 msgstr ""
 
-#: inc/custom-edit.php:627
+#: inc/custom-edit.php:636
 msgctxt "add new on admin bar"
 msgid "Resting Spot"
 msgstr ""
 
-#: inc/custom-edit.php:628
+#: inc/custom-edit.php:637
 msgctxt "rest"
 msgid "Add New"
 msgstr ""
 
-#: inc/custom-edit.php:629
+#: inc/custom-edit.php:638
 msgid "Add New Resting Spot"
 msgstr ""
 
-#: inc/custom-edit.php:630
+#: inc/custom-edit.php:639
 msgid "New Resting Spot"
 msgstr ""
 
-#: inc/custom-edit.php:631
+#: inc/custom-edit.php:640
 msgid "Edit Resting Spot"
 msgstr ""
 
-#: inc/custom-edit.php:632
+#: inc/custom-edit.php:641
 msgid "View Resting Spot"
 msgstr ""
 
-#: inc/custom-edit.php:634
+#: inc/custom-edit.php:643
 msgid "Search Resting Spots"
 msgstr ""
 
-#: inc/custom-edit.php:635
+#: inc/custom-edit.php:644
 msgid "Parent Resting Spots:"
 msgstr ""
 
-#: inc/custom-edit.php:636
+#: inc/custom-edit.php:645
 msgid "No rests found."
 msgstr ""
 
-#: inc/custom-edit.php:637
+#: inc/custom-edit.php:646
 msgid "No rests found in Trash."
 msgstr ""
 
-#: inc/custom-edit.php:652
+#: inc/custom-edit.php:661
 msgctxt "taxonomy general name"
 msgid "Kinds"
 msgstr ""
 
-#: inc/custom-edit.php:653
+#: inc/custom-edit.php:662
 msgctxt "taxonomy singular name"
 msgid "Kind"
 msgstr ""
 
-#: inc/custom-edit.php:654
+#: inc/custom-edit.php:663
 msgid "Search Kinds"
 msgstr ""
 
-#: inc/custom-edit.php:655
+#: inc/custom-edit.php:664
 msgid "All Kinds"
 msgstr ""
 
-#: inc/custom-edit.php:656
+#: inc/custom-edit.php:665
 msgid "Edit Kind"
 msgstr ""
 
-#: inc/custom-edit.php:657
+#: inc/custom-edit.php:666
 msgid "Update Kind"
 msgstr ""
 
-#: inc/custom-edit.php:658
+#: inc/custom-edit.php:667
 msgid "Add New Kind"
 msgstr ""
 
-#: inc/custom-edit.php:659
+#: inc/custom-edit.php:668
 msgid "New Kind Name"
 msgstr ""
 
-#: inc/custom-edit.php:674
+#: inc/custom-edit.php:683
 msgid "Valuable Infos"
 msgstr ""
 
-#: inc/custom-edit.php:675
+#: inc/custom-edit.php:684
 msgid "Valuable Info"
 msgstr ""
 
-#: inc/custom-edit.php:676
+#: inc/custom-edit.php:685
 msgid "Add New"
 msgstr ""
 
-#: inc/custom-edit.php:677
+#: inc/custom-edit.php:686
 msgid "Add New Valuable Info"
 msgstr ""
 
-#: inc/custom-edit.php:678
+#: inc/custom-edit.php:687
 msgid "Edit Valuable Info"
 msgstr ""
 
-#: inc/custom-edit.php:679
+#: inc/custom-edit.php:688
 msgid "New Valuable Info"
 msgstr ""
 
-#: inc/custom-edit.php:680
+#: inc/custom-edit.php:689
 msgid "View Valuable Info"
 msgstr ""
 
-#: inc/custom-edit.php:681
+#: inc/custom-edit.php:690
 msgid "Search Valuable Infos"
 msgstr ""
 
-#: inc/custom-edit.php:682
+#: inc/custom-edit.php:691
 msgid "No Valuable Infos found"
 msgstr ""
 
-#: inc/custom-edit.php:683
+#: inc/custom-edit.php:692
 msgid "No Valuable Infos found in Trash"
 msgstr ""
 
@@ -528,7 +528,7 @@ msgstr ""
 msgid "* Use this to see nearby TICs."
 msgstr ""
 
-#: page-toppage.php:89
+#: page-toppage.php:87
 msgid "Upcoming Events"
 msgstr ""
 
@@ -549,7 +549,7 @@ msgid "Featured Events"
 msgstr ""
 
 #: sidebar.php:43 single-sw_trend.php:14
-msgid "Trend Topics"
+msgid "Topics"
 msgstr ""
 
 #: single-sw_rest.php:71
@@ -560,11 +560,11 @@ msgstr ""
 msgid "Other Topics"
 msgstr ""
 
-#: single.php:45
+#: single.php:44
 msgid "This event has closed."
 msgstr ""
 
-#: single.php:125
+#: single.php:116
 msgid "Related Events"
 msgstr ""
 

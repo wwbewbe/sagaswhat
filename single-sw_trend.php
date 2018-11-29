@@ -11,7 +11,7 @@
 		</a></li>
 
 		<li>
-		<a href="<?php echo esc_url( get_permalink( get_page_by_title( esc_html__('Trend Topics', 'SagasWhat') ) ) ); ?>"><?php echo esc_html__('Trend Topics', 'SagasWhat'); ?></a>
+		<a href="<?php echo esc_url( get_permalink( get_page_by_title( esc_html__('Topics', 'SagasWhat') ) ) ); ?>"><?php echo esc_html__('Topics', 'SagasWhat'); ?></a>
 		</li>
 		<li>
 		<a><span>&gt;</span></a>
@@ -40,7 +40,7 @@
 		</ul>
 	</div>
 
-	<div class="kiji-date">
+	<!--<div class="kiji-date">
 	<i class="fa fa-pencil"></i>
 	<time datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
 		<?php echo get_the_date( __('M j, Y', 'SagasWhat') ); ?>
@@ -53,7 +53,7 @@
 		<?php echo get_the_modified_date( __('M j, Y', 'SagasWhat') ); ?>
 	</time>
 	<?php endif; ?>
-	</div>
+	</div>-->
 
 	<?php if (has_post_thumbnail()) : ?>
 		<div class="wp-caption">

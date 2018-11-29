@@ -6,7 +6,7 @@
 <div class="text">
 	<h1><?php the_title(); ?></h1>
 
-	<div class="kiji-date">
+	<!--<div class="kiji-date">
 	<i class="fa fa-pencil fa-fw"></i>
 	<time datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
 		<?php echo get_the_date( __('M j, Y', 'SagasWhat') ); ?>
@@ -19,7 +19,7 @@
 		<?php echo get_the_modified_date( __('M j, Y', 'SagasWhat') ); ?>
 	</time>
 	<?php endif; ?>
-	</div>
+	</div>-->
 
 	<div class="kiji-tax">
 	<?php

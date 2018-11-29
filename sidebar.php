@@ -40,7 +40,7 @@ if( $myposts ): ?>
 endif; ?>
 
 <aside class="mymenu mymenu-feature">
-<h2><?php echo esc_html__('Trend Topics', 'SagasWhat'); ?></h2>
+<h2><?php echo esc_html__('Topics', 'SagasWhat'); ?></h2>
 <ul>
 	<?php
 	$args=array(
@@ -56,12 +56,12 @@ endif; ?>
 		<div class="text">
 		<?php the_title(); ?>
 
-		<div class="kiji-date">
+		<!--<div class="kiji-date">
 		<i class="fa fa-pencil fa-fw"></i>
 		<time datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
 			<?php echo get_the_date( __('M j, Y', 'SagasWhat') ); ?>
 		</time>
-		</div>
+		</div>-->
 
 		</div>
 		</a></li>
