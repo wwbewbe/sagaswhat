@@ -41,30 +41,29 @@ img{
 
 /* ボックスの上下の間隔 */
 
-.sub-header	{padding-top: 5px;
-			margin-top: 55px;} /*ヘッダーを固定するためのmargin指定*/
-
-.contents		{padding-top: 10px;
+.contents		{padding-top: 56px;
 			padding-bottom: 20px}
+.contents-top {padding-top: 10px}
 
-.sub			{padding-top: 20px;
+.sub			{padding-top: 66px;
 			padding-bottom: 20px}
+.sub-top {padding-top: 20px}
 
 footer		{padding-top: 15px;
 			padding-bottom: 15px}
 
 @media (max-width: 599px) {
-	.contents	{padding-top: 10px}
+	.contents	{padding-top: 56px}
 }
 
 /* ボックスの左右の余白 */
-header, footer, .container, .sub-header
+header, footer, .container
 		{padding-left: 10px;
 		padding-right: 10px}
 
 @media (min-width: 768px) and (max-width: 1039px) {
 	/* 全体の横幅 */
-	 .container, .header-inner, .footer-inner, .sub-header
+	 .container, .header-inner, .footer-inner
 			{width:747px;
 			margin-left: auto;
 			margin-right: auto}
@@ -91,7 +90,7 @@ header, footer, .container, .sub-header
 
 @media (min-width: 1040px) {
 	/* 全体の横幅 */
-	 .container, .header-inner, .footer-inner, .sub-header
+	 .container, .header-inner, .footer-inner
 			{width:1000px;
 			margin-left: auto;
 			margin-right: auto}
@@ -440,7 +439,7 @@ header, footer, .container, .sub-header
 			padding: 0 3px}
 
 /* 番号なしリスト */
-.kiji-body ul	{list-style: none}
+/*.kiji-body ul	{list-style: none}
 
 .kiji-body li		{position: relative;
 			padding-left: 20px}
@@ -451,7 +450,7 @@ header, footer, .container, .sub-header
 				content: '\f069';
 				color: #aaaaaa;
 				font-family: 'FontAwesome';
-				line-height: 1}
+				line-height: 1}*/
 
 .event-info		{width: 100%;
 			border-collapse: collapse;
@@ -1204,7 +1203,7 @@ blockquote:after		{position: absolute;
 
 .hero-img		{width: 100%;
 				height: 100px;
-				margin: 20px 0 10px;
+				margin: 56px 0 10px;
 				background-color: #dddddd;
 				background-size: cover;
 				background-position: 50% 50%;

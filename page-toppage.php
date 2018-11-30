@@ -1,6 +1,4 @@
 <?php get_header(); ?>
-<div class="sub-header">
-</div>
 
 <div class="container">
 
@@ -13,13 +11,13 @@
 </div>
 <?php endif; ?>
 
-<aside class="mymenu-adsense">
-<?php echo get_adsense(true); ?>
-</aside>
-
-<div class="contents">
+<div class="contents contents-top">
 
 	<?php get_template_part( 'topics', 'menu' ); //Topics Menu ?>
+
+	<div class="mymenu-adsense">
+		<?php echo get_adsense('infeed'); ?>
+	</div>
 
 	<?php // Page Menu on Top Page
 	$location_name = 'pagenav';
@@ -78,6 +76,10 @@
 
 	<?php get_template_part( 'nearby', 'tic' ); //Nearby TIC list function ?>
 
+	<aside class="mymenu-adsense">
+	<?php echo get_adsense('infeed'); ?>
+	</aside>
+
 	<?php // Upcoming Menu on Top Page
 	$location_name = 'upcomingnav';
 	$locations = get_nav_menu_locations();
@@ -105,13 +107,9 @@
 	<?php wp_reset_postdata();
 	endif; ?>
 
-	<aside class="mymenu-adsense">
-	<?php echo get_adsense(); ?>
-	</aside>
-
 </div><!-- end contents -->
 
-<div class="sub">
+<div class="sub sub-top">
 	<?php get_sidebar(); ?>
 </div>
 

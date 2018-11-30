@@ -20,9 +20,9 @@
 			'pagelink' => '<span>%</span>'
 		) ); ?>
 
-		<aside class="mymenu-adsense">
-		<?php echo get_adsense(); ?>
-		</aside>
+		<div class="mymenu-adsense">
+			<?php echo get_adsense('infeed'); ?>
+		</div>
 
 	</article>
 	<?php endwhile; endif; ?>
@@ -43,8 +43,16 @@
 
 	<h1><?php the_title(); ?></h1>
 
+	<?php $adcount = 0; // アドセンスの挿入位置を決めるための記事数カウント?>
+
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):
 	$the_query->the_post(); ?>
+
+	<?php if ($the_query->post_count > 4 && $adcount == 4): ?>
+		<div class="mymenu-adsense">
+		<?php echo get_adsense('infeed'); ?>
+		</div>
+	<?php endif; ?>
 
 	<?php if (get_post_type() == 'sw_trend') : ?>
 		<?php get_template_part( 'gaiyou', 'trends' ); ?>
@@ -52,6 +60,7 @@
 		<?php get_template_part( 'gaiyou', 'medium' ); ?>
 	<?php endif; ?>
 
+	<?php $adcount++; ?>
 	<?php endwhile; endif; ?>
 
 	<div class="pagination pagination-index">
@@ -59,13 +68,15 @@
 							'prev_text' => '&laquo;',
 							'next_text' => '&raquo;',
 							'total'		=> $the_query->max_num_pages
-							 ) ); ?>
+						) ); ?>
 	</div>
 	<?php wp_reset_postdata(); ?>
 
-	<aside class="mymenu-adsense">
-	<?php echo get_adsense(); ?>
-	</aside>
+	<?php if ($adcount <= 4): ?>
+		<aside class="mymenu-adsense">
+		<?php echo get_adsense('infeed'); ?>
+		</aside>
+	<?php endif; ?>
 
 <?php endif; ?>
 

@@ -72,7 +72,7 @@
 <?php get_template_part( 'nearby', 'tic' ); //Nearby TIC list function ?>
 
 <aside class="mymenu-adsense">
-<?php echo get_adsense(); ?>
+	<?php echo get_adsense('infeed'); ?>
 </aside>
 
 </div><!-- end contents -->

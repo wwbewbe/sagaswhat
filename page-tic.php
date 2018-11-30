@@ -54,10 +54,20 @@
 	} ?>
 	<?php $the_query = new WP_Query($args); ?>
 
+	<?php $adcount = 0; // アドセンスの挿入位置を決めるための記事数カウント?>
+
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):
 	$the_query->the_post(); ?>
 
+	<?php if ($the_query->post_count > 4 && $adcount == 4): ?>
+		<div class="mymenu-adsense">
+		<?php echo get_adsense('infeed'); ?>
+		</div>
+	<?php endif; ?>
+
 	<?php get_template_part( 'gaiyou', 'medium-tic' ); ?>
+
+	<?php $adcount++; ?>
 
 	<?php endwhile; endif; ?>
 
@@ -73,7 +83,7 @@
 	<div class="tic-comment-end"><?php echo get_option('tic-comment-end'); ?></div>
 
 	<aside class="mymenu-adsense">
-	<?php echo get_adsense(); ?>
+		<?php echo get_adsense('infeed'); ?>
 	</aside>
 
 </div>

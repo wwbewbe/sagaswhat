@@ -1,9 +1,7 @@
 <?php get_header(); ?>
 
-<div class="sub-header">
-	<aside class="mymenu-adsense">
-	<?php echo get_adsense(true); ?>
-	</aside>
+<div class="container">
+<div class="contents">
 	<div class="bread">
 	<ol>
 		<li><a href="<?php echo home_url(); ?>">
@@ -18,10 +16,7 @@
 		</li>
 	</ol>
 	</div>
-</div>
 
-<div class="container">
-<div class="contents">
 	<?php if(have_posts()): while(have_posts()):
 	the_post(); ?>
 	<article <?php post_class( 'kiji' ); ?>>
@@ -55,6 +50,10 @@
 	<?php endif; ?>
 	</div>-->
 
+	<aside class="mymenu-adsense">
+		<?php echo get_adsense('infeed'); ?>
+	</aside>
+
 	<?php if (has_post_thumbnail()) : ?>
 		<div class="wp-caption">
 		<?php the_post_thumbnail('full');
@@ -70,6 +69,10 @@
 		'after' => '</li></ul></div>',
 		'pagelink' => '<span>%</span>'
 	) ); ?>
+
+	<aside class="mymenu-adsense">
+		<?php echo get_adsense('infeed'); ?>
+	</aside>
 
 	<script type="text/javascript">
 	jQuery(function() {
@@ -115,10 +118,6 @@
 
 	<?php get_template_part( 'nearby', 'events' ); //Nearby Events list function ?>
 	<?php get_template_part( 'nearby', 'tic' ); //Nearby TIC list function ?>
-
-	<aside class="mymenu-adsense">
-	<?php echo get_adsense(); // Google Adsense?>
-	</aside>
 
 	</article>
 	<?php endwhile; endif; ?>

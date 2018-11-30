@@ -31,15 +31,8 @@
 
 		<?php the_content(); ?>
 
-		<?php wp_link_pages( array(
-			'before' => '<div class="pagination"><ul><li>',
-			'separator' => '</li><li>',
-			'after' => '</li></ul></div>',
-			'pagelink' => '<span>%</span>'
-		) ); ?>
-
 		<aside class="mymenu-adsense">
-		<?php echo get_adsense(); ?>
+			<?php echo get_adsense('infeed'); ?>
 		</aside>
 
 		<?php get_template_part( 'nearby', 'events' ); //Nearby Events list function ?>

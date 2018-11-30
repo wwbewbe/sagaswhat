@@ -41,7 +41,7 @@
 		) ); ?>
 
 		<aside class="mymenu-adsense">
-		<?php echo get_adsense(); ?>
+			<?php echo get_adsense('infeed'); ?>
 		</aside>
 
 	</article>

@@ -1,9 +1,7 @@
 <?php get_header(); ?>
 
-<div class="sub-header">
-	<aside class="mymenu-adsense">
-	<?php echo get_adsense(true); ?>
-	</aside>
+<div class="container">
+<div class="contents">
 	<div class="bread">
 	<?php if( has_category() ): ?>
 	<?php $postcats=get_the_category(); ?>
@@ -21,10 +19,6 @@
 	<?php endforeach; ?>
 	<?php endif; ?>
 	</div>
-</div>
-
-<div class="container">
-<div class="contents">
 
 <?php $closed_imgid = get_closed_img();//イベント終了画像IDをメディアライブラリから取得 ?>
 
@@ -62,6 +56,10 @@ if (!empty($closedate)) { //すでにイベントが終了しているときはc
 		<?php endif; ?>
 	<?php endif; ?>
 
+	<div class="mymenu-adsense">
+		<?php echo get_adsense('inpost'); ?>
+	</div>
+
 	<div class="kiji-body">
 	<?php the_content(); ?>
 	</div>
@@ -75,10 +73,6 @@ if (!empty($closedate)) { //すでにイベントが終了しているときはc
 
 	<?php get_template_part( 'nearby', 'events' ); //Nearby Events list function ?>
 	<?php get_template_part( 'nearby', 'tic' ); //Nearby TIC list function ?>
-
-	<aside class="mymenu-adsense">
-	<?php echo get_adsense(); // Google Adsense?>
-	</aside>
 
 	<script type="text/javascript">
 	jQuery(function() {

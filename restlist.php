@@ -71,12 +71,22 @@ jQuery(function(){
 <?php endif; ?>
 <div id="rest-slide">
 
+<?php $adcount = 0; // アドセンスの挿入位置を決めるための記事数カウント?>
+
 <?php $the_query = new WP_Query($args); ?>
 
 <?php if($the_query->have_posts()): while($the_query->have_posts()):
 $the_query->the_post(); ?>
 
+	<?php if ($the_query->post_count > 4 && $adcount == 4): ?>
+		<div class="mymenu-adsense">
+		<?php echo get_adsense('infeed'); ?>
+		</div>
+	<?php endif; ?>
+
 	<?php get_template_part( 'gaiyou', 'resting' ); ?>
+
+	<?php $adcount++; ?>
 
 <?php endwhile; endif; ?>
 

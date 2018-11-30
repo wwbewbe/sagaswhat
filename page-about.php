@@ -12,7 +12,7 @@
 
 	<h1><?php the_title(); ?></h1>
 
-	<div class="kiji-date">
+	<!--<div class="kiji-date">
 	<i class="fa fa-pencil"></i>
 	<time
 	datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
@@ -27,7 +27,7 @@
 	<?php echo get_the_modified_date( __('M j, Y', 'SagasWhat') ); ?>
 	</time>
 	<?php endif; ?>
-	</div>
+	</div>-->
 
 	<?php if( has_post_thumbnail() && $page==1 ): ?>
 	<div class="catch">
@@ -54,7 +54,7 @@
 	<?php endwhile; endif; ?>
 
 	<aside class="mymenu-adsense">
-	<?php echo get_adsense(); ?>
+	<?php echo get_adsense('inpost'); ?>
 	</aside>
 
 </div>

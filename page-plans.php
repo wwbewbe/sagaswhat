@@ -72,10 +72,20 @@
 	<h1><?php the_title(); ?></h1>
 	<h2><?php echo $showmonth; ?></h2>
 
+	<?php $adcount = 0; // アドセンスの挿入位置を決めるための記事数カウント?>
+
 	<?php if($the_query->have_posts()): while($the_query->have_posts()):
 	$the_query->the_post(); ?>
 
+	<?php if ($the_query->post_count > 4 && $adcount == 4): ?>
+		<div class="mymenu-adsense">
+		<?php echo get_adsense('infeed'); ?>
+		</div>
+	<?php endif; ?>
+
 	<?php get_template_part( 'gaiyou', 'medium' ); ?>
+
+	<?php $adcount++; ?>
 
 	<?php endwhile; endif; ?>
 
@@ -89,7 +99,7 @@
 	<?php wp_reset_postdata(); ?>
 
 	<aside class="mymenu-adsense">
-	<?php echo get_adsense(); ?>
+		<?php echo get_adsense('infeed'); ?>
 	</aside>
 
 </div>

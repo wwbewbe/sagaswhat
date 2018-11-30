@@ -1,9 +1,7 @@
 <?php get_header(); ?>
 
-<div class="sub-header">
-	<aside class="mymenu-adsense">
-	<?php echo get_adsense(true); ?>
-	</aside>
+<div class="container">
+<div class="contents">
 	<div class="bread">
 	<ol>
 		<li><a href="<?php echo home_url(); ?>">
@@ -18,10 +16,7 @@
 		</li>
 	</ol>
 	</div>
-</div>
 
-<div class="container">
-<div class="contents">
 	<?php if(have_posts()): while(have_posts()):
 	the_post(); ?>
 	<article <?php post_class( 'kiji' ); ?>>
@@ -95,7 +90,7 @@
 	<?php get_template_part( 'nearby', 'tic' ); //Nearby TIC list function ?>
 
 	<aside class="mymenu-adsense">
-	<?php echo get_adsense(); // Google Adsense?>
+		<?php echo get_adsense('infeed'); ?>
 	</aside>
 
 	</article>

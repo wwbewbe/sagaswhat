@@ -49,7 +49,7 @@ the_post(); ?>
 <?php endwhile; endif; ?>
 
 <aside class="mymenu-adsense">
-<?php echo get_adsense(); ?>
+	<?php echo get_adsense('infeed'); ?>
 </aside>
 
 </div><!-- end contents -->

@@ -437,7 +437,7 @@ function event_info_to_the_content( $content ) {
             }
             $table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
             $ticinfo = '<div class="tic-comment-end">'. get_option('tic-comment-end') .'</div>';
-            $adsense = '<aside class="mymenu-adsense">' . get_adsense(true) . '</aside>';
+            $adsense = '<aside class="mymenu-adsense">' . get_adsense('inpost') . '</aside>';
 
 //            return $table.$content.$ticinfo.$adsense;
             return $table.$content.$ticinfo;
@@ -537,10 +537,10 @@ function event_info_to_the_content( $content ) {
                 $info = $info.'<tr><th>'.$thname.'</th><td>'.$telephone.'</td></tr>';
             }
             $table = '<table class="event-info"><tbody>' . $info . '</tbody></table>';
-            $adsense = '<aside class="mymenu-adsense">' . get_adsense(true) . '</aside>';
+            $adsense = '<aside class="mymenu-adsense">' . get_adsense('inpost') . '</aside>';
 
-//            return $content.$adsense.$table;
-            return $content.$table;
+            return $content.$adsense.$table;
+//            return $content.$table;
         }
     } else {
         return $content;
@@ -657,31 +657,32 @@ function showads($params = array()) {
 }
 add_shortcode('adsense', 'showads');
 
-function get_adsense($kiji = false) {
+function get_adsense($kiji = 'inpost') {
     $title = '<div class="adsense-title">'.esc_html(__('Sponsored Links', 'SagasWhat')).'</div>';
     //レスポンシブ広告の英語版もしくは日本語版の挿入
     if ( get_bloginfo('language') == 'ja' ) {
-        if ($kiji) {
+        if ($kiji == 'inpost') {
           $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
      style="display:block; text-align:center;"
      data-ad-layout="in-article"
      data-ad-format="fluid"
      data-ad-client="ca-pub-6212569927869845"
-     data-ad-slot="8766620032"></ins>
+     data-ad-slot="8094937703"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>';
-/*            $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- sagaswhat-responsive-jp-2 -->
+        } else if ($kiji == 'infeed') {
+            $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
      style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-hs+6-d-9c+kg"
      data-ad-client="ca-pub-6212569927869845"
-     data-ad-slot="1155016815"
-     data-ad-format="auto"></ins>
+     data-ad-slot="1837361555"></ins>
 <script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>';*/
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>';
         } else {
             $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- sagaswhat-responsive-jp-3 -->
@@ -695,7 +696,7 @@ function get_adsense($kiji = false) {
 </script>';
         }
     } else {
-        if ($kiji) {
+        if ($kiji == 'inpost') {
           $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
      style="display:block; text-align:center;"
@@ -706,16 +707,17 @@ function get_adsense($kiji = false) {
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>';
-/*            $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- sagaswhat-responsive-2 -->
+        } else if ($kiji == 'infeed') {
+            $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
      style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-hs+6-d-9c+kg"
      data-ad-client="ca-pub-6212569927869845"
-     data-ad-slot="6670171218"
-     data-ad-format="auto"></ins>
+     data-ad-slot="8386458032"></ins>
 <script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>';*/
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>';
         } else {
             $adsense = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- sagaswhat-responsive-3 -->

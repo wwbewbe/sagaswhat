@@ -22,7 +22,7 @@
 	</div>
 
 	<aside class="mymenu-adsense">
-	<?php echo get_adsense(); ?>
+		<?php echo get_adsense('infeed'); ?>
 	</aside>
 
 	<?php get_template_part( 'nearby', 'events' ); //Nearby Events list function ?>
