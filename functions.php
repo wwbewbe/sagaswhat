@@ -677,7 +677,7 @@ function get_adsense($kiji = 'inpost') {
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-format="fluid"
-     data-ad-layout-key="-hs+6-d-9c+kg"
+     data-ad-layout-key="-gv+h-i-93+i0"
      data-ad-client="ca-pub-6212569927869845"
      data-ad-slot="1837361555"></ins>
 <script>
@@ -712,7 +712,7 @@ function get_adsense($kiji = 'inpost') {
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-format="fluid"
-     data-ad-layout-key="-hs+6-d-9c+kg"
+     data-ad-layout-key="-gv+h-i-93+i0"
      data-ad-client="ca-pub-6212569927869845"
      data-ad-slot="8386458032"></ins>
 <script>
