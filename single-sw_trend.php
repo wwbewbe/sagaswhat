@@ -74,30 +74,14 @@
 		<?php echo get_adsense('infeed'); ?>
 	</aside>
 
-	<script type="text/javascript">
-	jQuery(function() {
-	    jQuery(".carousel-rel-list").jCarouselLite({
-			btnNext: ".next",
-			btnPrev: ".prev",
-			visible: 4,
-			speed: 100,
-			circular: false,
-		});
-	});
-	</script>
-
 	<?php
 	$myposts = get_posts( array(
 		'post_type'		=> 'sw_trend',
-		'posts_per_page'=> '-1',
+		'posts_per_page'=> '8',
 	) );
 	if( $myposts ): ?>
-	<aside class="mymenu mymenu-thumb mymenu-related" style="margin-bottom:10px;">
+	<aside class="mymenu mymenu-thumb mymenu-related">
 	<h2><?php echo esc_html(__('Other Topics', 'SagasWhat')); ?></h2>
-	<div class="carousel-rel">
-	<a href="#" class="prev"><i class="fa fa-arrow-left"></i><?php echo esc_html__('Prev', 'SagasWhat'); ?></a>
-    <a href="#" class="next"><?php echo esc_html__('Next', 'SagasWhat'); ?><i class="fa fa-arrow-right"></i></a>
-	<div class="carousel-rel-list">
 	<ul>
 		<?php foreach($myposts as $post):
 		setup_postdata($post); ?>
@@ -110,8 +94,6 @@
 		</a></li>
 		<?php endforeach; ?>
 	</ul>
-	</div>
-	</div>
 	</aside>
 	<?php wp_reset_postdata();
 	endif; ?>

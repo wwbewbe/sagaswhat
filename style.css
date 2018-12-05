@@ -774,7 +774,8 @@ blockquote:after		{position: absolute;
 
 /* サムネイル画像に文字を重ねたメニュー */
 .mymenu-large-sep li	{margin-bottom: 10px;}
-.mymenu-large		{margin-bottom: 10px;}
+.mymenu-large		{margin-bottom: 10px;
+								margin-top: 10px;}
 .mymenu-large li a
 					{position: relative;
 					margin-bottom: 0px;
@@ -811,7 +812,7 @@ blockquote:after		{position: absolute;
 }
 
 /* 関連記事メニュー */
-.mymenu-related	{margin: 40px 0 0;
+.mymenu-related	{margin: 20px 0 20px;
 				padding: 20px;
 				border: solid 1px #dddddd;
 				background-color: #f6f6f6}
@@ -827,22 +828,23 @@ blockquote:after		{position: absolute;
 .mymenu-related li a	{border: none;
 				color: #000000}
 
-/*@media (max-width: 599px) {
+@media (max-width: 599px) {
 	.mymenu-related	{padding: 10px}
 
 	.mymenu-related li .thumb	{width: 80px;
 						height: 50px}
 
 	.mymenu-related li .text	{margin-left: 95px}
-}*/
+}
 
-/*@media (min-width: 600px) {*/
+@media (min-width: 600px) {
 	.mymenu-related ul:after	{content: "";
 						display: block;
 						clear: both}
 
 	.mymenu-related li	{float: left;
 					width: 25%;
+					height: 140px;
 					padding: 0 5px;
 					-moz-box-sizing: border-box;
 					-webkit-box-sizing: border-box;
@@ -854,16 +856,7 @@ blockquote:after		{position: absolute;
 
 	.mymenu-related li .text	{margin-left: 0;
 						font-size: 10px;}
-/*}*/
-.carousel-rel {position: relative;}
-.carousel-rel a.next {font-size: 16px;
-					color: #666666;
-					position: absolute;
-					text-decoration: none;
-					right: 0px;}
-.carousel-rel a.prev {font-size: 16px;
-					color: #666666;
-					text-decoration: none;}
+}
 
 /* お気に入り記事メニュー */
 .mymenu-favorite	{margin: 20px 0 0;
