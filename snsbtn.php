@@ -10,10 +10,5 @@
         <i class="fa fa-facebook"></i>
         <span><?php echo esc_html(__('Share on ', 'SagasWhat')); ?></span>Facebook
     </a></li>
-    <li><a href="https://plus.google.com/share?url=<?php echo urlencode( get_permalink() ); ?>"
-    onclick="window.open(this.href, 'SNS', 'width=500, height=500, menubar=no, toolbar=no, scrollbars=yes'); return false;" class="share-gp">
-        <i class="fa fa-google-plus"></i>
-        <span><?php echo esc_html(__('Share on ', 'SagasWhat')); ?></span>Google+
-    </a></li>
     </ul>
 </div><!-- end share -->
